@@ -4,6 +4,7 @@ dist
 .turbo
 .cache
 
+pnpm-lock.yaml
 yarn.lock
 node_modules
 
