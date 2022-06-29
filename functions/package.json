@@ -1,8 +1,9 @@
 {
   "name": "functions",
+  "private": true,
   "type": "module",
   "scripts": {
-    "build": "echo '>> deploy'",
+    "build": "echo '>> Run build from repository root'",
     "serve": "firebase emulators:start --only functions",
     "shell": "firebase functions:shell",
     "start": "npm run shell",
@@ -14,9 +15,6 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@cloudcommerce/firebase": "^0.0.14",
-    "firebase-admin": "^10.3.0",
-    "firebase-functions": "^3.21.2"
-  },
-  "private": true
+    "@cloudcommerce/firebase": "^0.0.14"
+  }
 }
