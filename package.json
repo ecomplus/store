@@ -1,0 +1,24 @@
+{
+  "name": "@ecomplus/store",
+  "private": true,
+  "type": "module",
+  "description": "E-Com Plus Cloud Commerce starter store",
+  "scripts": {
+    "dev": "cloudcommerce",
+    "logs": "cloudcommerce logs",
+    "serve": "cloudcommerce serve",
+    "shell": "cloudcommerce shell",
+    "start": "cloudcommerce start",
+    "build": "cloudcommerce build",
+    "deploy": "cloudcommerce deploy"
+  },
+  "main": "functions/index.js",
+  "author": "E-Com Club Softwares para E-commerce <ti@e-com.club>",
+  "license": "Apache 2.0 with Commons Clause",
+  "bugs": {
+    "url": "https://github.com/ecomplus/cloud-commerce/issues"
+  },
+  "dependencies": {
+    "@cloudcommerce/cli": "^0.0.14"
+  }
+}
