@@ -1,5 +1,11 @@
 dist
 
+.cloudcommerce
+firebase.json
+*.firebase.json
+/firestore.*
+/remoteconfig.*
+/storage.rules
 .gac-*.json
 .firebase
 .turbo
