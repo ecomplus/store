@@ -13,6 +13,8 @@ on:
       - 'package-lock.json'
       - '.firebaserc'
       - '.ecomplus/**'
+      - '.github/build-and-deploy'
+      - '.github/workflows/build-and-deploy.yml'
   pull_request:
     paths:
       - 'functions/**'
