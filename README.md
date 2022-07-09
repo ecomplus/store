@@ -20,12 +20,13 @@
     - Name it _Cloud Commerce GH Actions (YOUR REPOSITORY)_;
     - Describe it _A service account with permission to deploy to Cloud Commerce from the GitHub repository to Firebase_;
     - Continue and select the following roles to the service account:
-        1. Firebase Authentication Admin (_Administrador do Firebase Authentication_)
-        2. Firebase Hosting Admin (_Administrador do Firebase Hosting_)
-        3. API Keys Viewer (_Leitor de chaves de API_)
-        4. Cloud Run Viewer (_Leitor do Cloud Run_)
-        5. Cloud Functions Admin (_Administrador do Cloud Functions_)
-        6. Artifact Registry Writer (_Gravador do Artifact Registry_)
+        1. Firebase Admin (_Administrador do Firebase_)
+        2. API Keys Viewer (_Leitor de chaves de API_)
+        3. Cloud Run Viewer (_Leitor do Cloud Run_)
+        4. Cloud Functions Admin (_Administrador do Cloud Functions_)
+        5. Artifact Registry Admin (_Administrador do Artifact Registry_)
+        6. App Engine Creator (_Criador do App Engine_)
+        7. App Engine Admin (_Administrador do App Engine_)
 
 6. Back in the service accounts list, click the 3 dots (actions) and select _Manage keys_, generate and download a JSON key for the created account;
 
