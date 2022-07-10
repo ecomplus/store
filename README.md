@@ -31,3 +31,22 @@
 6. Back in the service accounts list, click the 3 dots (actions) and select _Manage keys_, generate and download a JSON key for the created account;
 
 7. Add a _secret_ to your GitHub repository with name `FIREBASE_SERVICE_ACCOUNT` and paste the key JSON;
+
+8. You may have to do the first deploy from your terminal with [Firebase CLI](https://firebase.google.com/docs/cli):
+    1. Install `firebase-tools` and login:
+```bash
+npm install -g firebase-tools && firebase login
+```
+    2. Clone your new store repository:
+```bash
+git clone git@github.com:{gh-user}/{new-store}.git
+cd {new-store}
+npm i
+```
+    3. Run first project deploy:
+```bash
+FIREBASE_PROJECT_ID={project-id} npm run deploy
+git add .firebaserc
+git commit -m 'Keep default project with `.frebaserc`'
+git push
+```
