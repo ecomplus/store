@@ -27,6 +27,7 @@
         5. Artifact Registry Admin (_Administrador do Artifact Registry_)
         6. App Engine Creator (_Criador do App Engine_)
         7. App Engine Admin (_Administrador do App Engine_)
+        8. Service Account User (_Usuário da conta de serviço_)
 
 6. Back in the service accounts list, click the 3 dots (actions) and select _Manage keys_, generate and download a JSON key for the created account;
 
