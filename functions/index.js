@@ -1,12 +1,7 @@
-import * as functions from 'firebase-functions';
+import config from '@cloudcommerce/firebase/config.js';
 
-export const helloWorld = functions.https.onRequest((request, response) => {
-  functions.logger.info('Hello logs!', {
-    structuredData: true,
-  });
-  response.send('Hello from Firebase!');
+config.set({
+  hello: 'from store',
 });
 
-export const ssr = functions.https.onRequest((request, response) => {
-  response.send('<h1>Hello SSR!</h1>');
-});
+export * from '@cloudcommerce/firebase';
