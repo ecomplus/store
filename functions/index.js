@@ -1,4 +1,4 @@
-import config from '@cloudcommerce/firebase/config.js';
+import config from '@cloudcommerce/firebase/config';
 
 config.set({
   hello: 'from store',
