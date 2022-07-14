@@ -2,6 +2,8 @@
 
 [Cloud Commerce](https://github.com/ecomplus/cloud-commerce): the new Store template
 
+[:brazil: Tradução em português](./README.pt-BR.md)
+
 ## Getting started
 
 1. Start creating new project on [Firebase console](https://console.firebase.google.com/):
@@ -24,16 +26,16 @@ Proceed with:
 
 5. [Create a service account](https://console.cloud.google.com/iam-admin/serviceaccounts) for your Firebase project directly on Google Cloud Platform:
     - Name it _Cloud Commerce GH Actions (YOUR REPOSITORY)_;
-    - Describe it _A service account with permission to deploy to Cloud Commerce from the GitHub repository to Firebase_;
+    - Describe it _A service account with permission to deploy Cloud Commerce from the GitHub repository to Firebase_;
     - Continue and select the following roles to the service account:
-        1. Firebase Admin (_Administrador do Firebase_)
-        2. API Keys Viewer (_Leitor de chaves de API_)
-        3. Cloud Run Viewer (_Leitor do Cloud Run_)
-        4. Cloud Functions Admin (_Administrador do Cloud Functions_)
-        5. Artifact Registry Admin (_Administrador do Artifact Registry_)
-        6. App Engine Creator (_Criador do App Engine_)
-        7. App Engine Admin (_Administrador do App Engine_)
-        8. Service Account User (_Usuário da conta de serviço_)
+        1. _Firebase Admin_
+        2. _API Keys Viewer_
+        3. _Cloud Run Viewer_
+        4. _Cloud Functions Admin_
+        5. _Artifact Registry Admin_
+        6. _App Engine Creator_
+        7. _App Engine Admin_
+        8. _Service Account User_
 
 6. Back in the service accounts list, click the 3 dots (actions) and select _Manage keys_, generate and download a JSON key for the created account;
 
@@ -69,7 +71,7 @@ FIREBASE_PROJECT_ID={project-id} npm run setup
 
 5. [Create a service account](https://console.cloud.google.com/iam-admin/serviceaccounts) for your Firebase project directly on Google Cloud Platform:
     - Name it _Cloud Commerce GH Actions (YOUR REPOSITORY)_;
-    - Describe it _A service account with all permissions to deploy to Cloud Commerce from the GitHub to Firebase_;
+    - Describe it _A service account with ALL permissions to deploy Cloud Commerce from the GitHub to Firebase_;
     - Continue and select the role _Quick access > Basic > Proprietary_;
 
 6. Back in the service accounts list, click the 3 dots (actions) and select _Manage keys_, generate and download a JSON key for the created account;
