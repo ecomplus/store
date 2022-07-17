@@ -10,7 +10,9 @@
     "shell": "cloudcommerce shell",
     "start": "cloudcommerce start",
     "build": "cloudcommerce build",
-    "deploy": "cloudcommerce deploy"
+    "deploy": "cloudcommerce deploy",
+    "login": "cloudcommerce login",
+    "setup": "cloudcommerce setup"
   },
   "main": "functions/index.js",
   "author": "E-Com Club Softwares para E-commerce <ti@e-com.club>",
