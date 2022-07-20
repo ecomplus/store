@@ -35,7 +35,8 @@ Prossiga com:
         5. _Administrador do Artifact Registry_
         6. _Criador do App Engine_
         7. _Administrador do App Engine_
-        8. _Usuário da conta de serviço_
+        8. _Administrador do Cloud Scheduler_
+        9. _Usuário da conta de serviço_
 
 6. De volta na lista de contas de serviço, clique nos 3 pontos (ações) and selecione _Gerenciar chaves_, crie e faça o download de uma nova chave JSON para a conta recém criada;
 

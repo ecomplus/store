@@ -35,6 +35,7 @@ Proceed with:
         5. _Artifact Registry Admin_
         6. _App Engine Creator_
         7. _App Engine Admin_
+        8. _Cloud Scheduler Admin_
         8. _Service Account User_
 
 6. Back in the service accounts list, click the 3 dots (actions) and select _Manage keys_, generate and download a JSON key for the created account;
