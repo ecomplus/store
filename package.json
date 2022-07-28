@@ -10,6 +10,7 @@
     "shell": "cloudcommerce shell",
     "start": "cloudcommerce start",
     "build": "cloudcommerce build",
+    "predeploy": "cloudcommerce predeploy",
     "deploy": "cloudcommerce deploy",
     "login": "cloudcommerce login",
     "setup": "cloudcommerce setup",
@@ -22,6 +23,6 @@
     "url": "https://github.com/ecomplus/cloud-commerce/issues"
   },
   "dependencies": {
-    "@cloudcommerce/cli": "^0.0.37"
+    "@cloudcommerce/cli": "^0.0.38"
   }
 }
