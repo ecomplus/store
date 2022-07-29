@@ -1,5 +1,5 @@
 {
-  "name": "functions",
+  "name": "passport",
   "private": true,
   "type": "module",
   "scripts": {
@@ -15,6 +15,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@cloudcommerce/firebase": "^0.0.38"
+    "@cloudcommerce/firebase": "^0.0.38",
+    "@cloudcommerce/passport": "^0.0.38"
   }
 }
