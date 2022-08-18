@@ -10,9 +10,9 @@
     - Set a nice project name (ID) and remember it;
     - You may enable Firebase Analytics for enhanced remote config options and A/B testing;
 
-2. Go to _Firestore Database_ page (on sidebar) and _create database_:
+2. Go to _Creation > Firestore Database_ page (on sidebar) and _create database_:
     - Just bypass with default production mode and rules;
-    - Select region `us-east1` (recommended);
+    - Select region `nam5 (us-central)` (recommended);
 
 3. Firebase free plan doesn't support sending external HTTP requests, so you'll need to upgrade to _Blaze_ (on demand) plan;
 
@@ -24,7 +24,40 @@ Proceed with:
 
 #### First deploy on CLI
 
-5. [Create a service account](https://console.cloud.google.com/iam-admin/serviceaccounts) for your Firebase project directly on Google Cloud Platform:
+5. Setup and first deploy from your terminal with [Firebase CLI](https://firebase.google.com/docs/cli):
+```bash
+# Install `firebase-tools` and login
+npm install -g firebase-tools && firebase login
+```
+```bash
+# Clone your new store repository
+git clone git@github.com:{gh-user}/{new-store}.git
+cd {new-store}
+npm i
+```
+
+<details open>
+<summary>With <a href="https://cloud.google.com/sdk/docs/install">gcloud CLI</a> (optional) installed</summary>
+
+```bash
+# Run project configuration and first deploy
+FIREBASE_PROJECT_ID={project-id} npm run setup
+```
+
+> **Note**  
+> Account key created automatically with only required permissions using gcloud CLI (skip steps 6 and 7).
+
+</details>
+
+<details>
+<summary>Without gcloud CLI</summary>
+
+```bash
+# Run project configuration and first deploy
+FIREBASE_PROJECT_ID={project-id} npm run setup -- --no-gcloud
+```
+
+6. [Create a service account](https://console.cloud.google.com/iam-admin/serviceaccounts) for your Firebase project directly on Google Cloud Platform:
     - Name it _Cloud Commerce GH Actions (YOUR REPOSITORY)_;
     - Describe it _A service account with permission to deploy Cloud Commerce from the GitHub repository to Firebase_;
     - Continue and select the following roles to the service account:
@@ -38,23 +71,9 @@ Proceed with:
         8. _Cloud Scheduler Admin_
         8. _Service Account User_
 
-6. Back in the service accounts list, click the 3 dots (actions) and select _Manage keys_, generate and download a JSON key for the created account;
+7. Back in the service accounts list, click the 3 dots (actions) and select _Manage keys_, generate and download a JSON key for the created account;
 
-7. Do the first deploy from your terminal with [Firebase CLI](https://firebase.google.com/docs/cli):
-```bash
-# Install `firebase-tools` and login
-npm install -g firebase-tools && firebase login
-```
-```bash
-# Clone your new store repository
-git clone git@github.com:{gh-user}/{new-store}.git
-cd {new-store}
-npm i
-```
-```bash
-# Run project configuration and first deploy
-FIREBASE_PROJECT_ID={project-id} npm run setup
-```
+</details>
 
 8. Set the following secrets to your GitHub repository (_Settings > Secrets > Actions_):
     - `FIREBASE_SERVICE_ACCOUNT`: Paste the generated Google Cloud key JSON
