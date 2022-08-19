@@ -40,7 +40,7 @@ npm i
 <summary>With <a href="https://cloud.google.com/sdk/docs/install">gcloud CLI</a> (optional) installed</summary>
 
 ```bash
-# Run project configuration and first deploy
+# Run project configuration and deploy on GitHub Actions
 FIREBASE_PROJECT_ID={project-id} npm run setup
 ```
 
@@ -55,6 +55,7 @@ FIREBASE_PROJECT_ID={project-id} npm run setup
 ```bash
 # Run project configuration and first deploy
 FIREBASE_PROJECT_ID={project-id} npm run setup -- --no-gcloud
+npm run deploy
 ```
 
 6. [Create a service account](https://console.cloud.google.com/iam-admin/serviceaccounts) for your Firebase project directly on Google Cloud Platform:
