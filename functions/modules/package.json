@@ -15,7 +15,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@cloudcommerce/firebase": "^0.0.54",
-    "@cloudcommerce/modules": "^0.0.54"
+    "@cloudcommerce/firebase": "^0.0.58",
+    "@cloudcommerce/modules": "^0.0.58"
   }
 }
