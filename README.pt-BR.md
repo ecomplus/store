@@ -12,7 +12,7 @@
 
 2. Vá para a página _Criação > Firestore Database_ (menu lateral) e clique em _criar banco de dados_:
     - Pule com o modo e as regras de produção padrão;
-    - Selecione a região `nam5 (us-central)` (recomendado);
+    - Selecione a região `southamerica-east1` (recomendado);
 
 3. O plano gratuito do Firebase não é compatível com o envio de solicitações HTTP externas, portanto você precisará fazer upgrade para o plano _Blaze_ (sob demanda);
 

@@ -12,7 +12,7 @@
 
 2. Go to _Creation > Firestore Database_ page (on sidebar) and _create database_:
     - Just bypass with default production mode and rules;
-    - Select region `nam5 (us-central)` (recommended);
+    - Select region `southamerica-east1` (recommended, or multi-region `nam5 (us-central)`);
 
 3. Firebase free plan doesn't support sending external HTTP requests, so you'll need to upgrade to _Blaze_ (on demand) plan;
 
