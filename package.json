@@ -25,5 +25,8 @@
   "dependencies": {
     "@cloudcommerce/cli": "^0.0.59",
     "@cloudcommerce/firebase": "^0.0.58"
+  },
+  "devDependencies": {
+    "@firebase/app-types": "^0.7.0"
   }
 }
