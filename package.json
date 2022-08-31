@@ -23,10 +23,6 @@
     "url": "https://github.com/ecomplus/cloud-commerce/issues"
   },
   "dependencies": {
-    "@cloudcommerce/cli": "^0.0.61",
-    "@cloudcommerce/firebase": "^0.0.58"
-  },
-  "devDependencies": {
-    "@firebase/app-types": "^0.7.0"
+    "@cloudcommerce/cli": "^0.0.61"
   }
 }
