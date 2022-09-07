@@ -1,5 +1,5 @@
 import config from '@cloudcommerce/firebase/config';
-import { handler as ssrHandler } from '../dist/server/entry.mjs';
+import { handler as ssrHandler } from './dist/server/entry.mjs';
 import mergeConfig from './config.json' assert { type: 'json' };
 
 config.set({
