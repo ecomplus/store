@@ -1,0 +1,13 @@
+---
+import View404 from '@cloudcommerce/storefront/src/lib/views/404.astro';
+import loadPageContext, { PageContext } from '@cloudcommerce/storefront/src/lib/ssr-context';
+
+let pageContext: PageContext;
+try {
+  pageContext = await loadPageContext(Astro);
+} catch (err) {
+  return err.astroResponse;
+}
+---
+
+<View404 pageContext={pageContext} />

@@ -1,0 +1,13 @@
+---
+import ViewWildcard from '@cloudcommerce/storefront/src/lib/views/[...slug].astro';
+import loadPageContext, { PageContext } from '@cloudcommerce/storefront/src/lib/ssr-context';
+
+let pageContext: PageContext;
+try {
+  pageContext = await loadPageContext(Astro);
+} catch (err) {
+  return err.astroResponse;
+}
+---
+
+<ViewWildcard pageContext={pageContext} />

@@ -1,0 +1,13 @@
+---
+import View500 from '@cloudcommerce/storefront/src/lib/views/500.astro';
+import loadPageContext, { PageContext } from '@cloudcommerce/storefront/src/lib/ssr-context';
+
+let pageContext: PageContext;
+try {
+  pageContext = await loadPageContext(Astro);
+} catch (err) {
+  return err.astroResponse;
+}
+---
+
+<View500 pageContext={pageContext} />
