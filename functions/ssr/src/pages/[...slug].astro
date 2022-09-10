@@ -3,11 +3,16 @@ import ViewWildcard from '@cloudcommerce/storefront/src/lib/views/[...slug].astr
 import loadPageContext, { PageContext } from '@cloudcommerce/storefront/src/lib/ssr-context';
 
 let pageContext: PageContext;
+let loadError: any;
 try {
   pageContext = await loadPageContext(Astro);
 } catch (err) {
-  return err.astroResponse;
+  if (err.astroResponse) {
+    return err.astroResponse;
+  }
+  loadError = err;
 }
 ---
 
-<ViewWildcard pageContext={pageContext} />
+{pageContext && <ViewWildcard pageContext={pageContext} />}
+{loadError && <Fragment set:html={loadError.responseHTML} />}
