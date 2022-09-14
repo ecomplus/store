@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "astro-build.astro-vscode",
+    "vue.volar",
+    "florianthievent.rules",
+    "antfu.unocss"
+  ]
+}
