@@ -3,7 +3,6 @@
     "dbaeumer.vscode-eslint",
     "astro-build.astro-vscode",
     "vue.volar",
-    "florianthievent.rules",
     "voorjaar.windicss-intellisense"
   ]
 }
