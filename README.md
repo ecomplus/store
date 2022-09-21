@@ -6,9 +6,7 @@
 
 ## Getting started
 
-1. Start creating new project on [Firebase console](https://console.firebase.google.com/):
-    - Set a nice project name (ID) and remember it;
-    - You may enable Firebase Analytics for enhanced remote config options and A/B testing;
+1. Start creating new project on [Firebase console](https://console.firebase.google.com/), set a nice project name (ID) and remember it;
 
 2. Go to _Creation > Firestore Database_ page (on sidebar) and _create database_:
     - Just bypass with default production mode and rules;

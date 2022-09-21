@@ -6,9 +6,7 @@
 
 ## Começando
 
-1. Comece criando um novo projeto no [Firebase console](https://console.firebase.google.com/):
-    - Insire um bom nome (ID) para o projeto e lembre-se dele;
-    - Você pode ativar o Firebase Analytics para opções avançadas de configuração remota e testes A/B;
+1. Comece criando um novo projeto no [Firebase console](https://console.firebase.google.com/), insira um bom nome (ID) para o projeto e lembre-se dele;
 
 2. Vá para a página _Criação > Firestore Database_ (menu lateral) e clique em _criar banco de dados_:
     - Pule com o modo e as regras de produção padrão;
