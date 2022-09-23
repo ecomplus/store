@@ -6,9 +6,11 @@ import mergeConfig from './config.json' assert { type: 'json' };
 config.set({
   ...mergeConfig,
   hello: 'from store',
+  /*
   httpsFunctionOptions: {
     minInstances: 1,
   },
+  */
 });
 
 global.ssr_handler = ssrHandler;
