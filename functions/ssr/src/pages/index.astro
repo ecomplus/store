@@ -1,6 +1,7 @@
 ---
-import ViewHome from '@cloudcommerce/storefront/src/lib/views/index.astro';
 import loadPageContext, { PageContext } from '@cloudcommerce/storefront/src/lib/ssr-context';
+import PagesLayout from '@cloudcommerce/storefront/src/lib/layouts/Pages.astro';
+import HomeMain from '@cloudcommerce/storefront/src/lib/main/Home.astro';
 
 let pageContext: PageContext;
 let loadError: any;
@@ -19,5 +20,12 @@ try {
 }
 ---
 
-{pageContext && <ViewHome pageContext={pageContext} />}
+<!DOCTYPE html>
+<html lang={pageContext?.lang.replace('_', '-')}>
+{pageContext &&
+  <PagesLayout pageContext={pageContext}>
+    <HomeMain pageContext={pageContext} />
+  </PagesLayout>
+}
 {loadError && <Fragment set:html={loadError.responseHTML} />}
+</html>
