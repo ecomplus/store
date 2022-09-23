@@ -1,6 +1,6 @@
 import config from '@cloudcommerce/firebase/config';
-// eslint-ignore-next-line import/no-unresolved
-import { handler as ssrHandler } from './dist/server/entry.mjs';
+// eslint-disable-next-line import/no-unresolved, import/no-relative-packages
+import { handler as ssrHandler } from './storefront/dist/server/entry.mjs';
 import mergeConfig from './config.json' assert { type: 'json' };
 
 config.set({
