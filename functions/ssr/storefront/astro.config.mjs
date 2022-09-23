@@ -1,4 +1,11 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import astroConfig from '@cloudcommerce/storefront/astro.config.mjs';
+/* eslint-disable import/no-unresolved, import/no-extraneous-dependencies */
+import { defineConfig } from 'astro/config';
+import { astroConfig } from '@cloudcommerce/storefront/astro.config.mjs';
 
-export default astroConfig;
+export default defineConfig({
+  ...astroConfig,
+  vite: {
+    ...astroConfig.vite,
+    envDir: '../',
+  },
+});
