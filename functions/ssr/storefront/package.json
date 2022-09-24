@@ -11,6 +11,6 @@
   },
   "main": "index.js",
   "devDependencies": {
-    "@cloudcommerce/storefront": "^0.0.95"
+    "@cloudcommerce/storefront": "^0.0.96"
   }
 }
