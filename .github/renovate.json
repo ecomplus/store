@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "github>ecomplus/cloud-commerce:store-renovate"
+  ]
+}
