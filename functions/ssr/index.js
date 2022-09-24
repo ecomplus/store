@@ -13,6 +13,7 @@ config.set({
   */
 });
 
+process.env.STOREFRONT_BASE_DIR = './storefront';
 global.ssr_handler = ssrHandler;
 
 export * from '@cloudcommerce/ssr/firebase';
