@@ -16,10 +16,10 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@cloudcommerce/firebase": "^0.0.104",
-    "@cloudcommerce/ssr": "^0.0.104"
+    "@cloudcommerce/firebase": "^0.0.105",
+    "@cloudcommerce/ssr": "^0.0.105"
   },
   "devDependencies": {
-    "@cloudcommerce/storefront": "^0.0.104"
+    "@cloudcommerce/storefront": "^0.0.105"
   }
 }
