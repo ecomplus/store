@@ -100,3 +100,18 @@ npm run deploy
     - `ECOM_STORE_ID`: Copie seu _Store ID_ no [admin da E-Com Plus](https://ecomplus.app/)
     - `ECOM_AUTHENTICATION_ID`: Copie seu _Authentication ID_ no [admin da E-Com Plus](https://ecomplus.app/)
     - `ECOM_API_KEY`: Copie seu _API Key_ no [admin da E-Com Plus](https://ecomplus.app/)
+
+## Práticas recomendadas de produção
+
+O CDN do Firebase Hosting é (bem) rápido, mas [não suporta `Stale-While-Revalidate`](https://firebase.google.com/docs/hosting/manage-cache) e Cloud Functions (mesmo sem cold starts) nunca vai renderizar views complexas com menos de 1s (SSR provavelmente vai demorar ~2s). Nós gostamos de respostas "instantâneas" mas queremos manter views dinâmicas renderizadas em servidor (por menos client-side JS), então stale caching é necessário e portanto precisamos de outra camada de CDN em produção.
+
+[Bunny CDN](https://bunny.net/cdn/) é recomendado na frente do Firebase Hosting + Functions para lojas em produção (quando apontando o domínio próprio) com a configuração abaixo:
+- Pull zone com seu domínio https://_project_.web.app do Firebase Hosting como URL de origem;
+- **SSL + Force SSL habilitados** (previne redirecionar http://* para o domínio de origem);
+- Follow redirects habilitado;
+- **_Smart Cache_ desabilitado** (cache para tudo respeitando os cabeçalhos da resposta);
+- Caching _Query String Sort_ habilitado (ótimo para transformações de imagens);
+- Caching _Strip Response Cookies_ habilitado;
+- **[Stale Cache](https://bunny.net/blog/introducing-stale-cache-more-efficient-cache-handling/) _while origin offline_ e _while updating_ habilitados** :zap: ;
+- Outras configurações de origem e cache podem ser mantidas desabilitadas;
+- Você pode querer desabilitar algumas zonas na configuração de _routing_ dependendo do target da loja;
