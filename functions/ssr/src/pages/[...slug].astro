@@ -1,4 +1,5 @@
 ---
+import api from '@cloudcommerce/api';
 import loadPageContext, { PageContext } from '@cloudcommerce/storefront/src/lib/ssr-context';
 import PagesLayout from '@cloudcommerce/storefront/src/lib/layouts/Pages.astro';
 import WildcardMain from '@cloudcommerce/storefront/src/lib/main/Wildcard.astro';
@@ -16,6 +17,11 @@ try {
     return err.astroResponse;
   }
   loadError = err;
+}
+
+export async function getStaticPaths() {
+  return (await api.get('products?sort=-sales&limit=4&fields=slug'))
+    .data.result.map(({ slug }) => ({ params: { slug } }));
 }
 ---
 
