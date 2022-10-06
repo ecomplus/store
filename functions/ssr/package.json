@@ -17,11 +17,11 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@cloudcommerce/api": "^0.0.109",
-    "@cloudcommerce/firebase": "^0.0.109",
-    "@cloudcommerce/ssr": "^0.0.109"
+    "@cloudcommerce/api": "^0.0.110",
+    "@cloudcommerce/firebase": "^0.0.110",
+    "@cloudcommerce/ssr": "^0.0.110"
   },
   "devDependencies": {
-    "@cloudcommerce/storefront": "^0.0.109"
+    "@cloudcommerce/storefront": "^0.0.110"
   }
 }
