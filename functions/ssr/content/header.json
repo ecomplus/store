@@ -17,6 +17,12 @@
     "phone_wpp": true,
     "socials": true
   },
+  "drawer_links": [
+    {
+      "title": "Fale conosco",
+      "link": "/pages/contato"
+    }
+  ],
   "categories_list": {
     "featured": [],
     "random": 6,
