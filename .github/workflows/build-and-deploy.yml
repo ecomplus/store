@@ -8,6 +8,7 @@ on:
       - 'functions/**'
       - 'public/**'
       - 'src/**'
+      - 'scripts/**'
       - 'content/**'
       - 'template/**'
       - 'package-lock.json'
