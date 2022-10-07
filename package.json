@@ -4,6 +4,7 @@
   "type": "module",
   "description": "E-Com Plus Cloud Commerce starter store",
   "scripts": {
+    "postinstall": "bash scripts/install.sh",
     "dev": "cloudcommerce",
     "logs": "cloudcommerce logs",
     "serve": "cloudcommerce serve",
