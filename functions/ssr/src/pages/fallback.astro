@@ -2,6 +2,7 @@
 import loadPageContext, { PageContext } from '@cloudcommerce/storefront/src/lib/ssr-context';
 import PagesLayout from '@cloudcommerce/storefront/src/lib/layouts/Pages.astro';
 import FallbackMain from '@cloudcommerce/storefront/src/lib/main/Fallback.astro';
+import InlineScripts from '../scripts/InlineScripts.astro';
 
 let pageContext: PageContext;
 try {
@@ -14,6 +15,7 @@ try {
 <!DOCTYPE html>
 <html lang={pageContext?.lang.replace('_', '-')}>
 <PagesLayout pageContext={pageContext}>
+  <InlineScripts slot="before-head-end" />
   <FallbackMain pageContext={pageContext} />
 </PagesLayout>
 </html>

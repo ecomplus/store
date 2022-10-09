@@ -2,6 +2,7 @@
 import loadPageContext, { PageContext } from '@cloudcommerce/storefront/src/lib/ssr-context';
 import PagesLayout from '@cloudcommerce/storefront/src/lib/layouts/Pages.astro';
 import HomeMain from '@cloudcommerce/storefront/src/lib/main/Home.astro';
+import InlineScripts from '../scripts/InlineScripts.astro';
 
 let pageContext: PageContext;
 let loadError: any;
@@ -24,6 +25,7 @@ try {
 <html lang={pageContext?.lang.replace('_', '-')}>
 {pageContext &&
   <PagesLayout pageContext={pageContext}>
+    <InlineScripts slot="before-head-end" />
     <HomeMain pageContext={pageContext} />
   </PagesLayout>
 }
