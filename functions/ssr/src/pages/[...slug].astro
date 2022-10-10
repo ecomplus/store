@@ -1,9 +1,8 @@
 ---
 import api from '@cloudcommerce/api';
 import loadPageContext, { PageContext } from '@cloudcommerce/storefront/src/lib/ssr-context';
-import PagesLayout from '@cloudcommerce/storefront/src/lib/layouts/Pages.astro';
 import WildcardMain from '@cloudcommerce/storefront/src/lib/main/Wildcard.astro';
-import InlineScripts from '../scripts/InlineScripts.astro';
+import PagesLayout from '../layouts/Pages.astro';
 
 if (String(Astro.params.slug).endsWith('.css.map')) {
   return new Response(null, { status: 404 });
@@ -30,7 +29,6 @@ export async function getStaticPaths() {
 <html lang={pageContext?.lang.replace('_', '-')}>
 {pageContext &&
   <PagesLayout pageContext={pageContext}>
-    <InlineScripts slot="before-head-end" />
     <WildcardMain pageContext={pageContext} />
   </PagesLayout>
 }
