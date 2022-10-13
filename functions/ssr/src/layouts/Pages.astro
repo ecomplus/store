@@ -1,37 +1,19 @@
 ---
-import PagesLayout, { Props as PagesLayoutProps } from '@@storefront/layouts/Pages.astro';
-import InlineScripts from '../scripts/InlineScripts.astro';
+import type { PageContext } from '@@storefront/ssr-context';
+import Base from '~/layouts/Base.astro';
+import Header from '~/layouts/PagesHeader.astro';
 
-export interface Props extends PagesLayoutProps {}
+export interface Props {
+  pageContext: PageContext;
+  title?: string;
+}
 
-const props = Astro.props as Props;
-const pagesLayoutProps: PagesLayoutProps = {
-  ...props,
-  headerProps: {
-    ...props.headerProps,
-    logoTransformOptions: {
-      quality: 80,
-      ...props.headerProps?.logoTransformOptions,
-    }
-  },
-};
+const { pageContext, title } = Astro.props as Props;
 ---
 
-<PagesLayout {...pagesLayoutProps}>
-  <InlineScripts slot="before-head-end" />
+<Base pageContext={pageContext} title={title}>
+  <slot name="header">
+    <Header pageContext={pageContext} />
+  </slot>
   <slot />
-</PagesLayout>
-
-<style is:global>
-@media only screen and (prefers-color-scheme: dark) {
-  :root:not([data-theme=light]) a:not([role=button]) {
-    --color: var(--primary-100);
-  }
-  :root:not([data-theme=light]) a:not([role=button]):is([aria-current], :hover, :active, :focus) {
-    --color: var(--primary-300);
-  }
-}
-body {
-  overflow-x: hidden;
-}
-</style>
+</Base>

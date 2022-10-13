@@ -1,8 +1,8 @@
 ---
 import api from '@cloudcommerce/api';
 import loadPageContext, { PageContext } from '@@storefront/ssr-context';
-import WildcardMain from '@@storefront/main/Wildcard.astro';
-import PagesLayout from '../layouts/Pages.astro';
+import PagesLayout from '~/layouts/Pages.astro';
+import WildcardMain from '~/main/Wildcard.astro';
 
 if (String(Astro.params.slug).endsWith('.css.map')) {
   return new Response(null, { status: 404 });
