@@ -12,7 +12,10 @@ export interface Props {
   loginDrawerAdditionalLinks?: LoginDrawerProps['additionalLinks'];
 }
 
-defineProps<Props>();
+withDefaults(defineProps<Props>(), {
+  accountUrl: '/app/account',
+  cartUrl: '/app/#/cart',
+});
 </script>
 
 <template>
@@ -26,9 +29,7 @@ defineProps<Props>();
           :href="accountUrl"
           :title="i19myAccountAndOrders"
         >
-          <slot>
-            <div class="i-user-circle"></div>
-          </slot>
+          <div class="i-user-circle"></div>
         </HeaderButtonLink>
       </template>
     </LoginDrawer>
@@ -39,9 +40,7 @@ defineProps<Props>();
       :href="cartUrl"
       :title="i19openCart"
     >
-      <slot>
-        <div class="i-shopping-cart"></div>
-      </slot>
+      <div class="i-shopping-cart"></div>
     </HeaderButtonLink>
   </slot>
 </template>
