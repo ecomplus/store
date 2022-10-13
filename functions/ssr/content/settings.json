@@ -1,18 +1,11 @@
 {
   "domain": "storefront-demo.e-com.plus",
   "primary_color": "",
-  "theme": {
-    "bootswatch": "_",
-    "custom": "_"
-  },
-  "icons_font": "_",
-  "font_family": "_",
   "bg_color": "#f5f6fa",
   "repository": "",
   "logo": "/img/uploads/logo.webp",
   "name": "My Shop",
   "short_name": "MyShop",
-  "mini_logo": "",
   "favicon": "/img/uploads/favicon.png",
   "secondary_color": "",
   "icon": "/img/icon.png",
