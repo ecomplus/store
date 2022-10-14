@@ -3,14 +3,18 @@ import { toRefs, ImgHTMLAttributes } from 'vue';
 
 export interface Props {
   logo?: ImgHTMLAttributes;
+  logoAltHeading?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | null;
 }
 
-const props = defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+  logoAltHeading: 'h2',
+});
 const { logo } = toRefs(props);
 </script>
 
 <template>
-  <header class="header bg-surface bg-opacity-70 sticky py-1 sm:py-2">
+  <header class="header bg-surface bg-opacity-90 backdrop-blur-md
+    sticky top-0 z-50 py-1 sm:py-2">
     <div class="container">
       <div class="grid grid-flow-col auto-cols-max justify-between items-center">
         <slot name="aside">
@@ -20,7 +24,7 @@ const { logo } = toRefs(props);
         </slot>
         <slot name="logo" v-bind="{ logo }">
           <a v-if="logo" href="/">
-            <component :is="logo.alt ? 'h1' : 'span'" class="m-0">
+            <component :is="(logo.alt && logoAltHeading) || 'span'" class="m-0">
               <img v-bind="logo" />
             </component>
           </a>

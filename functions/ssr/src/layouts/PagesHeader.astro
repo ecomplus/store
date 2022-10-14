@@ -42,7 +42,7 @@ if (header.categories_list) {
     });
   }
   if (header.categories_list.random) {
-    const mainCategories: Categories[] | undefined = apiState
+    const mainCategories: Partial<Categories>[] | undefined = apiState
       .categories?.filter(({ parent }) => (!parent || !parent.slug));
     if (mainCategories) {
       for (let i = 0; i < header.categories_list.random && i < mainCategories.length; i++) {
@@ -91,6 +91,7 @@ globalThis.TheHeaderProps = {
     }) as any,
     alt: settings.name,
   },
+  logoAltHeading: Astro.url.pathname === '/' ? 'h1' : 'h2',
   ...theHeaderProps,
 };
 globalThis.HeaderButtonsProps = {
