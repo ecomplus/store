@@ -106,7 +106,7 @@ withDefaults(defineProps<Props>(), {
                     :href="contacts[network]"
                     target="_blank"
                     rel="noopener"
-                    class="ml-1"
+                    class="ml-2"
                     :aria-label="`Follow on ${network}`"
                   >
                     <i v-if="network === 'facebook'" class="i-facebook"></i>
