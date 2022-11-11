@@ -1,14 +1,15 @@
 {
   "domain": "ecom2-002.web.app",
-  "primary_color": "",
-  "bg_color": "#f5f6fa",
-  "repository": "",
-  "logo": "/img/uploads/logo.webp",
   "name": "My Shop",
-  "short_name": "MyShop",
-  "favicon": "/img/uploads/favicon.png",
-  "secondary_color": "",
-  "icon": "/img/icon.png",
   "description": "My PWA Shop",
-  "large_icon": "/img/large-icon.png"
+  "email": "",
+  "logo": "/img/uploads/logo.webp",
+  "icon": "/img/uploads/large-icon.png",
+  "primary_color": "#137c5c",
+  "secondary_color": "#343a40",
+  "bg_color": "#f5f6fa",
+  "lang": "pt_br",
+  "currency": "BRL",
+  "currency_symbol": "R$",
+  "country_code": "BR"
 }
