@@ -13,7 +13,7 @@ const { logo } = toRefs(props);
 </script>
 
 <template>
-  <header class="header bg-surface bg-opacity-90 backdrop-blur-md
+  <header class="header bg-opacity-90 backdrop-blur-md
     sticky top-0 z-50 py-1 sm:py-2">
     <div class="container">
       <div class="grid grid-flow-col auto-cols-max justify-between items-center">

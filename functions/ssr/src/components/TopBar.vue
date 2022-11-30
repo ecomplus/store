@@ -6,7 +6,7 @@ export interface Props {
   marketingStripe: CmsHeader['marketing_stripe'];
   hasNavbar?: boolean;
   pageLinks: CmsHeader['contacts_stripe']['pages'];
-  contacts: CmsContacts;
+  contacts: CmsContacts & { phone?: string };
   hasPhoneLinks?: boolean;
   hasNetworkLinks?: boolean;
   socialNetworks?: string[];
