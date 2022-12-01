@@ -1,4 +1,2 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-const { genTailwindConfig } = require('@cloudcommerce/storefront/tailwind.config.cjs');
-
-module.exports = genTailwindConfig();
+module.exports = require('@cloudcommerce/storefront/tailwind.config.cjs');
