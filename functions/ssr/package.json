@@ -17,14 +17,15 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@astrojs/image": "^0.11.0",
-    "@astrojs/node": "^2.0.2",
-    "@cloudcommerce/api": "^0.0.126",
-    "@cloudcommerce/firebase": "^0.0.126",
-    "@cloudcommerce/ssr": "^0.0.126"
+    "@astrojs/image": "^0.11.6",
+    "@astrojs/node": "^3.1.0",
+    "@cloudcommerce/api": "^0.0.127",
+    "@cloudcommerce/firebase": "^0.0.127",
+    "@cloudcommerce/ssr": "^0.0.127"
   },
   "devDependencies": {
-    "@cloudcommerce/i18n": "^0.0.126",
-    "@cloudcommerce/storefront": "^0.0.126"
+    "@cloudcommerce/i18n": "^0.0.127",
+    "@cloudcommerce/storefront": "^0.0.127",
+    "@cloudcommerce/types": "^0.0.127"
   }
 }
