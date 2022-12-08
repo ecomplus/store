@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "@@i18n": ["./node_modules/@cloudcommerce/i18n/src/pt_br.ts"],
-      "@@storefront/*": ["./node_modules/@cloudcommerce/storefront/src/lib/*"],
+      "@@sf/*": ["./node_modules/@cloudcommerce/storefront/src/lib/*"],
       "@@components/*": [
         "./src/components/*",
         "./node_modules/@cloudcommerce/storefront/src/lib/components/*",

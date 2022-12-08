@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import type CmsHeader from '@@storefront/types/cms-header';
-import type CmsContacts from '@@storefront/types/cms-contacts';
+import type CmsHeader from '@@sf/types/cms-header';
+import type CmsContacts from '@@sf/types/cms-contacts';
 
 export interface Props {
   marketingStripe: CmsHeader['marketing_stripe'];
