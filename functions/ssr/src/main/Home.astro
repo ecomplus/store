@@ -1,6 +1,7 @@
 ---
 import type { PageContext } from '@@sf/ssr-context';
 import api from '@cloudcommerce/api';
+import Price from '@@sf/components/Price.vue';
 
 export interface Props {
   pageContext: PageContext;
@@ -11,7 +12,6 @@ const products = (await api.get('products')).data.result;
 
 <main>
   <h1>Welcome to <span class="text-primary">Astro</span></h1>
-  <h2>{i19hello}</h2>
   <ul role="list" class="mt-3 fs-20">
     {products.map((product) => <li>
       <a href={`/${product.slug}`}>{product.sku}</a>
@@ -50,4 +50,5 @@ const products = (await api.get('products')).data.result;
       </label>
     </div>
   </div>
+  <Price price={10} client:load />
 </main>
