@@ -27,5 +27,10 @@
     "@cloudcommerce/i18n": "^0.0.133",
     "@cloudcommerce/storefront": "^0.0.133",
     "@cloudcommerce/types": "^0.0.133"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": ["astro"]
+    }
   }
 }
