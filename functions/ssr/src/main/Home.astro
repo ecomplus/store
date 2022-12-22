@@ -1,7 +1,8 @@
 ---
 import type { PageContext } from '@@sf/ssr-context';
 import api from '@cloudcommerce/api';
-import Price from '@@sf/components/Price.vue';
+import Prices from '@@sf/components/Prices.vue';
+import ProductCard from '@@sf/components/ProductCard.vue';
 
 export interface Props {
   pageContext: PageContext;
@@ -46,9 +47,10 @@ const products = (await api.get('products')).data.result;
       </label>
       <label class="inline-flex items-center">
         <input type="checkbox" checked />
-        <span class="ml-2">Email me news and special offers</span>
+        <span class="ml-2 font-brand">Email me news and special offers</span>
       </label>
     </div>
   </div>
-  <Price price={10} client:load />
+  <Prices price={10} client:load />
+  <ProductCard client:load />
 </main>
