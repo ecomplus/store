@@ -15,7 +15,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@cloudcommerce/firebase": "^0.1.3",
-    "@cloudcommerce/passport": "^0.1.3"
+    "@cloudcommerce/firebase": "^0.1.4",
+    "@cloudcommerce/passport": "^0.1.4"
   }
 }
