@@ -17,18 +17,13 @@ const { pageContext, title } = Astro.props as Props;
 </Base>
 
 <style is:global>
-@media only screen and (prefers-color-scheme: dark) {
-  :root:not([data-theme=light]) a:not([role=button]) {
-    --color: var(--primary-100);
-  }
-  :root:not([data-theme=light]) a:not([role=button]):is([aria-current], :hover, :active, :focus) {
-    --color: var(--primary-300);
-  }
-}
 html {
   scroll-behavior: smooth;
 }
 body {
   overflow-x: hidden;
+}
+a {
+  transition: color var(--transition), background-color var(--transition);
 }
 </style>
