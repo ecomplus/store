@@ -16,14 +16,14 @@
   "dependencies": {
     "@astrojs/image": "^0.12.1",
     "@astrojs/node": "^4.0.0",
-    "@cloudcommerce/api": "^0.1.5",
-    "@cloudcommerce/firebase": "^0.1.5",
-    "@cloudcommerce/ssr": "^0.1.5"
+    "@cloudcommerce/api": "^0.1.6",
+    "@cloudcommerce/firebase": "^0.1.6",
+    "@cloudcommerce/ssr": "^0.1.6"
   },
   "devDependencies": {
-    "@cloudcommerce/i18n": "^0.1.5",
-    "@cloudcommerce/storefront": "^0.1.5",
-    "@cloudcommerce/types": "^0.1.5"
+    "@cloudcommerce/i18n": "^0.1.6",
+    "@cloudcommerce/storefront": "^0.1.6",
+    "@cloudcommerce/types": "^0.1.6"
   },
   "pnpm": {
     "peerDependencyRules": {
