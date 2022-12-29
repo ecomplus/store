@@ -12,9 +12,6 @@
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
-  "engines": {
-    "node": "16"
-  },
   "main": "index.js",
   "dependencies": {
     "@astrojs/image": "^0.12.1",
