@@ -1,8 +1,11 @@
 {
-  "marketing_stripe": {
-    "text": "Aproveite nossos descontos de até 50%!",
-    "link": "/promotion"
-  },
+  "pitch_bar": [{
+    "href": "/promotion",
+    "html": "Aproveite nossos descontos de até 50%!"
+  }, {
+    "href": "",
+    "html": "<b>Frete grátis</b> para todo Brasil a partir de R$ 200,00"
+  }],
   "contacts_stripe": {
     "pages": [
       {
