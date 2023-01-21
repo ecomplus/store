@@ -3,8 +3,8 @@ import {
   i19myAccountAndOrders,
   i19openCart,
 } from '@@i18n';
-import LoginDrawer, { Props as LoginDrawerProps } from '@@components/LoginDrawer.vue';
-import HeaderButtonLink from '@@components/header/HeaderButtonLink.vue';
+import LoginDrawer, { Props as LoginDrawerProps } from '@@sf/components/LoginDrawer.vue';
+import HeaderButtonLink from '~/components/header/HeaderButtonLink.vue';
 
 export interface Props {
   accountUrl?: string;

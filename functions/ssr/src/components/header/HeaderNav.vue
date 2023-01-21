@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import HeaderNavLink from '@@components/header/HeaderNavLink.vue';
+import HeaderNavLink from '~/components/header/HeaderNavLink.vue';
 </script>
 
 <template>
