@@ -31,7 +31,8 @@
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
-        "astro"
+        "astro",
+        "@babel/core"
       ]
     }
   }
