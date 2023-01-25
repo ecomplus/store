@@ -13,5 +13,29 @@
   "lang": "pt_br",
   "currency": "BRL",
   "currency_symbol": "R$",
-  "country_code": "BR"
+  "country_code": "BR",
+  "modules": {
+    "list_payments": {
+      "installments_option": {
+        "max_number": null,
+        "monthly_interest": null,
+        "min_installment": null
+      },
+      "discount_option": {
+        "label": null,
+        "apply_at": null,
+        "type": null,
+        "value": null
+      },
+      "loyalty_points_program": {
+        "id": null,
+        "name": null,
+        "ratio": null,
+        "earn_percentage": null
+      }
+    },
+    "calculate_shipping": {
+      "free_shipping_from_value": 150
+    }
+  }
 }
