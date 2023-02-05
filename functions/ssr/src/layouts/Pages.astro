@@ -1,6 +1,7 @@
 ---
 import type { PageContext } from '@@sf/ssr-context';
 import Base from '~/layouts/Base.astro';
+import Picture from '@@sf/ssr/Picture.astro';
 import Header from '@@sf/layouts/PagesHeader.astro';
 
 export interface Props {
@@ -9,11 +10,22 @@ export interface Props {
 }
 
 const { pageContext, title } = Astro.props as Props;
+const { settings } = pageContext;
 ---
 
 <Base pageContext={pageContext} title={title}>
   <slot name="header">
-    <Header pageContext={pageContext} />
+    <Header pageContext={pageContext}>
+      <Picture
+        slot="logo-picture"
+        src={settings.logo}
+        alt={settings.name}
+        widths={[300]}
+        sizes="150px"
+        fetchpriority="high"
+        class="hover:drop-shadow-sm"
+      />
+    </Header>
   </slot>
   <slot />
 </Base>
