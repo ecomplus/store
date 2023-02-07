@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-base-100">
+  <div class="bg-base-100 relative z-1">
     <div class="container md:w-2/3 mx-auto px-3 py-1">
       <Carousel :autoplay="countValidSlides > 1 ? 7000 : null">
         <li v-for="(slide, i) in slides" :key="i">
