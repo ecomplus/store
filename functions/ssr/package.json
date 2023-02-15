@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host",
     "build": "astro build",
     "build:static": "BUILD_OUTPUT=static astro build",
     "serve": "firebase emulators:start --only functions",
