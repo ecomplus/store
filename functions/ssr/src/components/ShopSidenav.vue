@@ -1,7 +1,7 @@
 <template>
-  <aside>
-    <nav class="py-5">
-      <ul class="relative">
+  <aside class="flex flex-col h-full">
+    <nav class="py-4 grow">
+      <ul class="relative h-full">
         <ShopSidenavCategory
           v-for="categoryTree in categoryTrees"
           :key="categoryTree._id"

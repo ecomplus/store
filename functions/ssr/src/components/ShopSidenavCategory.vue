@@ -1,8 +1,8 @@
 <template>
-  <li class="text-lg text-base-800 overflow-hidden">
+  <li class="text-lg text-base-800">
     <details
       v-if="categoryTree.subcategories.length"
-      class="bg-white z-10
+      class="bg-white overflow-y-auto overflow-x-hidden z-10
       open:absolute open:top-0 open:left-0 open:w-full open:h-full"
       @toggle="isOpen = !isOpen"
     >
@@ -23,7 +23,11 @@
           {{ categoryTree.name }}
         </h3>
       </summary>
-      <ul class="mt-2" tabindex="-1">
+      <ul
+        class="mt-2 transition-opacity"
+        :class="isFaded ? 'opacity-20' : 'opacity-100'"
+        tabindex="-1"
+      >
         <ShopSidenavCategory
           v-for="subcategoryTree in categoryTree.subcategories"
           :key="subcategoryTree._id"
@@ -57,7 +61,7 @@
 
 <script setup lang="ts">
 import type { CategoryTree } from '@@sf/composables/use-shop-header';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 export interface Props {
   categoryTree: CategoryTree;
@@ -65,4 +69,12 @@ export interface Props {
 
 defineProps<Props>();
 const isOpen = ref(false);
+const isFaded = ref(true);
+watch(isOpen, (_isOpen) => {
+  if (_isOpen) {
+    setTimeout(() => { isFaded.value = false; }, 25);
+  } else {
+    isFaded.value = true;
+  }
+});
 </script>
