@@ -14,6 +14,13 @@
   "currency": "BRL",
   "currency_symbol": "R$",
   "country_code": "BR",
+  "whatsapp": "(31) 9 8272-1558",
+  "instagram": "https://www.instagram.com/ecomclub/",
+  "facebook": "https://www.facebook.com/ecom.clubpage/",
+  "twitter": "",
+  "youtube": "https://www.youtube.com/channel/UCBlIxK5JAub0E1EX_qHdzmA",
+  "tiktok": "",
+  "pinterest": "",
   "modules": {
     "list_payments": {
       "installments_option": {
