@@ -4,22 +4,8 @@
     "html": "Aproveite nossos descontos de até 50%!"
   }, {
     "href": "",
-    "html": "<b>Frete grátis</b> <d-md>para todo Brasil</d-md> a partir de {{free_shipping_from_value}}"
+    "html": "<b>Frete grátis</b> <d-md>para todo Brasil</d-md> a partir de {free_shipping_from_value}"
   }],
-  "contacts_stripe": {
-    "pages": [
-      {
-        "title": "Sobre nós",
-        "link": "/pages/sobre-nos"
-      },
-      {
-        "title": "Esta loja é um PWA",
-        "link": "/posts/esta-loja-e-um-pwa"
-      }
-    ],
-    "phone_wpp": true,
-    "socials": true
-  },
   "drawer_links": [
     {
       "title": "Fale conosco",
