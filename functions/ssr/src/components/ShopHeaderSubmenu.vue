@@ -7,55 +7,66 @@
       <Fade>
         <PopoverPanel
           class="absolute z-20 top-3 left-1/2 -translate-x-1/2 !transform
-          bg-white px-6 py-4 rounded-md shadow grid gap-6 text-base text-base-700"
+          px-6 py-4 rounded-md shadow bg-white text-base text-base-700"
           :class="countMenuCols === 1 ? 'w-60'
-            : countMenuCols === 2 ? 'w-screen max-w-md grid-cols-3'
-            : countMenuCols === 3 ? 'w-screen max-w-lg grid-cols-4'
-            : countMenuCols === 4 ? 'w-screen max-w-xl grid-cols-6'
-            : countMenuCols === 5 ? 'w-screen max-w-2xl grid-cols-7'
-            : `w-screen max-w-5xl ${(countMenuCols === 6 ? 'grid-cols-8' : 'grid-cols-9')}`"
+            : countMenuCols === 2 ? `w-screen ${(categoryPicture ? 'max-w-lg' : 'max-w-sm')}`
+            : countMenuCols === 3 ? `w-screen ${(categoryPicture ? 'max-w-xl' : 'max-w-md')}`
+            : countMenuCols < 6 ? 'w-screen max-w-3xl' : 'w-screen max-w-5xl'"
         >
-          <ul v-if="subcategoryLinks.length">
-            <li
-              v-for="(subcategory, i) in subcategoryLinks"
-              :key="`link-${i}`"
-              :class="subcategoryLinks.length > 10 ? 'text-sm mb-1' : 'mb-2'"
+          <div class="flex gap-6 w-full">
+            <ul v-if="subcategoryLinks.length" class="flex-1">
+              <li
+                v-for="(subcategory, i) in subcategoryLinks"
+                :key="`link-${i}`"
+                :class="subcategoryLinks.length > 10 ? 'text-sm mb-1' : 'mb-2'"
+              >
+                <a :href="`/${subcategory.slug}`" class="hover:text-primary">
+                  <h3>{{ subcategory.name }}</h3>
+                </a>
+              </li>
+            </ul>
+            <div
+              v-for="(subcategory, i) in subcategoryCols"
+              :key="subcategory._id"
+              class="flex-1"
             >
               <a :href="`/${subcategory.slug}`" class="hover:text-primary">
                 <h3>{{ subcategory.name }}</h3>
               </a>
-            </li>
-          </ul>
-          <div v-for="(subcategory, i) in subcategoryCols" :key="subcategory._id">
-            <a :href="`/${subcategory.slug}`" class="hover:text-primary">
-              <h3>{{ subcategory.name }}</h3>
-            </a>
-            <ul class="text-sm text-base-600 mt-1">
-              <li
-                v-for="(nestedSubcategory, ii) in subcategory.subcategories"
-                :key="`${i}-${ii}`"
-                class="mb-0.5"
-              >
-                <a
-                  :href="`/${nestedSubcategory.slug}`"
-                  class="hover:text-primary hover:underline"
+              <ul class="text-sm text-base-600 mt-1 mb-1.5">
+                <li
+                  v-for="(nestedSubcategory, ii) in subcategory.subcategories"
+                  :key="`${i}-${ii}`"
+                  class="mb-0.5"
                 >
-                  <h3>{{ nestedSubcategory.name }}</h3>
-                </a>
-              </li>
-            </ul>
+                  <a
+                    :href="`/${nestedSubcategory.slug}`"
+                    class="hover:text-primary hover:underline"
+                  >
+                    <h3>{{ nestedSubcategory.name }}</h3>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div
+              v-if="categoryPicture"
+              :class="countMenuCols === 2 ? 'basis-1/2'
+                : countMenuCols < 5 ? 'basis-2/5' : 'basis-1/3'"
+            >
+              <img
+                loading="lazy"
+                :src="categoryPicture.url"
+                :alt="categoryPicture.alt || categoryTree.name"
+                class="ml-auto rounded"
+              />
+            </div>
           </div>
-          <div
-            v-if="categoryPicture"
-            :class="countMenuCols < 4 ? 'col-span-2' : 'col-span-3'"
+          <a
+            :href="`/${categoryTree.slug}`"
+            class="block mt-1 text-xs text-base-600 leading-snug underline"
           >
-            <img
-              loading="lazy"
-              :src="categoryPicture.url"
-              :alt="categoryPicture.alt || categoryTree.name"
-              class="ml-auto rounded"
-            />
-          </div>
+            {{ $t.i19seeAll$1Category.replace('$1', categoryTree.name) }}
+          </a>
         </PopoverPanel>
       </Fade>
     </div>
