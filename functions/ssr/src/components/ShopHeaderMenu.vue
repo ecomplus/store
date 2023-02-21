@@ -21,8 +21,10 @@
                 {{ categoryTree.name }}
               </h3>
               <i
-                class="text-base-400 group-hover:text-primary-subtle ml-1"
-                :class="open ? 'i-chevron-up' : 'i-chevron-down'"
+                v-if="hasOneLevelSubcategories"
+                class="i-chevron-down ml-1 transition-transform
+                text-base-400 group-hover:text-primary-subtle"
+                :class="open ? 'rotate-180' : null"
               ></i>
             </span>
           </template>
@@ -41,11 +43,15 @@
 
 <script setup lang="ts">
 import type { CategoryTree } from '@@sf/composables/use-shop-header';
+import { computed } from 'vue';
 import ShopHeaderSubmenu from '~/components/ShopHeaderSubmenu.vue';
 
 export interface Props {
   inlineMenuTrees: CategoryTree[];
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
+const hasOneLevelSubcategories = computed(() => {
+  return !!props.inlineMenuTrees.find(({ subcategories }) => !subcategories.length);
+});
 </script>
