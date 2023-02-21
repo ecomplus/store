@@ -6,19 +6,15 @@
     "href": "",
     "html": "<b>Frete grátis</b> <d-md>para todo Brasil</d-md> a partir de {free_shipping_from_value}"
   }],
-  "drawer_links": [
+  "inline_menu_categories": {
+    "featured": [],
+    "random": 7
+  },
+  "alphabetical_sort_submenu": false,
+  "service_links": [
     {
       "title": "Fale conosco",
       "link": "/pages/contato"
     }
-  ],
-  "categories_list": {
-    "featured": [],
-    "random": 6,
-    "full_width": false
-  },
-  "desktop_megamenu": false,
-  "search_input": true,
-  "alphabetical_order_submenu": false,
-  "full_width_submenu": false
+  ]
 }
