@@ -17,6 +17,7 @@
           v-if="!isOpen && categoryTree.icon"
           loading="lazy"
           :src="categoryTree.icon.url"
+          :alt="categoryTree.icon.alt"
           class="w-auto h-5 inline mr-3"
         />
         <h3 class="inline" :class="isOpen ? 'ml-4 text-base' : null">

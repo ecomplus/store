@@ -9,8 +9,8 @@
   >
     <div class="container lg:max-w-7xl mx-auto px-1 lg:pl-3
       grid grid-flow-col grid-cols-3 justify-between items-center
-      md:grid-cols-none md:auto-cols-max">
-      <div class="md:hidden">
+      lg:grid-cols-none lg:auto-cols-max">
+      <div class="lg:hidden">
         <button
           class="px-2 my-1"
           :aria-label="$t.i19toggleMenu"
@@ -23,7 +23,7 @@
         </button>
       </div>
       <slot name="logo" />
-      <nav class="hidden md:block"></nav>
+      <ShopHeaderMenu class="hidden lg:block" v-bind="{ inlineMenuTrees }" />
       <div class="px-2 flex justify-end items-center gap-3 lg:gap-4 text-base-800">
         <button :aria-label="$t.i19searchProducts">
           <i class="i-search w-7 h-7
@@ -57,9 +57,13 @@ import { ref } from 'vue';
 import useShopHeader from '@@sf/composables/use-shop-header';
 import Drawer from '@@sf/components/Drawer.vue';
 import ShopSidenav from '~/components/ShopSidenav.vue';
+import ShopHeaderMenu from '~/components/ShopHeaderMenu.vue';
 
 export interface Props {
   categories: CategoriesList;
+  menuCategorySlugs?: string[];
+  menuRandomCategories?: number;
+  isAlphabeticalSortSubmenu?: boolean;
 }
 
 const props = defineProps<Props>();
@@ -68,6 +72,7 @@ const {
   isSticky,
   positionY,
   categoryTrees,
+  inlineMenuTrees,
   isSidenavOpen,
 } = useShopHeader({ ...props, header });
 </script>
