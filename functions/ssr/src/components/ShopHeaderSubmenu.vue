@@ -53,12 +53,7 @@
               :class="countMenuCols === 2 ? 'basis-1/2'
                 : countMenuCols < 5 ? 'basis-2/5' : 'basis-1/3'"
             >
-              <img
-                loading="lazy"
-                :src="categoryPicture.url"
-                :alt="categoryPicture.alt || categoryTree.name"
-                class="ml-auto rounded"
-              />
+              <AImg :picture="categoryPicture" class="ml-auto rounded" />
             </div>
           </div>
           <a

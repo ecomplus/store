@@ -13,11 +13,9 @@
         <i :class="!isOpen
           ? 'i-arrow-right float-right mb-0 mt-1 text-xl text-base-500'
           : 'i-arrow-left text-lg'"></i>
-        <img
+        <AImg
           v-if="!isOpen && categoryTree.icon"
-          loading="lazy"
-          :src="categoryTree.icon.url"
-          :alt="categoryTree.icon.alt"
+          :picture="categoryTree.icon"
           class="w-auto h-5 inline mr-3"
         />
         <h3 class="inline" :class="isOpen ? 'ml-4 text-base' : null">
@@ -49,10 +47,9 @@
       :href="`/${categoryTree.slug}`"
       class="block px-6 py-3 active:bg-base-200"
     >
-      <img
+      <AImg
         v-if="!isOpen && categoryTree.icon"
-        loading="lazy"
-        :src="categoryTree.icon.url"
+        :picture="categoryTree.icon"
         class="w-auto h-5 inline mr-3"
       />
       <h3 class="inline">{{ categoryTree.name }}</h3>
