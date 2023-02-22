@@ -43,7 +43,8 @@
       v-model="isSidenavOpen"
       :has-close-button="false"
       position="absolute"
-      class="mt-3 -z-1"
+      class="-z-1"
+      :class="isSticky ? 'mt-2 md:mt-3' : 'mt-3 sm:mt-4 md:mt-5'"
       :style="{ height: `calc(100vh - ${positionY}px + .5rem)` }"
     >
       <ShopSidenav class="bg-white pt-6" v-bind="{ categoryTrees }" />
