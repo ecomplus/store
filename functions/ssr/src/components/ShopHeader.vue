@@ -25,7 +25,10 @@
       <slot name="logo" />
       <ShopHeaderMenu class="hidden lg:block" v-bind="{ inlineMenuTrees }" />
       <div class="px-2 flex justify-end items-center gap-3 lg:gap-4 text-base-800">
-        <button :aria-label="$t.i19searchProducts">
+        <button
+          :aria-label="$t.i19searchProducts"
+          @click="isSearchOpen = !isSearchOpen"
+        >
           <i class="i-search w-7 h-7
             hover:text-primary hover:scale-110 active:scale-125"></i>
         </button>
@@ -43,11 +46,17 @@
       v-model="isSidenavOpen"
       :has-close-button="false"
       position="absolute"
-      class="-z-1"
       :class="isSticky ? 'mt-2 md:mt-3' : 'mt-3 sm:mt-4 md:mt-5'"
       :style="{ height: `calc(100vh - ${positionY}px + .5rem)` }"
     >
       <ShopSidenav class="bg-white pt-6" v-bind="{ categoryTrees }" />
+    </Drawer>
+    <Drawer
+      v-model="isSearchOpen"
+      :has-close-button="false"
+      placement="top"
+    >
+      <SearchModal />
     </Drawer>
   </header>
 </template>
@@ -59,6 +68,7 @@ import useShopHeader from '@@sf/composables/use-shop-header';
 import Drawer from '@@sf/components/Drawer.vue';
 import ShopSidenav from '~/components/ShopSidenav.vue';
 import ShopHeaderMenu from '~/components/ShopHeaderMenu.vue';
+import SearchModal from '~/components/SearchModal.vue';
 
 export interface Props {
   categories: CategoriesList;
@@ -74,6 +84,7 @@ const {
   positionY,
   categoryTrees,
   inlineMenuTrees,
-  isSidenavOpen,
 } = useShopHeader({ ...props, header });
+const isSidenavOpen = ref(false);
+const isSearchOpen = ref(false);
 </script>
