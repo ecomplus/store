@@ -11,7 +11,7 @@
     </nav>
     <footer class="text-base">
       <div class="flex items-center px-2 py-4 bg-base-100">
-        <a href="/app/account" class="p-2 grow flex items-center gap-3">
+        <AccountLink class="p-2 grow flex items-center gap-3">
           <i class="i-account text-4xl text-base-500 m-0"></i>
           <span class="leading-tight">
             {{ `${$t.i19hello} ${customerName || $t.i19visitor}` }}
@@ -19,7 +19,7 @@
               {{ $t.i19myOrders }}, {{ $t.i19myAccount }}
             </small>
           </span>
-        </a>
+        </AccountLink>
         <button
           v-if="isLogged"
           @click="logout"
@@ -48,6 +48,7 @@ import {
   logout,
 } from '@@sf/state/customer-session';
 import { socialNetworks } from '@@sf/server-data';
+import AccountLink from '@@sf/components/AccountLink.vue';
 import SocialNetworkLink from '@@sf/components/SocialNetworkLink.vue';
 import ShopSidenavCategory from '~/components/ShopSidenavCategory.vue';
 
