@@ -14,7 +14,7 @@
   "service_links": [
     {
       "title": "Fale conosco",
-      "link": "/pages/contato"
+      "href": "/pages/contato"
     }
   ]
 }
