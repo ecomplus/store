@@ -32,10 +32,19 @@
           <i class="i-search w-7 h-7
             hover:text-primary hover:scale-110 active:scale-125"></i>
         </button>
-        <button class="hidden sm:block" :aria-label="$t.i19myAccount">
-          <i class="i-account w-7 h-7
-            hover:text-primary hover:scale-110 active:scale-125"></i>
-        </button>
+        <AccountMenu
+          class="hidden sm:block"
+          :aria-label="$t.i19myAccount"
+          :service-links="serviceLinks"
+        >
+          <template #button="{ open }">
+            <i
+              class="i-account w-7 h-7
+              hover:text-primary hover:scale-110 active:scale-125"
+              :class="open ? 'text-black scale-110' : null"
+            ></i>
+          </template>
+        </AccountMenu>
         <button :aria-label="$t.i19openCart">
           <i class="i-shopping-cart w-7 h-7
             hover:text-primary hover:scale-110 active:scale-125"></i>
@@ -69,12 +78,17 @@ import Drawer from '@@sf/components/Drawer.vue';
 import ShopSidenav from '~/components/ShopSidenav.vue';
 import ShopHeaderMenu from '~/components/ShopHeaderMenu.vue';
 import SearchModal from '~/components/SearchModal.vue';
+import AccountMenu from '~/components/AccountMenu.vue';
 
 export interface Props {
   categories: CategoriesList;
   menuCategorySlugs?: string[];
   menuRandomCategories?: number;
   isAlphabeticalSortSubmenu?: boolean;
+  serviceLinks?: Array<{
+    title: string;
+    href: string;
+  }>;
 }
 
 const props = defineProps<Props>();
