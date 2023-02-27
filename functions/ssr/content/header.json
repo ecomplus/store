@@ -1,11 +1,14 @@
 {
-  "pitch_bar": [{
-    "href": "/promotion",
-    "html": "Aproveite nossos descontos de até 50%!"
-  }, {
-    "href": "",
-    "html": "<b>Frete grátis</b> <d-md>para todo Brasil</d-md> a partir de {free_shipping_from_value}"
-  }],
+  "pitch_bar": [
+    {
+      "href": "/promotion",
+      "html": "Aproveite nossos descontos de até 50%!"
+    },
+    {
+      "href": "",
+      "html": "<b>Frete grátis</b> <d-md>para todo Brasil</d-md> a partir de {free_shipping_from_value}"
+    }
+  ],
   "inline_menu_categories": {
     "featured": [],
     "random": 7
