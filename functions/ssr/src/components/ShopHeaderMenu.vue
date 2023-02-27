@@ -32,7 +32,8 @@
         <a
           v-else
           :href="`/${categoryTree.slug}`"
-          class="hover:text-primary hover:underline decoration-2"
+          class="hover:text-primary hover:underline"
+          :class="inlineMenuTrees.length < 7 ? 'decoration-2' : null"
         >
           <h3 class="inline">{{ categoryTree.name }}</h3>
         </a>
