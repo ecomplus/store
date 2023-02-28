@@ -1,7 +1,7 @@
 <template>
   <header
     ref="header"
-    class="top-0 z-50 transition-colors"
+    class="relative top-0 z-50 transition-colors"
     :class="[
       isSticky && !isSidenavOpen ? 'bg-white/80' : 'bg-white',
       isSticky ? 'backdrop-blur-md shadow py-2 md:py-3' : 'py-3 sm:py-4 md:py-5',
