@@ -20,7 +20,8 @@
     "@astrojs/node": "5.1.0",
     "@cloudcommerce/api": "^0.8.5",
     "@cloudcommerce/firebase": "^0.8.5",
-    "@cloudcommerce/ssr": "^0.8.5"
+    "@cloudcommerce/ssr": "^0.8.5",
+    "astro": "2.1.2"
   },
   "devDependencies": {
     "@cloudcommerce/i18n": "^0.8.5",
