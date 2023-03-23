@@ -10,3 +10,5 @@ else
   echo '> npx storefront build'
   npx storefront build
 fi
+
+exit 0
