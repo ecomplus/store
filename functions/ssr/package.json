@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev --host",
-    "build": "npx storefront build",
+    "build": "sh scripts/build.sh",
     "build:static": "BUILD_OUTPUT=static astro build",
     "serve": "firebase emulators:start --only functions",
     "shell": "firebase functions:shell",
