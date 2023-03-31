@@ -7,9 +7,10 @@
       isSticky ? 'backdrop-blur-md shadow py-2 md:py-3' : 'py-3 sm:py-4 md:py-5',
     ]"
   >
-    <div class="container lg:max-w-7xl mx-auto px-1 lg:pl-3
-      grid grid-flow-col grid-cols-3 justify-between items-center
-      lg:grid-cols-none lg:auto-cols-max">
+    <div class="container 2xl:max-w-7xl
+      mx-auto px-1 lg:pr-3 lg:pl-5 xl:pr-7 xl:pl-9 2xl:pr-0 2xl:pl-2
+      grid grid-flow-col grid-cols-3 lg:grid-cols-none lg:auto-cols-max
+      justify-between items-center">
       <div class="lg:hidden">
         <button
           class="px-2 my-1"
