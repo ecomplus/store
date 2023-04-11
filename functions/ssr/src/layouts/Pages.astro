@@ -1,8 +1,10 @@
 ---
 import type { PageContext } from '@@sf/ssr-context';
 import Base from '~/layouts/Base.astro';
+import usePageLayout from '@@sf/layouts/use-page-layout';
 import Picture from '@@sf/components/Picture.astro';
-import Header from '@@sf/layouts/PagesHeader.astro';
+import PitchBar from '~/components/PitchBar.vue';
+import ShopHeader from '~/components/ShopHeader.vue';
 
 export interface Props {
   pageContext: PageContext;
@@ -10,22 +12,34 @@ export interface Props {
 }
 
 const { pageContext, title } = Astro.props as Props;
-const { settings } = pageContext;
+const { settings, isHomepage } = pageContext;
+const LogoHeading = isHomepage ? 'h1' : 'h2';
+const { pitchBar, shopHeader } = await usePageLayout({ pageContext });
 ---
 
 <Base pageContext={pageContext} title={title}>
   <slot name="header">
-    <Header pageContext={pageContext}>
-      <Picture
-        slot="logo-picture"
-        src={settings.logo}
-        alt={settings.name}
-        widths={[300]}
-        fetchpriority="high"
-        loading="eager"
-        class="hover:drop-shadow-sm max-w-[150px]"
-      />
-    </Header>
+    <slot name="pitch-bar">
+      {pitchBar.slides.length > 1 && <PitchBar {...pitchBar} client:idle />}
+      {pitchBar.slides.length === 1 && <PitchBar {...pitchBar} />}
+    </slot>
+    <ShopHeader {...shopHeader} client:load>
+      <Fragment slot="logo">
+        <a href="/">
+          <LogoHeading>
+            <Picture
+              slot="logo-picture"
+              src={settings.logo}
+              alt={settings.name}
+              widths={[300]}
+              fetchpriority="high"
+              loading="eager"
+              class="hover:drop-shadow-sm max-w-[150px]"
+            />
+          </LogoHeading>
+        </a>
+      </Fragment>
+    </ShopHeader>
   </slot>
   <slot />
 </Base>
