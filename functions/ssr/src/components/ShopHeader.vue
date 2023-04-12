@@ -9,9 +9,9 @@
   >
     <div class="container 2xl:max-w-7xl
       mx-auto px-1 lg:pr-3 lg:pl-5 xl:pr-7 xl:pl-9 2xl:pr-0 2xl:pl-2
-      grid grid-flow-col grid-cols-3 lg:grid-cols-none lg:auto-cols-max
+      flex md:grid grid-flow-col grid-cols-3 lg:grid-cols-none lg:auto-cols-max
       justify-between items-center">
-      <div class="lg:hidden">
+      <div class="basis-1/4 lg:hidden">
         <button
           class="px-2 my-1"
           :aria-label="$t.i19toggleMenu"
@@ -25,7 +25,8 @@
       </div>
       <slot name="logo" />
       <ShopHeaderMenu class="hidden lg:block" v-bind="{ inlineMenuTrees }" />
-      <div class="px-2 flex justify-end items-center gap-3 lg:gap-4 text-base-800">
+      <div class="basis-1/4 px-2
+        flex justify-end items-center gap-3 lg:gap-4 text-base-800">
         <button
           :aria-label="$t.i19searchProducts"
           @click="isSearchOpen = !isSearchOpen"
