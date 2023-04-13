@@ -8,11 +8,11 @@ if (String(Astro.params.slug).endsWith('.css.map')) {
   return new Response(null, { status: 404 });
 }
 
-let pageContext: PageContext;
+let pageContext: PageContext | undefined;
 let loadError: any;
 try {
   pageContext = await loadPageContext(Astro);
-} catch (err) {
+} catch (err: any) {
   if (err.astroResponse) {
     return err.astroResponse;
   }

@@ -6,7 +6,7 @@ import FallbackMain from '~/main/Fallback.astro';
 let pageContext: PageContext;
 try {
   pageContext = await loadPageContext(Astro);
-} catch (err) {
+} catch (err: any) {
   return err.astroResponse;
 }
 

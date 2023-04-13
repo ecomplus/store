@@ -3,7 +3,7 @@ import loadPageContext, { PageContext } from '@@sf/ssr-context';
 import PagesLayout from '~/layouts/Pages.astro';
 import HomeMain from '~/main/Home.astro';
 
-let pageContext: PageContext;
+let pageContext: PageContext | undefined;
 let loadError: any;
 try {
   pageContext = await loadPageContext(Astro);
@@ -12,7 +12,7 @@ try {
     apiPrefetchEndpoints: [],
   });
   */
-} catch (err) {
+} catch (err: any) {
   if (err.astroResponse) {
     return err.astroResponse;
   }
