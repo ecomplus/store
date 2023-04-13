@@ -58,11 +58,11 @@
 </template>
 
 <script setup lang="ts">
-import type { CategoryTree } from '@@sf/composables/use-shop-header';
+import type { CategoryTree, SubcategoryTree } from '@@sf/composables/use-shop-header';
 import { ref, watch } from 'vue';
 
 export interface Props {
-  categoryTree: CategoryTree;
+  categoryTree: CategoryTree | SubcategoryTree;
 }
 
 defineProps<Props>();
