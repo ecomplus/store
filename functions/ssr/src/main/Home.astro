@@ -1,17 +1,39 @@
 ---
 import type { PageContext } from '@@sf/ssr-context';
 import api from '@cloudcommerce/api';
+import useHomeMain from '@@sf/layouts/use-home-main';
+import HeroPicture from '@@sf/components/HeroPicture.astro';
+import HeroSlider from '~/components/HeroSlider.vue';
 import Prices from '~/components/Prices.vue';
-import ProductCard from '@@sf/components/ProductCard.vue';
 
 export interface Props {
   pageContext: PageContext;
 }
 
+const { pageContext } = Astro.props as Props;
+const { heroSlider } = await useHomeMain({ pageContext });
+const heroSlides = heroSlider.slides;
+console.log({ heroSlides });
 const products = (await api.get('products')).data.result;
 ---
 
 <main>
+  {heroSlider.slides.length &&
+    <HeroSlider {...heroSlider} client:load>
+      {heroSlides[0] && <HeroPicture slot="picture-0" {...heroSlides[0]} index={0} />}
+      {heroSlides[1] && <HeroPicture slot="picture-1" {...heroSlides[1]} index={1} />}
+      {heroSlides[2] && <HeroPicture slot="picture-2" {...heroSlides[2]} index={2} />}
+      {heroSlides[3] && <HeroPicture slot="picture-3" {...heroSlides[3]} index={3} />}
+      {heroSlides[4] && <HeroPicture slot="picture-4" {...heroSlides[4]} index={4} />}
+      {heroSlides[5] && <HeroPicture slot="picture-5" {...heroSlides[5]} index={5} />}
+      {heroSlides[6] && <HeroPicture slot="picture-6" {...heroSlides[6]} index={6} />}
+      {heroSlides[7] && <HeroPicture slot="picture-7" {...heroSlides[7]} index={7} />}
+      {heroSlides[8] && <HeroPicture slot="picture-8" {...heroSlides[8]} index={8} />}
+      {heroSlides[9] && <HeroPicture slot="picture-9" {...heroSlides[9]} index={9} />}
+      <!-- https://github.com/withastro/astro/issues/5066#issuecomment-1277998365 -->
+    </HeroSlider>
+  }
+
   <h1>Welcome to <span class="text-primary">Astro</span></h1>
   <ul role="list" class="mt-3 fs-20">
     {products.map((product) => <li>
@@ -52,5 +74,4 @@ const products = (await api.get('products')).data.result;
     </div>
   </div>
   <Prices price={10} client:load />
-  <ProductCard client:load />
 </main>

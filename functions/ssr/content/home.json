@@ -1,6 +1,35 @@
 {
   "meta_title": "",
   "meta_description": "",
+  "hero": {
+    "autoplay": 9000,
+    "slides": [
+      {
+        "start": "",
+        "end": "",
+        "img": "/img/uploads/rect89.webp",
+        "alt": "Headset banner",
+        "mobile_img": "/img/uploads/headphone.webp",
+        "href": "/headset",
+        "title": "20% off on first purchase",
+        "subtitle": "At demoStore you can shop the best tech of 2023. Enjoy and get 10% off on your first purchase!",
+        "button_link": "/",
+        "button_text": "See"
+      },
+      {
+        "start": "",
+        "end": "",
+        "img": "/img/uploads/banner2.webp",
+        "alt": "",
+        "mobile_img": "",
+        "href": "",
+        "title": "",
+        "subtitle": "",
+        "button_link": "",
+        "button_text": ""
+      }
+    ]
+  },
   "sections": [
     {
       "type": "banner-slider",
