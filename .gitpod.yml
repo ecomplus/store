@@ -1,3 +1,8 @@
 tasks:
   - init: npm i && npm i --prefix=functions/ssr
     command: npm run dev
+vscode:
+  extensions:
+    - astro-build.astro-vscode
+    - vue.volar
+    - bradlc.vscode-tailwindcss

@@ -1,3 +1,30 @@
 {
-  "postCreateCommand": "npm i && npm i --prefix=functions/ssr"
+  "postCreateCommand": "npm i && npm i --prefix=functions/ssr",
+  "waitFor": "postCreateCommand",
+  "portsAttributes": {
+    "3000": {
+      "label": "Application",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "forwardPorts": [
+    3000
+  ],
+  "postAttachCommand": {
+    "Server": "npm run dev"
+  },
+  "customizations": {
+    "codespaces": {
+      "openFiles": [
+        "functions/ssr/src/main/Home.astro"
+      ]
+    },
+    "vscode": {
+      "extensions": [
+        "astro-build.astro-vscode",
+        "vue.volar",
+        "bradlc.vscode-tailwindcss"
+      ]
+    }
+  }
 }
