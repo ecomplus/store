@@ -1,0 +1,3 @@
+tasks:
+  - init: npm i && npm i --prefix=functions/ssr
+    command: npm run dev
