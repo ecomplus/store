@@ -3,7 +3,7 @@
   "configurations": [
     {
       "command": "./node_modules/.bin/cloudcommerce dev",
-      "name": "Development server",
+      "name": "Dev server",
       "request": "launch",
       "type": "node-terminal"
     }
