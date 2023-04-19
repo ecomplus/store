@@ -1,3 +1,3 @@
 {
-  "postCreateCommand": "bash scripts/install.sh"
+  "postCreateCommand": "npm i && npm i --prefix=functions/ssr"
 }
