@@ -6,3 +6,7 @@ vscode:
     - astro-build.astro-vscode
     - vue.volar
     - bradlc.vscode-tailwindcss
+ports:
+  - port: 3000
+    onOpen: open-preview
+    visibility: public
