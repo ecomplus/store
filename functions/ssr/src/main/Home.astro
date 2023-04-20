@@ -13,7 +13,6 @@ export interface Props {
 const { pageContext } = Astro.props as Props;
 const { heroSlider } = await useHomeMain({ pageContext });
 const heroSlides = heroSlider.slides;
-console.log({ heroSlides });
 const products = (await api.get('products')).data.result;
 ---
 

@@ -44,7 +44,7 @@
       <template #controls>
         <div
           v-show="parsedSlides.length > 1"
-          class="absolute top-1/2 -mt-8
+          class="absolute z-10 top-1/2 -mt-8
           w-screen xl:max-w-screen-xl xl:left-1/2 -ms-[640px]
           text-3xl leading-none text-base-400 opacity-60"
         >
