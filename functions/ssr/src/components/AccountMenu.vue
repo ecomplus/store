@@ -12,7 +12,7 @@
     </MenuButton>
     <Fade>
       <MenuItems class="absolute -right-8 mt-2 w-56
-        rounded-md shadow ring-1 ring-black ring-opacity-5 bg-white
+        rounded-md shadow ring-1 ring-black/5 bg-white
         divide-y divide-base-100 focus:outline-none">
         <div class="p-3 text-base-600">
           {{ `${$t.i19hello} ${customerName || $t.i19visitor}` }}

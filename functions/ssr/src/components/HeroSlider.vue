@@ -44,17 +44,16 @@
       <template #controls>
         <div
           v-show="parsedSlides.length > 1"
-          class="absolute z-10 top-1/2 -mt-8
-          w-screen xl:max-w-screen-xl xl:left-1/2 -ms-[640px]
-          text-3xl leading-none text-base-400 opacity-60"
+          class="absolute z-10 bottom-5 flex justify-end items-center
+          w-screen xl:max-w-screen-xl xl:left-1/2 -ms-[640px]"
         >
-          <div class="relative">
+          <div class="relative w-20 h-10 rounded-full
+            bg-white/50 text-primary shadow-sm ring-1 ring-black/5">
             <CarouselControl
               :direction="-1"
-              class="p-3 rounded-full hover:bg-white/40 hover:text-primary"
+              class="w-10 h-10 rounded-full hover:bg-primary/10"
             />
-            <CarouselControl class="p-3 rounded-full
-              hover:bg-white/40 hover:text-primary" />
+            <CarouselControl class="w-10 h-10 rounded-full hover:bg-primary/10" />
           </div>
         </div>
       </template>
