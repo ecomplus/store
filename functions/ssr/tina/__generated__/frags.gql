@@ -1,0 +1,15 @@
+fragment LayoutParts on Layout {
+  header {
+    __typename
+    pitch_bar {
+      __typename
+      href
+      html
+    }
+  }
+}
+
+fragment PostParts on Post {
+  title
+  body
+}
