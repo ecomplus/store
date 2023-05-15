@@ -6,4 +6,6 @@ config.set({
   hello: 'from store',
 });
 
-export * from '@cloudcommerce/firebase';
+export * from '@cloudcommerce/modules/firebase';
+
+export * from '@cloudcommerce/events/firebase';

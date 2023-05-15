@@ -1,5 +1,5 @@
 {
-  "name": "events",
+  "name": "with-apps",
   "private": true,
   "type": "module",
   "scripts": {
@@ -16,6 +16,7 @@
   "main": "index.js",
   "dependencies": {
     "@cloudcommerce/events": "^0.11.0",
-    "@cloudcommerce/firebase": "^0.11.0"
+    "@cloudcommerce/firebase": "^0.11.0",
+    "@cloudcommerce/modules": "^0.11.0"
   }
 }

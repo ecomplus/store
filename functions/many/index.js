@@ -6,4 +6,8 @@ config.set({
   hello: 'from store',
 });
 
-export * from '@cloudcommerce/modules/firebase';
+export * from '@cloudcommerce/firebase';
+
+export * from '@cloudcommerce/passport/firebase';
+
+export * from '@cloudcommerce/feeds/firebase';
