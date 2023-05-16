@@ -1,3 +1,4 @@
+import '@cloudcommerce/firebase/lib/init';
 import config from '@cloudcommerce/firebase/config';
 import mergeConfig from './config.json' assert { type: 'json' };
 
