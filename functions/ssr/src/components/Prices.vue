@@ -1,10 +1,11 @@
 <template>
   <div
-    class="text-base-600"
+    class="text-base-600
+      [&>div]:[font-size:90%] [&_small]:lowercase [&_small]:[font-size:92%]"
     :class="isBig ? 'text-lg' : null"
     data-prices
   >
-    <span v-if="comparePrice" class="text-base-500 mr-1">
+    <span v-if="comparePrice" class="text-base-500 mr-1 [font-size:87%]">
       <small v-if="isLiteral">
         {{ `${$t.i19from} ` }}
       </small>
@@ -97,16 +98,3 @@ const {
   discountLabel,
 } = usePrices(props);
 </script>
-
-<style>
-[data-prices] > span {
-  font-size: 87%;
-}
-[data-prices] > div {
-  font-size: 90%;
-}
-[data-prices] small {
-  @apply lowercase;
-  font-size: 92%;
-}
-</style>
