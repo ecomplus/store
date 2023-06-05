@@ -1,11 +1,11 @@
 ---
-import loadPageContext, { PageContext } from '@@sf/ssr-context';
+import loadRouteContext, { RouteContext } from '@@sf/ssr-context';
 import PagesLayout from '~/layouts/Pages.astro';
 import FallbackMain from '~/main/Fallback.astro';
 
-let pageContext: PageContext;
+let routeContext: RouteContext;
 try {
-  pageContext = await loadPageContext(Astro);
+  routeContext = await loadRouteContext(Astro);
 } catch (err: any) {
   return err.astroResponse;
 }
@@ -14,8 +14,8 @@ try {
 ---
 
 <!DOCTYPE html>
-<html lang={pageContext?.lang.replace('_', '-')}>
-<PagesLayout pageContext={pageContext}>
-  <FallbackMain pageContext={pageContext} />
+<html lang={routeContext?.lang.replace('_', '-')}>
+<PagesLayout routeContext={routeContext}>
+  <FallbackMain routeContext={routeContext} />
 </PagesLayout>
 </html>

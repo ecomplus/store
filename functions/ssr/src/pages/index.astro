@@ -1,14 +1,14 @@
 ---
-import loadPageContext, { PageContext } from '@@sf/ssr-context';
+import loadRouteContext, { RouteContext } from '@@sf/ssr-context';
 import PagesLayout from '~/layouts/Pages.astro';
 import HomeMain from '~/main/Home.astro';
 
-let pageContext: PageContext | undefined;
+let routeContext: RouteContext | undefined;
 let loadError: any;
 try {
-  pageContext = await loadPageContext(Astro);
+  routeContext = await loadRouteContext(Astro);
   /* Faster SSR without store categories (default) prefetch:
-  pageContext = await loadPageContext(Astro, {
+  routeContext = await loadRouteContext(Astro, {
     apiPrefetchEndpoints: [],
   });
   */
@@ -21,10 +21,10 @@ try {
 ---
 
 <!DOCTYPE html>
-<html lang={pageContext?.lang.replace('_', '-')}>
-{pageContext &&
-  <PagesLayout pageContext={pageContext}>
-    <HomeMain pageContext={pageContext} />
+<html lang={routeContext?.lang.replace('_', '-')}>
+{routeContext &&
+  <PagesLayout routeContext={routeContext}>
+    <HomeMain routeContext={routeContext} />
   </PagesLayout>
 }
 {loadError && <Fragment set:html={loadError.responseHTML} />}

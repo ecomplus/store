@@ -1,20 +1,20 @@
 ---
-import type { PageContext } from '@@sf/ssr-context';
-import Base from '@@sf/layouts/Base.astro';
+import type { RouteContext } from '@@sf/ssr-context';
+import SfBase from '@@sf/layouts/Base.astro';
 import InlineScripts from '~/scripts/InlineScripts.astro';
 
 export interface Props {
-  pageContext: PageContext;
+  routeContext: RouteContext;
   title?: string;
 }
 
-const { pageContext, title } = Astro.props as Props;
+const { routeContext, title } = Astro.props as Props;
 ---
 
-<Base pageContext={pageContext} title={title}>
+<SfBase routeContext={routeContext} title={title}>
   <InlineScripts slot="before-head-end" />
   <slot />
-</Base>
+</SfBase>
 
 <style is:global>
 html {
