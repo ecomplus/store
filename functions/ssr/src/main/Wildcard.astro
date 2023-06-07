@@ -1,13 +1,5 @@
 ---
-import type { RouteContext } from '@@sf/ssr-context';
-
-export interface Props {
-  routeContext: RouteContext;
-}
-
-const {
-  routeContext: { apiResource, apiDoc },
-} = Astro.props as Props;
+const { apiResource, apiDoc } = Astro.locals.routeContext;
 ---
 
 <main>

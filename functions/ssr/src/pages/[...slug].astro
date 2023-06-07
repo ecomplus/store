@@ -28,8 +28,8 @@ export async function getStaticPaths() {
 <!DOCTYPE html>
 <html lang={routeContext?.lang.replace('_', '-')}>
 {routeContext &&
-  <PagesLayout routeContext={routeContext}>
-    <WildcardMain routeContext={routeContext} />
+  <PagesLayout>
+    <WildcardMain />
   </PagesLayout>
 }
 {loadError && <Fragment set:html={loadError.responseHTML} />}

@@ -1,16 +1,11 @@
 ---
-import type { RouteContext } from '@@sf/ssr-context';
 import api from '@cloudcommerce/api';
 import useHomeMain from '@@sf/layouts/use-home-main';
 import HeroPicture from '@@sf/components/HeroPicture.astro';
 import HeroSlider from '~/components/HeroSlider.vue';
 import Prices from '~/components/Prices.vue';
 
-export interface Props {
-  routeContext: RouteContext;
-}
-
-const { routeContext } = Astro.props as Props;
+const { routeContext } = Astro.locals;
 const { heroSlider } = await useHomeMain({ routeContext });
 const heroSlides = heroSlider.slides;
 const products = (await api.get('products')).data.result;

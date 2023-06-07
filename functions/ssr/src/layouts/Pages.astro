@@ -1,5 +1,4 @@
 ---
-import type { RouteContext } from '@@sf/ssr-context';
 import Base from '~/layouts/Base.astro';
 import usePageLayout from '@@sf/layouts/use-page-layout';
 import Picture from '@@sf/components/Picture.astro';
@@ -7,17 +6,17 @@ import PitchBar from '~/components/PitchBar.vue';
 import ShopHeader from '~/components/ShopHeader.vue';
 
 export interface Props {
-  routeContext: RouteContext;
   title?: string;
 }
 
-const { routeContext, title } = Astro.props as Props;
+const { title } = Astro.props;
+const { routeContext } = Astro.locals;
 const { settings, isHomepage } = routeContext;
 const LogoHeading = isHomepage ? 'h1' : 'h2';
 const { pitchBar, shopHeader } = await usePageLayout({ routeContext });
 ---
 
-<Base routeContext={routeContext} title={title}>
+<Base title={title}>
   <slot name="header">
     <slot name="pitch-bar">
       {pitchBar.slides.length > 1 && <PitchBar {...pitchBar} client:idle />}

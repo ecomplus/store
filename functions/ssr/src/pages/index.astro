@@ -23,8 +23,8 @@ try {
 <!DOCTYPE html>
 <html lang={routeContext?.lang.replace('_', '-')}>
 {routeContext &&
-  <PagesLayout routeContext={routeContext}>
-    <HomeMain routeContext={routeContext} />
+  <PagesLayout>
+    <HomeMain />
   </PagesLayout>
 }
 {loadError && <Fragment set:html={loadError.responseHTML} />}

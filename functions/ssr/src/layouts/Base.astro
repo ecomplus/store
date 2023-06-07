@@ -1,17 +1,15 @@
 ---
-import type { RouteContext } from '@@sf/ssr-context';
 import SfBase from '@@sf/layouts/Base.astro';
 import InlineScripts from '~/scripts/InlineScripts.astro';
 
 export interface Props {
-  routeContext: RouteContext;
   title?: string;
 }
 
-const { routeContext, title } = Astro.props as Props;
+const { title } = Astro.props;
 ---
 
-<SfBase routeContext={routeContext} title={title}>
+<SfBase title={title}>
   <InlineScripts slot="before-head-end" />
   <slot />
 </SfBase>
