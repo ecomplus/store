@@ -1,0 +1,21 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  overflow-x: hidden;
+}
+a, button, button > * {
+  transition: background-color var(--transition),
+    color var(--transition), border-color var(--transition),
+    opacity var(--transition), transform var(--transition-fast);
+}
+
+.ui-btn {
+
+}
+.ui-title {
+  
+}
+.ui-link {
+  
+}

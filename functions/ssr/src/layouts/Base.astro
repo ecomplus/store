@@ -1,6 +1,7 @@
 ---
 import SfBase from '@@sf/layouts/Base.astro';
 import InlineScripts from '~/scripts/InlineScripts.astro';
+import '~/assets/style.css';
 
 export interface Props {
   title?: string;
@@ -13,17 +14,3 @@ const { title } = Astro.props;
   <InlineScripts slot="before-head-end" />
   <slot />
 </SfBase>
-
-<style is:global>
-html {
-  scroll-behavior: smooth;
-}
-body {
-  overflow-x: hidden;
-}
-a, button, button > * {
-  transition: background-color var(--transition),
-    color var(--transition), border-color var(--transition),
-    opacity var(--transition), transform var(--transition-fast);
-}
-</style>
