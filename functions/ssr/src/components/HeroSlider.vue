@@ -20,10 +20,7 @@
             v-if="slide.hasHeader"
             class="basis-1/2 grow-0 p-12 xl:ps-32 mb-3 md:mb-0"
           >
-            <Component
-              :is="i === 0 ? 'h2' : 'h3'"
-              class="mt-1 text-3xl xl:text-5xl font-black"
-            >
+            <Component :is="i === 0 ? 'h2' : 'h3'" class="ui-title mt-1">
               {{ slide.title }}
             </Component>
             <p v-if="slide.subtitle" class="text-lg mt-4 md:mt-6">
@@ -32,9 +29,7 @@
             <a
               v-if="slide.buttonText"
               :href="slide.buttonLink"
-              class="not-prose inline-block min-w-[150px] mt-7 md:mt-10
-              bg-white text-primary text-lg font-bold px-6 py-2.5 rounded
-              hover:bg-primary-100 active:ring-3 ring-white/30"
+              class="ui-btn-lg ui-btn-contrast min-w-[150px] mt-7 md:mt-10"
             >
               {{ slide.buttonText }}
             </a>

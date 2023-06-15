@@ -7,7 +7,7 @@
       <Fade>
         <PopoverPanel
           class="absolute z-20 top-3 left-1/2 -translate-x-1/2 !transform
-          px-6 py-4 rounded-md backdrop-blur-md shadow bg-white/80
+          px-6 py-4 rounded backdrop-blur-md shadow bg-white/80
           text-base text-base-700"
           :class="countMenuCols === 1 ? 'w-60'
             : countMenuCols === 2 ? `w-screen ${(categoryPicture ? 'max-w-lg' : 'max-w-sm')}`

@@ -12,18 +12,14 @@
     </MenuButton>
     <Fade>
       <MenuItems class="absolute -right-8 mt-2 w-56
-        rounded-md shadow ring-1 ring-black/5 bg-white
+        rounded shadow ring-1 ring-black/5 bg-white
         divide-y divide-base-100 focus:outline-none">
         <div class="p-3 text-base-600">
           {{ `${$t.i19hello} ${customerName || $t.i19visitor}` }}
-          <AccountLink class="block py-1.5 rounded primary hover:primary-bold my-1">
+          <AccountLink role="button" class="ui-btn-sm ui-btn-primary block my-1">
             {{ $t.i19accessMyAccount }}
           </AccountLink>
-          <AccountLink
-            v-if="!isLogged"
-            class="block font-medium text-primary hover:text-primary-bold"
-            is-sign-up
-          >
+          <AccountLink v-if="!isLogged" is-sign-up class="ui-link block">
             {{ $t.i19createAnAccount }}
           </AccountLink>
         </div>

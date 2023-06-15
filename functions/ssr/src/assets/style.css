@@ -10,12 +10,32 @@ a, button, button > * {
     opacity var(--transition), transform var(--transition-fast);
 }
 
-.ui-btn {
-
-}
-.ui-title {
-  
-}
 .ui-link {
-  
+  @apply not-prose font-medium text-primary underline underline-offset-4
+  hover:text-primary-bold active:text-primary-subtle;
+}
+
+[class*=ui-btn] {
+  @apply not-prose inline-block text-base font-medium px-4 py-2 rounded
+  border-2 border-transparent active:ring-2;
+}
+.ui-btn-sm {
+  @apply text-sm px-3 py-1.5 border-1;
+}
+.ui-btn-lg {
+  @apply font-bold px-6 py-2.5 active:ring-3;
+}
+.ui-btn-primary {
+  @apply primary border-primary hover:primary-bold ring-primary/30;
+}
+.ui-btn-secondary {
+  @apply bg-secondary-100/50 text-secondary border-secondary
+  hover:secondary ring-secondary/30;
+}
+.ui-btn-contrast {
+  @apply bg-white text-primary hover:bg-primary-100 ring-white/30;
+}
+
+.ui-title {
+  @apply not-prose text-3xl xl:text-5xl font-brand font-black;
 }
