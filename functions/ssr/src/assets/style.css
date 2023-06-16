@@ -36,6 +36,9 @@ a, button, button > * {
   @apply bg-white text-primary hover:bg-primary-100 ring-white/30;
 }
 
+.ui-text-brand, .ui-title {
+  @apply font-brand font-black;
+}
 .ui-title {
-  @apply not-prose text-3xl xl:text-5xl font-brand font-black;
+  @apply not-prose text-3xl xl:text-5xl;
 }
