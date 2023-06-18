@@ -70,13 +70,13 @@
 </template>
 
 <script setup lang="ts">
-import type { CategoryTree } from '@@sf/composables/use-shop-header';
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
-import useShopHeaderSubmenu from '@@sf/composables/use-shop-header-submenu';
+import {
+  type Props as UseShopHeaderSubmenuProps,
+  useShopHeaderSubmenu,
+} from '@@sf/composables/use-shop-header-submenu';
 
-export interface Props {
-  categoryTree: CategoryTree;
-}
+export interface Props extends UseShopHeaderSubmenuProps {}
 
 const props = defineProps<Props>();
 const {

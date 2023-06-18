@@ -57,23 +57,14 @@
 </template>
 
 <script setup lang="ts">
-import useHeroSlider from '@@sf/composables/use-hero-slider';
+import {
+  type Props as UseHeroSliderProps,
+  useHeroSlider,
+} from '@@sf/composables/use-hero-slider';
 import Carousel from '@@sf/components/Carousel.vue';
 import CarouselControl from '@@sf/components/CarouselControl.vue';
 
-export interface Props {
-  autoplay?: number;
-  slides: Array<{
-    img?: string;
-    alt?: string;
-    mobileImg?: string;
-    href?: string;
-    title?: string;
-    subtitle?: string;
-    buttonLink?: string;
-    buttonText?: string;
-  }>;
-}
+export interface Props extends UseHeroSliderProps {}
 
 const props = defineProps<Props>();
 const { parsedSlides } = useHeroSlider(props);

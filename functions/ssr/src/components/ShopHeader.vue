@@ -73,20 +73,18 @@
 </template>
 
 <script setup lang="ts">
-import type { CategoriesList } from '@cloudcommerce/api/types';
 import { ref } from 'vue';
-import useShopHeader from '@@sf/composables/use-shop-header';
+import {
+  type Props as UseShopHeaderProps,
+  useShopHeader,
+} from '@@sf/composables/use-shop-header';
 import Drawer from '@@sf/components/Drawer.vue';
 import ShopSidenav from '~/components/ShopSidenav.vue';
 import ShopHeaderMenu from '~/components/ShopHeaderMenu.vue';
 import SearchModal from '~/components/SearchModal.vue';
 import AccountMenu from '~/components/AccountMenu.vue';
 
-export interface Props {
-  categories: CategoriesList;
-  menuCategorySlugs?: string[];
-  menuRandomCategories?: number;
-  isAlphabeticalSortSubmenu?: boolean;
+export interface Props extends Omit<UseShopHeaderProps, 'header'> {
   serviceLinks?: Array<{
     title: string;
     href: string;

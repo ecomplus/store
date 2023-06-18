@@ -39,17 +39,14 @@
 </template>
 
 <script setup lang="ts">
-import usePitchBar from '@@sf/composables/use-pitch-bar';
+import {
+  type Props as UsePitchBarProps,
+  usePitchBar,
+} from '@@sf/composables/use-pitch-bar';
 import Carousel from '@@sf/components/Carousel.vue';
 import CarouselControl from '@@sf/components/CarouselControl.vue';
 
-export interface Props {
-  slides: Array<{
-    href?: string;
-    target?: string;
-    html: string;
-  }>;
-}
+export interface Props extends UsePitchBarProps {}
 
 const props = defineProps<Props>();
 const {

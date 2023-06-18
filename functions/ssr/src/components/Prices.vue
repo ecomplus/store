@@ -65,16 +65,12 @@
 </template>
 
 <script setup lang="ts">
-import type { Products, ListPaymentsResponse } from '@cloudcommerce/types';
-import usePrices from '@@sf/composables/use-prices';
+import {
+  type Props as UsePricesProps,
+  usePrices,
+} from '@@sf/composables/use-prices';
 
-export interface Props {
-  product?: Partial<Products> & { price: number, final_price?: number };
-  price?: number;
-  basePrice?: number;
-  isAmountTotal?: boolean;
-  installmentsOption?: ListPaymentsResponse['installments_option'];
-  discountOption?: ListPaymentsResponse['discount_option'];
+export interface Props extends UsePricesProps {
   isBig?: boolean;
   isLiteral?: boolean;
   hasCashback?: boolean;
