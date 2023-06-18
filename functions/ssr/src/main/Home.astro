@@ -1,12 +1,13 @@
 ---
 import api from '@cloudcommerce/api';
-import useHomeMain from '@@sf/layouts/use-home-main';
+import useHeroSection from '@@sf/layouts/sections/use-hero-section';
 import HeroPicture from '@@sf/components/HeroPicture.astro';
 import HeroSlider from '~/components/HeroSlider.vue';
+import Sections from '~/main/Sections.astro';
 import Prices from '~/components/Prices.vue';
 
 const { routeContext } = Astro.locals;
-const { heroSlider } = await useHomeMain({ routeContext });
+const { heroSlider } = await useHeroSection({ routeContext });
 const heroSlides = heroSlider.slides;
 const products = (await api.get('products')).data.result;
 ---
@@ -27,6 +28,7 @@ const products = (await api.get('products')).data.result;
       <!-- https://github.com/withastro/astro/issues/5066#issuecomment-1277998365 -->
     </HeroSlider>
   }
+  <Sections />
 
   <h1>Welcome to <span class="text-primary">Astro</span></h1>
   <ul role="list" class="mt-3 fs-20">
