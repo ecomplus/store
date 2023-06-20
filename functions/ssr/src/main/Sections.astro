@@ -1,15 +1,15 @@
 ---
-import useSections from '@@sf/layouts/sections/use-sections';
+import usePageSections from '@@sf/layouts/main/use-page-sections';
 import ProductShelf from '~/components/ProductShelf.vue';
 
 const { routeContext } = Astro.locals;
-const { sections } = await useSections({ routeContext });
+const { sections } = await usePageSections({ routeContext });
 ---
 
 {sections.map(({ type, props }) => {
   switch (type) {
     case 'product-shelf':
-      return <ProductShelf {...props} />
+      return <ProductShelf {...props} client:visible />
     default:
       return <div data-section={type}></div>
   }

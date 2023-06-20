@@ -1,13 +1,13 @@
 ---
 import api from '@cloudcommerce/api';
-import useHeroSection from '@@sf/layouts/sections/use-hero-section';
+import usePageHero from '@@sf/layouts/main/use-page-hero';
 import HeroPicture from '@@sf/components/HeroPicture.astro';
 import HeroSlider from '~/components/HeroSlider.vue';
 import Sections from '~/main/Sections.astro';
 import Prices from '~/components/Prices.vue';
 
 const { routeContext } = Astro.locals;
-const { heroSlider } = await useHeroSection({ routeContext });
+const { heroSlider } = await usePageHero({ routeContext });
 const heroSlides = heroSlider.slides;
 const products = (await api.get('products')).data.result;
 ---
