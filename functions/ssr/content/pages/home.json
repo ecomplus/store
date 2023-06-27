@@ -34,7 +34,7 @@
     {
       "type": "product-shelf",
       "collection_id": null,
-      "sort": "offers",
+      "sort": "-price_discount",
       "title": "",
       "headless": false,
       "shuffle": false,
