@@ -8,7 +8,7 @@
         {{ title }}
       </template>
     </h2>
-    <ul>
+    <ul class="grid grid-cols-4">
       <li v-for="product in products" :key="product._id">
         <ProductCard :product="product" />
       </li>

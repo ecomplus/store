@@ -6,11 +6,13 @@ const { routeContext } = Astro.locals;
 const { sections } = await usePageSections({ routeContext });
 ---
 
-{sections.map(({ type, props }) => {
-  switch (type) {
-    case 'product-shelf':
-      return <ProductShelf {...props} client:visible />
-    default:
-      return <div data-section={type}></div>
-  }
-})}
+<article class="my-12">
+  {sections.map(({ type, props }) => {
+    switch (type) {
+      case 'product-shelf':
+        return <ProductShelf {...props} client:visible />
+      default:
+        return <div data-section={type}></div>
+    }
+  })}
+</article>
