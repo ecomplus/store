@@ -1,6 +1,6 @@
 {
-  "domain": "ecom2-002.web.app",
-  "name": "My Shop",
+  "domain": "ecom2-demo.web.app",
+  "name": "E-Com Plus demoStore",
   "description": "My PWA Shop",
   "logo": "/img/uploads/logo.png",
   "icon": "/img/uploads/ecom-icon.png",
