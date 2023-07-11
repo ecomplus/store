@@ -6,7 +6,7 @@ const { routeContext } = Astro.locals;
 const { sections } = await usePageSections({ routeContext });
 ---
 
-<article class="my-12">
+<article class="my-9 md:my-12">
   {sections.map(({ type, props }) => {
     switch (type) {
       case 'product-shelf':

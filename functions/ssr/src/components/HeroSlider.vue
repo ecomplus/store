@@ -40,12 +40,16 @@
         <div
           v-show="parsedSlides.length > 1"
           class="absolute z-10 bottom-5 flex justify-end items-center
-          w-screen xl:max-w-screen-xl xl:left-1/2 -ms-[640px]"
+          w-screen right-5 xl:right-auto xl:max-w-screen-xl xl:left-1/2 xl:-ms-[640px]"
         >
           <div class="relative w-20 h-10 rounded-full
             bg-white/50 text-primary shadow-sm ring-1 ring-black/5">
-            <CarouselControl class="w-10 h-10 rounded-full hover:bg-primary/10" is-prev />
-            <CarouselControl class="w-10 h-10 rounded-full hover:bg-primary/10" />
+            <CarouselControl class="w-10 h-10 rounded-full hover:bg-primary/10" is-prev>
+              <i class="i-arrow-left"></i>
+            </CarouselControl>
+            <CarouselControl class="w-10 h-10 rounded-full hover:bg-primary/10">
+              <i class="i-arrow-right"></i>
+            </CarouselControl>
           </div>
         </div>
       </template>
