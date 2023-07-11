@@ -1,6 +1,7 @@
 ---
 import loadRouteContext, { RouteContext } from '@@sf/ssr-context';
-import PagesLayout from '~/layouts/Pages.astro';
+import Base from '~/layouts/Base.astro';
+import PageHeader from '~/layouts/PageHeader.astro';
 import FallbackMain from '~/main/Fallback.astro';
 
 let routeContext: RouteContext;
@@ -15,7 +16,8 @@ try {
 
 <!DOCTYPE html>
 <html lang={routeContext?.lang.replace('_', '-')}>
-<PagesLayout>
+<Base>
+  <PageHeader />
   <FallbackMain />
-</PagesLayout>
+</Base>
 </html>

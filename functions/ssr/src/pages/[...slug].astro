@@ -1,7 +1,8 @@
 ---
 import api from '@cloudcommerce/api';
 import loadRouteContext, { RouteContext } from '@@sf/ssr-context';
-import PagesLayout from '~/layouts/Pages.astro';
+import Base from '~/layouts/Base.astro';
+import PageHeader from '~/layouts/PageHeader.astro';
 import WildcardMain from '~/main/Wildcard.astro';
 
 if (String(Astro.params.slug).endsWith('.css.map')) {
@@ -28,9 +29,10 @@ export async function getStaticPaths() {
 <!DOCTYPE html>
 <html lang={routeContext?.lang.replace('_', '-')}>
 {routeContext &&
-  <PagesLayout>
+  <Base>
+    <PageHeader />
     <WildcardMain />
-  </PagesLayout>
+  </Base>
 }
 {loadError && <Fragment set:html={loadError.responseHTML} />}
 </html>

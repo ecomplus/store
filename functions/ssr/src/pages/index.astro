@@ -1,6 +1,7 @@
 ---
 import loadRouteContext, { RouteContext } from '@@sf/ssr-context';
-import PagesLayout from '~/layouts/Pages.astro';
+import Base from '~/layouts/Base.astro';
+import PageHeader from '~/layouts/PageHeader.astro';
 import HomeMain from '~/main/Home.astro';
 
 let routeContext: RouteContext | undefined;
@@ -23,9 +24,10 @@ try {
 <!DOCTYPE html>
 <html lang={routeContext?.lang.replace('_', '-')}>
 {routeContext &&
-  <PagesLayout>
+  <Base>
+    <PageHeader />
     <HomeMain />
-  </PagesLayout>
+  </Base>
 }
 {loadError && <Fragment set:html={loadError.responseHTML} />}
 </html>
