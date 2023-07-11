@@ -44,10 +44,7 @@
         >
           <div class="relative w-20 h-10 rounded-full
             bg-white/50 text-primary shadow-sm ring-1 ring-black/5">
-            <CarouselControl
-              :direction="-1"
-              class="w-10 h-10 rounded-full hover:bg-primary/10"
-            />
+            <CarouselControl class="w-10 h-10 rounded-full hover:bg-primary/10" is-prev />
             <CarouselControl class="w-10 h-10 rounded-full hover:bg-primary/10" />
           </div>
         </div>

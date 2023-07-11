@@ -26,10 +26,7 @@
             v-show="countValidSlides > 1"
             class="text-xl leading-none text-base-400"
           >
-            <CarouselControl
-              :direction="-1"
-              class="pr-2 bg-base-100 hover:text-base-700"
-            />
+            <CarouselControl class="pr-2 bg-base-100 hover:text-base-700" is-prev />
             <CarouselControl class="pl-2 bg-base-100 hover:text-base-700" />
           </div>
         </template>
