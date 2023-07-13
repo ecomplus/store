@@ -17,11 +17,13 @@
           <template v-if="images?.length">
             <AImg
               :picture="images[0]"
+              :alt="title"
               class="absolute top-0 left-0 block w-full h-full object-cover"
             />
             <AImg
               v-if="images[1] && wasHoveredOnce"
               :picture="images[1]"
+              :alt="title"
               class="absolute top-0 left-0 block w-full h-full object-cover
               opacity-0 group-hover:opacity-100 transition-opacity
               motion-safe:duration-300 text-transparent z-10"
