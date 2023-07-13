@@ -47,7 +47,10 @@
             ></i>
           </template>
         </AccountMenu>
-        <button :aria-label="$t.i19openCart">
+        <button
+          :aria-label="$t.i19openCart"
+          @click="isCartOpen = !isCartOpen"
+        >
           <i class="i-shopping-cart w-7 h-7
             hover:text-primary hover:scale-110 active:scale-125"></i>
         </button>
@@ -69,6 +72,9 @@
     >
       <SearchModal />
     </Drawer>
+    <Drawer v-model="isCartOpen" placement="end">
+      <CartSidebar />
+    </Drawer>
   </header>
 </template>
 
@@ -83,6 +89,7 @@ import ShopSidenav from '~/components/ShopSidenav.vue';
 import ShopHeaderMenu from '~/components/ShopHeaderMenu.vue';
 import SearchModal from '~/components/SearchModal.vue';
 import AccountMenu from '~/components/AccountMenu.vue';
+import CartSidebar from '~/components/CartSidebar.vue';
 
 export interface Props extends Omit<UseShopHeaderProps, 'header'> {
   serviceLinks?: Array<{
@@ -101,4 +108,5 @@ const {
 } = useShopHeader({ ...props, header });
 const isSidenavOpen = ref(false);
 const isSearchOpen = ref(false);
+const isCartOpen = ref(false);
 </script>
