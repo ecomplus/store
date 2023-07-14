@@ -89,7 +89,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, watch, onMounted } from 'vue';
 import { totalItems } from '@@sf/state/shopping-cart';
 import {
   type Props as UseShopHeaderProps,
@@ -123,5 +123,10 @@ const isCartOpen = ref(false);
 const isMounted = ref(false);
 onMounted(() => {
   isMounted.value = true;
+  watch(totalItems, (newTotalItems, prevTotalItems) => {
+    if (prevTotalItems < newTotalItems) {
+      isCartOpen.value = true;
+    }
+  });
 });
 </script>
