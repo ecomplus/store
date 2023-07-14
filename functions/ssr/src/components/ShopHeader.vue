@@ -50,9 +50,13 @@
         <button
           :aria-label="$t.i19openCart"
           @click="isCartOpen = !isCartOpen"
+          class="relative group"
         >
-          <i class="i-shopping-cart w-7 h-7
-            hover:text-primary hover:scale-110 active:scale-125"></i>
+          <i class="i-shopping-cart w-7 h-7 group-hover:text-primary
+            group-hover:scale-110 group-active:scale-125"></i>
+          <span v-if="totalItems" class="ui-badge-sm absolute -top-1 -right-1.5">
+            {{ totalItems }}
+          </span>
         </button>
       </div>
     </div>
@@ -72,14 +76,21 @@
     >
       <SearchModal />
     </Drawer>
-    <Drawer v-model="isCartOpen" placement="end">
-      <CartSidebar />
-    </Drawer>
+    <Teleport v-if="isMounted" to="#teleported-overlap">
+      <Drawer
+        v-model="isCartOpen"
+        placement="end"
+        backdrop-target="#teleported-overlap"
+      >
+        <CartSidebar />
+      </Drawer>
+    </Teleport>
   </header>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import { totalItems } from '@@sf/state/shopping-cart';
 import {
   type Props as UseShopHeaderProps,
   useShopHeader,
@@ -109,4 +120,8 @@ const {
 const isSidenavOpen = ref(false);
 const isSearchOpen = ref(false);
 const isCartOpen = ref(false);
+const isMounted = ref(false);
+onMounted(() => {
+  isMounted.value = true;
+});
 </script>
