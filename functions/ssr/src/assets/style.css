@@ -42,3 +42,14 @@ a, button, button > * {
 .ui-title {
   @apply not-prose text-3xl xl:text-5xl;
 }
+
+[class*=ui-badge] {
+  @apply text-center px-1 rounded-full font-semibold
+  inline-block bg-secondary-200 text-secondary-900;
+}
+.ui-badge-sm {
+  @apply text-xs min-w-[1rem] px-0.5;
+}
+.ui-badge-lg {
+  @apply text-lg min-w-[1.75rem] px-2;
+}
