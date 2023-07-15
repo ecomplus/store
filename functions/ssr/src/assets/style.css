@@ -44,12 +44,15 @@ a, button, button > * {
 }
 
 [class*=ui-badge] {
-  @apply text-center px-1 rounded-full font-semibold
+  @apply text-center px-2.5 py-0.5 rounded-md font-semibold
   inline-block bg-secondary-200 text-secondary-900;
 }
-.ui-badge-sm {
+[class*=ui-badge-pill] {
+  @apply py-0 rounded-full;
+}
+.ui-badge-pill-sm {
   @apply text-xs min-w-[1rem] px-0.5;
 }
-.ui-badge-lg {
+.ui-badge-pill-lg {
   @apply text-lg min-w-[1.75rem] px-2;
 }

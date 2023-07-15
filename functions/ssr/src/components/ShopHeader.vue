@@ -54,7 +54,10 @@
         >
           <i class="i-shopping-cart w-7 h-7 group-hover:text-primary
             group-hover:scale-110 group-active:scale-125"></i>
-          <span v-if="totalItems" class="ui-badge-sm absolute -top-1 -right-1.5">
+          <span
+            v-if="totalItems"
+            class="ui-badge-pill-sm absolute -top-1 -right-1.5"
+          >
             {{ totalItems }}
           </span>
         </button>

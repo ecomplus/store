@@ -4,7 +4,7 @@
       <span class="text-right text-base text-base-600 font-medium">
         {{ $t.i19myShoppingCart }}
       </span>
-      <span class="ui-badge-lg">
+      <span class="ui-badge-pill-lg">
         {{ totalItems }}
       </span>
     </header>
