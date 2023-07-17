@@ -9,13 +9,19 @@
       </span>
     </header>
     <article class="grow bg-base-50 border-t-2 border-b-2 border-base-100">
-      <div
-        v-if="freeShippingFromValue"
-        class="secondary-subtle p-3 text-sm text-center"
-      >
-        {{ $t.i19add$1ToEarn.replace('$1',
-          $money(freeShippingFromValue - shoppingCart.subtotal)) }}
-        <strong class="lowercase">{{ $t.i19freeShipping }}</strong>
+      <div v-if="freeShippingFromValue" class="text-sm text-center">
+        <div
+          v-if="freeShippingFromValue > shoppingCart.subtotal"
+          class="p-3 secondary-subtle"
+        >
+          {{ $t.i19add$1ToEarn.replace('$1',
+            $money(freeShippingFromValue - shoppingCart.subtotal)) }}
+          <strong class="lowercase">{{ $t.i19freeShipping }}</strong>
+        </div>
+        <div v-else class="p-3 bg-success-50 text-success-800">
+          <i class="text-success-900 i-check mr-1"></i>
+          {{ $t.i19freeShippingFrom }} {{ $money(freeShippingFromValue) }}
+        </div>
       </div>
     </article>
     <footer class="p-5 shadow">
