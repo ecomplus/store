@@ -1,10 +1,10 @@
 <template>
   <section class="relative mx-auto">
-    <Carousel :autoplay="autoplay">
+    <Carousel :autoplay="autoplay" class="secondary [&>*]:items-center">
       <li
         v-for="(slide, i) in parsedSlides"
         :key="i"
-        class="shrink-0 basis-full h-full secondary"
+        class="shrink-0 basis-full"
       >
         <div
           class="w-screen max-w-screen-2xl mx-auto overflow-x-hidden"
