@@ -27,7 +27,7 @@
       <div v-if="cashbackValue && hasCashback" class="relative z-10">
         <span :data-tooltip="$t.i19get$1back
           .replace('$1', $percentage(cashbackPercentage))">
-          <i class="i-cashback mr-1"></i>
+          <i class="i-arrow-uturn-left mr-1"></i>
           <span class="font-medium">
             {{ $money(cashbackValue) }}
           </span>

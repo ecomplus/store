@@ -39,7 +39,7 @@
               class="block p-2"
               :class="active ? 'bg-base-100 text-primary' : null"
             >
-              <i class="i-favorites mr-1"></i>
+              <i class="i-heart mr-1"></i>
               {{ $t.i19myFavorites }}
             </AccountLink>
           </MenuItem>
@@ -67,7 +67,7 @@
           <MenuItem v-if="isLogged" as="li">
             <button @click="logout" class="p-2 text-right text-base-800">
               <span class="text-base-600">{{ $t.i19logout }}</span>
-              <i class="i-logout text-lg ml-1"></i>
+              <i class="i-arrow-right-on-rectangle text-lg ml-1"></i>
             </button>
           </MenuItem>
         </ul>

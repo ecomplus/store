@@ -19,7 +19,7 @@
         >
           <i
             class="text-base-500 text-3xl"
-            :class="isSidenavOpen ? 'i-close' : 'i-menu'"
+            :class="isSidenavOpen ? 'i-close' : 'i-bars-3-bottom-left'"
           ></i>
         </button>
       </div>
@@ -31,7 +31,7 @@
           :aria-label="$t.i19searchProducts"
           @click="isSearchOpen = !isSearchOpen"
         >
-          <i class="i-search w-7 h-7
+          <i class="i-magnifying-glass w-7 h-7
             hover:text-primary hover:scale-110 active:scale-125"></i>
         </button>
         <AccountMenu
@@ -41,7 +41,7 @@
         >
           <template #button="{ open }">
             <i
-              class="i-account w-7 h-7
+              class="i-user-circle w-7 h-7
               hover:text-primary hover:scale-110 active:scale-125"
               :class="open ? 'text-black scale-110' : null"
             ></i>
@@ -52,7 +52,7 @@
           @click="isCartOpen = !isCartOpen"
           class="relative group"
         >
-          <i class="i-shopping-cart w-7 h-7 group-hover:text-primary
+          <i class="i-shopping-bag w-7 h-7 group-hover:text-primary
             group-hover:scale-110 group-active:scale-125"></i>
           <span
             v-if="totalItems"

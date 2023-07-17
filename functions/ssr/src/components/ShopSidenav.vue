@@ -12,7 +12,7 @@
     <footer class="text-base">
       <div class="flex items-center px-2 py-4 bg-base-100">
         <AccountLink class="p-2 grow flex items-center gap-3">
-          <i class="i-account text-4xl text-base-500 m-0"></i>
+          <i class="i-user-circle text-4xl text-base-500 m-0"></i>
           <span class="leading-tight">
             {{ `${$t.i19hello} ${customerName || $t.i19visitor}` }}
             <small class="block lowercase font-semibold text-primary">
@@ -26,7 +26,7 @@
           class="p-2 text-right text-base-800"
         >
           <span class="text-base-600">{{ $t.i19logout }}</span>
-          <i class="i-logout text-lg ml-1"></i>
+          <i class="i-arrow-right-on-rectangle text-lg ml-1"></i>
         </button>
       </div>
       <ul class="flex gap-3 p-4 bg-base-200 text-xl text-base-700">
