@@ -35,18 +35,45 @@
           />
         </div>
       </div>
-      <div class="flex flex-col grow justify-between p-4
+      <span
+        v-if="discountPercentage"
+        class=":uno: absolute top-9 right-2
+        group-hover:scale-110 group-hover:translate-x-2 transition-transform
+        bg-secondary/70 text-on-secondary text-xs
+        py-0.5 pr-1.5 pl-3 [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)]"
+      >
+        -<strong>{{ discountPercentage }}</strong>%
+      </span>
+      <div class="relative flex flex-col grow justify-between p-4
         group-hover:backdrop-blur-md bg-white/40 z-10">
         <component
           :is="headingTag"
-          class="ui-link text-base-700 no-underline line-clamp-2"
-          :class="link ? 'group-hover:underline group-hover:text-primary' : null"
+          class="ui-link no-underline line-clamp-2"
+          :class="[
+            isActive ? 'text-base-700' : 'text-base-500',
+            link ? 'group-hover:underline group-hover:text-primary' : null,
+          ]"
         >
           {{ title }}
         </component>
         <div class="pt-2">
-          <Prices :product="product" />
+          <div v-if="isActive">
+            <Prices :product="product" />
+          </div>
+          <span v-else class="ui-badge bg-warning-100 text-warning-700">
+            {{ !isInStock ? $t.i19outOfStock : $t.i19inactive }}
+          </span>
         </div>
+        <button
+          v-if="isActive && !hasVariations"
+          class="ui-btn-sm ui-btn-primary
+          absolute -top-6 left-0 w-full rounded-none
+          opacity-0 group-hover:opacity-100 transition -z-10 group-hover:z-10"
+          @click.prevent="addProductToCart(product)"
+        >
+          <i class="i-plus-20-solid mr-0.5"></i>
+          {{ $t.i19addToCart }}
+        </button>
       </div>
     </component>
   </article>
@@ -55,6 +82,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { watchOnce, useElementHover } from '@vueuse/core';
+import { addProductToCart } from '@@sf/state/shopping-cart';
 import {
   type Props as UseProductCardProps,
   useProductCard,
@@ -73,6 +101,10 @@ const {
   title,
   link,
   images,
+  isInStock,
+  isActive,
+  discountPercentage,
+  hasVariations,
 } = useProductCard({
   product: props.product,
   productId: props.productId,
