@@ -55,10 +55,10 @@
           <i class="i-shopping-bag w-7 h-7 group-hover:text-primary
             group-hover:scale-110 group-active:scale-125"></i>
           <span
-            v-if="totalItems"
+            v-if="delayedTotalItems"
             class="ui-badge-pill-sm absolute -top-1 -right-1.5"
           >
-            {{ totalItems }}
+            {{ delayedTotalItems }}
           </span>
         </button>
       </div>
@@ -124,12 +124,14 @@ const isSidenavOpen = ref(false);
 const isSearchOpen = ref(false);
 const isCartOpen = ref(false);
 const isMounted = ref(false);
+const delayedTotalItems = ref(0);
 onMounted(() => {
   isMounted.value = true;
   watch(totalItems, (newTotalItems, prevTotalItems) => {
-    if (prevTotalItems < newTotalItems) {
+    if (prevTotalItems && prevTotalItems < newTotalItems) {
       isCartOpen.value = true;
     }
-  });
+    delayedTotalItems.value = newTotalItems;
+  }, { immediate: true });
 });
 </script>
