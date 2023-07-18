@@ -1,73 +1,29 @@
 ---
-import api from '@cloudcommerce/api';
 import usePageHero from '@@sf/layouts/main/use-page-hero';
-import HeroPicture from '@@sf/components/HeroPicture.astro';
+import Banner from '@@sf/components/Banner.astro';
 import HeroSlider from '~/components/HeroSlider.vue';
 import Sections from '~/main/Sections.astro';
-import Prices from '~/components/Prices.vue';
 
 const { routeContext } = Astro.locals;
 const { heroSlider } = await usePageHero({ routeContext });
 const heroSlides = heroSlider.slides;
-const products = (await api.get('products')).data.result;
 ---
 
 <main>
   {heroSlider.slides.length &&
     <HeroSlider {...heroSlider} client:load>
-      {heroSlides[0] && <HeroPicture slot="picture-0" {...heroSlides[0]} index={0} />}
-      {heroSlides[1] && <HeroPicture slot="picture-1" {...heroSlides[1]} index={1} />}
-      {heroSlides[2] && <HeroPicture slot="picture-2" {...heroSlides[2]} index={2} />}
-      {heroSlides[3] && <HeroPicture slot="picture-3" {...heroSlides[3]} index={3} />}
-      {heroSlides[4] && <HeroPicture slot="picture-4" {...heroSlides[4]} index={4} />}
-      {heroSlides[5] && <HeroPicture slot="picture-5" {...heroSlides[5]} index={5} />}
-      {heroSlides[6] && <HeroPicture slot="picture-6" {...heroSlides[6]} index={6} />}
-      {heroSlides[7] && <HeroPicture slot="picture-7" {...heroSlides[7]} index={7} />}
-      {heroSlides[8] && <HeroPicture slot="picture-8" {...heroSlides[8]} index={8} />}
-      {heroSlides[9] && <HeroPicture slot="picture-9" {...heroSlides[9]} index={9} />}
+      {heroSlides[0] && <Banner slot="picture-0" {...heroSlides[0]} index={0} />}
+      {heroSlides[1] && <Banner slot="picture-1" {...heroSlides[1]} index={1} />}
+      {heroSlides[2] && <Banner slot="picture-2" {...heroSlides[2]} index={2} />}
+      {heroSlides[3] && <Banner slot="picture-3" {...heroSlides[3]} index={3} />}
+      {heroSlides[4] && <Banner slot="picture-4" {...heroSlides[4]} index={4} />}
+      {heroSlides[5] && <Banner slot="picture-5" {...heroSlides[5]} index={5} />}
+      {heroSlides[6] && <Banner slot="picture-6" {...heroSlides[6]} index={6} />}
+      {heroSlides[7] && <Banner slot="picture-7" {...heroSlides[7]} index={7} />}
+      {heroSlides[8] && <Banner slot="picture-8" {...heroSlides[8]} index={8} />}
+      {heroSlides[9] && <Banner slot="picture-9" {...heroSlides[9]} index={9} />}
       <!-- https://github.com/withastro/astro/issues/5066#issuecomment-1277998365 -->
     </HeroSlider>
   }
   <Sections />
-
-  <h1>Welcome to <span class="text-primary">Astro</span></h1>
-  <ul role="list" class="mt-3 fs-20">
-    {products.map((product) => <li>
-      <a href={`/${product.slug}`}>{product.sku}</a>
-    </li>)}
-  </ul>
-  <div class="prose">
-    <h1>Oi</h1>
-    <p>Olá <a href="/">link</a></p>
-    <ul>
-      <li>So here is the first item in this list.</li>
-      <li>In this example we're keeping the items short.</li>
-      <li>Later, we'll use longer, more complex list items.</li>
-    </ul>
-    <details>
-      <summary role="button">Accordion 1</summary>
-      <p>…</p>
-    </details>
-  </div>
-  <div>
-    <h1>Oi</h1>
-    <p>Olá <a href="/">link</a></p>
-    <details>
-      <summary role="button">Accordion 1</summary>
-      <p>…</p>
-    </details>
-  </div>
-  <div class="mt-2">
-    <div>
-      <label class="block">
-        <span class="text-gray-700">Email address</span>
-        <input type="email" class="mt-1 block w-full" placeholder="john@example.com">
-      </label>
-      <label class="inline-flex items-center">
-        <input type="checkbox" checked />
-        <span class="ml-2 font-brand">Email me news and special offers</span>
-      </label>
-    </div>
-  </div>
-  <Prices price={10} client:load />
 </main>
