@@ -66,7 +66,7 @@
         </div>
         <button
           v-if="isActive && !hasVariations"
-          class="ui-btn-sm ui-btn-primary
+          class=":uno: hidden md:block ui-btn-sm ui-btn-primary
           absolute -top-6 left-0 w-full rounded-none
           opacity-0 group-hover:opacity-100 transition -z-10 group-hover:z-10"
           @click.prevent="addProductToCart(product)"
