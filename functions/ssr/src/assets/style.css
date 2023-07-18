@@ -37,7 +37,7 @@ a, button, button > * {
 }
 
 .ui-text-brand, .ui-title {
-  @apply font-brand font-black;
+  @apply font-brand font-black italic;
 }
 .ui-title {
   @apply not-prose text-3xl xl:text-5xl;
