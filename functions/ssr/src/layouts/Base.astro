@@ -3,15 +3,12 @@ import SfBase from '@@sf/layouts/Base.astro';
 import InlineScripts from '~/scripts/InlineScripts.astro';
 import '~/assets/style.css';
 import 'uno.css';
-
-export interface Props {
-  title?: string;
-}
-
-const { title } = Astro.props;
 ---
 
-<SfBase title={title}>
+<SfBase>
+  <Fragment slot="base-head">
+    <slot name="base-head" />
+  </Fragment>
   <InlineScripts slot="before-head-end" />
   <slot />
 </SfBase>
