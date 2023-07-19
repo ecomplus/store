@@ -1,5 +1,5 @@
 <template>
-  <section class="container mx-auto my-6 md:my-8">
+  <section class="ui-section">
     <div v-if="title" class="max-w-prose mx-auto text-center mb-2">
       <h2 class="ui-text-brand text-3xl">
         <ALink v-if="titleLink" :href="titleLink" class="ui-link">
@@ -21,14 +21,14 @@
       <template #controls>
         <div
           v-show="products.length > 2"
-          class="text-3xl lg:text-xl leading-none text-primary
+          class="text-3xl lg:text-2xl leading-none text-primary
           lg:opacity-0 group-hover/shelf:opacity-90 transition-opacity"
         >
-          <CarouselControl class="!top-1/2 lg:-left-2 w-10 h-10
-            bg-transparent lg:bg-white/80 lg:hover:bg-primary/10 rounded-full
+          <CarouselControl class="!top-1/2 !-left-4 w-12 h-12
+            bg-transparent lg:bg-white/80 lg:hover:bg-primary-300/60 rounded-full
             lg:shadow-sm lg:ring-1 ring-black/5" is-prev />
-          <CarouselControl class="!top-1/2 lg:-right-2 w-10 h-10
-            bg-transparent lg:bg-white/80 lg:hover:bg-primary/10 rounded-full
+          <CarouselControl class="!top-1/2 !-right-4 w-12 h-12
+            bg-transparent lg:bg-white/80 lg:hover:bg-primary-300/60 rounded-full
             lg:shadow-sm lg:ring-1 ring-black/5" />
         </div>
       </template>

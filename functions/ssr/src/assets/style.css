@@ -56,3 +56,7 @@ a, button, button > * {
 .ui-badge-pill-lg {
   @apply text-lg min-w-[1.75rem] px-2;
 }
+
+.ui-section {
+  @apply container mx-auto px-4 sm:px-0 my-6 md:my-8;
+}
