@@ -40,6 +40,24 @@
       "shuffle": false,
       "limit": 12,
       "page": 1
+    },
+    {
+      "type": "banners-grid",
+      "banners": [
+        {
+          "img": "/img/uploads/rect8589.png",
+          "href": "/banner-1"
+        },
+        {
+          "img": "/img/uploads/passion.webp",
+          "href": "/banner-2"
+        },
+        {
+          "img": "/img/uploads/rect89.webp",
+          "href": "/banner-3",
+          "mobile_img": "/img/uploads/headphone.webp"
+        }
+      ]
     }
   ]
 }

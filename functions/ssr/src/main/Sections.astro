@@ -1,5 +1,6 @@
 ---
-import usePageSections from '@@sf/layouts/main/use-page-sections';
+import { usePageSections } from '@@sf/layouts/use-page-main';
+import BannersGrid from '~/components/BannersGrid.astro';
 import ProductShelf from '~/components/ProductShelf.vue';
 
 const { routeContext } = Astro.locals;
@@ -11,6 +12,8 @@ const { sections } = await usePageSections({ routeContext });
     switch (type) {
       case 'product-shelf':
         return <ProductShelf {...props} client:visible />
+      case 'banners-grid':
+        return <BannersGrid {...props} />
       default:
         return <div data-section={type}></div>
     }

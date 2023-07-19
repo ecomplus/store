@@ -6,35 +6,14 @@
         :key="i"
         class="shrink-0 basis-full"
       >
-        <div
-          class="w-screen max-w-screen-2xl mx-auto overflow-x-hidden"
-          :class="slide.hasHeader ? 'grid grid-cols-1 md:grid-cols-2 items-center' : null"
+        <Banner
+          v-bind="{ ...slide, headingTag: i === 0 ? 'h2' : 'h3' }"
+          class="w-screen max-w-screen-2xl"
         >
-          <a
-            :href="slide.href"
-            :class="slide.hasHeader ? 'basis-1/2 grow-0 md:order-last' : null"
-          >
+          <template #picture>
             <slot :name="`picture-${i}`" />
-          </a>
-          <div
-            v-if="slide.hasHeader"
-            class="basis-1/2 grow-0 p-12 xl:ps-32 mb-3 md:mb-0"
-          >
-            <Component :is="i === 0 ? 'h2' : 'h3'" class="ui-title mt-1">
-              {{ slide.title }}
-            </Component>
-            <p v-if="slide.subtitle" class="text-lg mt-4 md:mt-6">
-              {{ slide.subtitle }}
-            </p>
-            <a
-              v-if="slide.buttonText"
-              :href="slide.buttonLink"
-              class="ui-btn-lg ui-btn-contrast min-w-[150px] mt-7 md:mt-10"
-            >
-              {{ slide.buttonText }}
-            </a>
-          </div>
-        </div>
+          </template>
+        </Banner>
       </li>
       <template #controls>
         <div
@@ -64,6 +43,7 @@ import {
 } from '@@sf/composables/use-hero-slider';
 import Carousel from '@@sf/components/Carousel.vue';
 import CarouselControl from '@@sf/components/CarouselControl.vue';
+import Banner from '~/components/Banner.vue';
 
 export interface Props extends UseHeroSliderProps {}
 

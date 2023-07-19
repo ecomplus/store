@@ -1,0 +1,25 @@
+---
+import type { Props as UseBannerProps } from '@@sf/composables/use-banner';
+import BannerPictures from '@@sf/components/BannerPictures.astro';
+import Banner from '~/components/Banner.vue';
+
+export type Props = {
+  title?: string;
+  titleLink?: string;
+  banners: UseBannerProps[];
+}
+
+const { banners } = Astro.props;
+---
+
+<section class="ui-section">
+  <ul class="flex flex-wrap lg:flex-nowrap gap-4">
+    {banners.map((banner) => (
+      <li class="lg:flex-1 [&_img]:w-full [&_img]:object-cover">
+        <Banner {...banner}>
+          <BannerPictures {...banner} slot="picture" />
+        </Banner>
+      </li>
+    ))}
+  </ul>
+</section>
