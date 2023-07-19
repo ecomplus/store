@@ -22,6 +22,10 @@
     - _Local padrão dos recursos do GCP_: mesma região do Firestore (`us-east4`);
     - _Configurações públicas > Nome exibido ao público_: O nome da sua loja;
     - _Configurações públicas > E-mail para suporte_ (opcional);
+    - Em _Seus aplicativos_ crie um app Web:
+        + Insira novamente o nome da loja e ativa Firebase Hosting para o novo app;
+        + Copie apenas o valor do objeto `firebaseConfig` e substitua em `functions/ssr/src/scripts/InlineScripts.astro`;
+        + Apenas clique em prosseguir nos próximos passos até confirmar e voltar para o console;
 
 5. O plano gratuito do Firebase não é compatível com o envio de solicitações HTTP externas, portanto você precisará fazer upgrade para o plano _Blaze_ (sob demanda) no canto inferior esquerdo do console do Firebase;
 

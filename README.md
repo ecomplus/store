@@ -22,6 +22,10 @@
     - _Default location for GCP resources_: Same Firestore region (`us-east4`);
     - _Public settings > Publicly displayed name_: Your store name;
     - _Public settings > Support email_ (optional);
+    - Under _Your apps_ create a new Web app:
+        + Re-enter the store name and enable Firebase Hosting for the new app;
+        + Copy only the value of the `firebaseConfig` object and replace at `functions/ssr/src/scripts/InlineScripts.astro`;
+        + Just click to continue in the next steps until confirmation and return to the console;
 
 5. Firebase free plan doesn't support sending external HTTP requests, so you'll need to upgrade to _Blaze_ (on demand) plan;
 
