@@ -2,7 +2,7 @@
   <section class="relative mx-auto">
     <Carousel :autoplay="autoplay" class="secondary [&>*]:items-center">
       <li
-        v-for="(slide, i) in parsedSlides"
+        v-for="(slide, i) in slides"
         :key="i"
         class="shrink-0 basis-full"
       >
@@ -17,7 +17,7 @@
       </li>
       <template #controls>
         <div
-          v-show="parsedSlides.length > 1"
+          v-show="slides.length > 1"
           class="absolute z-10 bottom-5 flex justify-end items-center
           w-screen right-5 xl:right-auto xl:max-w-screen-xl xl:left-1/2 xl:-ms-[640px]"
         >
@@ -37,16 +37,15 @@
 </template>
 
 <script setup lang="ts">
-import {
-  type Props as UseHeroSliderProps,
-  useHeroSlider,
-} from '@@sf/composables/use-hero-slider';
+import type { Props as UseBannerProps } from '@@sf/composables/use-banner';
 import Carousel from '@@sf/components/Carousel.vue';
 import CarouselControl from '@@sf/components/CarouselControl.vue';
 import Banner from '~/components/Banner.vue';
 
-export interface Props extends UseHeroSliderProps {}
+export type Props = {
+  autoplay?: number;
+  slides: UseBannerProps[];
+}
 
-const props = defineProps<Props>();
-const { parsedSlides } = useHeroSlider(props);
+defineProps<Props>();
 </script>
