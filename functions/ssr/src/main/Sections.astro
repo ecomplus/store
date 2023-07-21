@@ -4,7 +4,13 @@ import BannersGrid from '~/components/BannersGrid.astro';
 import ProductShelf from '~/components/ProductShelf.vue';
 
 const { routeContext } = Astro.locals;
-const { sections } = await usePageSections({ routeContext });
+const { sections } = await usePageSections({
+  routeContext,
+  handleCustomSection: async (type, content) => {
+    if (type === 'c:foo') return { props: { ...content, foo: 'bar' } };
+    return { props: content };
+  },
+});
 ---
 
 <article class="my-9 md:my-12">
@@ -14,6 +20,8 @@ const { sections } = await usePageSections({ routeContext });
         return <ProductShelf {...props} client:visible />
       case 'banners-grid':
         return <BannersGrid {...props} />
+      case 'c:foo':
+        return <div data-foo={props.foo}></div>
       default:
         return <div data-section={type}></div>
     }
