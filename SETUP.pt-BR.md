@@ -2,7 +2,7 @@
 
 [Cloud Commerce](https://github.com/ecomplus/cloud-commerce): template para nova loja
 
-[:us: English version](./README.md)
+[:us: English version](./SETUP.md)
 
 ## Começando
 
