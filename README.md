@@ -14,7 +14,7 @@
 npm i
 ```
 
-> **Note**
+> **Note**  
 > Check VS Code (highly) recommend extensions in _store/.vscode/extensions.json_
 
 ### Storefront
