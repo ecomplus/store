@@ -6,13 +6,15 @@
     <component
       :is="href ? 'a-link' : 'span'"
       :href="href"
-      :class="hasHeader ? 'basis-1/2 grow-0 md:order-last' : null"
+      :class="hasHeader
+        ? 'md:order-last [&_img]:aspect-[2.5] [&_img]:object-cover'
+        : '[&_img]:max-w-full'"
     >
       <slot name="picture" />
     </component>
     <div
       v-if="hasHeader"
-      class="basis-1/2 grow-0 p-12 xl:ps-32 mb-3 md:mb-0"
+      class="p-12 xl:ps-32 mb-3 md:mb-0"
     >
       <Component
         v-if="parsedTitle"
