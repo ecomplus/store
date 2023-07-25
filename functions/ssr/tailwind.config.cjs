@@ -5,6 +5,7 @@ const { genTailwindConfig } = require('@cloudcommerce/storefront/config/storefro
 
 const themeOptions = {
   // generalIcons: 'tabler',
+  // baseColor: 'zinc',
 };
 
 module.exports = {
