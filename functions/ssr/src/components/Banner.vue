@@ -1,21 +1,21 @@
 <template>
   <div
     class="mx-auto overflow-x-hidden"
-    :class="hasHeader ? 'grid grid-cols-1 md:grid-cols-2 items-center' : null"
+    :class="hasHeader ? 'grid grid-cols-1 sm:grid-cols-2 items-center' : null"
   >
     <component
       :is="href ? 'a-link' : 'span'"
       :href="href"
       :class="hasHeader
-        ? 'md:order-last [&_img]:max-w-full md:[&_img]:max-w-none'
-          + ' [&_img]:aspect-video md:[&_img]:aspect-[2.5] [&_img]:object-cover'
+        ? 'sm:order-last [&_img]:max-w-full sm:[&_img]:max-w-none'
+          + ' [&_img]:aspect-video sm:[&_img]:aspect-[2.5] [&_img]:object-cover'
         : '[&_img]:max-w-full'"
     >
       <slot name="picture" />
     </component>
     <div
       v-if="hasHeader"
-      class="p-12 xl:ps-32 mb-3 md:mb-0"
+      class="p-12 xl:ps-32 mb-3 sm:mb-0"
     >
       <Component
         v-if="parsedTitle"
