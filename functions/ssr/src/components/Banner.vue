@@ -7,7 +7,8 @@
       :is="href ? 'a-link' : 'span'"
       :href="href"
       :class="hasHeader
-        ? 'md:order-last [&_img]:aspect-[2.5] [&_img]:object-cover'
+        ? 'md:order-last [&_img]:max-w-full md:[&_img]:max-w-none'
+          + ' [&_img]:aspect-video md:[&_img]:aspect-[2.5] [&_img]:object-cover'
         : '[&_img]:max-w-full'"
     >
       <slot name="picture" />
