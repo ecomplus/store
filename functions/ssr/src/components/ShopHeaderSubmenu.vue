@@ -28,7 +28,7 @@
             </ul>
             <div
               v-for="(subcategory, i) in subcategoryCols"
-              :key="subcategory._id"
+              :key="i"
               class="flex-1"
             >
               <a :href="`/${subcategory.slug}`" class="hover:text-primary">

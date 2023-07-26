@@ -16,6 +16,7 @@
         <AImg
           v-if="!isOpen && categoryTree.icon"
           :picture="categoryTree.icon"
+          :alt="categoryTree.name"
           class="w-auto h-5 inline mr-3"
         />
         <h3 class="inline" :class="isOpen ? 'ml-4 text-base' : null">
@@ -28,8 +29,8 @@
         tabindex="-1"
       >
         <ShopSidenavCategory
-          v-for="subcategoryTree in categoryTree.subcategories"
-          :key="subcategoryTree._id"
+          v-for="(subcategoryTree, i) in categoryTree.subcategories"
+          :key="i"
           :category-tree="subcategoryTree"
         />
         <li>
@@ -50,6 +51,7 @@
       <AImg
         v-if="!isOpen && categoryTree.icon"
         :picture="categoryTree.icon"
+        :alt="categoryTree.name"
         class="w-auto h-5 inline mr-3"
       />
       <h3 class="inline">{{ categoryTree.name }}</h3>

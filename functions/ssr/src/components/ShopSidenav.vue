@@ -3,8 +3,8 @@
     <nav class="py-4 grow">
       <ul class="relative h-full">
         <ShopSidenavCategory
-          v-for="categoryTree in categoryTrees"
-          :key="categoryTree._id"
+          v-for="(categoryTree, i) in categoryTrees"
+          :key="i"
           :category-tree="categoryTree"
         />
       </ul>
