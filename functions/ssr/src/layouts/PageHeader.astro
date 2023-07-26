@@ -1,6 +1,6 @@
 ---
 import usePageHeader from '@@sf/layouts/use-page-header';
-import SharedData from '@@sf/components/SharedData.astro';
+import useSharedData from '@@sf/composables/use-shared-data';
 import Picture from '@@sf/components/Picture.astro';
 import PitchBar from '~/components/PitchBar.vue';
 import ShopHeader from '~/components/ShopHeader.vue';
@@ -12,13 +12,17 @@ const {
   pitchBar,
   shopHeader: { categories, ...shopHeader },
 } = await usePageHeader({ routeContext });
+const { inlineClientJS } = useSharedData({
+  field: 'categories',
+  value: categories?.map(({ _id, ...c }) => c),
+});
 ---
 
 <slot name="pitch-bar">
   {pitchBar.slides.length > 1 && <PitchBar {...pitchBar} client:idle />}
   {pitchBar.slides.length === 1 && <PitchBar {...pitchBar} />}
 </slot>
-<SharedData field="categories" value={categories?.map(({ _id, ...c }) => c)} />
+<script is:inline set:html={inlineClientJS} />
 <ShopHeader {...shopHeader} client:load>
   <Fragment slot="logo">
     <a href="/">
