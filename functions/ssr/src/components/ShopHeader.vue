@@ -34,11 +34,7 @@
           <i class="i-magnifying-glass w-7 h-7
             hover:text-primary hover:scale-110 active:scale-125"></i>
         </button>
-        <AccountMenu
-          class="hidden sm:block"
-          :aria-label="$t.i19myAccount"
-          :service-links="serviceLinks"
-        >
+        <AccountMenu :service-links="serviceLinks" class="hidden sm:block">
           <template #button="{ open }">
             <i
               class="i-user-circle w-7 h-7
