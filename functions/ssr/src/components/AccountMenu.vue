@@ -83,7 +83,7 @@ import {
   MenuItems,
   MenuItem,
 } from '@headlessui/vue';
-import { socialNetworks } from '@@sf/server-data';
+import { socialNetworks } from '@@sf/sf-lib';
 import {
   customerName,
   initializeFirebaseAuth,

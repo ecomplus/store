@@ -47,7 +47,7 @@ import {
   isLogged,
   logout,
 } from '@@sf/state/customer-session';
-import { socialNetworks } from '@@sf/server-data';
+import { socialNetworks } from '@@sf/sf-lib';
 import AccountLink from '@@sf/components/AccountLink.vue';
 import SocialNetworkLink from '@@sf/components/SocialNetworkLink.vue';
 import ShopSidenavCategory from '~/components/ShopSidenavCategory.vue';
