@@ -71,7 +71,10 @@
           opacity-0 group-hover:opacity-100 transition -z-10 group-hover:z-10"
           @click.prevent="addProductToCart(product)"
         >
-          <i class="i-plus-20-solid mr-0.5"></i>
+          <span class="inline-block h-4 w-4 leading-none text-base text-center
+            bg-on-primary text-primary opacity-80 rounded-full mr-1">
+            &plus;
+          </span>
           {{ $t.i19addToCart }}
         </button>
       </div>
@@ -105,10 +108,7 @@ const {
   isActive,
   discountPercentage,
   hasVariations,
-} = useProductCard({
-  product: props.product,
-  productId: props.productId,
-} as UseProductCardProps);
+} = useProductCard(props as UseProductCardProps);
 const card = ref<HTMLElement | null>(null);
 const isHovered = useElementHover(card);
 const wasHoveredOnce = ref(false);
