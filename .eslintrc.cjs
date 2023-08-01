@@ -1,3 +1,3 @@
 module.exports = {
-  extends: './functions/ssr/node_modules/@cloudcommerce/storefront/.base.eslintrc.cjs',
+  extends: './node_modules/@cloudcommerce/eslint/base.eslintrc.cjs',
 };

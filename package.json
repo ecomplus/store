@@ -24,5 +24,9 @@
   },
   "dependencies": {
     "@cloudcommerce/cli": "^0.22.4"
+  },
+  "devDependencies": {
+    "@cloudcommerce/eslint": "^0.22.4",
+    "eslint": "^8.46.0"
   }
 }
