@@ -38,7 +38,7 @@
       <Prices
         :base-price="cartItem.base_price"
         :price="finalPrice"
-        class="p-3"
+        class="px-4 py-2.5 text-[95%]"
       />
     </div>
   </article>

@@ -5,7 +5,7 @@
     :class="isBig ? 'text-lg' : null"
     data-prices
   >
-    <span v-if="comparePrice" class="text-base-500 mr-1 [font-size:87%]">
+    <span v-if="comparePrice" class="text-base-500 mr-1 text-[87%]">
       <small v-if="isLiteral">
         {{ `${$t.i19from} ` }}
       </small>

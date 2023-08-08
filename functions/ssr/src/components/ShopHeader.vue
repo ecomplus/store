@@ -81,7 +81,7 @@
         placement="end"
         backdrop-target="#teleported-overlap"
       >
-        <CartSidebar />
+        <CartSidebar @close="isCartOpen = false" />
       </Drawer>
     </Teleport>
   </header>
