@@ -124,7 +124,7 @@ const delayedTotalItems = ref(0);
 onMounted(() => {
   isMounted.value = true;
   watch(totalItems, (newTotalItems, prevTotalItems) => {
-    if (newTotalItems && (!prevTotalItems || prevTotalItems < newTotalItems)) {
+    if (typeof prevTotalItems === 'number' && prevTotalItems < newTotalItems) {
       isCartOpen.value = true;
     }
     delayedTotalItems.value = newTotalItems;
