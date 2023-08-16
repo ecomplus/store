@@ -3,6 +3,7 @@ import loadRouteContext, { RouteContext } from '@@sf/ssr-context';
 import BaseHead from '@@sf/layouts/BaseHead.astro';
 import Base from '~/layouts/Base.astro';
 import PageHeader from '~/layouts/PageHeader.astro';
+import PageFooter from '~/layouts/PageFooter.astro';
 import HomeMain from '~/main/Home.astro';
 
 let routeContext: RouteContext | undefined;
@@ -29,6 +30,7 @@ try {
     <BaseHead slot="base-head" />
     <PageHeader />
     <HomeMain />
+    <PageFooter />
   </Base>
 }
 {loadError && <Fragment set:html={loadError.responseHTML} />}
