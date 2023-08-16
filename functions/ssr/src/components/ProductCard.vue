@@ -14,7 +14,7 @@
         motion-safe:group-hover:scale-110 transition-transform">
         <div class="relative w-full h-full bg-white rounded overflow-hidden
           group-hover:rounded-none">
-          <template v-if="images?.length">
+          <span v-if="images?.length" class="text-xs text-opacity-70">
             <AImg
               :picture="images[0]"
               :alt="title"
@@ -28,7 +28,7 @@
               opacity-0 group-hover:opacity-100 transition-opacity
               motion-safe:duration-300 text-transparent z-10"
             />
-          </template>
+          </span>
           <div
             v-else
             class="w-full h-full bg-gradient-to-br from-base-50/20 to-base-100"
