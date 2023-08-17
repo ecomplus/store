@@ -4,8 +4,8 @@ process.env.STOREFRONT_BASE_DIR = __dirname;
 const { genTailwindConfig } = require('@cloudcommerce/storefront/config/storefront.tailwind.cjs');
 
 const themeOptions = {
-  // generalIcons: 'tabler',
   // baseColor: 'zinc',
+  // generalIconSets: ['tabler'],
 };
 
 module.exports = {
