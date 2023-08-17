@@ -1,10 +1,6 @@
 <template>
   <article class="relative bg-white shadow-sm">
-    <component
-      :is="link ? 'ALink' : 'div'"
-      :href="link"
-      class="flex items-center gap-5 p-4 group"
-    >
+    <ALink :href="link" class="flex items-center gap-5 p-4 group">
       <AImg
         v-if="image"
         :picture="image"
@@ -15,7 +11,7 @@
         group-hover:text-base-900 group-hover:underline">
         {{ title }}
       </p>
-    </component>
+    </ALink>
     <button
       v-if="cartItem._id"
       @click.prevent="removeCartItem(cartItem._id)"

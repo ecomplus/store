@@ -2,12 +2,9 @@
   <section class="ui-section">
     <div v-if="title" class="max-w-prose mx-auto text-center mb-2">
       <h2 class="ui-text-brand text-3xl">
-        <ALink v-if="titleLink" :href="titleLink" class="ui-link">
+        <ALink :href="titleLink" :class="titleLink ? 'ui-link' : 'text-base-700'">
           {{ title }}
         </ALink>
-        <span v-else class="text-base-700">
-          {{ title }}
-        </span>
       </h2>
     </div>
     <Carousel class="group/shelf">

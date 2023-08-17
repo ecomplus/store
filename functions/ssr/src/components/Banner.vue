@@ -3,8 +3,7 @@
     class="mx-auto overflow-x-hidden"
     :class="hasHeader ? 'grid grid-cols-1 sm:grid-cols-2 items-center' : null"
   >
-    <component
-      :is="href ? 'a-link' : 'span'"
+    <ALink
       :href="href"
       :class="hasHeader
         ? 'sm:order-last [&_img]:max-w-full sm:[&_img]:max-w-none'
@@ -12,7 +11,7 @@
         : '[&_img]:max-w-full'"
     >
       <slot name="picture" />
-    </component>
+    </ALink>
     <div
       v-if="hasHeader"
       class="p-12 xl:ps-32 mb-3 sm:mb-0"
@@ -27,14 +26,13 @@
       <p v-if="parsedSubtitle" class="text-lg mt-4 md:mt-6">
         {{ parsedSubtitle }}
       </p>
-      <component
+      <ALink
         v-if="parsedButtonText"
-        :is="buttonLink ? 'a-link' : 'span'"
         :href="buttonLink"
         class="ui-btn-lg ui-btn-contrast min-w-[150px] mt-7 md:mt-10"
       >
         {{ parsedButtonText }}
-      </component>
+      </ALink>
     </div>
   </div>
 </template>

@@ -7,8 +7,7 @@
           :key="i"
           class="shrink-0 basis-full h-full text-center"
         >
-          <component
-            :is="slide.href ? 'ALink' : 'span'"
+          <ALink
             :href="slide.href"
             :target="slide.target"
             class="inline-block px-8"
@@ -19,7 +18,7 @@
               v-html="parsedContents[i]"
               class="prose text-sm text-base-800"
             ></span>
-          </component>
+          </ALink>
         </li>
         <template #controls>
           <div

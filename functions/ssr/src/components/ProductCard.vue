@@ -4,8 +4,7 @@
     :data-sku="product.sku"
     class="relative h-full max-w-[350px] mx-auto py-3 group"
   >
-    <component
-      :is="link ? 'ALink' : 'span'"
+    <ALink
       :href="link"
       class="flex flex-col h-full rounded overflow-hidden
       group-hover:shadow group-hover:ring-1 ring-black/5"
@@ -78,7 +77,7 @@
           {{ $t.i19addToCart }}
         </button>
       </div>
-    </component>
+    </ALink>
   </article>
 </template>
 

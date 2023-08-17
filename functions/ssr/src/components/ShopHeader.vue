@@ -34,7 +34,7 @@
           <i class="i-magnifying-glass w-7 h-7
             hover:text-primary hover:scale-110 active:scale-125"></i>
         </button>
-        <AccountMenu :service-links="serviceLinks" class="hidden sm:block">
+        <AccountMenu class="hidden sm:block">
           <template #button="{ open }">
             <i
               class="i-user-circle w-7 h-7
@@ -101,12 +101,7 @@ import SearchModal from '~/components/SearchModal.vue';
 import AccountMenu from '~/components/AccountMenu.vue';
 import CartSidebar from '~/components/CartSidebar.vue';
 
-export interface Props extends Omit<UseShopHeaderProps, 'header'> {
-  serviceLinks?: Array<{
-    title: string;
-    href: string;
-  }>;
-}
+export interface Props extends Omit<UseShopHeaderProps, 'header'> {}
 
 const props = defineProps<Props>();
 const header = ref<HTMLElement | null>(null);

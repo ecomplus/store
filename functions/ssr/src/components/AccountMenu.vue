@@ -46,7 +46,7 @@
           <MenuItem
             as="li"
             v-slot="{ active }"
-            v-for="({ title, href }, i) in serviceLinks"
+            v-for="({ title, href }, i) in $settings.service_links"
             :key="`s-${i}`"
           >
             <ALink
@@ -92,13 +92,4 @@ import {
 } from '@@sf/state/customer-session';
 import AccountLink from '@@sf/components/AccountLink.vue';
 import SocialNetworkLink from '@@sf/components/SocialNetworkLink.vue';
-
-export interface Props {
-  serviceLinks?: Array<{
-    title: string;
-    href: string;
-  }>;
-}
-
-defineProps<Props>();
 </script>
