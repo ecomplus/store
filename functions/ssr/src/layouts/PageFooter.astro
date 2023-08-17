@@ -5,12 +5,8 @@ import ShopFooter from '~/components/ShopFooter.vue';
 const { routeContext } = Astro.locals;
 const layoutContent = await routeContext.getContent('layout');
 const {
-  service_links: serviceLinks,
-  footer: {
-    stamps,
-    payment_methods: paymentMethods,
-  },
+  footer: { stamps },
 } = layoutContent;
 ---
 
-<ShopFooter {serviceLinks} {stamps} {paymentMethods} />
+<ShopFooter {stamps} />
