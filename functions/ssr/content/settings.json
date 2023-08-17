@@ -21,6 +21,22 @@
   "youtube": "https://www.youtube.com/channel/UCBlIxK5JAub0E1EX_qHdzmA",
   "tiktok": "",
   "pinterest": "",
+  "threads": "",
+  "service_links": [
+    {
+      "title": "Fale conosco",
+      "href": "/pages/contato"
+    }
+  ],
+  "payment_methods": [
+    "pix",
+    "visa",
+    "mastercard",
+    "elo",
+    "amex",
+    "hipercard",
+    "boleto"
+  ],
   "modules": {
     "list_payments": {
       "installments_option": {

@@ -26,12 +26,6 @@
     },
     "alphabetical_sort_submenu": false
   },
-  "service_links": [
-    {
-      "title": "Fale conosco",
-      "href": "/pages/contato"
-    }
-  ],
   "footer": {
     "stamps": [
       {
@@ -46,15 +40,6 @@
         "icon": "check",
         "href": "https://transparencyreport.google.com/safe-browsing/search?{domain}"
       }
-    ],
-    "payment_methods": [
-      "pix",
-      "visa",
-      "mastercard",
-      "elo",
-      "amex",
-      "hipercard",
-      "boleto"
     ]
   }
 }
