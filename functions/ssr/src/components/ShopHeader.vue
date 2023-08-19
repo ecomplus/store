@@ -73,7 +73,14 @@
       :has-close-button="false"
       placement="top"
     >
-      <SearchModal />
+      <Suspense>
+        <SearchModal v-if="isSearchOpenOnce" />
+        <template #fallback>
+          <div class="container mx-auto">
+            <Skeleton class="p-6" is-large />
+          </div>
+        </template>
+      </Suspense>
     </Drawer>
     <Teleport v-if="isMounted" to="#teleported-overlap">
       <Drawer
@@ -81,14 +88,25 @@
         placement="end"
         backdrop-target="#teleported-overlap"
       >
-        <CartSidebar @close="isCartOpen = false" />
+        <Suspense>
+          <CartSidebar v-if="isCartOpenOnce" @close="isCartOpen = false" />
+          <template #fallback>
+            <Skeleton class="pt-16 px-6" is-bold />
+          </template>
+        </Suspense>
       </Drawer>
     </Teleport>
   </header>
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onMounted } from 'vue';
+import {
+  ref,
+  watch,
+  onMounted,
+  defineAsyncComponent,
+} from 'vue';
+import { watchOnce } from '@vueuse/core';
 import { totalItems } from '@@sf/state/shopping-cart';
 import {
   type Props as UseShopHeaderProps,
@@ -97,12 +115,12 @@ import {
 import Drawer from '@@sf/components/Drawer.vue';
 import ShopSidenav from '~/components/ShopSidenav.vue';
 import ShopHeaderMenu from '~/components/ShopHeaderMenu.vue';
-import SearchModal from '~/components/SearchModal.vue';
 import AccountMenu from '~/components/AccountMenu.vue';
-import CartSidebar from '~/components/CartSidebar.vue';
 
 export interface Props extends Omit<UseShopHeaderProps, 'header'> {}
 
+const SearchModal = defineAsyncComponent(() => import('~/components/SearchModal.vue'));
+const CartSidebar = defineAsyncComponent(() => import('~/components/CartSidebar.vue'));
 const props = defineProps<Props>();
 const header = ref<HTMLElement | null>(null);
 const {
@@ -113,7 +131,15 @@ const {
 } = useShopHeader({ ...props, header });
 const isSidenavOpen = ref(false);
 const isSearchOpen = ref(false);
+const isSearchOpenOnce = ref(false);
+watchOnce(isSearchOpen, () => {
+  isSearchOpenOnce.value = true;
+});
 const isCartOpen = ref(false);
+const isCartOpenOnce = ref(false);
+watchOnce(isCartOpen, () => {
+  isCartOpenOnce.value = true;
+});
 const isMounted = ref(false);
 const delayedTotalItems = ref(0);
 onMounted(() => {
