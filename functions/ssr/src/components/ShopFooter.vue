@@ -7,7 +7,7 @@
     </div>
     <div class="ui-section">
       <div class="flex justify-between items-start gap-5">
-        <ul class="flex flex-wrap gap-y-4 gap-x-6 lg:gap-x-8">
+        <ul class="flex flex-wrap gap-y-3 gap-x-6 lg:gap-x-8">
           <li v-for="(stamp, i) in stamps" :key="i">
             <ALink :href="stamp.href?.replace('{domain}', $settings.domain || '')">
               <slot :name="`picture-${i}`" />
@@ -18,7 +18,7 @@
                 >
                   <i v-if="stamp.icon === 'lock'" class="i-lock-closed"></i>
                   <i v-else-if="stamp.icon === 'check'" class="i-check-badge"></i>
-                  <i v-else class="text-secondary i-arrow-path-rounded-square"></i>
+                  <i v-else class="text-base-400 i-arrow-path-rounded-square"></i>
                 </span>
                 <span class="text-sm font-medium text-base-600 max-w-[140px]">
                   {{ stamp.alt }}
@@ -31,8 +31,8 @@
             </ALink>
           </li>
         </ul>
-        <div class="flex flex-wrap justify-end items-center gap-4
-          text-3xl md:text-2xl">
+        <div class="flex flex-wrap md:flex-nowrap justify-end items-center
+          gap-4 text-3xl md:text-2xl">
           <PaymentMethodFlag
             v-for="paymentMethod in $settings.payment_methods"
             :key="paymentMethod"
@@ -40,7 +40,7 @@
           />
         </div>
       </div>
-      <div class="mt-4 lg:mt-6 text-xs text-center md:text-left
+      <div class="mt-6 text-xs text-center md:text-left
         md:flex justify-between gap-4">
         <div class="mb-3 md:mb-0">
           @ {{ new Date().getFullYear() }} {{ $settings.corporate_name }}
