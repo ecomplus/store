@@ -30,15 +30,21 @@
     "stamps": [
       {
         "img": "",
-        "alt": "Conexão SSL",
-        "icon": "lock",
-        "href": ""
+        "alt": "Troca garantida",
+        "icon": "exchange",
+        "href": "/p/trocas"
       },
       {
         "img": "",
         "alt": "Google Navegação Segura",
         "icon": "check",
         "href": "https://transparencyreport.google.com/safe-browsing/search?{domain}"
+      },
+      {
+        "img": "",
+        "alt": "Conexão SSL",
+        "icon": "lock",
+        "href": ""
       }
     ]
   }

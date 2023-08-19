@@ -1,12 +1,29 @@
 ---
 import { filterMainCategories } from '@@sf/composables/use-shop-header';
+import Picture from '@@sf/components/Picture.astro';
 import ShopFooter from '~/components/ShopFooter.vue';
 
 const { routeContext } = Astro.locals;
-const layoutContent = await routeContext.getContent('layout');
+const { settings, getContent, isHomepage } = routeContext;
+const LogoHeading = isHomepage ? 'h2' : 'h3';
+const layoutContent = await getContent('layout');
 const {
   footer: { stamps },
 } = layoutContent;
 ---
 
-<ShopFooter {stamps} />
+<ShopFooter {stamps}>
+  <Fragment slot="logo">
+    <a href="/">
+      <LogoHeading>
+        <Picture
+          src={settings.logo}
+          alt={settings.name}
+          widths={[300]}
+          loading="lazy"
+          class="max-w-[150px] mx-auto"
+        />
+      </LogoHeading>
+    </a>
+  </Fragment>
+</ShopFooter>
