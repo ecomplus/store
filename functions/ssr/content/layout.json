@@ -38,7 +38,7 @@
         "img": "",
         "alt": "Google Navegação Segura",
         "icon": "check",
-        "href": "https://transparencyreport.google.com/safe-browsing/search?{domain}"
+        "href": "https://transparencyreport.google.com/safe-browsing/search?url={domain}"
       },
       {
         "img": "",
