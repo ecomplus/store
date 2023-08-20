@@ -14,17 +14,18 @@
               <span v-if="!stamp.img" class="flex items-center">
                 <span
                   v-if="stamp.icon"
-                  class="text-4xl text-success-400 mr-2"
+                  class="text-4xl mr-2
+                  [&>*]:bg-gradient-to-br [&>*]:from-success-200 [&>*]:to-success-700"
                 >
                   <i v-if="stamp.icon === 'lock'" class="i-lock-closed"></i>
                   <i v-else-if="stamp.icon === 'check'" class="i-check-badge"></i>
-                  <i v-else class="text-base-400 i-arrow-path-rounded-square"></i>
+                  <i v-else class="i-arrow-path-rounded-square"></i>
                 </span>
                 <span class="text-sm font-medium text-base-600 max-w-[140px]">
                   {{ stamp.alt }}
                   <i
                     v-if="stamp.href && stamp.href.charAt(0) !== '/'"
-                    class="ml-0.5 i-arrow-top-right-on-square"
+                    class="bg-base-400 ml-0.5 i-arrow-top-right-on-square"
                   ></i>
                 </span>
               </span>
