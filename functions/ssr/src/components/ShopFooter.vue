@@ -2,7 +2,17 @@
   <footer class="w-screen bg-base-50 border-t border-base-100 py-2">
     <div class="ui-section">
       <div class="pb-7 border-b border-base-200 flex">
-        <slot name="logo" />
+        <div class="text-base">
+          <slot name="logo" />
+          <p class="my-3">
+            {{ $settings.description }}
+          </p>
+          <div class="flex gap-2 text-base-500">
+            <span v-for="(href, network) in socialNetworks" :key="network">
+              <SocialNetworkLink :network="network" class="p-1 hover:text-primary" />
+            </span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="ui-section">
@@ -58,6 +68,8 @@
 
 <script setup lang="ts">
 import type { LayoutContent } from '@@sf/content';
+import { socialNetworks } from '@@sf/sf-lib';
+import SocialNetworkLink from '@@sf/components/SocialNetworkLink.vue';
 import PaymentMethodFlag from '@@sf/components/PaymentMethodFlag.vue';
 
 export interface Props {
