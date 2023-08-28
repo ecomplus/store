@@ -58,5 +58,5 @@ a, button, button > * {
 }
 
 .ui-section {
-  @apply container mx-auto px-4 sm:px-2 my-6 md:my-8;
+  @apply container 2xl:max-w-7xl mx-auto px-4 sm:px-2 my-6 md:my-8;
 }

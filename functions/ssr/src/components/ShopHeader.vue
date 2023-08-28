@@ -7,8 +7,8 @@
       isSticky ? 'backdrop-blur-md shadow py-2 md:py-3' : 'py-3 sm:py-4 md:py-5',
     ]"
   >
-    <div class="container 2xl:max-w-7xl
-      mx-auto px-1 lg:pr-3 lg:pl-5 xl:pr-7 xl:pl-9 2xl:pr-0 2xl:pl-2
+    <div class="w-screen lg:w-[calc(100vw-1rem)] xl:max-w-[82rem] 2xl:max-w-[85rem]
+      mx-auto px-1 sm:pl-2 sm:pr-2.5 lg:px-1
       flex md:grid grid-flow-col grid-cols-3 lg:grid-cols-none lg:auto-cols-max
       justify-between items-center">
       <div class="basis-1/4 lg:hidden">
