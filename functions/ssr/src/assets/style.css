@@ -17,7 +17,7 @@ a, button, button > * {
 
 [class*=ui-btn] {
   @apply not-prose inline-block text-base font-medium px-4 py-2 rounded
-  border-2 border-transparent active:ring-2;
+  border-2 border-transparent focus:ring-1 focus:ring-offset-1 active:ring-2;
 }
 .ui-btn-sm {
   @apply text-sm px-3 py-1.5 border-1;
@@ -58,5 +58,5 @@ a, button, button > * {
 }
 
 .ui-section {
-  @apply container mx-auto px-4 sm:px-0 my-6 md:my-8;
+  @apply container mx-auto px-4 sm:px-2 my-6 md:my-8;
 }
