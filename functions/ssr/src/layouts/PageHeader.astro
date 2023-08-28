@@ -12,7 +12,7 @@ const {
   pitchBar,
   shopHeader: { categories, ...shopHeader },
 } = await usePageHeader({ routeContext });
-const { inlineClientJS } = useSharedData({
+const { inlineClientJS } = await useSharedData({
   field: 'categories',
   value: categories?.map(({ _id, ...c }) => c),
 });
