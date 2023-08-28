@@ -1,18 +1,57 @@
 ---
 import { filterMainCategories } from '@@sf/composables/use-shop-header';
+import useSharedData from '@@sf/composables/use-shared-data';
 import Picture from '@@sf/components/Picture.astro';
-import ShopFooter from '~/components/ShopFooter.vue';
+import {
+  type Props as ShopFooterProps,
+  default as ShopFooter,
+} from '~/components/ShopFooter.vue';
 
 const { routeContext } = Astro.locals;
 const { settings, getContent, isHomepage } = routeContext;
 const LogoHeading = isHomepage ? 'h2' : 'h3';
 const layoutContent = await getContent('layout');
 const {
-  footer: { stamps },
+  footer: {
+    stamps,
+    categories_list: categoriesList,
+    pages_list: pagesList,
+  },
 } = layoutContent;
+let mainCategories: ShopFooterProps['categories'];
+let pageLinks: ShopFooterProps['pageLinks'];
+if (categoriesList?.enabled) {
+  if (categoriesList.categories?.length) {
+    mainCategories = categoriesList.categories;
+  } else {
+    // Will wait and reuse categories loaded from <PageHeader>
+    const { value: categories } = await useSharedData({ field: 'categories' });
+    mainCategories = filterMainCategories(categories);
+  }
+}
+if (pagesList?.enabled) {
+  if (pagesList.links?.length) {
+    pageLinks = pagesList.links;
+  } else {
+    pageLinks = [];
+    const pageSlugs = await getContent('extra-pages/');
+    for (let i = 0; i < pageSlugs.length; i++) {
+      const { title } = await getContent(`extra-pages/${pageSlugs[i]}`);
+      if (title) {
+        pageLinks.push({ title, href: `/p/${pageSlugs[i]}` });
+      }
+    }
+  }
+}
 ---
 
-<ShopFooter {stamps}>
+<ShopFooter
+  {stamps}
+  categories={mainCategories}
+  categoriesColTitle={categoriesList?.title}
+  {pageLinks}
+  pagesColTitle={pagesList?.title}
+>
   <Fragment slot="logo">
     <a href="/">
       <LogoHeading>
