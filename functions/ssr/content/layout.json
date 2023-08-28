@@ -27,6 +27,16 @@
     "alphabetical_sort_submenu": false
   },
   "footer": {
+    "categories_list": {
+      "enabled": true,
+      "title": "",
+      "categories": []
+    },
+    "pages_list": {
+      "enabled": true,
+      "title": "",
+      "links": []
+    },
     "stamps": [
       {
         "img": "",

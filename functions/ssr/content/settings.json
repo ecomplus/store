@@ -6,8 +6,8 @@
   "icon": "/img/uploads/ecom-icon.png",
   "primary_color": "#37003c",
   "email": "",
-  "phone": "",
-  "address": "",
+  "phone": "(31) 9 8272-1558",
+  "address": "ABC IED",
   "corporate_name": "",
   "doc_number": "",
   "lang": "pt_br",
@@ -25,7 +25,7 @@
   "service_links": [
     {
       "title": "Fale conosco",
-      "href": "/pages/contato"
+      "href": "/p/contato"
     }
   ],
   "payment_methods": [
