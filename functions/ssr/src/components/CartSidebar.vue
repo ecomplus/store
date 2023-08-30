@@ -37,11 +37,7 @@
         <div class="col-span-2">
           {{ $t.i19subtotal }}
         </div>
-        <Prices
-          :price="shoppingCart.subtotal"
-          is-literal
-          class="col-span-3 text-lg"
-        />
+        <Prices :price="shoppingCart.subtotal" class="col-span-3 text-lg" />
       </div>
       <CheckoutLink class="ui-btn-lg ui-btn-primary w-full text-right my-2.5">
         <i class="i-check mr-2"></i>
