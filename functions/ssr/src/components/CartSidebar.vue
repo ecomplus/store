@@ -33,12 +33,14 @@
       </ul>
     </article>
     <footer class="px-5 pt-4 pb-3 ring-2 ring-black/5 z-10">
-      <div class="grid grid-cols-2 gap-3 items-center text-right">
-        <div>{{ $t.i19subtotal }}</div>
+      <div class="grid grid-cols-5 gap-3 items-center text-right">
+        <div class="col-span-2">
+          {{ $t.i19subtotal }}
+        </div>
         <Prices
           :price="shoppingCart.subtotal"
-          :is-literal="true"
-          class="text-lg"
+          is-literal
+          class="col-span-3 text-lg"
         />
       </div>
       <CheckoutLink class="ui-btn-lg ui-btn-primary w-full text-right my-2.5">
