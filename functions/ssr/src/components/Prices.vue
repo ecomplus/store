@@ -1,9 +1,12 @@
 <template>
   <div
-    class="text-base-600
-      [&>div]:[font-size:90%] [&_small]:lowercase [&_small]:[font-size:92%]"
-    :class="isBig ? 'text-lg' : null"
-    data-prices
+    class="text-base-600 [&_small]:lowercase"
+    :class="[
+      isBig ? 'text-lg' : null,
+      isLiteral
+        ? '[&>div]:[font-size:87%] [&_small]:[font-size:89%]'
+        : '[&>div]:[font-size:90%] [&_small]:[font-size:92%]',
+    ]"
   >
     <span v-if="comparePrice" class="text-base-500 mr-1 text-[87%]">
       <small v-if="isLiteral">
@@ -46,7 +49,7 @@
         </small>
         <span>{{ $money(installmentValue) }}</span>
         <small v-if="!monthlyInterest && isLiteral">
-          {{ $t.i19interestFree }}
+          {{ ` ${$t.i19interestFree}` }}
         </small>
       </div>
     </Fade>
