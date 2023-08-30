@@ -14,7 +14,7 @@
     </ALink>
     <button
       v-if="cartItem._id"
-      @click.prevent="removeCartItem(cartItem._id)"
+      @click.stop="removeCartItem(cartItem._id)"
       class="absolute top-0 right-0 p-2 opacity-70 hover:opacity-100"
       :aria-label="$t.i19remove"
     >

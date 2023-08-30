@@ -145,8 +145,12 @@ const delayedTotalItems = ref(0);
 onMounted(() => {
   isMounted.value = true;
   watch(totalItems, (newTotalItems, prevTotalItems) => {
-    if (typeof prevTotalItems === 'number' && prevTotalItems < newTotalItems) {
-      isCartOpen.value = true;
+    if (typeof prevTotalItems === 'number') {
+      if (prevTotalItems < newTotalItems) {
+        isCartOpen.value = true;
+      } else if (prevTotalItems && !newTotalItems) {
+        isCartOpen.value = false;
+      }
     }
     delayedTotalItems.value = newTotalItems;
   }, { immediate: true });
