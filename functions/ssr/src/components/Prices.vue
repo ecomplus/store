@@ -1,12 +1,8 @@
 <template>
   <div
-    class="text-base-600 [&_small]:lowercase"
-    :class="[
-      isBig ? 'text-lg' : null,
-      isLiteral
-        ? '[&>div]:[font-size:87%] [&_small]:[font-size:89%]'
-        : '[&>div]:[font-size:90%] [&_small]:[font-size:92%]',
-    ]"
+    class="text-base-600
+      [&>div]:[font-size:90%] [&_small]:[font-size:92%] [&_small]:lowercase"
+    :class="isBig ? 'text-lg' : null"
   >
     <span v-if="comparePrice" class="text-base-500 mr-1 text-[87%]">
       <small v-if="isLiteral">
