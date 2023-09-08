@@ -18,14 +18,14 @@
   "main": "index.js",
   "dependencies": {
     "@astrojs/node": "5.3.6",
-    "@cloudcommerce/api": "^0.26.2",
-    "@cloudcommerce/firebase": "^0.26.2",
-    "@cloudcommerce/ssr": "^0.26.2",
-    "astro": "2.10.14"
+    "@cloudcommerce/api": "^0.26.3",
+    "@cloudcommerce/firebase": "^0.26.3",
+    "@cloudcommerce/ssr": "^0.26.3",
+    "astro": "2.10.15"
   },
   "devDependencies": {
-    "@cloudcommerce/i18n": "^0.26.2",
-    "@cloudcommerce/storefront": "^0.26.2",
-    "@cloudcommerce/types": "^0.26.2"
+    "@cloudcommerce/i18n": "^0.26.3",
+    "@cloudcommerce/storefront": "^0.26.3",
+    "@cloudcommerce/types": "^0.26.3"
   }
 }
