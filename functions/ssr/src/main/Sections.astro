@@ -2,6 +2,7 @@
 import { usePageSections } from '@@sf/layouts/use-page-main';
 import BannersGrid from '~/components/BannersGrid.astro';
 import ProductShelf from '~/components/ProductShelf.vue';
+import Breadcrumbs from '~/components/Breadcrumbs.astro';
 
 const { routeContext } = Astro.locals;
 const { sections } = await usePageSections({
@@ -20,6 +21,8 @@ const { sections } = await usePageSections({
         return <ProductShelf {...props} client:visible />
       case 'banners-grid':
         return <BannersGrid {...props} />
+      case 'breadcrumbs':
+        return <Breadcrumbs {...props} />
       case 'c:foo':
         return <div data-foo={props.foo}></div>
       default:

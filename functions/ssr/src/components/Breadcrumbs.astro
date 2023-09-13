@@ -1,0 +1,37 @@
+---
+import {
+  type Props as UseBreadcrumbsProps,
+  useBreadcrumbs,
+} from '@@sf/composables/use-breadcrumbs';
+
+export interface Props extends UseBreadcrumbsProps {}
+
+const { breadcrumbs, inlineJSONLd } = await useBreadcrumbs(Astro.props);
+---
+
+{breadcrumbs.length > 0 &&
+  <section class="ui-section-slim">
+    <nav aria-label="Breadcrumb" class="overflow-x-auto text-lg md:text-sm">
+      <ol class="flex items-center gap-1 text-base-600">
+        <li>
+          <a href="/" class="hover:text-primary">
+            <span class="sr-only"> Home </span>
+            <i class="i-home"></i>
+          </a>
+        </li>
+        {breadcrumbs.map(({ name, link }, i) => 
+          <li class="text-base-300">
+            <i class="i-chevron-right"></i>
+          </li>
+          <li class="whitespace-nowrap">
+            {i + 1 < breadcrumbs.length
+              ? <a href={link} class="hover:text-primary">{name}</a>
+              : <span class="text-base-500">{name}</span>
+            }
+          </li>
+        )}
+      </ol>
+    </nav>
+    {inlineJSONLd && <script type="application/ld+json" set:html={inlineJSONLd} />}
+  </section>
+}
