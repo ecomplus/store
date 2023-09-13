@@ -115,3 +115,15 @@ npm run deploy
     - `ECOM_STORE_ID`: Copie seu _Store ID_ no [admin da E-Com Plus](https://ecomplus.app/)
     - `ECOM_AUTHENTICATION_ID`: Copie seu _Authentication ID_ no [admin da E-Com Plus](https://ecomplus.app/)
     - `ECOM_API_KEY`: Copie seu _API Key_ no [admin da E-Com Plus](https://ecomplus.app/)
+
+## Práticas recomendadas de produção
+
+O CDN do Firebase Hosting é rápido, mas [não suporta _Stale-While-Revalidate_](https://firebase.google.com/docs/hosting/manage-cache) ([contexto e feature request](https://firebase.uservoice.com/forums/948424-general/suggestions/47179505-hosting-cdn-cache-stale-while-revalidate)) e Hosting proxy + Cloud Functions (mesmo sem cold starts) nunca leva menos que 1s (TTFB provavelmente vai bater ~2s). Nós gostamos de respostas "instantâneas" mas queremos manter views dinâmicas renderizadas em servidor (por menos client-side JS), então stale caching é necessário e portanto precisamos de outra camada de CDN em produção.
+
+[Cloudflare](https://www.cloudflare.com/) Worker é recomendado na frente do Firebase Hosting + Functions para lojas em produção (quando apontando o domínio próprio) com as configurações abaixo:
+
+- SSL full;
+- Page rule para \*/\* (qualquer rota) com _Cache Level: Cache Everything_;
+- [_Cache Reserve_](https://www.cloudflare.com/products/cache-reserve/) com Tiered Cache;
+- Entrada A no DNS com **proxy ativo** apontando para o IP do seu projeto no Firebase Hosting;
+- Worker _swr_ com o código (_quick edit_) copiado de [`cloud-commerce/packages/ssr/cloudflare/swr-worker.js`](https://raw.githubusercontent.com/ecomplus/cloud-commerce/main/packages/ssr/cloudflare/swr-worker.js).
