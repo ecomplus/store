@@ -28,7 +28,7 @@ const {
         return <BannersGrid {...props} />
       case 'breadcrumbs':
         await fetchingApiContext;
-        return <Breadcrumbs {...props} />
+        return apiDoc && <Breadcrumbs {...props} {apiDoc} />
       case 'doc-description':
         await fetchingApiContext;
         return apiDoc && <DocDescription {apiDoc} />
