@@ -1,18 +1,11 @@
 ---
-const { fetchingApiContext, apiContext } = Astro.locals.routeContext;
+import Sections from '~/main/Sections.astro';
+
+const { fetchingApiContext } = Astro.locals.routeContext;
 
 await fetchingApiContext;
-const apiDoc = apiContext.doc;
 ---
 
 <main>
-  {apiDoc &&
-    <h1>Hello <span class="text-gradient">{apiDoc.name}</span></h1>
-    <hr>
-    <div class="mt-3">
-      <mark>{apiDoc._id}</mark> from <i>{apiContext.resource}</i>
-      <p>{Math.random()}</p>
-      <em>Lorem ipsum dolor sit amet</em>
-    </div>
-  }
+  <Sections />
 </main>

@@ -26,7 +26,9 @@ if (categoriesList?.enabled) {
   } else {
     // Will wait and reuse categories loaded from <PageHeader>
     const { value: categories } = await useSharedData({ field: 'categories' });
-    mainCategories = filterMainCategories(categories);
+    if (categories) {
+      mainCategories = filterMainCategories(categories);
+    }
   }
 }
 if (pagesList?.enabled) {

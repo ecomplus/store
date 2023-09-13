@@ -1,9 +1,9 @@
 ---
-import api from '@cloudcommerce/api';
 import loadRouteContext, { RouteContext } from '@@sf/ssr-context';
 import BaseHead from '@@sf/layouts/BaseHead.astro';
 import Base from '~/layouts/Base.astro';
 import PageHeader from '~/layouts/PageHeader.astro';
+import PageFooter from '~/layouts/PageFooter.astro';
 import WildcardMain from '~/main/Wildcard.astro';
 
 if (String(Astro.params.slug).endsWith('.css.map')) {
@@ -20,11 +20,6 @@ try {
   }
   loadError = err;
 }
-
-export async function getStaticPaths() {
-  return (await api.get('products?sort=-sales&limit=4&fields=slug'))
-    .data.result.map(({ slug }) => ({ params: { slug } }));
-}
 ---
 
 <!DOCTYPE html>
@@ -34,6 +29,7 @@ export async function getStaticPaths() {
     <BaseHead slot="base-head" />
     <PageHeader />
     <WildcardMain />
+    <PageFooter />
   </Base>
 }
 {loadError && <Fragment set:html={loadError.responseHTML} />}
