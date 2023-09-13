@@ -57,6 +57,12 @@ a, button, button > * {
   @apply text-lg min-w-[1.75rem] px-2;
 }
 
-.ui-section {
+[class*=ui-section] {
   @apply container 2xl:max-w-7xl mx-auto px-4 sm:px-2 my-6 md:my-8;
+}
+.ui-section {
+  @apply sm:px-2 my-6 md:my-8;
+}
+.ui-section-slim {
+  @apply my-3;
 }
