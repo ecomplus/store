@@ -4,7 +4,7 @@ import BaseHead from '@@sf/layouts/BaseHead.astro';
 import Base from '~/layouts/Base.astro';
 import PageHeader from '~/layouts/PageHeader.astro';
 import PageFooter from '~/layouts/PageFooter.astro';
-import WildcardMain from '~/main/Wildcard.astro';
+import Sections from '~/main/Sections.astro';
 
 if (String(Astro.params.slug).endsWith('.css.map')) {
   return new Response(null, { status: 404 });
@@ -28,7 +28,7 @@ try {
   <Base>
     <BaseHead slot="base-head" />
     <PageHeader />
-    <WildcardMain />
+    <Sections />
     <PageFooter />
   </Base>
 }

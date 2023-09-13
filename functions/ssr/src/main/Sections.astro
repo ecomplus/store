@@ -3,6 +3,7 @@ import { usePageSections } from '@@sf/layouts/use-page-main';
 import BannersGrid from '~/components/BannersGrid.astro';
 import ProductShelf from '~/components/ProductShelf.vue';
 import Breadcrumbs from '~/components/Breadcrumbs.astro';
+import DocDescription from '~/components/DocDescription.astro';
 
 const { routeContext } = Astro.locals;
 const { sections } = await usePageSections({
@@ -12,17 +13,25 @@ const { sections } = await usePageSections({
     return { props: content };
   },
 });
+const {
+  fetchingApiContext,
+  apiContext: { doc: apiDoc },
+} = routeContext;
 ---
 
 <article class="my-9 md:my-12">
-  {sections.map(({ type, props }) => {
+  {sections.map(async ({ type, props }) => {
     switch (type) {
       case 'product-shelf':
         return <ProductShelf {...props} client:visible />
       case 'banners-grid':
         return <BannersGrid {...props} />
       case 'breadcrumbs':
+        await fetchingApiContext;
         return <Breadcrumbs {...props} />
+      case 'doc-description':
+        await fetchingApiContext;
+        return apiDoc && <DocDescription {apiDoc} />
       case 'c:foo':
         return <div data-foo={props.foo}></div>
       default:
