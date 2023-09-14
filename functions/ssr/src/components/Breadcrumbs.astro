@@ -11,7 +11,7 @@ const { breadcrumbs, inlineJSONLd } = await useBreadcrumbs(Astro.props);
 
 {breadcrumbs.length > 0 &&
   <section class="ui-section-slim">
-    <nav aria-label="Breadcrumb" class="overflow-x-auto text-lg md:text-sm">
+    <nav aria-label="Breadcrumb" class="w-full overflow-hidden text-lg md:text-sm">
       <ol class="flex items-center gap-1 text-base-600">
         <li>
           <a href="/" class="hover:text-primary">
@@ -20,15 +20,22 @@ const { breadcrumbs, inlineJSONLd } = await useBreadcrumbs(Astro.props);
           </a>
         </li>
         {breadcrumbs.map(({ name, link }, i) => 
-          <li class="text-base-300">
-            <i class="i-chevron-right"></i>
-          </li>
-          <li class="whitespace-nowrap">
+          <>
             {i + 1 < breadcrumbs.length
-              ? <a href={link} class="hover:text-primary">{name}</a>
-              : <span class="text-base-500">{name}</span>
+              ? <li class="text-base-300">
+                  <i class="i-chevron-right"></i>
+                </li>
+                <li class="whitespace-nowrap">
+                  <a href={link} class="hover:text-primary">{name}</a>
+                </li>
+              : <li class="hidden lg:block text-base-300">
+                  <i class="i-chevron-right"></i>
+                </li>
+                <li class="hidden lg:block whitespace-nowrap overflow-hidden text-ellipsis">
+                  <span class="text-base-500">{name}</span>
+                </li>
             }
-          </li>
+          </>
         )}
       </ol>
     </nav>
