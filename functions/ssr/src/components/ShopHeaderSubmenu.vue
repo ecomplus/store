@@ -3,9 +3,10 @@
     <PopoverButton class="outline-none">
       <slot name="button" v-bind="{ open }" />
     </PopoverButton>
-    <div class="relative">
+    <div class="relative" ref="panel">
       <Fade>
         <PopoverPanel
+          v-slot="{ close }"
           class="absolute z-20 top-3 left-1/2 -translate-x-1/2 !transform
           px-6 py-4 rounded shadow bg-white text-base text-base-700"
           :class="countMenuCols === 1 ? 'w-60'
@@ -62,6 +63,7 @@
           >
             {{ $t.i19seeAll$1Category.replace('$1', categoryTree.name) }}
           </a>
+          <button ref="close" @click.stop="close" class="hidden"></button>
         </PopoverPanel>
       </Fade>
     </div>
@@ -69,6 +71,8 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import { onClickOutside } from '@vueuse/core';
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
 import {
   type Props as UseShopHeaderSubmenuProps,
@@ -84,4 +88,7 @@ const {
   subcategoryCols,
   countMenuCols,
 } = useShopHeaderSubmenu(props);
+const panel = ref(null);
+const close = ref<HTMLElement | null>(null);
+onClickOutside(panel, () => close.value?.click());
 </script>
