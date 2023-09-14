@@ -13,10 +13,7 @@ const { sections } = await usePageSections({
     return { props: content };
   },
 });
-const {
-  fetchingApiContext,
-  apiContext: { doc: apiDoc },
-} = routeContext;
+const { fetchingApiContext, apiContext } = routeContext;
 ---
 
 <article class="my-9 md:my-12">
@@ -28,10 +25,10 @@ const {
         return <BannersGrid {...props} />
       case 'breadcrumbs':
         await fetchingApiContext;
-        return apiDoc && <Breadcrumbs {...props} {apiDoc} />
+        return apiContext.doc && <Breadcrumbs {...props} apiDoc={apiContext.doc} />
       case 'doc-description':
         await fetchingApiContext;
-        return apiDoc && <DocDescription {apiDoc} />
+        return apiContext.doc && <DocDescription apiDoc={apiContext.doc} />
       case 'c:foo':
         return <div data-foo={props.foo}></div>
       default:
