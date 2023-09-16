@@ -64,7 +64,10 @@
       :has-close-button="false"
       position="absolute"
       :class="isSticky ? 'mt-2 md:mt-3' : 'mt-3 sm:mt-4 md:mt-5'"
-      :style="{ height: `calc(100vh - ${positionY}px + .5rem)` }"
+      :style="{
+        height: `calc(100vh - ${positionY}px + .5rem)`,
+        maxHeight: `calc(100dvh - ${positionY}px + .5rem)`,
+      }"
     >
       <ShopSidenav class="bg-white pt-6" v-bind="{ categoryTrees }" />
     </Drawer>
