@@ -1,4 +1,5 @@
 ---
+import api from '@cloudcommerce/api';
 import loadRouteContext, { RouteContext } from '@@sf/ssr-context';
 import BaseHead from '@@sf/layouts/BaseHead.astro';
 import Base from '~/layouts/Base.astro';
@@ -19,6 +20,11 @@ try {
     return err.astroResponse;
   }
   loadError = err;
+}
+
+export async function getStaticPaths() {
+  return (await api.get('products?sort=-sales&limit=4&fields=slug'))
+    .data.result.map(({ slug }) => ({ params: { slug } }));
 }
 ---
 
