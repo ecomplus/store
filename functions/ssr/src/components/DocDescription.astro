@@ -19,12 +19,13 @@ const html = apiDoc.body_html || apiDoc.body_text;
 
 {html &&
   <section class="ui-section">
-    <p class="text-2xl font-medium lowercase text-base-700">
-      <a href="#description" id="description">
-        <i class="i-link text-base-400 mr-1"></i>
-        {title || i19description}
-      </a>
-    </p>
-    <ContentClearfix html={html} />
+    <details class="[&_i]:open:rotate-180" open>
+      <summary role="button" class={`list-none text-2xl font-medium lowercase
+        text-base-700 hover:text-base-800 [&>i]:hover:text-primary`}>
+        <i class="i-chevron-down mr-1"></i>
+        <span>{title || i19description}</span>
+      </summary>
+      <ContentClearfix html={html} />
+    </details>
   </section>
 }
