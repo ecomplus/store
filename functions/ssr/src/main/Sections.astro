@@ -3,7 +3,8 @@ import { usePageSections } from '@@sf/layouts/use-page-main';
 import BannersGrid from '~/components/BannersGrid.astro';
 import ProductShelf from '~/components/ProductShelf.vue';
 import Breadcrumbs from '~/components/Breadcrumbs.astro';
-import DocDescription from '~/components/DocDescription.astro';
+import DocDescription from '~/components/DocDescription.vue';
+import ProductDetails from '~/components/ProductDetails.vue';
 
 const { routeContext } = Astro.locals;
 const { sections } = await usePageSections({
@@ -15,7 +16,6 @@ const { sections } = await usePageSections({
 });
 /* `apiContext` is surelly set here (from Wildcard.astro)
 cause route resource is required to define sections from content. */
-const { apiContext: { doc: apiDoc } } = routeContext;
 ---
 
 <article class="my-9 md:my-12">
@@ -26,9 +26,11 @@ const { apiContext: { doc: apiDoc } } = routeContext;
       case 'banners-grid':
         return <BannersGrid {...props} />
       case 'breadcrumbs':
-        return apiDoc && <Breadcrumbs {...props} apiDoc={apiDoc} />
+        return <Breadcrumbs {...props} />
       case 'doc-description':
-        return apiDoc && <DocDescription apiDoc={apiDoc} />
+        return <DocDescription {...props} />
+      case 'product-details':
+        return <ProductDetails {...props} client:load />
       case 'c:foo':
         return <div data-foo={props.foo}></div>
       default:
