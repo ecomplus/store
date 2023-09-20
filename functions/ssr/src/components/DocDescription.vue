@@ -18,7 +18,6 @@ import type {
   Brands,
   Collections,
 } from '@cloudcommerce/api/types';
-import { computed } from 'vue';
 import ContentClearfix from '@@sf/components/ContentClearfix.vue';
 
 export interface Props {

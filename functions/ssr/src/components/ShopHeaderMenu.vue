@@ -44,7 +44,6 @@
 
 <script setup lang="ts">
 import type { CategoryTree } from '@@sf/composables/use-shop-header';
-import { computed } from 'vue';
 import ShopHeaderSubmenu from '~/components/ShopHeaderSubmenu.vue';
 
 export interface Props {

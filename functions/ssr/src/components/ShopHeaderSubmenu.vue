@@ -71,7 +71,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
 import {

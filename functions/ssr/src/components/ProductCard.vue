@@ -82,7 +82,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import { watchOnce, useElementHover } from '@vueuse/core';
 import { addProductToCart } from '@@sf/state/shopping-cart';
 import {
