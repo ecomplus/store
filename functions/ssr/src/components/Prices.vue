@@ -1,7 +1,7 @@
 <template>
   <div
     class="text-base-600
-      [&>div]:[font-size:90%] [&_small]:[font-size:92%] [&_small]:lowercase"
+      [&>div]:[font-size:90%] [&_small]:lowercase [&_small]:[font-size:92%]"
     :class="isBig ? 'text-lg' : null"
   >
     <span v-if="comparePrice" class="text-base-500 mr-1 text-[87%]">
@@ -14,7 +14,7 @@
       </small>
     </span>
     <strong
-      class="inline-block text-base-800"
+      class="text-base-800 inline-block"
       :class="isBig ? 'text-5xl block' : null"
     >
       <small v-if="hasVariedPrices">

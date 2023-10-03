@@ -7,14 +7,14 @@
       <Fade>
         <PopoverPanel
           v-slot="{ close }"
-          class="absolute z-20 top-3 left-1/2 -translate-x-1/2 !transform
-          px-6 py-4 rounded shadow bg-white text-base text-base-700"
+          class="text-base-700 absolute left-1/2 top-3 z-20 -translate-x-1/2
+          !transform rounded bg-white px-6 py-4 text-base shadow"
           :class="countMenuCols === 1 ? 'w-60'
             : countMenuCols === 2 ? `w-screen ${(categoryPicture ? 'max-w-lg' : 'max-w-sm')}`
             : countMenuCols === 3 ? `w-screen ${(categoryPicture ? 'max-w-xl' : 'max-w-md')}`
             : countMenuCols < 6 ? 'w-screen max-w-3xl' : 'w-screen max-w-5xl'"
         >
-          <div class="flex gap-6 w-full">
+          <div class="flex w-full gap-6">
             <ul v-if="subcategoryLinks.length" class="flex-1">
               <li
                 v-for="(subcategory, i) in subcategoryLinks"
@@ -34,7 +34,7 @@
               <a :href="`/${subcategory.slug}`" class="hover:text-primary">
                 <h3>{{ subcategory.name }}</h3>
               </a>
-              <ul class="text-sm text-base-600 mt-1 mb-1.5">
+              <ul class="text-base-600 mb-1.5 mt-1 text-sm">
                 <li
                   v-for="(nestedSubcategory, ii) in subcategory.subcategories"
                   :key="`${i}-${ii}`"
@@ -59,7 +59,7 @@
           </div>
           <a
             :href="`/${categoryTree.slug}`"
-            class="block mt-1 text-xs text-base-600 leading-snug underline"
+            class="text-base-600 mt-1 block text-xs leading-snug underline"
           >
             {{ $t.i19seeAll$1Category.replace('$1', categoryTree.name) }}
           </a>

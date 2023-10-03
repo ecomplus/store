@@ -1,26 +1,26 @@
 <template>
-  <footer class="w-screen bg-base-50 border-t border-base-100 py-2">
+  <footer class="bg-base-50 border-base-100 w-screen border-t py-2">
     <div class="ui-section">
-      <div class="pb-7 border-b border-base-200
-        flex justify-between flex-wrap lg:flex-nowrap sm:gap-x-10 gap-y-5">
+      <div class="border-base-200 flex flex-wrap
+        justify-between gap-y-5 border-b pb-7 sm:gap-x-10 lg:flex-nowrap">
         <div class="shrink">
           <slot name="logo" />
           <div v-if="$settings.description" class="prose">
             <p>{{ $settings.description }}</p>
           </div>
-          <div class="flex gap-2 text-base-500">
+          <div class="text-base-500 flex gap-2">
             <span v-for="(href, network) in socialNetworks" :key="network">
-              <SocialNetworkLink :network="network" class="p-1 hover:text-primary">
+              <SocialNetworkLink :network="network" class="hover:text-primary p-1">
                 <template v-if="network === 'whatsapp'" #append>
-                  <span class="ml-1 text-sm text-base-600">
+                  <span class="text-base-600 ml-1 text-sm">
                     {{ $settings.whatsapp }}
                   </span>
                 </template>
               </SocialNetworkLink>
             </span>
           </div>
-          <div v-if="$settings.address || $settings.phone" class="mt-3 text-base-700">
-            <address v-if="$settings.address" class="inline-block mr-4">
+          <div v-if="$settings.address || $settings.phone" class="text-base-700 mt-3">
+            <address v-if="$settings.address" class="mr-4 inline-block">
               {{ $settings.address }}
             </address>
             <ALink
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div v-if="categories?.length" class="basis-1/2 sm:basis-auto">
-          <div class="text-lg font-medium mb-2.5">
+          <div class="mb-2.5 text-lg font-medium">
             {{ categoriesColTitle || $t.i19categories }}
           </div>
           <ul
@@ -55,7 +55,7 @@
           </ul>
         </div>
         <div v-if="pageLinks?.length" class="basis-1/2 sm:basis-auto">
-          <div class="text-lg font-medium mb-2.5">
+          <div class="mb-2.5 text-lg font-medium">
             {{ pagesColTitle || $t.i19institutional }}
           </div>
           <ul
@@ -73,35 +73,35 @@
       </div>
     </div>
     <div class="ui-section">
-      <div class="flex flex-wrap lg:flex-nowrap justify-between items-start gap-5">
-        <ul class="flex gap-y-3 gap-x-6 lg:gap-x-8 items-center
-          md:flex-wrap mx-auto md:mx-0 overflow-x-auto md:overflow-hidden">
+      <div class="flex flex-wrap items-start justify-between gap-5 lg:flex-nowrap">
+        <ul class="mx-auto flex items-center gap-x-6 gap-y-3
+          overflow-x-auto md:mx-0 md:flex-wrap md:overflow-hidden lg:gap-x-8">
           <li v-for="(stamp, i) in stamps" :key="i">
             <ALink :href="stamp.href?.replace('{domain}', $settings.domain || '')">
               <slot :name="`picture-${i}`" />
               <span v-if="!stamp.img" class="flex items-center">
                 <span
                   v-if="stamp.icon"
-                  class="text-4xl mr-2
-                  [&>*]:bg-gradient-to-br [&>*]:from-success-200 [&>*]:to-success-700"
+                  class="[&>*]:from-success-200 [&>*]:to-success-700
+                  mr-2 text-4xl [&>*]:bg-gradient-to-br"
                 >
                   <i v-if="stamp.icon === 'lock'" class="i-lock-closed"></i>
                   <i v-else-if="stamp.icon === 'check'" class="i-check-badge"></i>
                   <i v-else class="i-arrow-path-rounded-square"></i>
                 </span>
-                <span class="text-sm font-medium text-base-600 max-w-[140px]">
+                <span class="text-base-600 max-w-[140px] text-sm font-medium">
                   {{ stamp.alt }}
                   <i
                     v-if="stamp.href && stamp.href.charAt(0) !== '/'"
-                    class="bg-base-400 ml-0.5 i-arrow-top-right-on-square"
+                    class="bg-base-400 i-arrow-top-right-on-square ml-0.5"
                   ></i>
                 </span>
               </span>
             </ALink>
           </li>
         </ul>
-        <div class="flex flex-wrap md:flex-nowrap justify-end items-center
-          gap-4 text-2xl mx-auto md:mx-0 overflow-x-auto md:overflow-hidden">
+        <div class="mx-auto flex flex-wrap items-center justify-end
+          gap-4 overflow-x-auto text-2xl md:mx-0 md:flex-nowrap md:overflow-hidden">
           <PaymentMethodFlag
             v-for="paymentMethod in $settings.payment_methods"
             :key="paymentMethod"
@@ -109,8 +109,8 @@
           />
         </div>
       </div>
-      <div class="mt-7 text-xs text-center md:text-left
-        md:flex justify-between gap-4">
+      <div class="mt-7 justify-between gap-4
+        text-center text-xs md:flex md:text-left">
         <div class="mb-3 md:mb-0">
           @ {{ new Date().getFullYear() }} {{ $settings.corporate_name }}
           {{ $settings.address ? `/ ${$settings.address}` : '' }}

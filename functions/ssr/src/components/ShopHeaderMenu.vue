@@ -1,7 +1,7 @@
 <template>
   <nav>
     <ul
-      class="flex gap-4 xl:gap-5 text-base-700"
+      class="text-base-700 flex gap-4 xl:gap-5"
       :class="inlineMenuTrees.length < 7 ? 'text-base' : 'text-sm'"
     >
       <li v-for="(categoryTree, i) in inlineMenuTrees" :key="i">
@@ -12,7 +12,7 @@
           <template #button="{ open }">
             <span class="hover:text-primary group">
               <h3
-                class="group-hover:underline inline"
+                class="inline group-hover:underline"
                 :class="[
                   inlineMenuTrees.length < 7 ? 'decoration-2' : null,
                   open ? 'underline' : null,
@@ -22,8 +22,8 @@
               </h3>
               <i
                 v-if="hasOneLevelSubcategories"
-                class="i-chevron-down ml-1 transition-transform
-                text-base-400 group-hover:text-primary-subtle"
+                class="i-chevron-down text-base-400
+                group-hover:text-primary-subtle ml-1 transition-transform"
                 :class="open ? 'rotate-180' : null"
               ></i>
             </span>

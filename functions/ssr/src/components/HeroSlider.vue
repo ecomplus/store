@@ -18,15 +18,15 @@
       <template #controls>
         <div
           v-show="slides.length > 1"
-          class="absolute z-10 bottom-5 flex justify-end items-center
-          w-screen right-5 xl:right-auto xl:max-w-screen-xl xl:left-1/2 xl:-ms-[640px]"
+          class="absolute bottom-5 right-5 z-10 flex w-screen items-center justify-end
+          xl:left-1/2 xl:right-auto xl:-ms-[640px] xl:max-w-screen-xl"
         >
-          <div class="relative w-20 h-10 rounded-full
-            bg-white/50 text-primary shadow-sm ring-1 ring-black/5">
-            <CarouselControl class="w-10 h-10 rounded-full hover:bg-primary/10" is-prev>
+          <div class="text-primary relative h-10 w-20
+            rounded-full bg-white/50 shadow-sm ring-1 ring-black/5">
+            <CarouselControl class="hover:bg-primary/10 h-10 w-10 rounded-full" is-prev>
               <i class="i-arrow-left"></i>
             </CarouselControl>
-            <CarouselControl class="w-10 h-10 rounded-full hover:bg-primary/10">
+            <CarouselControl class="hover:bg-primary/10 h-10 w-10 rounded-full">
               <i class="i-arrow-right"></i>
             </CarouselControl>
           </div>

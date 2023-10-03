@@ -1,7 +1,7 @@
 <template>
   <Menu
     as="div"
-    class="relative text-center text-sm text-base-800"
+    class="text-base-800 relative text-center text-sm"
     v-slot="{ open }"
   >
     <div v-if="open">
@@ -11,12 +11,12 @@
       <slot name="button" v-bind="{ open }" />
     </MenuButton>
     <Fade>
-      <MenuItems class="absolute -right-8 mt-2 w-56
-        rounded shadow ring-1 ring-black/5 bg-white
-        divide-y divide-base-100 focus:outline-none">
-        <div class="p-3 text-base-600">
+      <MenuItems class="divide-base-100 absolute -right-8 mt-2
+        w-56 divide-y rounded bg-white shadow
+        ring-1 ring-black/5 focus:outline-none">
+        <div class="text-base-600 p-3">
           {{ `${$t.i19hello} ${customerName || $t.i19visitor}` }}
-          <AccountLink role="button" class="ui-btn-sm ui-btn-primary block my-1">
+          <AccountLink role="button" class="ui-btn-sm ui-btn-primary my-1 block">
             {{ $t.i19accessMyAccount }}
           </AccountLink>
           <AccountLink v-if="!isLogged" is-sign-up class="ui-link block">
@@ -58,16 +58,16 @@
             </ALink>
           </MenuItem>
           <MenuItem as="li">
-            <div class="flex justify-center gap-2 p-2 text-base-500 text-base">
+            <div class="text-base-500 flex justify-center gap-2 p-2 text-base">
               <span v-for="(href, network) in socialNetworks" :key="network">
-                <SocialNetworkLink :network="network" class="p-1 hover:text-primary" />
+                <SocialNetworkLink :network="network" class="hover:text-primary p-1" />
               </span>
             </div>
           </MenuItem>
           <MenuItem v-if="isLogged" as="li">
-            <button @click="logout" class="p-2 text-right text-base-800">
+            <button @click="logout" class="text-base-800 p-2 text-right">
               <span class="text-base-600">{{ $t.i19logout }}</span>
-              <i class="i-arrow-right-on-rectangle text-lg ml-1"></i>
+              <i class="i-arrow-right-on-rectangle ml-1 text-lg"></i>
             </button>
           </MenuItem>
         </ul>

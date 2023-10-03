@@ -1,11 +1,11 @@
 <template>
   <div class="bg-base-100 relative z-20">
-    <div class="container md:w-2/3 mx-auto px-3 py-1">
+    <div class="container mx-auto px-3 py-1 md:w-2/3">
       <Carousel :autoplay="countValidSlides > 1 ? 7000 : undefined">
         <li
           v-for="(slide, i) in slides"
           :key="i"
-          class="shrink-0 basis-full h-full text-center"
+          class="h-full shrink-0 basis-full text-center"
         >
           <ALink
             :href="slide.href"
@@ -16,17 +16,17 @@
             <span
               v-if="parsedContents[i]"
               v-html="parsedContents[i]"
-              class="prose text-sm text-base-800"
+              class="prose text-base-800 text-sm"
             ></span>
           </ALink>
         </li>
         <template #controls>
           <div
             v-show="countValidSlides > 1"
-            class="text-xl leading-none text-base-400"
+            class="text-base-400 text-xl leading-none"
           >
-            <CarouselControl class="pr-2 bg-base-100 hover:text-base-700" is-prev />
-            <CarouselControl class="pl-2 bg-base-100 hover:text-base-700" />
+            <CarouselControl class="bg-base-100 hover:text-base-700 pr-2" is-prev />
+            <CarouselControl class="bg-base-100 hover:text-base-700 pl-2" />
           </div>
         </template>
       </Carousel>

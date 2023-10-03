@@ -14,7 +14,7 @@
     </ALink>
     <div
       v-if="hasHeader"
-      class="p-12 xl:ps-32 mb-3 sm:mb-0"
+      class="mb-3 p-12 sm:mb-0 xl:ps-32"
     >
       <Component
         v-if="parsedTitle"
@@ -23,13 +23,13 @@
       >
         {{ parsedTitle }}
       </Component>
-      <p v-if="parsedSubtitle" class="text-lg mt-4 md:mt-6">
+      <p v-if="parsedSubtitle" class="mt-4 text-lg md:mt-6">
         {{ parsedSubtitle }}
       </p>
       <ALink
         v-if="parsedButtonText"
         :href="buttonLink"
-        class="ui-btn-lg ui-btn-contrast min-w-[150px] mt-7 md:mt-10"
+        class="ui-btn-lg ui-btn-contrast mt-7 min-w-[150px] md:mt-10"
       >
         {{ parsedButtonText }}
       </ALink>

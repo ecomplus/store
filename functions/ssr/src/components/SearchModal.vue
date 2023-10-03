@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-40 bg-base-300"></div>
+  <div class="bg-base-300 h-40 w-full"></div>
 </template>
 
 <script setup lang="ts">

@@ -2,55 +2,55 @@
   <article
     ref="card"
     :data-sku="product.sku"
-    class="relative h-full max-w-[350px] mx-auto py-3 group"
+    class="group relative mx-auto h-full max-w-[350px] py-3"
   >
     <ALink
       :href="link"
-      class="flex flex-col h-full rounded overflow-hidden
-      group-hover:shadow group-hover:ring-1 ring-black/5"
+      class="flex h-full flex-col overflow-hidden rounded
+      ring-black/5 group-hover:shadow group-hover:ring-1"
     >
       <div class="aspect-square p-2
-        motion-safe:group-hover:scale-110 transition-transform">
-        <div class="relative w-full h-full bg-white rounded overflow-hidden
+        transition-transform motion-safe:group-hover:scale-110">
+        <div class="relative h-full w-full overflow-hidden rounded bg-white
           group-hover:rounded-none">
           <span v-if="images?.length" class="text-xs text-opacity-70">
             <AImg
               :picture="images[0]"
               :alt="title"
-              class="absolute top-0 left-0 block w-full h-full object-cover"
+              class="absolute left-0 top-0 block h-full w-full object-cover"
             />
             <AImg
               v-if="images[1] && wasHoveredOnce"
               :picture="images[1]"
               :alt="title"
-              class="absolute top-0 left-0 block w-full h-full object-cover
-              opacity-0 group-hover:opacity-100 transition-opacity
-              motion-safe:duration-300 text-transparent z-10"
+              class="absolute left-0 top-0 z-10 block h-full w-full
+              object-cover text-transparent opacity-0
+              transition-opacity group-hover:opacity-100 motion-safe:duration-300"
             />
           </span>
           <div
             v-else
-            class="w-full h-full bg-gradient-to-br from-base-50/20 to-base-100"
+            class="from-base-50/20 to-base-100 h-full w-full bg-gradient-to-br"
           />
         </div>
       </div>
       <span
         v-if="discountPercentage"
-        class=":uno: absolute top-9 right-2
-        group-hover:scale-110 group-hover:translate-x-2 transition-transform
-        bg-secondary/70 text-on-secondary text-xs
-        py-0.5 pr-1.5 pl-3 [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)]"
+        class=":uno: bg-secondary/70 text-on-secondary absolute
+        right-2 top-9 py-0.5 pl-3 pr-1.5 text-xs
+        transition-transform [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)]
+        group-hover:translate-x-2 group-hover:scale-110"
       >
         -<strong>{{ discountPercentage }}</strong>%
       </span>
-      <div class="relative flex flex-col grow justify-between p-4
-        group-hover:backdrop-blur-md bg-white/40 z-10">
+      <div class="relative z-10 flex grow flex-col justify-between
+        bg-white/40 p-4 group-hover:backdrop-blur-md">
         <component
           :is="headingTag"
-          class="ui-link no-underline line-clamp-2"
+          class="ui-link line-clamp-2 no-underline"
           :class="[
             isActive ? 'text-base-700' : 'text-base-500',
-            link ? 'group-hover:underline group-hover:text-primary' : null,
+            link ? 'group-hover:text-primary group-hover:underline' : null,
           ]"
         >
           {{ title }}
@@ -65,13 +65,13 @@
         </div>
         <button
           v-if="isActive && !hasVariations"
-          class=":uno: hidden md:block ui-btn-sm ui-btn-primary
-          absolute -top-6 left-0 w-full rounded-none
-          opacity-0 group-hover:opacity-100 transition -z-10 group-hover:z-10"
+          class=":uno: ui-btn-sm ui-btn-primary absolute -top-6
+          left-0 -z-10 hidden w-full rounded-none
+          opacity-0 transition group-hover:z-10 group-hover:opacity-100 md:block"
           @click.prevent="addProductToCart(product)"
         >
-          <span class="inline-block h-4 w-4 leading-none text-base text-center
-            bg-on-primary text-primary opacity-80 rounded-full mr-1">
+          <span class="bg-on-primary text-primary mr-1 inline-block h-4 w-4
+            rounded-full text-center text-base leading-none opacity-80">
             &plus;
           </span>
           {{ $t.i19addToCart }}

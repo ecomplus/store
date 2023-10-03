@@ -1,13 +1,13 @@
 <template>
-  <li class="text-lg text-base-800">
+  <li class="text-base-800 text-lg">
     <details
       v-if="categoryTree.subcategories.length"
-      class="bg-white overflow-y-auto overflow-x-hidden z-10
-      open:absolute open:top-0 open:left-0 open:w-full open:h-full"
+      class="z-10 overflow-y-auto overflow-x-hidden bg-white
+      open:absolute open:left-0 open:top-0 open:h-full open:w-full"
       @toggle="isOpen = !isOpen"
     >
       <summary
-        class="cursor-pointer list-none px-6 py-3 active:bg-base-100 transition-colors"
+        class="active:bg-base-100 cursor-pointer list-none px-6 py-3 transition-colors"
         :class="isOpen ? 'bg-base-100' : null"
       >
         <i :class="!isOpen
@@ -17,7 +17,7 @@
           v-if="!isOpen && categoryTree.icon"
           :picture="categoryTree.icon"
           :alt="categoryTree.name"
-          class="w-auto h-5 inline mr-3"
+          class="mr-3 inline h-5 w-auto"
         />
         <h3 class="inline" :class="isOpen ? 'ml-4 text-base' : null">
           {{ categoryTree.name }}
@@ -36,7 +36,7 @@
         <li>
           <a
             :href="`/${categoryTree.slug}`"
-            class="block px-6 py-3 text-base underline active:bg-base-200"
+            class="active:bg-base-200 block px-6 py-3 text-base underline"
           >
             {{ $t.i19seeAll$1Category.replace('$1', categoryTree.name) }}
           </a>
@@ -46,13 +46,13 @@
     <a
       v-else
       :href="`/${categoryTree.slug}`"
-      class="block px-6 py-3 active:bg-base-200"
+      class="active:bg-base-200 block px-6 py-3"
     >
       <AImg
         v-if="!isOpen && categoryTree.icon"
         :picture="categoryTree.icon"
         :alt="categoryTree.name"
-        class="w-auto h-5 inline mr-3"
+        class="mr-3 inline h-5 w-auto"
       />
       <h3 class="inline">{{ categoryTree.name }}</h3>
     </a>

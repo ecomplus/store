@@ -4,16 +4,16 @@
     class="relative top-0 z-50 transition-colors"
     :class="[
       isSticky && !isSidenavOpen ? 'bg-white/80' : 'bg-white',
-      isSticky ? 'backdrop-blur-md shadow py-2 md:py-3' : 'py-3 sm:py-4 md:py-5',
+      isSticky ? 'py-2 shadow backdrop-blur-md md:py-3' : 'py-3 sm:py-4 md:py-5',
     ]"
   >
-    <div class="w-screen lg:w-[calc(100vw-1rem)] xl:max-w-[82rem] 2xl:max-w-[85rem]
-      mx-auto px-1 sm:pl-2 sm:pr-2.5 lg:px-1
-      flex md:grid grid-flow-col grid-cols-3 lg:grid-cols-none lg:auto-cols-max
-      justify-between items-center">
+    <div class="mx-auto flex w-screen grid-flow-col
+      grid-cols-3 items-center justify-between px-1 sm:pl-2 sm:pr-2.5 md:grid
+      lg:w-[calc(100vw-1rem)] lg:auto-cols-max lg:grid-cols-none lg:px-1
+      xl:max-w-[82rem] 2xl:max-w-[85rem]">
       <div class="basis-1/4 lg:hidden">
         <button
-          class="px-2 my-1"
+          class="my-1 px-2"
           :aria-label="$t.i19toggleMenu"
           @click="isSidenavOpen = !isSidenavOpen"
         >
@@ -25,20 +25,20 @@
       </div>
       <slot name="logo" />
       <ShopHeaderMenu class="hidden lg:block" v-bind="{ inlineMenuTrees }" />
-      <div class="basis-1/4 px-2
-        flex justify-end items-center gap-3 lg:gap-4 text-base-800">
+      <div class="text-base-800 flex
+        basis-1/4 items-center justify-end gap-3 px-2 lg:gap-4">
         <button
           :aria-label="$t.i19searchProducts"
           @click="isSearchOpen = !isSearchOpen"
         >
-          <i class="i-magnifying-glass w-7 h-7
-            hover:text-primary hover:scale-110 active:scale-125"></i>
+          <i class="i-magnifying-glass hover:text-primary h-7 w-7
+            hover:scale-110 active:scale-125"></i>
         </button>
         <AccountMenu class="hidden sm:block">
           <template #button="{ open }">
             <i
-              class="i-user-circle w-7 h-7
-              hover:text-primary hover:scale-110 active:scale-125"
+              class="i-user-circle hover:text-primary h-7 w-7
+              hover:scale-110 active:scale-125"
               :class="open ? 'text-black scale-110' : null"
             ></i>
           </template>
@@ -46,13 +46,13 @@
         <button
           :aria-label="$t.i19openCart"
           @click="isCartOpen = !isCartOpen"
-          class="relative group"
+          class="group relative"
         >
-          <i class="i-shopping-bag w-7 h-7 group-hover:text-primary
+          <i class="i-shopping-bag group-hover:text-primary h-7 w-7
             group-hover:scale-110 group-active:scale-125"></i>
           <span
             v-if="delayedTotalItems"
-            class="ui-badge-pill-sm absolute -top-1 -right-1.5"
+            class="ui-badge-pill-sm absolute -right-1.5 -top-1"
           >
             {{ delayedTotalItems }}
           </span>
@@ -94,7 +94,7 @@
         <Suspense>
           <CartSidebar v-if="isCartOpenOnce" @close="isCartOpen = false" />
           <template #fallback>
-            <Skeleton class="pt-16 px-6" is-bold />
+            <Skeleton class="px-6 pt-16" is-bold />
           </template>
         </Suspense>
       </Drawer>
