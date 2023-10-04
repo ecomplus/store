@@ -12,7 +12,7 @@
       >
         <i :class="!isOpen
           ? 'i-arrow-right float-right mb-0 mt-1 text-xl text-base-500'
-          : 'i-arrow-left text-lg'"></i>
+          : 'i-arrow-right rotate-180 text-lg'"></i>
         <AImg
           v-if="!isOpen && categoryTree.icon"
           :picture="categoryTree.icon"

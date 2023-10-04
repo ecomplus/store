@@ -24,7 +24,7 @@
           <div class="text-primary relative h-10 w-20
             rounded-full bg-white/50 shadow-sm ring-1 ring-black/5">
             <CarouselControl class="hover:bg-primary/10 h-10 w-10 rounded-full" is-prev>
-              <i class="i-arrow-left"></i>
+              <i class="i-arrow-right rotate-180"></i>
             </CarouselControl>
             <CarouselControl class="hover:bg-primary/10 h-10 w-10 rounded-full">
               <i class="i-arrow-right"></i>

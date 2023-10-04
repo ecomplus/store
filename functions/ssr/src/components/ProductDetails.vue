@@ -2,7 +2,7 @@
   <section class="ui-section flex gap-6">
     <div class="basis-3/4">
       <template v-if="product.pictures?.length">
-        <AImg :picture="product.pictures[0]" />
+        <ImagesGallery />
       </template>
     </div>
   </section>
@@ -10,6 +10,7 @@
 
 <script setup lang="ts">
 import type { Products } from '@cloudcommerce/api/types';
+import ImagesGallery from '~/components/ImagesGallery.vue';
 
 export interface Props {
   product?: Products;

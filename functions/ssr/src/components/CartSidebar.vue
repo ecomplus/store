@@ -48,7 +48,7 @@
         @click.prevent="emit('close')"
         class="ui-link text-base-500 hover:text-base-700 text-sm"
       >
-        <i class="i-arrow-left mr-1"></i>
+        <i class="i-arrow-right mr-1 rotate-180"></i>
         {{ $t.i19continueShopping }}
       </a>
     </footer>
