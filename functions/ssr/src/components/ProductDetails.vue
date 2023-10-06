@@ -2,7 +2,7 @@
   <section class="ui-section flex gap-6">
     <div class="basis-3/4">
       <template v-if="product.pictures?.length">
-        <ImagesGallery />
+        <ImagesGallery :pictures="product.pictures" />
       </template>
     </div>
   </section>
