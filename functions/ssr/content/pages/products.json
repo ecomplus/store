@@ -4,13 +4,11 @@
       "type": "breadcrumbs"
     },
     {
-      "type": "product-details"
+      "type": "product-details",
+      "hasDescription": true
     },
     {
       "type": "related-products"
-    },
-    {
-      "type": "doc-description"
     },
     {
       "type": "product-specifications"

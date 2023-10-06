@@ -1,16 +1,16 @@
 {
   "metatags": {
-    "og_image": "",
-    "fb_app_id": "",
-    "twitter_username": ""
+    "ogImage": "",
+    "fbAppId": "",
+    "twitterUsername": ""
   },
-  "custom_code": {
+  "customCode": {
     "css": "",
-    "html_head": "",
-    "html_body": ""
+    "htmlHead": "",
+    "htmlBody": ""
   },
   "header": {
-    "pitch_bar": [
+    "pitchBar": [
       {
         "href": "/promotion",
         "html": "Aproveite nossos descontos de até 50%!"
@@ -20,20 +20,20 @@
         "html": "<b>Frete grátis</b> <d-md>para todo Brasil</d-md> a partir de {free_shipping_from_value}"
       }
     ],
-    "inline_menu_categories": {
+    "inlineMenuCategories": {
       "featured": [],
       "random": 7
     },
-    "alphabetical_sort_submenu": false
+    "isAlphabeticalSortSubmenu": false
   },
   "footer": {
-    "categories_list": {
-      "enabled": true,
+    "categoriesList": {
+      "isActive": true,
       "title": "",
       "categories": []
     },
-    "pages_list": {
-      "enabled": true,
+    "pagesList": {
+      "isActive": true,
       "title": "",
       "links": []
     },

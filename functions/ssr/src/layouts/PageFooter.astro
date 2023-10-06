@@ -14,13 +14,13 @@ const layoutContent = await getContent('layout');
 const {
   footer: {
     stamps,
-    categories_list: categoriesList,
-    pages_list: pagesList,
+    categoriesList,
+    pagesList,
   },
 } = layoutContent;
 let mainCategories: ShopFooterProps['categories'];
 let pageLinks: ShopFooterProps['pageLinks'];
-if (categoriesList?.enabled) {
+if (categoriesList?.isActive) {
   if (categoriesList.categories?.length) {
     mainCategories = categoriesList.categories;
   } else {
@@ -31,7 +31,7 @@ if (categoriesList?.enabled) {
     }
   }
 }
-if (pagesList?.enabled) {
+if (pagesList?.isActive) {
   if (pagesList.links?.length) {
     pageLinks = pagesList.links;
   } else {

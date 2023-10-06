@@ -1,43 +1,43 @@
 {
-  "meta_title": "",
-  "meta_description": "",
+  "metaTitle": "",
+  "metaDescription": "",
   "hero": {
     "autoplay": 9000,
     "slides": [
       {
-        "start": "",
-        "end": "",
+        "startsAt": "",
+        "endsAt": "",
         "img": "/img/uploads/rect89.webp",
         "alt": "Headset banner",
-        "mobile_img": "/img/uploads/headphone.webp",
+        "mobileImg": "/img/uploads/headphone.webp",
         "href": "/headset",
         "title": "20% off on first purchase",
         "subtitle": "At demoStore you can shop the best tech of 2023. Enjoy and get 10% off on your first purchase!",
-        "button_link": "/",
-        "button_text": "See"
+        "buttonLink": "/",
+        "buttonText": "See"
       },
       {
-        "start": "",
-        "end": "",
+        "startsAt": "",
+        "endsAt": "",
         "img": "/img/uploads/rect859.png",
         "alt": "",
-        "mobile_img": "",
+        "mobileImg": "",
         "href": "",
         "title": "",
         "subtitle": "",
-        "button_link": "",
-        "button_text": ""
+        "buttonLink": "",
+        "buttonText": ""
       }
     ]
   },
   "sections": [
     {
       "type": "product-shelf",
-      "collection_id": null,
+      "collectionIdAndInfo": null,
       "sort": "-price_discount",
       "title": "",
-      "headless": false,
-      "shuffle": false,
+      "isHeadless": false,
+      "isShuffle": false,
       "limit": 12,
       "page": 1
     },
@@ -55,7 +55,7 @@
         {
           "img": "/img/uploads/rect89.webp",
           "href": "/banner-3",
-          "mobile_img": "/img/uploads/headphone.webp"
+          "mobileImg": "/img/uploads/headphone.webp"
         }
       ]
     }

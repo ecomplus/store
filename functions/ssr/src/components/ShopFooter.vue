@@ -103,7 +103,7 @@
         <div class="mx-auto flex flex-wrap items-center justify-end
           gap-4 overflow-x-auto text-2xl md:mx-0 md:flex-nowrap md:overflow-hidden">
           <PaymentMethodFlag
-            v-for="paymentMethod in $settings.payment_methods"
+            v-for="paymentMethod in $settings.paymentMethods"
             :key="paymentMethod"
             :flag="paymentMethod"
           />
@@ -112,9 +112,9 @@
       <div class="mt-7 justify-between gap-4
         text-center text-xs md:flex md:text-left">
         <div class="mb-3 md:mb-0">
-          @ {{ new Date().getFullYear() }} {{ $settings.corporate_name }}
+          @ {{ new Date().getFullYear() }} {{ $settings.corporateName }}
           {{ $settings.address ? `/ ${$settings.address}` : '' }}
-          / {{ $settings.doc_number }}
+          / {{ $settings.docNumber }}
         </div>
         <ALink href="https://www.ecomplus.io/" class="italic text-[#37003c]">
           powered by <b>E-Com Plus</b>

@@ -46,7 +46,7 @@
           <MenuItem
             as="li"
             v-slot="{ active }"
-            v-for="({ title, href }, i) in $settings.service_links"
+            v-for="({ title, href }, i) in $settings.serviceLinks"
             :key="`s-${i}`"
           >
             <ALink
