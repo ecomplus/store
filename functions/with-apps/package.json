@@ -15,8 +15,8 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@cloudcommerce/events": "^0.26.7",
-    "@cloudcommerce/firebase": "^0.26.7",
-    "@cloudcommerce/modules": "^0.26.7"
+    "@cloudcommerce/events": "^0.27.0",
+    "@cloudcommerce/firebase": "^0.27.0",
+    "@cloudcommerce/modules": "^0.27.0"
   }
 }
