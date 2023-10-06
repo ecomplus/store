@@ -2,7 +2,7 @@
   <section v-if="html" class="ui-section">
     <details class="[&_i]:open:rotate-180" open>
       <summary role="button" class="text-base-700 hover:text-base-800
-        [&>i]:hover:text-primary list-none text-2xl font-medium lowercase">
+        [&>i]:hover:text-primary my-5 list-none text-2xl font-medium lowercase">
         <i class="i-chevron-down mr-1"></i>
         <span>{{ title || $t.i19description }}</span>
       </summary>

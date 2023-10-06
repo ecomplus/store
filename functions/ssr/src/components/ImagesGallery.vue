@@ -1,14 +1,15 @@
 <template>
-  <div class="flex h-[525px] gap-2">
+  <div class="flex w-full gap-3 md:h-[525px] 2xl:gap-5">
     <Carousel
-      v-if="pictures.length"
+      v-if="pictures.length > 1"
       axis="y"
-      class="group hidden w-[300px] md:block"
+      class="group hidden w-[300px] shrink-0 md:block"
     >
       <li
         v-for="i in Math.ceil(pictures.length / 2)"
         :key="i"
-        class="flex h-1/3 w-full gap-1 pb-1"
+        class="grid h-1/3 w-full grid-cols-2 gap-3 px-1 pb-3"
+        :class="i === 1 && 'pt-1'"
       >
         <template
           v-for="index in [1, 2].map(ii => (i - 1) * 2 + (ii - 1))"
@@ -16,15 +17,17 @@
         >
           <button
             v-if="index < pictures.length"
-            class="h-full w-1/2"
+            class="bg-secondary-100 h-full rounded"
             @click="activeIndex = index"
           >
             <AImg
               :picture="pictures[index]"
-              class="hover:border-primary ring-primary/20 ring-b
-              h-full w-full rounded-sm border object-cover transition-colors"
+              class="ring-secondary/10 h-full w-full rounded border-2
+              object-cover opacity-90 transition-colors"
               :class="index === activeIndex
-                ? 'border-secondary' : 'border-secondary-300 hover:ring-1'"
+                ? 'border-secondary/50 ring-4 cursor-auto'
+                : 'border-transparent hover:border-primary'
+                  + ' hover:ring-4 hover:ring-primary/20'"
             />
           </button>
         </template>
@@ -42,11 +45,12 @@
         </span>
       </template>
     </Carousel>
-    <div class="relative aspect-square h-full">
+    <div class="relative aspect-square h-full md:aspect-auto lg:aspect-square">
       <Carousel
         as="div"
         v-model:index="activeIndex"
-        class="text-base-700 h-full [&>*]:h-full [&_i]:text-2xl"
+        class="text-base-600 [&_i]:i-arrow-right
+        mx-auto h-full w-full [&>*]:h-full [&_i]:mx-2 [&_i]:text-2xl"
         :class="isLoadingLightbox && 'opacity-80'"
         :id="psId"
       >
@@ -61,7 +65,7 @@
           class="shrink-0 basis-full"
           :class="picture.zoom?.size && 'cursor-zoom-in'"
           v-once
-          @click.prevent="() => zoom(i)"
+          @click.prevent="() => picture.zoom?.size && zoom(i)"
         >
           <AImg
             :picture="picture"
@@ -78,6 +82,19 @@
         left-1/2 top-1/2 -ml-7 -mt-7 h-14 w-14 animate-spin"
         :aria-label="$t.i19loading"
       ></i>
+      <ul
+        v-if="pictures.length > 1"
+        class="mt-2 flex justify-center gap-1.5 md:hidden"
+      >
+        <li v-for="i in pictures.length" :key="`d-${i}`">
+          <button
+            class="bg-base-700 block h-1.5 w-3 rounded-full"
+            :class="activeIndex !== i - 1 && 'opacity-40'"
+            :aria-label="`${$t.i19picture} ${i}`"
+            @click="activeIndex = i - 1"
+          />
+        </li>
+      </ul>
     </div>
   </div>
 </template>

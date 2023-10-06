@@ -1,10 +1,14 @@
 <template>
-  <section class="ui-section flex gap-6">
-    <div class="basis-3/4">
+  <section class="ui-section flex flex-wrap
+    gap-5 md:gap-4 lg:flex-nowrap 2xl:gap-6">
+    <div class="w-full lg:basis-3/4">
       <template v-if="product.pictures?.length">
         <ImagesGallery :pictures="product.pictures" />
       </template>
     </div>
+    <h1 class="ui-text-brand text-xl">
+      {{ product.name }}
+    </h1>
   </section>
 </template>
 
