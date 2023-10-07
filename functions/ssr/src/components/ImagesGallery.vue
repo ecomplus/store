@@ -63,7 +63,7 @@
           :data-pswp-height="getImgSizes(picture.zoom || '').height"
           target="_blank"
           rel="noreferrer"
-          class="bg-base-50 shrink-0 basis-full rounded"
+          class="shrink-0 basis-full rounded"
           :class="picture.zoom?.size && 'cursor-zoom-in'"
           v-once
           @click.prevent="() => picture.zoom?.size && zoom(i)"

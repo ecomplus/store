@@ -15,7 +15,7 @@
     </span>
     <strong
       class="text-base-800 inline-block"
-      :class="isBig ? 'text-5xl block' : null"
+      :class="isBig ? 'text-4xl block' : null"
     >
       <small v-if="hasVariedPrices">
         {{ `${$t.i19asOf} ` }}
