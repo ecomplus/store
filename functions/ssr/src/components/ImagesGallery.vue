@@ -45,13 +45,12 @@
         </span>
       </template>
     </Carousel>
-    <div class="relative mx-auto aspect-square h-full grow
-    md:aspect-auto lg:aspect-square">
+    <div class="relative aspect-square h-full grow md:aspect-auto">
       <Carousel
         as="div"
         v-model:index="activeIndex"
-        class="text-base-600 [&_i]:i-arrow-right
-        h-full w-full [&>*]:h-full [&_i]:mx-2 [&_i]:text-2xl"
+        class="text-base-600 [&_i]:i-arrow-right mx-auto
+        h-full w-full max-w-[525px] [&>*]:h-full [&_i]:mx-2 [&_i]:text-2xl"
         :class="isLoadingLightbox && 'opacity-80'"
         :id="psId"
       >
@@ -63,7 +62,7 @@
           :data-pswp-height="getImgSizes(picture.zoom || '').height"
           target="_blank"
           rel="noreferrer"
-          class="shrink-0 basis-full rounded"
+          class="shrink-0 basis-full"
           :class="picture.zoom?.size && 'cursor-zoom-in'"
           v-once
           @click.prevent="() => picture.zoom?.size && zoom(i)"
@@ -71,7 +70,7 @@
           <AImg
             :picture="picture"
             preferred-size="big"
-            class="h-full w-full object-cover"
+            class="h-full w-full rounded object-cover"
             :fetchpriority="i === 0 ? 'high' : 'low'"
             :loading="i === 0 ? 'eager' : 'lazy'"
           />
