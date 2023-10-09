@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full gap-3 md:h-[525px] 2xl:gap-5">
+  <div class="-mx-4 flex w-screen gap-3 sm:mx-0 sm:w-full md:h-[525px] 2xl:gap-5">
     <Carousel
       v-if="pictures.length > 1"
       axis="y"

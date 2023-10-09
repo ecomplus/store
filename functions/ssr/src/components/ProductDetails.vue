@@ -5,37 +5,44 @@
       <template v-if="product.pictures?.length">
         <ImagesGallery :pictures="product.pictures" />
       </template>
-      <slot name="description" />
     </div>
-    <div class="sticky top-0 py-4">
+    <div class="top-0 py-4 lg:sticky">
       <h1 class="ui-text-brand text-base-700 text-xl">
         {{ title }}
       </h1>
       <div v-if="isActive" class="mt-5">
         <Prices :product="product" is-big is-literal />
-        <QuantitySelector
-          v-model="quantity"
-          :min="product.min_quantity"
-          :max="product.quantity"
-          class="border-base-100 my-4 inline-block rounded border-2"
-        />
-        <CheckoutLink
-          class="ui-btn-lg ui-btn-primary block w-full text-center"
-          to="checkout"
-          :cart-item="{
-            product_id: product._id,
-            quantity,
-          }"
-        >
-          {{ $t.i19buy }}
-        </CheckoutLink>
-        <button
-          class="ui-btn-lg ui-btn-contrast mt-2 block w-full"
-          @click.prevent="addProductToCart(product)"
-        >
-          {{ $t.i19addToCart }}
-        </button>
+        <div class="mt-5 flex flex-wrap items-center gap-x-4
+          gap-y-2 md:flex-nowrap lg:mt-4 lg:flex-wrap">
+          <QuantitySelector
+            v-model="quantity"
+            :min="product.min_quantity"
+            :max="product.quantity"
+            class="border-base-100 rounded md:mr-5
+            lg:mb-2 lg:mr-auto lg:border-2"
+          />
+          <CheckoutLink
+            class="ui-btn-lg ui-btn-primary grow text-center"
+            to="checkout"
+            :cart-item="{
+              product_id: product._id,
+              quantity,
+            }"
+          >
+            <i class="i-chevron-double-right mr-1"></i>
+            {{ $t.i19buy }}
+          </CheckoutLink>
+          <button
+            class="ui-btn-lg ui-btn-contrast grow"
+            @click.prevent="addProductToCart(product)"
+          >
+            {{ $t.i19addToCart }}
+          </button>
+        </div>
       </div>
+    </div>
+    <div class="w-full lg:col-span-3">
+      <slot name="description" />
     </div>
   </section>
 </template>
