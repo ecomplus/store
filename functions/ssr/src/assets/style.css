@@ -23,7 +23,7 @@ a, button, button > *, [role=button] {
   @apply text-sm px-3 py-1.5 border-1;
 }
 .ui-btn-lg {
-  @apply font-bold px-6 py-2.5 active:ring-3;
+  @apply text-lg font-bold px-6 py-3 lg:text-base lg:py-2.5 active:ring-3;
 }
 .ui-btn-primary {
   @apply primary border-primary hover:primary-bold ring-primary/30;
