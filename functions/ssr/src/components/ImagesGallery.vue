@@ -45,7 +45,7 @@
         </span>
       </template>
     </Carousel>
-    <div class="relative mx-auto aspect-square h-full
+    <div class="relative mx-auto aspect-square h-full grow
     md:aspect-auto lg:aspect-square">
       <Carousel
         as="div"
