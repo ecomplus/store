@@ -119,12 +119,24 @@ const zoom = (index: number) => {
   psId.value = `ps-${useId()}`;
   if (!lightbox && !isLoadingLightbox.value) {
     isLoadingLightbox.value = true;
+    const styleId = 'photoswipe-style';
     Promise.all([
       // @ts-ignore
       import('photoswipe/lightbox'),
       import('photoswipe'),
-      import('photoswipe/style.css'),
-    ]).then(([{ default: PhotoSwipeLightbox }, { default: pswpModule }]) => {
+      !document.getElementById(styleId) && import('photoswipe/style.css?inline'),
+    ]).then(([
+      { default: PhotoSwipeLightbox },
+      { default: pswpModule },
+      cssImport,
+    ]) => {
+      if (cssImport) {
+        const { default: css } = cssImport;
+        const style = document.createElement('style');
+        style.id = styleId;
+        style.textContent = css;
+        document.head.appendChild(style);
+      }
       lightbox = new PhotoSwipeLightbox({
         gallery: `#${psId.value} > div`,
         children: 'a',
