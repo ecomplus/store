@@ -57,6 +57,11 @@ a, button, button > *, [role=button] {
   @apply text-lg min-w-[1.75rem] px-2;
 }
 
+.ui-alert {
+  @apply bg-warning-100 text-warning-800 border-warning-200
+  border text-base rounded px-4 py-3;
+}
+
 [class*=ui-section] {
   @apply container 2xl:max-w-7xl mx-auto px-4 sm:px-2 my-6 md:my-8;
 }
