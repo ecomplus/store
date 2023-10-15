@@ -92,12 +92,12 @@ const hasSkuSelectionAlert = ref(false);
 const variationId = ref<ResourceId | null>(null);
 watch(variationId, (_variationId) => {
   if (_variationId) {
-    params.variation = _variationId;
+    params.var = _variationId;
     hasSkuSelectionAlert.value = false;
   }
 });
 onMounted(() => {
-  watch(params, ({ variation }) => {
+  watch(params, ({ var: variation }) => {
     if (typeof variation === 'string' && variation) {
       variationId.value = variation as ResourceId;
     }
