@@ -1,14 +1,8 @@
 <template>
   <section v-if="html" class="ui-section">
-    <details class="[&_i]:open:rotate-180" open>
-      <summary role="button" class="text-base-700 hover:text-base-800
-        [&>i]:hover:text-primary my-4 list-none text-2xl
-        font-medium lowercase md:my-5">
-        <i class="i-chevron-down mr-1"></i>
-        <span>{{ title || $t.i19description }}</span>
-      </summary>
+    <Collapse :title="title || $t.i19description" open>
       <ContentClearfix :html="html" />
-    </details>
+    </Collapse>
   </section>
 </template>
 
@@ -20,6 +14,7 @@ import type {
   Collections,
 } from '@cloudcommerce/api/types';
 import ContentClearfix from '@@sf/components/ContentClearfix.vue';
+import Collapse from '~/components/Collapse.vue';
 
 export interface Props {
   apiDoc?: Partial<Products | Categories | Brands | Collections>;

@@ -5,7 +5,8 @@
     },
     {
       "type": "product-details",
-      "hasDescription": true
+      "hasDescription": true,
+      "hasSpecifications": true
     },
     {
       "type": "related-products"

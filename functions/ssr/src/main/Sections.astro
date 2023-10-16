@@ -5,6 +5,7 @@ import ProductShelf from '~/components/ProductShelf.vue';
 import Breadcrumbs from '~/components/Breadcrumbs.astro';
 import DocDescription from '~/components/DocDescription.vue';
 import ProductDetails from '~/components/ProductDetails.vue';
+import ProductSpecifications from '~/components/ProductSpecifications.vue';
 
 const { routeContext } = Astro.locals;
 const { sections } = await usePageSections({
@@ -30,10 +31,13 @@ cause route resource is required to define sections from content. */
       case 'doc-description':
         return <DocDescription />
       case 'product-details':
-        const { hasDescription, ...detailsProps } = props;
+        const { hasDescription, hasSpecifications, ...detailsProps } = props;
         return <>
           <ProductDetails {...detailsProps} client:context>
-            {hasDescription && <DocDescription slot="description" />}
+            <Fragment slot="description">
+              {hasDescription && <DocDescription />}
+              {hasSpecifications && <ProductSpecifications />}
+            </Fragment>
           </ProductDetails>
         </>
       case 'c:foo':
