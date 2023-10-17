@@ -41,8 +41,6 @@
 
 <script setup lang="ts">
 import type { Props as UseBannerProps } from '@@sf/composables/use-banner';
-import Carousel from '@@sf/components/Carousel.vue';
-import CarouselControl from '@@sf/components/CarouselControl.vue';
 import Banner from '~/components/Banner.vue';
 
 export type Props = {

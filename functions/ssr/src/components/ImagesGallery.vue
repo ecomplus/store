@@ -103,8 +103,6 @@
 import type { Products } from '@cloudcommerce/api/types';
 import { imgSizes as getImgSizes } from '@ecomplus/utils';
 import { useId } from '@@sf/sf-lib';
-import Carousel from '@@sf/components/Carousel.vue';
-import CarouselControl from '@@sf/components/CarouselControl.vue';
 
 export interface Props {
   pictures: Exclude<Products['pictures'], undefined>;

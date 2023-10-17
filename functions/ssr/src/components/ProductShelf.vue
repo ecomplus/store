@@ -38,8 +38,6 @@ import {
   type Props as UseProductShelfProps,
   useProductShelf,
 } from '@@sf/composables/use-product-shelf';
-import Carousel from '@@sf/components/Carousel.vue';
-import CarouselControl from '@@sf/components/CarouselControl.vue';
 import ProductCard from '~/components/ProductCard.vue';
 
 export interface Props extends UseProductShelfProps {}

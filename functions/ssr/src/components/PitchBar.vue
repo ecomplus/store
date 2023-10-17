@@ -39,8 +39,6 @@ import {
   type Props as UsePitchBarProps,
   usePitchBar,
 } from '@@sf/composables/use-pitch-bar';
-import Carousel from '@@sf/components/Carousel.vue';
-import CarouselControl from '@@sf/components/CarouselControl.vue';
 
 export interface Props extends UsePitchBarProps {}
 
