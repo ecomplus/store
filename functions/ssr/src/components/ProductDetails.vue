@@ -24,8 +24,8 @@
             <i class="i-arrow-right ml-1 -rotate-90"></i>
           </div>
         </Fade>
-        <div class="mt-5 flex flex-wrap items-center gap-x-4
-          gap-y-2 md:flex-nowrap lg:mt-4 lg:flex-wrap">
+        <div class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2
+          overflow-hidden md:flex-nowrap lg:mt-4 lg:flex-wrap">
           <QuantitySelector
             v-model="quantity"
             :min="product.min_quantity"
