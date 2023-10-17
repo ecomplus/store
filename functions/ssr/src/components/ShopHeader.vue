@@ -18,8 +18,11 @@
           @click="isSidenavOpen = !isSidenavOpen"
         >
           <i
-            class="text-base-500 text-3xl"
-            :class="isSidenavOpen ? 'i-close' : 'i-bars-3-bottom-left'"
+            class="text-3xl transition-colors"
+            :class="[
+              isSidenavOpen ? 'i-close' : 'i-bars-3-bottom-left',
+              isMounted ? 'text-base-500' : 'text-base-400 animate-pulse',
+            ]"
           ></i>
         </button>
       </div>
@@ -27,13 +30,15 @@
       <ShopHeaderMenu class="hidden lg:block" v-bind="{ inlineMenuTrees }" />
       <div class="text-base-800 flex
         basis-1/4 items-center justify-end gap-3 px-2 lg:gap-4">
-        <button
+        <ALink
+          href="/s"
           :aria-label="$t.i19searchProducts"
-          @click="isSearchOpen = !isSearchOpen"
+          @click.prevent="isSearchOpen = !isSearchOpen"
+          role="button"
         >
           <i class="i-magnifying-glass hover:text-primary h-7 w-7
             hover:scale-110 active:scale-125"></i>
-        </button>
+        </ALink>
         <AccountMenu class="hidden sm:block">
           <template #button="{ open }">
             <i
@@ -43,10 +48,12 @@
             ></i>
           </template>
         </AccountMenu>
-        <button
+        <CheckoutLink
+          to="cart"
           :aria-label="$t.i19openCart"
-          @click="isCartOpen = !isCartOpen"
+          @click.prevent="isCartOpen = !isCartOpen"
           class="group relative"
+          role="button"
         >
           <i class="i-shopping-bag group-hover:text-primary h-7 w-7
             group-hover:scale-110 group-active:scale-125"></i>
@@ -56,7 +63,7 @@
           >
             {{ delayedTotalItems }}
           </span>
-        </button>
+        </CheckoutLink>
       </div>
     </div>
     <Drawer
@@ -116,6 +123,7 @@ import {
   useShopHeader,
 } from '@@sf/composables/use-shop-header';
 import Drawer from '@@sf/components/Drawer.vue';
+import CheckoutLink from '@@sf/components/CheckoutLink.vue';
 import ShopSidenav from '~/components/ShopSidenav.vue';
 import ShopHeaderMenu from '~/components/ShopHeaderMenu.vue';
 import AccountMenu from '~/components/AccountMenu.vue';

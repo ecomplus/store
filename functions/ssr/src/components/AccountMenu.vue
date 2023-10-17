@@ -7,9 +7,11 @@
     <div v-if="open">
       <span v-once>{{ initializeFirebaseAuth() }}</span>
     </div>
-    <MenuButton class="outline-none" :aria-label="$t.i19myAccount">
-      <slot name="button" v-bind="{ open }" />
-    </MenuButton>
+    <AccountLink>
+      <MenuButton class="outline-none" :aria-label="$t.i19myAccount">
+        <slot name="button" v-bind="{ open }" />
+      </MenuButton>
+    </AccountLink>
     <Fade>
       <MenuItems class="divide-base-100 absolute -right-8 mt-2
         w-56 divide-y rounded bg-white shadow

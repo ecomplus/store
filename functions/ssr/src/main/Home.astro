@@ -11,7 +11,7 @@ const heroSlides = heroSlider.slides;
 
 <main>
   {heroSlider.slides.length &&
-    <HeroSlider {...heroSlider} client:load>
+    <HeroSlider {...heroSlider} client:idle>
       {heroSlides[0] && <BannerPictures slot="picture-0" {...heroSlides[0]} index={0} />}
       {heroSlides[1] && <BannerPictures slot="picture-1" {...heroSlides[1]} index={1} />}
       {heroSlides[2] && <BannerPictures slot="picture-2" {...heroSlides[2]} index={2} />}

@@ -1,8 +1,10 @@
 <template>
   <Popover v-slot="{ open }">
-    <PopoverButton class="outline-none">
-      <slot name="button" v-bind="{ open }" />
-    </PopoverButton>
+    <ALink :href="`/${categoryTree.slug}`">
+      <PopoverButton class="outline-none">
+        <slot name="button" v-bind="{ open }" />
+      </PopoverButton>
+    </ALink>
     <div class="relative" ref="panel">
       <Fade>
         <PopoverPanel
