@@ -17,14 +17,14 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@cloudcommerce/api": "^0.28.4",
-    "@cloudcommerce/firebase": "^0.28.4",
-    "@cloudcommerce/ssr": "^0.28.4"
+    "@cloudcommerce/api": "^0.28.5",
+    "@cloudcommerce/firebase": "^0.28.5",
+    "@cloudcommerce/ssr": "^0.28.5"
   },
   "devDependencies": {
-    "@cloudcommerce/i18n": "^0.28.4",
-    "@cloudcommerce/storefront": "^0.28.4",
-    "@cloudcommerce/types": "^0.28.4",
+    "@cloudcommerce/i18n": "^0.28.5",
+    "@cloudcommerce/storefront": "^0.28.5",
+    "@cloudcommerce/types": "^0.28.5",
     "photoswipe": "^5.4.2"
   }
 }
