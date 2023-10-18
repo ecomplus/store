@@ -23,7 +23,7 @@ const { inlineClientJS } = await useSharedData({
   {pitchBar.slides.length === 1 && <PitchBar {...pitchBar} />}
 </slot>
 <script is:inline set:html={inlineClientJS} />
-<ShopHeader {...shopHeader} client:context="idle">
+<ShopHeader {...shopHeader} client:context>
   <Fragment slot="logo">
     <a href="/">
       <LogoHeading>
