@@ -48,8 +48,8 @@
             ></i>
           </template>
         </AccountMenu>
-        <CheckoutLink
-          to="cart"
+        <a
+          :href="$settings.cartUrl"
           :aria-label="$t.i19openCart"
           @click.prevent="isCartOpen = !isCartOpen"
           class="group relative"
@@ -63,7 +63,7 @@
           >
             {{ delayedTotalItems }}
           </span>
-        </CheckoutLink>
+        </a>
       </div>
     </div>
     <Drawer
@@ -123,7 +123,6 @@ import {
   useShopHeader,
 } from '@@sf/composables/use-shop-header';
 import Drawer from '@@sf/components/Drawer.vue';
-import CheckoutLink from '@@sf/components/CheckoutLink.vue';
 import ShopSidenav from '~/components/ShopSidenav.vue';
 import ShopHeaderMenu from '~/components/ShopHeaderMenu.vue';
 import AccountMenu from '~/components/AccountMenu.vue';
