@@ -43,14 +43,14 @@
               ? 'grid md:grid-cols-2 gap-x-5 gap-y-1.5' : 'space-y-1.5'"
           >
             <li v-for="({ name, slug }, i) in categories" :key="`c-${i}`">
-              <ALink :href="`/${slug}`" class="ui-link text-base-600">
+              <a :href="`/${slug}`" class="ui-link text-base-600">
                 {{ name }}
-              </ALink>
+              </a>
             </li>
             <li>
-              <ALink href="/s" class="ui-link text-base-900">
+              <a href="/s" class="ui-link text-base-900">
                 {{ $t.i19allProducts }}
-              </ALink>
+              </a>
             </li>
           </ul>
         </div>

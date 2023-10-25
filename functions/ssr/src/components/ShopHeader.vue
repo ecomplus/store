@@ -30,7 +30,7 @@
       <ShopHeaderMenu class="hidden lg:block" v-bind="{ inlineMenuTrees }" />
       <div class="text-base-800 flex
         basis-1/4 items-center justify-end gap-3 px-2 lg:gap-4">
-        <ALink
+        <a
           href="/s"
           :aria-label="$t.i19searchProducts"
           @click.prevent="isSearchOpen = !isSearchOpen"
@@ -38,7 +38,7 @@
         >
           <i class="i-magnifying-glass hover:text-primary h-7 w-7
             hover:scale-110 active:scale-125"></i>
-        </ALink>
+        </a>
         <AccountMenu class="hidden sm:block">
           <template #button="{ open }">
             <i
@@ -49,7 +49,7 @@
           </template>
         </AccountMenu>
         <a
-          :href="$settings.cartUrl"
+          :href="$settings.cartUrl || '/app/'"
           :aria-label="$t.i19openCart"
           @click.prevent="isCartOpen = !isCartOpen"
           class="group relative"

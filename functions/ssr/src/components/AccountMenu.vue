@@ -7,7 +7,7 @@
     <div v-if="open">
       <span v-once>{{ initializeFirebaseAuth() }}</span>
     </div>
-    <AccountLink>
+    <AccountLink role="button">
       <MenuButton class="outline-none" :aria-label="$t.i19myAccount">
         <slot name="button" v-bind="{ open }" />
       </MenuButton>
