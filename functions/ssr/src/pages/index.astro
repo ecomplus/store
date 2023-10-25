@@ -10,11 +10,6 @@ let routeContext: RouteContext | undefined;
 let loadError: any;
 try {
   routeContext = await loadRouteContext(Astro);
-  /* Faster SSR without store categories (default) prefetch:
-  routeContext = await loadRouteContext(Astro, {
-    apiPrefetchEndpoints: [],
-  });
-  */
 } catch (err: any) {
   if (err.astroResponse) {
     return err.astroResponse;
