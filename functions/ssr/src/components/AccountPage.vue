@@ -10,7 +10,7 @@
       </section>
       <section class="overflow-hidden rounded-md
         shadow-md ring-4 ring-black/10">
-        <LoginForm>
+        <LoginForm v-bind="{ loginLinkActionUrl }">
           <template #head>
             <div class="mb-5 text-center">
               <a href="/" class="inline-block">
@@ -44,9 +44,16 @@ import LoginForm from '~/components/LoginForm.vue';
 
 watch(isLogged, () => {
   if (isLogged.value) {
-    window.location.href = `/app/#${window.location.pathname.replace('/app/', '')}`;
+    window.location.href = `/app/#${window.location.pathname.replace('/app/', '/')}`;
   }
 }, {
   immediate: true,
 });
+let loginLinkActionUrl: string | null = null;
+if (!import.meta.env.SSR) {
+  const url = new URL(window.location.toString());
+  url.pathname = '/app/';
+  url.hash = `#${window.location.pathname.replace('/app/', '/')}`;
+  loginLinkActionUrl = url.toString();
+}
 </script>
