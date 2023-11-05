@@ -39,7 +39,10 @@
         </div>
         <Prices :price="shoppingCart.subtotal" class="col-span-3 text-lg" />
       </div>
-      <CheckoutLink class="ui-btn-lg ui-btn-primary my-2.5 w-full text-right">
+      <CheckoutLink
+        to="checkout"
+        class="ui-btn-lg ui-btn-primary my-2.5 w-full text-right"
+      >
         <i class="i-check mr-2"></i>
         {{ $t.i19checkout }}
       </CheckoutLink>
