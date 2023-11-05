@@ -5,36 +5,30 @@ import BaseHead from '@@sf/layouts/BaseHead.astro';
 import Base from '~/layouts/Base.astro';
 import AccountPage from '~/components/AccountPage.vue';
 
-let routeContext: RouteContext | undefined;
-let loadError: any;
+let routeContext: RouteContext;
 try {
   routeContext = await loadRouteContext(Astro);
 } catch (err: any) {
-  if (err.astroResponse) {
-    return err.astroResponse;
-  }
-  loadError = err;
+  return err.astroResponse;
 }
+const { settings } = routeContext;
 ---
 
 <!DOCTYPE html>
-<html lang={routeContext?.lang.replace('_', '-')}>
-{routeContext &&
-  <Base>
-    <BaseHead slot="base-head" />
-    <main>
-      <AccountPage client:load>
-        <Picture
-          slot="logo"
-          src={routeContext.settings.logo}
-          alt={routeContext.settings.name}
-          widths={[300]}
-          loading="lazy"
-          class="max-w-[150px]"
-        />
-      </AccountPage>
-    </main>
-  </Base>
-}
-{loadError && <Fragment set:html={loadError.responseHTML} />}
+<html lang={routeContext.lang.replace('_', '-')}>
+<Base>
+  <BaseHead slot="base-head" />
+  <main>
+    <AccountPage client:only>
+      <Picture
+        slot="logo"
+        src={settings.logo}
+        alt={settings.name}
+        widths={[300]}
+        loading="lazy"
+        class="max-w-[150px]"
+      />
+    </AccountPage>
+  </main>
+</Base>
 </html>
