@@ -20,15 +20,14 @@
           </template>
         </LoginForm>
       </section>
-      <nav v-if="$settings.serviceLinks?.length" class="ui-section">
-        <ul class="flex items-center justify-center gap-3">
-          <li class="basis-full text-center md:basis-1/2">
-            <ALink
-              v-for="({ title, href }, i) in $settings.serviceLinks"
-              :key="`s-${i}`"
-              :href="href"
-              class="ui-link text-base-200 hover:text-white"
-            >
+      <nav v-if="$settings.serviceLinks?.length" class="ui-section px-0">
+        <ul class="mx-auto flex max-w-sm flex-wrap items-center
+          justify-evenly gap-4 px-3">
+          <li
+            v-for="({ title, href }, i) in $settings.serviceLinks"
+            :key="`s-${i}`"
+          >
+            <ALink :href="href" class="ui-link text-base-200 hover:text-white">
               {{ title }}
             </ALink>
           </li>
@@ -42,18 +41,22 @@
 import { isLogged } from '@@sf/state/customer-session';
 import LoginForm from '~/components/LoginForm.vue';
 
-watch(isLogged, () => {
-  if (isLogged.value) {
-    window.location.href = `/app/#${window.location.pathname.replace('/app/', '/')}`;
-  }
-}, {
-  immediate: true,
-});
 let loginLinkActionUrl: string | null = null;
 if (!import.meta.env.SSR) {
-  const url = new URL(window.location.toString());
-  url.pathname = '/app/';
-  url.hash = `#${window.location.pathname.replace('/app/', '/')}`;
-  loginLinkActionUrl = url.toString();
+  const { location } = window;
+  const returnUrl = new URLSearchParams(location.search).get('return_url');
+  if (!returnUrl) {
+    const url = new URL(location.toString());
+    url.pathname = '/app/';
+    url.hash = `#${location.pathname.replace('/app/', '/')}`;
+    loginLinkActionUrl = url.toString();
+  }
+  watch(isLogged, () => {
+    if (isLogged.value) {
+      location.href = (returnUrl || loginLinkActionUrl) as string;
+    }
+  }, {
+    immediate: true,
+  });
 }
 </script>
