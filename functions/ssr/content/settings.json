@@ -26,6 +26,10 @@
     {
       "title": "Fale conosco",
       "href": "/p/contato"
+    },
+    {
+      "title": "Privacidade e termos",
+      "href": "/p/terms"
     }
   ],
   "paymentMethods": [
