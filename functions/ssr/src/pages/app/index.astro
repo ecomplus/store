@@ -1,0 +1,62 @@
+---
+import loadRouteContext, { RouteContext } from '@@sf/ssr-context';
+import BaseHead from '@@sf/layouts/BaseHead.astro';
+import Base from '~/layouts/Base.astro';
+import CheckoutPage from '~/components/CheckoutPage.vue';
+
+let routeContext: RouteContext;
+try {
+  routeContext = await loadRouteContext(Astro);
+} catch (err: any) {
+  return err.astroResponse;
+}
+const layoutContent = await routeContext.getContent('layout');
+const { footer: { stamps } } = layoutContent;
+---
+
+<!DOCTYPE html>
+<html lang={routeContext.lang.replace('_', '-')}>
+<Base>
+  <Fragment slot="base-head">
+    <BaseHead />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-twbs@7/dist/cdn/storefront-twbs.min.css">
+    <style is:inline>
+      body {
+        --primary: var(--c-primary);
+        --primary-yiq: var(--c-on-primary);
+        --primary-rgb: var(--rgb-primary);
+        --primary-darken: var(--c-primary);
+        --primary-darken-yiq: var(--c-on-primary);
+        --primary-darken-rgb: var(--rgb-primary);
+        --primary-dark: var(--c-primary-bold);
+        --primary-dark-yiq: var(--c-on-primary-bold);
+        --primary-dark-rgb: var(--rgb-primary-bold);
+        --primary-darker: var(--c-primary-bold);
+        --primary-darker-yiq: var(--c-on-primary-bold);
+        --primary-darker-rgb: var(--rgb-primary-bold);
+        --primary-darkest: rgb(var(--rgb-primary-900));
+        --primary-darkest-yiq: var(--c-on-dark);
+        --primary-darkest-rgb: var(--rgb-primary-900);
+        --primary-black: rgb(var(--rgb-primary-950));
+        --primary-lighten: var(--c-primary);
+        --primary-lighten-yiq: var(--c-on-primary);
+        --primary-lighten-rgb: var(--rgb-primary);
+        --primary-light: var(--c-primary-subtle);
+        --primary-light-yiq: var(--c-on-primary-subtle);
+        --primary-light-rgb: var(--rgb-primary-subtle);
+        --primary-lighter: var(--c-primary-subtle);
+        --primary-lighter-yiq: var(--c-on-primary-subtle);
+        --primary-lighter-rgb: var(--rgb-primary-subtle);
+        --primary-lightest: rgb(var(--rgb-primary-200));
+        --primary-lightest-yiq: var(--c-on-light);
+        --primary-lightest-rgb: var(--rgb-primary-200);
+      }
+      .lead {
+        margin-bottom: 1.25rem;
+      }
+    </style>
+  </Fragment>
+  <CheckoutPage footerStamps={stamps} />
+  <script src="@@sf/scripts/vbeta-app"></script>
+</Base>
+</html>
