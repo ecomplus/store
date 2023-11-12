@@ -10,7 +10,7 @@ const { breadcrumbs, inlineJSONLd } = await useBreadcrumbs(Astro.props);
 ---
 
 {breadcrumbs.length > 0 &&
-  <section class="ui-section-slim">
+  <section class={`ui-section-slim ${breadcrumbs.length > 1 ? '' : 'hidden lg:block'}`}>
     <nav aria-label="Breadcrumb" class="w-full overflow-hidden text-lg md:text-sm">
       <ol class="flex items-center gap-1 text-base-600">
         <li>

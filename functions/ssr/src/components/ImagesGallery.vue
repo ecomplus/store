@@ -39,9 +39,10 @@
             class="hover:bg-primary-300/60 text-primary
             !bottom-3 !left-1/2 -ml-5 h-10 w-10
             rounded-full bg-white/60 text-xl
-            opacity-0 shadow-sm ring-1 ring-black/5
-            group-hover:opacity-90"
+            opacity-0 shadow-sm ring-1 ring-black/5 group-hover:opacity-90"
           />
+          <span class="absolute bottom-0 block h-2 w-full
+            bg-gradient-to-b from-transparent to-white"></span>
         </span>
       </template>
     </Carousel>
