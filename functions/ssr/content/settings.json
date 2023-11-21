@@ -62,7 +62,7 @@
       }
     },
     "calculate_shipping": {
-      "free_shipping_from_value": 150
+      "free_shipping_from_value": 200
     }
   }
 }

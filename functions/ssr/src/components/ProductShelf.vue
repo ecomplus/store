@@ -13,7 +13,7 @@
         :key="product._id"
         class="shrink-0 basis-1/2 md:basis-1/3 lg:basis-1/4"
       >
-        <ProductCard :product="product" />
+        <ProductCard :product="product" :list-name="listName" />
       </li>
       <template #controls>
         <div
@@ -38,6 +38,7 @@ import {
   type Props as UseProductShelfProps,
   useProductShelf,
 } from '@@sf/composables/use-product-shelf';
+import { useId } from '@@sf/sf-lib';
 import ProductCard from '~/components/ProductCard.vue';
 
 export interface Props extends UseProductShelfProps {}
@@ -52,4 +53,5 @@ const {
 if (import.meta.env.SSR) {
   await fetching;
 }
+const listName = title.value || `Shelf ${useId()}`;
 </script>
