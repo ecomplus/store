@@ -44,7 +44,7 @@
         / {{ $settings.docNumber }}
       </div>
       <ALink href="https://www.ecomplus.io/" class="italic text-[#37003c]">
-        powered by <b>E-Com Plus</b>
+        powered by <b>e-com.plus</b>
       </ALink>
     </div>
   </div>
