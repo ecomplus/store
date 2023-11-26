@@ -3,6 +3,7 @@ html {
 }
 body {
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 a, button, button > *, [role=button], [role=button] > * {
   transition: background-color var(--transition),
