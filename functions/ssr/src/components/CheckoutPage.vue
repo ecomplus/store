@@ -3,7 +3,9 @@
     <section class="bg-base-50">
       <div class="ui-section flex flex-wrap
         items-center justify-center gap-6 lg:gap-12">
-        <slot name="logo" />
+        <a href="/">
+          <slot name="logo" />
+        </a>
         <div class="flex items-center gap-2">
           <i class="i-shield-check-solid bg-success-400 m-0 text-3xl"></i>
           <span class="text-base-600 text-base">
