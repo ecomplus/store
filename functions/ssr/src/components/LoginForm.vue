@@ -17,7 +17,7 @@
       type="email"
       placeholder="email@mail.com"
       v-model="email"
-      class="mb-0.5 mt-2 w-full rounded"
+      class="mb-0.5 mt-2 w-full"
       required
     />
     <input
@@ -25,7 +25,7 @@
       type="password"
       :placeholder="$t.i19password"
       v-model="password"
-      class="mb-0.5 mt-2 w-full rounded lowercase"
+      class="mb-0.5 mt-2 w-full lowercase"
       required
     />
     <div class="relative">

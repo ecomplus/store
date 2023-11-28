@@ -30,15 +30,42 @@
       <ShopHeaderMenu class="hidden lg:block" v-bind="{ inlineMenuTrees }" />
       <div class="text-base-800 flex
         basis-1/4 items-center justify-end gap-3 px-2 lg:gap-4">
-        <a
-          href="/s"
-          :aria-label="$t.i19searchProducts"
-          @click.prevent="isSearchOpen = !isSearchOpen"
-          role="button"
-        >
-          <i class="i-magnifying-glass hover:text-primary h-7 w-7
-            hover:scale-110 active:scale-125"></i>
-        </a>
+        <form action="/s" method="get" class="relative">
+          <label for="HeaderSearch" class="sr-only">
+            {{ $t.i19searchProducts }}
+          </label>
+          <Fade>
+            <div
+              v-show="isSearchOpen"
+              class="absolute -right-2 -top-2 flex items-stretch"
+            >
+              <div class="hidden w-12 bg-gradient-to-r from-transparent
+                to-white sm:block"></div>
+              <input
+                ref="searchInput"
+                type="search"
+                id="HeaderSearch"
+                name="term"
+                v-model="searchTerm"
+                class="to-primary-50 border-primary/20
+                border-1 w-72 max-w-md bg-gradient-to-r from-white py-3
+                pl-5 pr-12 text-base ring-0 md:w-screen"
+                :placeholder="`${$t.i19searchProducts} ...`"
+              />
+            </div>
+          </Fade>
+          <button
+            type="submit"
+            :aria-label="$t.i19searchProducts"
+            @click="toggleSearch"
+          >
+            <i
+              class="i-magnifying-glass hover:text-primary h-7 w-7
+              hover:scale-110 active:scale-125"
+              :class="isSearchOpen && 'text-primary-600'"
+            ></i>
+          </button>
+        </form>
         <AccountMenu class="hidden sm:block">
           <template #button="{ open }">
             <i
@@ -51,7 +78,7 @@
         <a
           :href="$settings.cartUrl || '/app/'"
           :aria-label="$t.i19openCart"
-          @click.prevent="isCartOpen = !isCartOpen"
+          @click.prevent="isCartOpen = !isCartOpen, isCartOpenOnce = true"
           class="group relative"
           role="button"
         >
@@ -76,18 +103,23 @@
         maxHeight: `calc(100dvh - ${positionY}px + .5rem)`,
       }"
     >
-      <ShopSidenav class="bg-white pt-6" v-bind="{ categoryTrees }" />
+      <ShopSidenav class="pt-6" v-bind="{ categoryTrees }" />
     </Drawer>
     <Drawer
       v-model="isSearchOpen"
+      :is-hidden="!searchTerm"
       :has-close-button="false"
+      :anchor-el="searchInput?.parentElement"
       placement="top"
+      animation="scale"
+      max-width="55rem"
+      class="bg-white lg:mt-24 lg:bg-transparent"
     >
       <Suspense>
-        <SearchModal v-if="isSearchOpenOnce" />
+        <SearchModal v-if="isSearchOpenOnce" :term="searchTerm" />
         <template #fallback>
           <div class="container mx-auto">
-            <Skeleton class="p-6" is-large />
+            <Skeleton class="p-6" is-large is-bold />
           </div>
         </template>
       </Suspense>
@@ -97,11 +129,14 @@
         v-model="isCartOpen"
         placement="end"
         backdrop-target="#teleported-overlap"
+        class="shadow"
       >
         <Suspense>
           <CartSidebar v-if="isCartOpenOnce" @close="isCartOpen = false" />
           <template #fallback>
-            <Skeleton class="px-6 pt-16" is-bold />
+            <div class="h-full bg-white">
+              <Skeleton class="px-6 pt-16" is-bold />
+            </div>
           </template>
         </Suspense>
       </Drawer>
@@ -116,7 +151,6 @@ import {
   onMounted,
   defineAsyncComponent,
 } from 'vue';
-import { watchOnce } from '@vueuse/core';
 import { totalItems } from '@@sf/state/shopping-cart';
 import {
   type Props as UseShopHeaderProps,
@@ -142,14 +176,20 @@ const {
 const isSidenavOpen = ref(false);
 const isSearchOpen = ref(false);
 const isSearchOpenOnce = ref(false);
-watchOnce(isSearchOpen, () => {
-  isSearchOpenOnce.value = true;
-});
+const searchTerm = ref('');
+const searchInput = ref<HTMLElement | null>(null);
+const toggleSearch = (ev: Event) => {
+  isSearchOpen.value = !isSearchOpen.value;
+  if (isSearchOpen.value) {
+    isSearchOpenOnce.value = true;
+    ev.preventDefault();
+    nextTick(() => searchInput.value?.focus());
+  } else if (!searchTerm.value) {
+    ev.preventDefault();
+  }
+};
 const isCartOpen = ref(false);
 const isCartOpenOnce = ref(false);
-watchOnce(isCartOpen, () => {
-  isCartOpenOnce.value = true;
-});
 const isMounted = ref(false);
 const delayedTotalItems = ref(0);
 onMounted(() => {
