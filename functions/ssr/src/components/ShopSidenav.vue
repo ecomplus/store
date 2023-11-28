@@ -1,5 +1,5 @@
 <template>
-  <aside class="flex h-full flex-col">
+  <aside class="flex h-full flex-col bg-white">
     <nav class="grow py-4">
       <ul class="relative h-full">
         <ShopSidenavCategory
