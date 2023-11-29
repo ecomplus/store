@@ -40,7 +40,6 @@
 
 <script setup lang="ts">
 import type { CategoryTree } from '@@sf/composables/use-shop-header';
-import { onMounted } from 'vue';
 import {
   customerName,
   initializeFirebaseAuth,

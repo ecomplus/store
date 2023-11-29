@@ -78,7 +78,7 @@
         <a
           :href="$settings.cartUrl || '/app/'"
           :aria-label="$t.i19openCart"
-          @click.prevent="isCartOpen = !isCartOpen, isCartOpenOnce = true"
+          @click.prevent="isCartOpen = !isCartOpen"
           class="group relative"
           role="button"
         >
@@ -145,12 +145,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  ref,
-  watch,
-  onMounted,
-  defineAsyncComponent,
-} from 'vue';
+import { watchOnce } from '@vueuse/core';
 import { totalItems } from '@@sf/state/shopping-cart';
 import {
   type Props as UseShopHeaderProps,
@@ -176,12 +171,14 @@ const {
 const isSidenavOpen = ref(false);
 const isSearchOpen = ref(false);
 const isSearchOpenOnce = ref(false);
+watchOnce(isSearchOpen, () => {
+  isSearchOpenOnce.value = true;
+});
 const searchTerm = ref('');
 const searchInput = ref<HTMLElement | null>(null);
 const toggleSearch = (ev: Event) => {
   isSearchOpen.value = !isSearchOpen.value;
   if (isSearchOpen.value) {
-    isSearchOpenOnce.value = true;
     ev.preventDefault();
     nextTick(() => searchInput.value?.focus());
   } else if (!searchTerm.value) {
@@ -190,6 +187,9 @@ const toggleSearch = (ev: Event) => {
 };
 const isCartOpen = ref(false);
 const isCartOpenOnce = ref(false);
+watchOnce(isCartOpen, () => {
+  isCartOpenOnce.value = true;
+});
 const isMounted = ref(false);
 const delayedTotalItems = ref(0);
 onMounted(() => {
