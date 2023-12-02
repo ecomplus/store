@@ -2,11 +2,11 @@
   <article
     ref="card"
     :data-sku="product.sku"
-    class="group relative mx-auto h-full max-w-[350px] py-3"
+    class="group relative mx-auto h-full max-w-[350px] px-0.5 py-3 hover:z-[1]"
   >
     <ALink
       :href="link"
-      class="flex h-full flex-col overflow-hidden rounded
+      class="flex h-full flex-col overflow-hidden rounded bg-white
       ring-black/5 group-hover:shadow group-hover:ring-1"
     >
       <div class="aspect-square p-2
@@ -43,8 +43,7 @@
       >
         -<strong>{{ discountPercentage }}</strong>%
       </span>
-      <div class="relative z-10 flex grow flex-col justify-between
-        bg-white/40 p-4 group-hover:backdrop-blur-md">
+      <div class="relative z-10 flex grow flex-col justify-between p-4">
         <component
           :is="headingTag"
           class="ui-link line-clamp-2 no-underline"

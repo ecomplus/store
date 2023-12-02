@@ -16,24 +16,27 @@
         <ProductCard :product="product" :list-name="listName" />
       </li>
       <template #controls>
-        <div
-          v-show="products.length > 2"
-          class="text-primary text-3xl leading-none transition-opacity
-          group-hover/shelf:opacity-90 lg:text-2xl lg:opacity-0"
-        >
-          <CarouselControl class="lg:hover:bg-primary-300/60 !-left-4 !top-1/2
-            h-12 w-12 rounded-full bg-transparent ring-black/5
-            lg:bg-white/80 lg:shadow-sm lg:ring-1" is-prev />
-          <CarouselControl class="lg:hover:bg-primary-300/60 !-right-4 !top-1/2
-            h-12 w-12 rounded-full bg-transparent ring-black/5
-            lg:bg-white/80 lg:shadow-sm lg:ring-1" />
-        </div>
+        <DefineCarouselControl v-slot="{ isPrev }">
+          <CarouselControl
+            v-show="products.length > 2"
+            class=":uno: text-primary lg:hover:bg-primary-300/60 !top-1/2 h-12
+            w-12 rounded-full bg-transparent text-3xl leading-none
+            ring-black/5 backdrop-blur-md
+            transition-opacity group-hover/shelf:opacity-90
+            lg:bg-white/80 lg:text-2xl lg:opacity-0 lg:shadow-sm lg:ring-1"
+            :class="isPrev ? '!-left-4' : '!-right-4'"
+            :is-prev="isPrev"
+          />
+        </DefineCarouselControl>
+        <ReuseCarouselControl :is-prev="true" />
+        <ReuseCarouselControl />
       </template>
     </Carousel>
   </section>
 </template>
 
 <script setup lang="ts">
+import { createReusableTemplate } from '@vueuse/core';
 import {
   type Props as UseProductShelfProps,
   useProductShelf,
@@ -44,6 +47,10 @@ import ProductCard from '~/components/ProductCard.vue';
 export interface Props extends UseProductShelfProps {}
 
 const props = defineProps<Props>();
+const [
+  DefineCarouselControl,
+  ReuseCarouselControl,
+] = createReusableTemplate<{ isPrev?: boolean }>();
 const {
   title,
   titleLink,
