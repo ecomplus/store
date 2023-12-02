@@ -37,7 +37,7 @@
           <Fade>
             <div
               v-show="isSearchOpen"
-              class="absolute -right-2 -top-2 flex items-stretch"
+              class="absolute -right-0.5 -top-2 flex items-stretch"
             >
               <div class="hidden w-12 bg-gradient-to-r from-transparent
                 to-white sm:block"></div>
@@ -46,7 +46,7 @@
                 type="search"
                 id="HeaderSearch"
                 name="term"
-                v-model="searchTerm"
+                v-model.trim="searchTerm"
                 class="to-primary-50 border-primary/20
                 border-1 w-72 max-w-md bg-gradient-to-r from-white py-3
                 pl-5 pr-12 text-base ring-0 md:w-screen"
@@ -62,7 +62,7 @@
             <i
               class="i-magnifying-glass hover:text-primary h-7 w-7
               hover:scale-110 active:scale-125"
-              :class="isSearchOpen && 'text-primary-600'"
+              :class="isSearchOpen && 'text-primary-600 -translate-x-2'"
             ></i>
           </button>
         </form>
@@ -107,7 +107,7 @@
     </Drawer>
     <Drawer
       v-model="isSearchOpen"
-      :is-hidden="!searchTerm"
+      :is-hidden="!searchTerm || searchTerm.length < 2"
       :has-close-button="false"
       :anchor-el="searchInput?.parentElement"
       placement="top"
