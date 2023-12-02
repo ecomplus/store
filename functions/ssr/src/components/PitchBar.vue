@@ -40,7 +40,7 @@ import {
   usePitchBar,
 } from '@@sf/composables/use-pitch-bar';
 
-export interface Props extends UsePitchBarProps {}
+export interface Props extends /* @vue-ignore */ UsePitchBarProps {}
 
 const props = defineProps<Props>();
 const {
