@@ -11,7 +11,13 @@
         </li>
       </Carousel>
     </nav>
-    <ProductShelf :products="searchEngine.products" class="rounded bg-white" />
+    <ProductShelf
+      v-if="searchEngine.products.length"
+      :products="searchEngine.products"
+      class="rounded bg-white
+      [&_[data-carousel-control=next]]:!-right-10
+      [&_[data-carousel-control=previous]]:!-left-10"
+    />
   </article>
 </template>
 

@@ -19,7 +19,7 @@
         <DefineCarouselControl v-slot="{ isPrev }">
           <CarouselControl
             v-show="products.length > 2"
-            class=":uno: text-primary lg:hover:bg-primary-300/60 !top-1/2 h-12
+            class=":uno: text-primary lg:hover:bg-primary-200 !top-1/2 h-12
             w-12 rounded-full bg-transparent text-3xl leading-none
             ring-black/5 backdrop-blur-md
             transition-opacity group-hover/shelf:opacity-90
