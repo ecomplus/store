@@ -3,6 +3,7 @@
 /// <reference types="vue/ref-macros" />
 /// <reference types="@cloudcommerce/storefront/client" />
 /// <reference types="@cloudcommerce/storefront/server" />
+/// <reference types="@cloudcommerce/storefront/.auto-imports" />
 
 /* eslint-disable import/newline-after-import */
 
