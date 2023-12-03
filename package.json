@@ -23,7 +23,8 @@
     "url": "https://github.com/ecomplus/cloud-commerce/issues"
   },
   "dependencies": {
-    "@cloudcommerce/cli": "^0.36.1"
+    "@cloudcommerce/cli": "^0.36.1",
+    "typescript": "~5.2.2"
   },
   "devDependencies": {
     "@cloudcommerce/eslint": "^0.36.1"
