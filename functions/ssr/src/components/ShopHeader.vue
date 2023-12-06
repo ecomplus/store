@@ -45,7 +45,7 @@
                 ref="searchInput"
                 type="search"
                 id="HeaderSearch"
-                name="term"
+                name="q"
                 v-model.trim="searchTerm"
                 class="to-primary-50 border-primary/20
                 border-1 w-72 max-w-md bg-gradient-to-r from-white py-3
@@ -110,10 +110,12 @@
       :is-hidden="!searchTerm || searchTerm.length < 2"
       :has-close-button="false"
       :anchor-el="searchInput?.parentElement"
+      position="absolute"
       placement="top"
       animation="scale"
       max-width="55rem"
-      class="bg-white lg:mt-24 lg:bg-transparent"
+      class="bg-transparent lg:mt-12"
+      :class="isSticky ? 'mt-2 md:mt-3' : 'mt-3 sm:mt-4 md:mt-5'"
     >
       <Suspense>
         <SearchModal v-if="isSearchOpenOnce" :term="searchTerm" />
