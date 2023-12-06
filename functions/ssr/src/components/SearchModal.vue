@@ -35,7 +35,8 @@
     </Fade>
     <Fade>
       <section
-        v-if="!isFetching"
+        v-if="!isFetching
+          && (searchHistory.length || productCount > productHits.length)"
         class="bg-base-100/80 grid grid-cols-1 items-center
         gap-4 p-4 backdrop-blur-md
         md:grid-cols-2 lg:mt-5 lg:grid-cols-3 lg:rounded"
