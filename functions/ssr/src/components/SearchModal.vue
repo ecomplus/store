@@ -22,7 +22,7 @@
         </nav>
       </section>
     </Fade>
-    <Skeleton v-if="isFetching" class="absolute top-0 w-full pt-20" />
+    <Skeleton v-if="isFetching" class="absolute top-0 w-full px-5 pt-20" />
     <Fade>
       <ProductShelf
         v-if="!isFetching && productHits.length"
