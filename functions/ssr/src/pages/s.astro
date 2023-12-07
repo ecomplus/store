@@ -1,0 +1,23 @@
+---
+import loadRouteContext, { type RouteContext } from '@@sf/ssr-context';
+import BaseHead from '@@sf/layouts/BaseHead.astro';
+import Base from '~/layouts/Base.astro';
+import PageHeader from '~/layouts/PageHeader.astro';
+import FallbackMain from '~/main/Fallback.astro';
+
+let routeContext: RouteContext;
+try {
+  routeContext = await loadRouteContext(Astro);
+} catch (err: any) {
+  return err.astroResponse;
+}
+---
+
+<!DOCTYPE html>
+<html lang={routeContext?.lang.replace('_', '-')}>
+<Base>
+  <BaseHead slot="base-head" />
+  <PageHeader />
+  <FallbackMain />
+</Base>
+</html>
