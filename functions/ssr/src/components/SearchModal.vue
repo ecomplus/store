@@ -23,7 +23,7 @@
       </section>
     </Fade>
     <Skeleton v-if="isFetching" class="absolute top-0 w-full px-5 pt-20" />
-    <Fade>
+    <Fade :is-leave-to="false">
       <ProductShelf
         v-if="!isFetching && productHits.length"
         :products="productHits"
@@ -33,7 +33,7 @@
         :class="linkHits.length ? 'lg:rounded-b' : 'lg:rounded'"
       />
     </Fade>
-    <Fade>
+    <Fade :is-leave-to="false">
       <section
         v-if="!isFetching
           && (searchHistory.length || productCount > productHits.length)"
