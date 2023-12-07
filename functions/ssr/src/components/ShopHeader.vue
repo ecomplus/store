@@ -85,10 +85,10 @@
           <i class="i-shopping-bag group-hover:text-primary h-7 w-7
             group-hover:scale-110 group-active:scale-125"></i>
           <span
-            v-if="delayedTotalItems"
+            v-if="cartTotalItems"
             class="ui-badge-pill-sm absolute -right-1.5 -top-1"
           >
-            {{ delayedTotalItems }}
+            {{ cartTotalItems }}
           </span>
         </a>
       </div>
@@ -107,7 +107,7 @@
     </Drawer>
     <Drawer
       v-model="isSearchOpen"
-      :is-hidden="!searchTerm || searchTerm.length < 2"
+      :is-hidden="!quickSearchTerm"
       :has-close-button="false"
       :anchor-el="searchInput?.parentElement"
       position="absolute"
@@ -118,7 +118,7 @@
       :class="isSticky ? 'mt-2 md:mt-3' : 'mt-3 sm:mt-4 md:mt-5'"
     >
       <Suspense>
-        <SearchModal v-if="isSearchOpenOnce" :term="searchTerm" />
+        <SearchModal v-if="isSearchOpenOnce" :term="quickSearchTerm" />
         <template #fallback>
           <div class="container mx-auto">
             <Skeleton class="p-6" is-large is-bold />
@@ -147,8 +147,6 @@
 </template>
 
 <script setup lang="ts">
-import { watchOnce } from '@vueuse/core';
-import { totalItems } from '@@sf/state/shopping-cart';
 import {
   type Props as UseShopHeaderProps,
   useShopHeader,
@@ -164,47 +162,26 @@ const SearchModal = defineAsyncComponent(() => import('~/components/SearchModal.
 const CartSidebar = defineAsyncComponent(() => import('~/components/CartSidebar.vue'));
 const props = defineProps<Props>();
 const header = ref<HTMLElement | null>(null);
+const searchInput = ref<HTMLInputElement | null>(null);
 const {
   isSticky,
   positionY,
   categoryTrees,
   inlineMenuTrees,
-} = useShopHeader({ ...props, header });
+  isSearchOpen,
+  isSearchOpenOnce,
+  searchTerm,
+  quickSearchTerm,
+  toggleSearch,
+  isCartOpen,
+  isCartOpenOnce,
+  cartTotalItems,
+  handleOnMounted,
+} = useShopHeader({ ...props, header, searchInput });
 const isSidenavOpen = ref(false);
-const isSearchOpen = ref(false);
-const isSearchOpenOnce = ref(false);
-watchOnce(isSearchOpen, () => {
-  isSearchOpenOnce.value = true;
-});
-const searchTerm = ref('');
-const searchInput = ref<HTMLElement | null>(null);
-const toggleSearch = (ev: Event) => {
-  isSearchOpen.value = !isSearchOpen.value;
-  if (isSearchOpen.value) {
-    ev.preventDefault();
-    nextTick(() => searchInput.value?.focus());
-  } else if (!searchTerm.value) {
-    ev.preventDefault();
-  }
-};
-const isCartOpen = ref(false);
-const isCartOpenOnce = ref(false);
-watchOnce(isCartOpen, () => {
-  isCartOpenOnce.value = true;
-});
 const isMounted = ref(false);
-const delayedTotalItems = ref(0);
 onMounted(() => {
   isMounted.value = true;
-  watch(totalItems, (newTotalItems, prevTotalItems) => {
-    if (typeof prevTotalItems === 'number') {
-      if (prevTotalItems < newTotalItems) {
-        isCartOpen.value = true;
-      } else if (prevTotalItems && !newTotalItems) {
-        isCartOpen.value = false;
-      }
-    }
-    delayedTotalItems.value = newTotalItems;
-  }, { immediate: true });
+  handleOnMounted();
 });
 </script>
