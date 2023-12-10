@@ -6,8 +6,9 @@
         <ImagesGallery :pictures="product.pictures" />
       </template>
     </div>
-    <div class="top-0 py-4 lg:sticky">
-      <h1 class="ui-text-brand text-base-700 text-xl">
+    <div class="lg:sticky-header:translate-y-14 top-0 py-4
+      transition-transform lg:sticky">
+      <h1 class="ui-text-brand text-secondary-900 text-lg">
         {{ title }}
       </h1>
       <div v-if="isActive" class="mt-5">
