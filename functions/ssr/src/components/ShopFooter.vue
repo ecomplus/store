@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-base-50 border-base-100 w-screen border-t py-2">
+  <footer class="bg-base-50 border-base-100 mt-auto w-screen border-t py-2">
     <div class="ui-section">
       <div class="border-base-200 flex flex-wrap
         justify-between gap-y-5 border-b pb-7 sm:gap-x-10 lg:flex-nowrap">

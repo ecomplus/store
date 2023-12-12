@@ -4,6 +4,9 @@ html {
 body {
   overflow-x: hidden;
   overflow-y: scroll;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
 a, button, button > *, [role=button], [role=button] > * {
   transition: background-color var(--transition),
