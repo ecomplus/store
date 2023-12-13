@@ -4,8 +4,7 @@
       <section
         v-if="linkHits.length"
         class="bg-white p-4"
-        :class="!isFetching && productHits.length
-          ? 'lg:rounded-t' : 'lg:rounded'"
+        :class="!isFetching && products.length ? 'lg:rounded-t' : 'lg:rounded'"
       >
         <nav>
           <Carousel :wrapper-key="term" class="px-6 [&>ul]:gap-3">
@@ -25,8 +24,8 @@
     <Skeleton v-if="isFetching" class="absolute top-0 w-full px-5 pt-20" />
     <Fade :is-leave-to="false">
       <ProductShelf
-        v-if="!isFetching && productHits.length"
-        :products="productHits"
+        v-if="!isFetching && products.length"
+        :products="products"
         class="m-0 max-w-none bg-white px-4
         lg:[&_[data-carousel-control=next]]:!-right-10
         lg:[&_[data-carousel-control=previous]]:!-left-10"
@@ -36,7 +35,7 @@
     <Fade :is-leave-to="false">
       <section
         v-if="!isFetching
-          && (searchHistory.length || productCount > productHits.length)"
+          && (searchHistory.length || productCount > products.length)"
         class="bg-base-100/80 grid grid-cols-1 items-center
         gap-4 p-4 backdrop-blur-md
         md:grid-cols-2 lg:mt-5 lg:grid-cols-3 lg:rounded"
@@ -46,8 +45,8 @@
             <strong>{{ productCount }}</strong> {{ $t.i19itemsFound }}
           </p>
           <a
-            v-if="productCount > productHits.length"
-            :href="`/s?q=${encodeURIComponent(term)}`"
+            v-if="productCount > products.length"
+            :href="getSearchUrl(term)"
             class="ui-btn ui-btn-primary w-auto text-center"
           >
             {{ $t.i19seeAll }}
@@ -62,7 +61,7 @@
                 class="shrink-0"
               >
                 <a
-                  :href="`/s?q=${encodeURIComponent(term)}`"
+                  :href="getSearchUrl(term)"
                   class="ui-link text-base-700 text-sm font-normal"
                 >
                   {{ term }}
@@ -84,6 +83,7 @@ import {
   type Props as UseSearchModalProps,
   useSearchModal,
 } from '@@sf/composables/use-search-modal';
+import { getSearchUrl } from '@@sf/sf-lib';
 import ProductShelf from '~/components/ProductShelf.vue';
 
 export interface Props extends UseSearchModalProps {}
@@ -92,7 +92,7 @@ const props = defineProps<Props>();
 const {
   searchHistory,
   isFetching,
-  productHits,
+  products,
   productCount,
   linkHits,
 } = useSearchModal(props);
