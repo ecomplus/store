@@ -7,7 +7,11 @@
         </ALink>
       </h2>
     </div>
-    <Carousel class="group/shelf">
+    <Component
+      :is="isGrid ? 'ul' : 'Carousel'"
+      class="group/shelf"
+      :class="isGrid && 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4'"
+    >
       <li
         v-for="product in products"
         :key="product._id"
@@ -15,7 +19,7 @@
       >
         <ProductCard :product="product" :list-name="listName" />
       </li>
-      <template #controls>
+      <template v-if="!isGrid" #controls>
         <DefineCarouselControl v-slot="{ isPrev }">
           <CarouselControl
             v-show="products.length > 2"
@@ -31,7 +35,7 @@
         <ReuseCarouselControl :is-prev="true" />
         <ReuseCarouselControl />
       </template>
-    </Carousel>
+    </Component>
   </section>
 </template>
 
@@ -44,7 +48,9 @@ import {
 import { useId } from '@@sf/sf-lib';
 import ProductCard from '~/components/ProductCard.vue';
 
-export interface Props extends UseProductShelfProps {}
+export interface Props extends UseProductShelfProps {
+  isGrid?: boolean;
+}
 
 const props = defineProps<Props>();
 const [

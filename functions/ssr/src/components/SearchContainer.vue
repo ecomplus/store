@@ -3,7 +3,7 @@
     <Skeleton class="absolute top-0 w-full" is-bold is-large />
   </div>
   <Fade :is-leave-to="false">
-    <ProductGrid :products="products" />
+    <ProductShelf :products="products" is-grid />
   </Fade>
 </template>
 
@@ -12,7 +12,7 @@ import {
   useSearchContainer,
   type Props as UseSearchContainerProps,
 } from '@@sf/composables/use-search-container';
-import ProductGrid from '~/components/ProductGrid.vue';
+import ProductShelf from '~/components/ProductShelf.vue';
 
 export interface Props extends UseSearchContainerProps {}
 
