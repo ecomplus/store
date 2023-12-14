@@ -10,19 +10,16 @@ const { settings, isHomepage } = routeContext;
 const LogoHeading = isHomepage ? 'h1' : 'h2';
 const {
   pitchBar,
-  shopHeader: { categories, ...shopHeader },
+  shopHeader,
 } = await usePageHeader({ routeContext });
-const { inlineClientJS } = await useSharedData({
-  field: 'categories',
-  value: categories?.map(({ _id, ...c }) => c),
-});
+const { getInlineClientJS } = await useSharedData({ field: 'categories' });
 ---
 
 <slot name="pitch-bar">
   {pitchBar.slides.length > 1 && <PitchBar {...pitchBar} client:idle />}
   {pitchBar.slides.length === 1 && <PitchBar {...pitchBar} />}
 </slot>
-<script is:inline set:html={inlineClientJS} />
+<script is:inline set:html={getInlineClientJS()} />
 <ShopHeader {...shopHeader} client:context>
   <Fragment slot="logo">
     <a href="/">
