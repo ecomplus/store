@@ -9,12 +9,12 @@
 
 <script setup lang="ts">
 import {
-  useSearchContainer,
-  type Props as UseSearchContainerProps,
-} from '@@sf/composables/use-search-container';
+  useSearchShowcase,
+  type Props as UseSearchShowcaseProps,
+} from '@@sf/composables/use-search-showcase';
 import ProductShelf from '~/components/ProductShelf.vue';
 
-export interface Props extends UseSearchContainerProps {}
+export interface Props extends UseSearchShowcaseProps {}
 
 const props = defineProps<Props>();
 const {
@@ -22,7 +22,7 @@ const {
   fetching,
   isFetching,
   products,
-} = useSearchContainer(props);
+} = useSearchShowcase(props);
 if (import.meta.env.SSR) {
   await fetching;
 }

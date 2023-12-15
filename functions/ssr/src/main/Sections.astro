@@ -6,7 +6,7 @@ import Breadcrumbs from '~/components/Breadcrumbs.astro';
 import DocDescription from '~/components/DocDescription.vue';
 import ProductDetails from '~/components/ProductDetails.vue';
 import ProductSpecifications from '~/components/ProductSpecifications.vue';
-import SearchContainer from '~/components/SearchContainer.vue';
+import SearchShowcase from '~/components/SearchShowcase.vue';
 
 const { routeContext } = Astro.locals;
 const { sections } = await usePageSections({
@@ -44,10 +44,11 @@ cause route resource is required to define sections from content. */
             </Fragment>
           </ProductDetails>
         </>
-      case 'search-container':
+      case 'search-showcase':
+      case 'context-showcase':
         return <>
           <article class="min-h-[500px]">
-            <SearchContainer {...props} client:context />
+            <SearchShowcase {...props} client:context />
           </article>
         </>
       case 'c:foo':
