@@ -1,5 +1,5 @@
 <template>
-  <section class="relative mx-auto">
+  <section class="relative mx-auto mb-9 md:mb-12">
     <Carousel :autoplay="autoplay" class="secondary [&>*]:items-center">
       <li
         v-for="(slide, i) in slides"
