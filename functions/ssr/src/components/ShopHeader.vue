@@ -37,7 +37,7 @@
           <Fade>
             <div
               v-show="isSearchOpen"
-              class="absolute -right-0.5 -top-2 flex items-stretch"
+              class="absolute -right-0.5 -top-2.5 flex items-stretch"
             >
               <div class="hidden w-12 bg-gradient-to-r from-transparent
                 to-white sm:block"></div>
