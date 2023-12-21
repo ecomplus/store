@@ -1,18 +1,21 @@
 <template>
-  <div v-if="!searchEngine.wasFetched" class="ui-section relative min-h-[300px]">
+  <div
+    v-if="isFetching && !products.length"
+    class="ui-section relative min-h-[300px]"
+  >
     <Skeleton class="absolute top-0 w-full px-5" is-bold is-large />
   </div>
   <article class="relative">
     <Fade>
       <section
-        v-if="hasFilter && searchMeta.count > 4"
+        v-if="resultMeta.count > 4"
         class="ui-section-slim sticky-header:translate-y-14
         to-base-100 sticky top-0 z-[12] flex items-center justify-between
         rounded-b bg-white/80 px-6 py-4 shadow-sm backdrop-blur-sm
         transition-transform duration-75"
       >
         <strong class="text-base-700 font-medium lowercase">
-          {{ searchMeta.count }}
+          {{ resultMeta.count }}
           <span class="hidden lg:inline">{{ $t.i19itemsFound }}</span>
           <span class="lg:hidden">{{ $t.i19products }}</span>
         </strong>
@@ -40,30 +43,32 @@
             <ListboxButton class="ui-btn-sm ui-btn-secondary">
               {{ $t.i19sort }}
             </ListboxButton>
-            <ListboxOptions class="divide-base-100
-              absolute right-0 mt-2 divide-y rounded bg-white
-              shadow ring-1 ring-black/5 focus:outline-none">
-              <ListboxOption
-                v-for="({ label, value }) in sortOptions"
-                :key="value || 'sort'"
-                :value="value"
-                as="template"
-                v-slot="{ selected }"
-              >
-                <li>
-                  <component
-                    :is="selected ? 'div' : 'button'"
-                    class="flex w-full py-2 pl-3 pr-6"
-                    :class="!selected && 'hover:bg-base-100'"
-                  >
-                    <div class="w-5">
-                      <i v-show="selected" class="i-check"></i>
-                    </div>
-                    {{ label }}
-                  </component>
-                </li>
-              </ListboxOption>
-            </ListboxOptions>
+            <Fade>
+              <ListboxOptions class="divide-base-100
+                absolute right-0 mt-2 divide-y rounded bg-white
+                shadow ring-1 ring-black/5 focus:outline-none">
+                <ListboxOption
+                  v-for="({ label, value }) in sortOptions"
+                  :key="value || 'sort'"
+                  :value="value"
+                  as="template"
+                  v-slot="{ selected }"
+                >
+                  <li>
+                    <component
+                      :is="selected ? 'div' : 'button'"
+                      class="flex w-full py-2 pl-3 pr-6"
+                      :class="!selected && 'hover:bg-base-100'"
+                    >
+                      <div class="w-5">
+                        <i v-show="selected" class="i-check"></i>
+                      </div>
+                      {{ label }}
+                    </component>
+                  </li>
+                </ListboxOption>
+              </ListboxOptions>
+            </Fade>
           </Listbox>
         </div>
       </section>
@@ -101,28 +106,21 @@ import {
 import Drawer from '@@sf/components/Drawer.vue';
 import ProductShelf from '~/components/ProductShelf.vue';
 
-export interface Props extends UseSearchShowcaseProps {
-  hasFilter?: boolean;
-}
+export interface Props extends UseSearchShowcaseProps {}
 
 const props = withDefaults(defineProps<Props>(), {
-  hasFilter: true,
+  canUseUrlParams: true,
 });
 const {
-  searchEngine,
   fetching,
   isFetching,
   products,
-  searchMeta,
+  resultMeta,
   sortOptions,
+  sortOption,
 } = useSearchShowcase(props);
 if (import.meta.env.SSR) {
   await fetching;
 }
 const isFiltersOpen = ref(false);
-const sortOption = ref<string | null>(null);
-watch(sortOption, () => {
-  searchEngine.params.sort = sortOption.value;
-  searchEngine.fetch();
-});
 </script>
