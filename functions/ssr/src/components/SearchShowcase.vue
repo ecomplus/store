@@ -12,7 +12,7 @@
         class="ui-section-slim sticky-header:translate-y-14
         to-base-100 sticky top-0 z-[12] flex items-center justify-between
         rounded-b bg-white/80 px-6 py-4 shadow-sm backdrop-blur-sm
-        transition-transform duration-75"
+        transition-transform"
       >
         <strong class="text-base-700 font-medium lowercase">
           {{ resultMeta.count }}
@@ -52,13 +52,13 @@
                   :key="value || 'sort'"
                   :value="value"
                   as="template"
-                  v-slot="{ selected }"
+                  v-slot="{ selected, active }"
                 >
                   <li>
                     <component
                       :is="selected ? 'div' : 'button'"
                       class="flex w-full py-2 pl-3 pr-6"
-                      :class="!selected && 'hover:bg-base-100'"
+                      :class="!selected && active && 'bg-secondary-100 text-secondary'"
                     >
                       <div class="w-5">
                         <i v-show="selected" class="i-check"></i>
@@ -88,7 +88,7 @@
     :can-lock-scroll="false"
     class="!z-[80] shadow"
   >
-    <aside class="flex h-screen flex-col bg-white"></aside>
+    <SearchFilters :search-engine="searchEngine" />
   </Drawer>
 </template>
 
@@ -105,6 +105,7 @@ import {
 } from '@headlessui/vue';
 import Drawer from '@@sf/components/Drawer.vue';
 import ProductShelf from '~/components/ProductShelf.vue';
+import SearchFilters from '~/components/SearchFilters.vue';
 
 export interface Props extends UseSearchShowcaseProps {}
 
@@ -112,6 +113,7 @@ const props = withDefaults(defineProps<Props>(), {
   canUseUrlParams: true,
 });
 const {
+  searchEngine,
   fetching,
   isFetching,
   products,

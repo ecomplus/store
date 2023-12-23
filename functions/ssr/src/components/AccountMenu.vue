@@ -30,7 +30,7 @@
             <AccountLink
               to="orders"
               class="block p-2"
-              :class="active ? 'bg-base-100 text-primary' : null"
+              :class="active ? 'bg-primary-100 text-primary' : null"
             >
               {{ $t.i19myOrders }}
             </AccountLink>
@@ -39,7 +39,7 @@
             <AccountLink
               to="favorites"
               class="block p-2"
-              :class="active ? 'bg-base-100 text-primary' : null"
+              :class="active ? 'bg-primary-100 text-primary' : null"
             >
               <i class="i-heart mr-1"></i>
               {{ $t.i19myFavorites }}
@@ -54,7 +54,7 @@
             <ALink
               :href="href"
               class="block p-2"
-              :class="active ? 'bg-base-100 text-primary' : null"
+              :class="active ? 'bg-primary-100 text-primary' : null"
             >
               {{ title }}
             </ALink>
