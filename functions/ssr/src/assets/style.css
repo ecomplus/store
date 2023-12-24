@@ -41,6 +41,10 @@ a, button, button > *, [role=button], [role=button] > * {
   @apply bg-white text-primary hover:bg-primary-100 ring-white/30
   decoration-primary-300 underline;
 }
+.ui-btn-danger {
+  @apply bg-danger-100 text-danger-700 border-danger-600
+  hover:bg-danger-600 hover:text-white ring-danger-600/30;
+}
 
 .ui-text-brand, .ui-title {
   @apply font-brand font-black italic;
