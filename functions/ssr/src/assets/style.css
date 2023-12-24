@@ -58,7 +58,7 @@ a, button, button > *, [role=button], [role=button] > * {
   inline-block bg-secondary-200 text-secondary-900;
 }
 [class*=ui-badge-pill] {
-  @apply py-0 rounded-full;
+  @apply text-sm leading-relaxed py-0 rounded-full;
 }
 .ui-badge-pill-sm {
   @apply text-xs min-w-[1rem] px-0.5;
