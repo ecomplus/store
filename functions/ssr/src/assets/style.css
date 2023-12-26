@@ -42,8 +42,9 @@ a, button, button > *, [role=button], [role=button] > * {
   decoration-primary-300 underline;
 }
 .ui-btn-danger {
-  @apply bg-danger-100 text-danger-700 border-danger-600
-  hover:bg-danger-600 hover:text-white ring-danger-600/30;
+  @apply bg-danger-50 text-danger-700 border-danger-100
+  hover:bg-danger-600 hover:text-white
+  hover:border-danger-600 ring-danger-600/30;
 }
 
 .ui-text-brand, .ui-title {
