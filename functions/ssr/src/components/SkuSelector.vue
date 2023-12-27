@@ -16,7 +16,7 @@
                 ? 'border-primary ring-2'
                 : null,
               gridId === 'colors'
-                ? 'h-9 w-9 text-[0]'
+                ? 'h-9 w-9 text-[0px]'
                 : 'px-2.5 py-2 leading-none',
               activeVariationsGrids[gridId].includes(optionText)
                 ? 'text-primary-950 bg-primary-100 border-primary-400'
