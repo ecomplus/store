@@ -22,9 +22,9 @@
               </h3>
               <i
                 v-if="hasOneLevelSubcategories"
-                class="i-chevron-down text-base-400
+                class="i-chevron-right text-base-400
                 group-hover:text-primary-subtle ml-1 transition-transform"
-                :class="open ? 'rotate-180' : null"
+                :class="open ? '-rotate-90' : 'rotate-90'"
               ></i>
             </span>
           </template>
