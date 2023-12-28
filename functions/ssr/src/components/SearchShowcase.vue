@@ -8,16 +8,19 @@
   <article class="relative">
     <Fade>
       <section
-        v-if="resultMeta.count > 4"
-        class="ui-section-slim sticky-header:translate-y-14
+        v-if="resultMeta.count > 4 || filtersCount"
+        class="ui-section-slim
+        sticky-header:translate-y-16 lg:sticky-header:translate-y-14
         to-base-100 sticky top-0 z-[12] flex items-center justify-between
         rounded-b bg-white/80 px-6 py-4 shadow-sm backdrop-blur-sm
         transition-transform"
       >
         <strong class="text-base-700 font-medium lowercase">
-          {{ resultMeta.count }}
-          <span class="hidden lg:inline">{{ $t.i19itemsFound }}</span>
-          <span class="lg:hidden">{{ $t.i19products }}</span>
+          <template v-if="resultMeta.count > 1">
+            {{ resultMeta.count }}
+            <span class="hidden lg:inline">{{ $t.i19itemsFound }}</span>
+            <span class="lg:hidden">{{ $t.i19products }}</span>
+          </template>
         </strong>
         <div class="flex items-center gap-4">
           <span class="hidden text-xl leading-none md:block">
@@ -25,7 +28,7 @@
           </span>
           <button
             @click="isFiltersOpen = !isFiltersOpen"
-            class="ui-btn-sm ui-btn-secondary"
+            class="ui-btn-sm ui-btn-secondary relative"
           >
             <span class="hidden md:inline">
               {{ $t.i19filterProducts }}
@@ -33,6 +36,13 @@
             <span class="md:hidden">
               <i class="i-adjustments-horizontal mr-1"></i>
               {{ $t.i19filterOut }}
+            </span>
+            <span
+              v-if="filtersCount"
+              class="ui-badge-pill-sm outline-secondary/80 outline-3
+              absolute -right-1.5 -top-1 outline"
+            >
+              {{ filtersCount }}
             </span>
           </button>
           <Listbox
@@ -86,7 +96,7 @@
     placement="end"
     :backdrop-target="null"
     :can-lock-scroll="false"
-    class="!z-[80] shadow"
+    class="!z-[80] bg-white shadow [&_[data-drawer-close]]:bg-white/80"
   >
     <SearchFilters :search-engine="searchEngine" />
   </Drawer>
@@ -118,6 +128,7 @@ const {
   isFetching,
   products,
   resultMeta,
+  filtersCount,
   sortOptions,
   sortOption,
 } = useSearchShowcase(props);
