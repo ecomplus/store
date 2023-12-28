@@ -22,7 +22,7 @@ a, button, button > *, [role=button], [role=button] > * {
 [class*=ui-btn] {
   @apply not-prose inline-block text-base font-medium px-4 py-2 rounded
   border-2 border-transparent underline-offset-4 decoration-2
-  focus:ring-1 focus:ring-offset-1 active:ring-2;
+  shadow focus:ring-1 focus:ring-offset-1 active:ring-2;
 }
 .ui-btn-sm {
   @apply text-sm px-3 py-1.5 border-1;
@@ -39,7 +39,7 @@ a, button, button > *, [role=button], [role=button] > * {
 }
 .ui-btn-contrast {
   @apply bg-white text-primary hover:bg-primary-100 ring-white/30
-  decoration-primary-300 underline;
+  decoration-primary-300 underline shadow-none;
 }
 .ui-btn-danger {
   @apply bg-danger-50 text-danger-700 border-danger-100
