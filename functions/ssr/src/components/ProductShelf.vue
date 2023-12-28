@@ -36,6 +36,7 @@
         <ReuseCarouselControl />
       </template>
     </Component>
+    <slot name="append" />
   </section>
 </template>
 

@@ -5,7 +5,7 @@
   >
     <Skeleton class="absolute top-0 w-full px-5" is-bold is-large />
   </div>
-  <article class="relative">
+  <article ref="showcase" class="relative">
     <Fade>
       <section
         v-if="resultMeta.count > 4 || filtersCount"
@@ -83,7 +83,18 @@
         </div>
       </section>
     </Fade>
-    <ProductShelf :products="products" is-grid />
+    <ProductShelf :products="products" is-grid>
+      <template #append>
+        <Fade slide="down">
+          <nav v-if="totalPages > 1" class="mt-3 lg:mt-4">
+            <Pagination
+              v-model:page="searchEngine.pageNumber.value"
+              :total-pages="totalPages"
+            />
+          </nav>
+        </Fade>
+      </template>
+    </ProductShelf>
     <Fade>
       <div
         v-if="isFetching"
@@ -114,6 +125,7 @@ import {
   ListboxOption,
 } from '@headlessui/vue';
 import Drawer from '@@sf/components/Drawer.vue';
+import Pagination from '~/components/Pagination.vue';
 import ProductShelf from '~/components/ProductShelf.vue';
 import SearchFilters from '~/components/SearchFilters.vue';
 
@@ -122,16 +134,18 @@ export interface Props extends UseSearchShowcaseProps {}
 const props = withDefaults(defineProps<Props>(), {
   canUseUrlParams: true,
 });
+const showcase = ref<HTMLElement | null>(null);
 const {
   searchEngine,
   fetching,
   isFetching,
   products,
   resultMeta,
+  totalPages,
   filtersCount,
   sortOptions,
   sortOption,
-} = useSearchShowcase(props);
+} = useSearchShowcase({ ...props, showcase });
 if (import.meta.env.SSR) {
   await fetching;
 }
