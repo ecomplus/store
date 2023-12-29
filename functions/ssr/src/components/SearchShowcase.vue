@@ -1,4 +1,14 @@
 <template>
+  <section
+    v-if="searchTerm"
+    class="ui-section-slim text-base-700 px-6 text-center text-xl lowercase"
+    :class="hasFiltersBar ? 'relative z-[14] -mb-4' : 'mb-0'"
+  >
+    {{ $t.i19searchingFor }}
+    <h1 class="text-base-800 inline font-bold italic">
+      {{ searchTerm }}
+    </h1>
+  </section>
   <div
     v-if="isFetching && !products.length"
     class="ui-section relative min-h-[300px]"
@@ -8,7 +18,7 @@
   <article ref="showcase" class="relative">
     <Fade>
       <section
-        v-if="resultMeta.count > 4 || filtersCount"
+        v-if="hasFiltersBar"
         class="ui-section-slim
         sticky-header:translate-y-16 lg:sticky-header:translate-y-14
         to-base-100 sticky top-0 z-[12] flex items-center justify-between
@@ -68,7 +78,8 @@
                     <component
                       :is="selected ? 'div' : 'button'"
                       class="flex w-full py-2 pl-3 pr-6"
-                      :class="!selected && active && 'bg-secondary-100 text-secondary'"
+                      :class="!selected && active
+                        && 'bg-secondary-100 text-secondary'"
                     >
                       <div class="w-5">
                         <i v-show="selected" class="i-check"></i>
@@ -86,7 +97,7 @@
     <ProductShelf :products="products" is-grid>
       <template #append>
         <Fade slide="down">
-          <nav v-if="totalPages > 1" class="mt-3 lg:mt-4">
+          <nav v-if="!isFetching && totalPages > 1" class="mt-3 lg:mt-4">
             <Pagination
               v-model:page="searchEngine.pageNumber.value"
               :total-pages="totalPages"
@@ -149,5 +160,10 @@ const {
 if (import.meta.env.SSR) {
   await fetching;
 }
+const wasFetched = computed(() => searchEngine.wasFetched.value);
+const searchTerm = computed(() => searchEngine.term.value);
+const hasFiltersBar = computed(() => {
+  return wasFetched && !!(resultMeta.value.count > 4 || filtersCount.value);
+});
 const isFiltersOpen = ref(false);
 </script>
