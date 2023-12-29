@@ -1,5 +1,5 @@
 <template>
-  <section class="ui-section">
+  <section v-if="pictures.length" class="ui-section">
     <ul class="flex flex-wrap gap-4 lg:flex-nowrap">
       <li
         v-for="(picture, i) in pictures" :key="i"

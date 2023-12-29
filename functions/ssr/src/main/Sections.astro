@@ -8,6 +8,7 @@ import DocBanners from '~/components/DocBanners.vue';
 import ProductDetails from '~/components/ProductDetails.vue';
 import ProductSpecifications from '~/components/ProductSpecifications.vue';
 import SearchShowcase from '~/components/SearchShowcase.vue';
+import PageTitle from '~/components/PageTitle.vue';
 
 const { routeContext } = Astro.locals;
 const { sections } = await usePageSections({
@@ -57,6 +58,8 @@ cause route resource is required to define sections from content. */
             <SearchShowcase {...props} client:context />
           </article>
         </>
+      case 'page-title':
+        return <PageTitle {...props} />
       case 'c:foo':
         return <div data-foo={props.foo}></div>
       default:
