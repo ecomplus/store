@@ -15,12 +15,12 @@ a, button, button > *, [role=button], [role=button] > * {
 }
 
 .ui-link {
-  @apply not-prose font-medium text-primary underline underline-offset-4
+  @apply font-medium text-primary underline underline-offset-4
   hover:text-primary-bold active:text-primary-subtle;
 }
 
 [class*=ui-btn] {
-  @apply not-prose inline-block text-base font-medium px-4 py-2 rounded
+  @apply inline-block text-base font-medium px-4 py-2 rounded
   border-2 border-transparent underline-offset-4 decoration-2
   shadow focus:ring-1 focus:ring-offset-1 active:ring-2;
 }
@@ -51,7 +51,7 @@ a, button, button > *, [role=button], [role=button] > * {
   @apply font-brand font-black italic;
 }
 .ui-title {
-  @apply not-prose text-3xl xl:text-5xl;
+  @apply text-3xl xl:text-5xl;
 }
 
 [class*=ui-badge] {
