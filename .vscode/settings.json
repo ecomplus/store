@@ -9,5 +9,6 @@
     "*.css": "tailwindcss"
   },
   "css.lint.unknownAtRules": "ignore",
-  "git.autofetch": true
+  "git.autofetch": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
