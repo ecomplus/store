@@ -4,6 +4,7 @@ import BannersGrid from '~/components/BannersGrid.astro';
 import ProductShelf from '~/components/ProductShelf.vue';
 import Breadcrumbs from '~/components/Breadcrumbs.astro';
 import DocDescription from '~/components/DocDescription.vue';
+import DocBanners from '~/components/DocBanners.vue';
 import ProductDetails from '~/components/ProductDetails.vue';
 import ProductSpecifications from '~/components/ProductSpecifications.vue';
 import SearchShowcase from '~/components/SearchShowcase.vue';
@@ -28,12 +29,17 @@ cause route resource is required to define sections from content. */
         return isHomepage
           ? <ProductShelf {...props} client:idle />
           : <ProductShelf {...props} client:visible />
+      case 'related-products':
+        props.isRelatedProducts = true;
+        return <ProductShelf {...props} client:visible />
       case 'banners-grid':
         return <BannersGrid {...props} />
       case 'breadcrumbs':
         return <Breadcrumbs />
       case 'doc-description':
         return <DocDescription />
+      case 'doc-banners':
+        return <DocBanners />
       case 'product-details':
         const { hasDescription, hasSpecifications, ...detailsProps } = props;
         return <>

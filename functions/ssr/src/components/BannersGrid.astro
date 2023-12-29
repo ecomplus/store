@@ -13,7 +13,7 @@ const { banners } = Astro.props;
 ---
 
 <section class="ui-section">
-  <ul class="flex flex-wrap lg:flex-nowrap gap-4">
+  <ul class="flex flex-wrap gap-4 lg:flex-nowrap">
     {banners.map((banner) => (
       <li class="lg:flex-1 [&_img]:w-full [&_img]:object-cover">
         <Banner {...banner}>
