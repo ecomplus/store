@@ -1,6 +1,6 @@
 <template>
   <section class="ui-section">
-    <div v-if="title" class="mx-auto mb-2 max-w-prose text-center">
+    <div v-if="title" class="mx-auto mb-4 max-w-prose text-center">
       <h2 class="ui-text-brand text-3xl">
         <ALink :href="titleLink" :class="titleLink ? 'ui-link' : 'text-base-700'">
           {{ title }}
