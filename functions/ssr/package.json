@@ -17,15 +17,15 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@cloudcommerce/api": "^0.40.4",
-    "@cloudcommerce/firebase": "^0.40.4",
-    "@cloudcommerce/ssr": "^0.40.4",
+    "@cloudcommerce/api": "^0.40.5",
+    "@cloudcommerce/firebase": "^0.40.5",
+    "@cloudcommerce/ssr": "^0.40.5",
     "@headlessui/vue": "^1.7.16"
   },
   "devDependencies": {
-    "@cloudcommerce/i18n": "^0.40.4",
-    "@cloudcommerce/storefront": "^0.40.4",
-    "@cloudcommerce/types": "^0.40.4",
+    "@cloudcommerce/i18n": "^0.40.5",
+    "@cloudcommerce/storefront": "^0.40.5",
+    "@cloudcommerce/types": "^0.40.5",
     "photoswipe": "^5.4.3"
   }
 }
