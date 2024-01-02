@@ -1,0 +1,25 @@
+---
+import { usePageHero } from '@@sf/layouts/use-page-main';
+import BannerPictures from '@@sf/components/BannerPictures.astro';
+import HeroSlider from '~/components/HeroSlider.vue';
+
+const { routeContext } = Astro.locals;
+const { heroSlider } = await usePageHero({ routeContext });
+const heroSlides = heroSlider.slides;
+---
+
+{heroSlider.slides.length > 0 &&
+  <HeroSlider {...heroSlider} client:idle>
+    {heroSlides[0] && <BannerPictures slot="picture-0" {...heroSlides[0]} index={0} />}
+    {heroSlides[1] && <BannerPictures slot="picture-1" {...heroSlides[1]} index={1} />}
+    {heroSlides[2] && <BannerPictures slot="picture-2" {...heroSlides[2]} index={2} />}
+    {heroSlides[3] && <BannerPictures slot="picture-3" {...heroSlides[3]} index={3} />}
+    {heroSlides[4] && <BannerPictures slot="picture-4" {...heroSlides[4]} index={4} />}
+    {heroSlides[5] && <BannerPictures slot="picture-5" {...heroSlides[5]} index={5} />}
+    {heroSlides[6] && <BannerPictures slot="picture-6" {...heroSlides[6]} index={6} />}
+    {heroSlides[7] && <BannerPictures slot="picture-7" {...heroSlides[7]} index={7} />}
+    {heroSlides[8] && <BannerPictures slot="picture-8" {...heroSlides[8]} index={8} />}
+    {heroSlides[9] && <BannerPictures slot="picture-9" {...heroSlides[9]} index={9} />}
+    <!-- https://github.com/withastro/astro/issues/5066#issuecomment-1277998365 -->
+  </HeroSlider>
+}

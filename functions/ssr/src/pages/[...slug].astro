@@ -5,7 +5,7 @@ import BaseHead from '@@sf/layouts/BaseHead.astro';
 import Base from '~/layouts/Base.astro';
 import PageHeader from '~/layouts/PageHeader.astro';
 import PageFooter from '~/layouts/PageFooter.astro';
-import WildcardMain from '~/main/Wildcard.astro';
+import Main from '~/main/Main.astro';
 
 if (String(Astro.params.slug).endsWith('.css.map')) {
   return new Response(null, { status: 404 });
@@ -34,7 +34,7 @@ export async function getStaticPaths() {
   <Base>
     <BaseHead slot="base-head" />
     <PageHeader />
-    <WildcardMain />
+    <Main />
     <PageFooter />
   </Base>
 }

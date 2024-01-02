@@ -1,0 +1,26 @@
+---
+import api from '@cloudcommerce/api';
+import SharedData from '@@sf/components/SharedData.astro';
+import Hero from '~/main/content/Hero.astro';
+import Sections from '~/main/content/Sections.astro';
+
+const { routeContext } = Astro.locals;
+const { fetchingApiContext } = routeContext;
+const sharedData: Record<string, any> = {};
+if (fetchingApiContext) {
+  const [
+    { data: { result: grids } },
+  ] = await Promise.all([
+    api.get('grids'),
+    fetchingApiContext,
+  ]);
+  sharedData.grids = grids;
+}
+---
+
+<main>
+  {Object.entries(sharedData).map(([field, value]) =>
+    <SharedData field={field} value={value} />)}
+  <Hero />
+  <Sections />
+</main>

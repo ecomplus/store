@@ -4,7 +4,7 @@ import BaseHead from '@@sf/layouts/BaseHead.astro';
 import Base from '~/layouts/Base.astro';
 import PageHeader from '~/layouts/PageHeader.astro';
 import PageFooter from '~/layouts/PageFooter.astro';
-import HomeMain from '~/main/Home.astro';
+import Main from '~/main/Main.astro';
 
 let routeContext: RouteContext | undefined;
 let loadError: any;
@@ -24,7 +24,7 @@ try {
   <Base>
     <BaseHead slot="base-head" />
     <PageHeader />
-    <HomeMain />
+    <Main />
     <PageFooter />
   </Base>
 }
