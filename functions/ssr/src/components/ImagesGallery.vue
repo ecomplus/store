@@ -8,7 +8,7 @@
       <li
         v-for="i in Math.ceil(pictures.length / 2)"
         :key="i"
-        class="grid h-1/3 w-full grid-cols-2 gap-3 px-1 pb-3"
+        class="grid w-full grid-cols-2 gap-3 px-1 pb-3"
         :class="i === 1 && 'pt-1'"
       >
         <template
@@ -17,7 +17,7 @@
         >
           <button
             v-if="index < pictures.length"
-            class="bg-secondary-100 h-full rounded"
+            class="bg-secondary-100 block rounded md:h-[175px]"
             @click="activeIndex = index"
           >
             <AImg
