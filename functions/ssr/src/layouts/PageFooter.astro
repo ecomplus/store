@@ -38,7 +38,7 @@ if (pagesList?.isActive) {
     pageLinks = [];
     const pageSlugs = await getContent('extra-pages/');
     for (let i = 0; i < pageSlugs.length; i++) {
-      const { title } = await getContent(`extra-pages/${pageSlugs[i]}`);
+      const { title } = await getContent(`extra-pages/${pageSlugs[i]}`) || {};
       if (title) {
         pageLinks.push({ title, href: `/p/${pageSlugs[i]}` });
       }
