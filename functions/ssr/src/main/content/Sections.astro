@@ -1,15 +1,16 @@
 ---
 import { usePageSections } from '@@sf/layouts/use-page-main';
+import ContentClearfix from '@@sf/components/ContentClearfix.vue';
 import BannersGrid from '~/components/BannersGrid.astro';
-import ProductShelf from '~/components/ProductShelf.vue';
 import Breadcrumbs from '~/components/Breadcrumbs.astro';
+import ProductShelf from '~/components/ProductShelf.vue';
 import DocDescription from '~/components/DocDescription.vue';
 import DocBanners from '~/components/DocBanners.vue';
 import ProductDetails from '~/components/ProductDetails.vue';
 import ProductSpecifications from '~/components/ProductSpecifications.vue';
 import SearchShowcase from '~/components/SearchShowcase.vue';
 import PageTitle from '~/components/PageTitle.vue';
-import ContentClearfix from '@@sf/components/ContentClearfix.vue';
+import ContentEntry from '~/components/ContentEntry.vue';
 
 const { routeContext } = Astro.locals;
 const { sections } = await usePageSections({
@@ -61,6 +62,8 @@ cause route resource is required to define sections from content. */
         </>
       case 'page-title':
         return <PageTitle {...props} />
+      case 'content-entry':
+        return <ContentEntry {...props} />
       case 'custom-html':
         return <ContentClearfix html={props.html} />
       case 'c:foo':
