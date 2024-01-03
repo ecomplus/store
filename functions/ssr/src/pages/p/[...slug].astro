@@ -1,0 +1,48 @@
+---
+import {
+  type RouteContext,
+  loadRouteContext,
+  getConfig,
+} from '@@sf/ssr-context';
+import BaseHead from '@@sf/layouts/BaseHead.astro';
+import Base from '~/layouts/Base.astro';
+import PageHeader from '~/layouts/PageHeader.astro';
+import PageFooter from '~/layouts/PageFooter.astro';
+import Main from '~/main/Main.astro';
+
+if (String(Astro.params.slug).endsWith('.css.map')) {
+  return new Response(null, { status: 404 });
+}
+
+let routeContext: RouteContext | undefined;
+let loadError: any;
+try {
+  routeContext = await loadRouteContext(Astro, {
+    contentCollection: 'extra-pages',
+  });
+} catch (err: any) {
+  if (err.astroResponse) {
+    return err.astroResponse;
+  }
+  loadError = err;
+}
+
+export async function getStaticPaths() {
+  if (import.meta.env.BUILD_MINIMAL) return [];
+  return (await getConfig().getContent('extra-pages/'))
+    .slice(0, 4).map((slug) => ({ params: { slug } }));
+}
+---
+
+<!DOCTYPE html>
+<html lang={routeContext?.lang.replace('_', '-')}>
+{routeContext &&
+  <Base>
+    <BaseHead slot="base-head" />
+    <PageHeader />
+    <Main />
+    <PageFooter />
+  </Base>
+}
+{loadError && <Fragment set:html={loadError.responseHTML} />}
+</html>
