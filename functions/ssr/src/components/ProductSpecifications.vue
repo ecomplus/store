@@ -9,7 +9,7 @@
           border-dashed py-2 sm:grid-cols-3 [&:not(:last-child)]:border-b"
         >
           <span class="text-base-700">
-            {{ getGridTitle(`${gridId}`, grids) }}
+            {{ getGridTitle(`${gridId}`, grids || []) }}
           </span>
           <strong class="font-semibold sm:col-span-2">
             {{ getSpecTextValue(product, `${gridId}`, grids) }}
