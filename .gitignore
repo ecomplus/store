@@ -1,10 +1,10 @@
 dist
 
 .cloudcommerce
-firebase.json
+/firebase.json
 policyIAM.json
 serviceAccountKey.json
-*.firebase.json
+/*.firebase.json
 /firestore.*
 /remoteconfig.*
 /storage.rules

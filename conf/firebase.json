@@ -1,0 +1,7 @@
+{
+  "hosting": {
+    "redirects": [
+      { "source": "/blog", "destination": "/blog/1", "type": 301 }
+    ]
+  }
+}
