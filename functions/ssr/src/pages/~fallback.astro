@@ -4,6 +4,7 @@ import BaseHead from '@@sf/layouts/BaseHead.astro';
 import Base from '~/layouts/Base.astro';
 import PageHeader from '~/layouts/PageHeader.astro';
 import FallbackMain from '~/main/Fallback.astro';
+import PageFooter from '~/layouts/PageFooter.astro';
 
 let routeContext: RouteContext;
 try {
@@ -19,5 +20,6 @@ try {
   <BaseHead slot="base-head" />
   <PageHeader />
   <FallbackMain />
+  <PageFooter />
 </Base>
 </html>
