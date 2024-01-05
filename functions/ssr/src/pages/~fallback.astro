@@ -1,4 +1,5 @@
 ---
+import { i19error } from '@@i18n';
 import { type RouteContext, loadRouteContext } from '@@sf/ssr-context';
 import BaseHead from '@@sf/layouts/BaseHead.astro';
 import Base from '~/layouts/Base.astro';
@@ -12,12 +13,16 @@ try {
 } catch (err: any) {
   return err.astroResponse;
 }
+const { settings } = routeContext;
 ---
 
 <!DOCTYPE html>
 <html lang={routeContext?.lang.replace('_', '-')}>
 <Base>
-  <BaseHead slot="base-head" />
+  <Fragment slot="base-head">
+    <BaseHead />
+    <title>{`${i19error} | ${settings.name}`}</title>
+  </Fragment>
   <PageHeader />
   <FallbackMain />
   <PageFooter />
