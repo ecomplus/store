@@ -1,5 +1,9 @@
 ---
-title: "Privacidade e termos de serviço"
+title: "Blog 1"
+date: ""
+thumbnail: "https://picsum.photos/750?1"
+author: ""
+description: "Lorem ipsum dolor sit amet"
 meta_title: ""
 meta_description: ""
 hero:
