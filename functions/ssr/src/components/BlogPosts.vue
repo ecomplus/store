@@ -2,7 +2,7 @@
   <article class="mb-9 mt-6 md:mb-12 md:mt-8">
     <section class="ui-section">
       <article v-if="featured" class="mb-9 flex flex-wrap gap-x-8 lg:flex-nowrap">
-        <a :href="`/p/blog/${featured.slug}`" class="w-full max-w-[600px]">
+        <a :href="`/posts/${featured.slug}`" class="w-full max-w-[600px]">
           <AImg
             v-if="featured.thumbnail"
             :picture="{ url: featured.thumbnail, size: '750x500' }"
@@ -11,7 +11,7 @@
         </a>
         <div class="prose grow pt-5">
           <small class="text-base-500 font-semibold uppercase">Blog</small>
-          <a :href="`/p/blog/${featured.slug}`" class="not-prose">
+          <a :href="`/posts/${featured.slug}`" class="not-prose">
             <h1 class="ui-title mb-4 mt-2">
               {{ featured.title }}
             </h1>
@@ -26,7 +26,7 @@
             --- {{ featured.author }}
           </em>
           <div class="not-prose mt-5">
-            <a :href="`/p/blog/${featured.slug}`" class="ui-btn-lg ui-btn-primary">
+            <a :href="`/posts/${featured.slug}`" class="ui-btn-lg ui-btn-primary">
               <i class="i-chevron-right mr-1"></i>
               {{ $t.i19seeMore }}
             </a>
@@ -36,7 +36,7 @@
       <ul class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         <li v-for="(post, i) in gridPosts" :key="i">
           <article>
-            <a :href="`/p/blog/${post.slug}`">
+            <a :href="`/posts/${post.slug}`">
               <AImg
                 v-if="post.thumbnail"
                 :picture="{ url: post.thumbnail, size: '750x500' }"

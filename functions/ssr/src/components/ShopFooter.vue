@@ -61,7 +61,11 @@
               ? 'grid md:grid-cols-2 gap-x-5 gap-y-1.5' : 'space-y-1.5'"
           >
             <li v-for="({ title, href }, i) in pageLinks" :key="`p-${i}`">
-              <ALink :href="href" class="ui-link text-base-600">
+              <ALink
+                :href="href"
+                class="ui-link"
+                :class="title === 'Blog' ? 'text-base-900' : 'text-base-600'"
+              >
                 {{ title }}
               </ALink>
             </li>

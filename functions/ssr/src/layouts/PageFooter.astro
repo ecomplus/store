@@ -43,6 +43,9 @@ if (pagesList?.isActive) {
         pageLinks.push({ title, href: `/p/${pageSlugs[i]}` });
       }
     }
+    if ((await getContent('blog/')).length) {
+      pageLinks.push({ title: 'Blog', href: '/blog/1/' });
+    }
   }
 }
 ---

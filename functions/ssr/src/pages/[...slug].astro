@@ -1,19 +1,32 @@
 ---
 import api from '@cloudcommerce/api';
-import { type RouteContext, loadRouteContext } from '@@sf/ssr-context';
+import {
+  type RouteContext,
+  loadRouteContext,
+  getConfig,
+} from '@@sf/ssr-context';
 import BaseHead from '@@sf/layouts/BaseHead.astro';
 import Base from '~/layouts/Base.astro';
 import PageHeader from '~/layouts/PageHeader.astro';
 import PageFooter from '~/layouts/PageFooter.astro';
 import Main from '~/main/Main.astro';
 
-if (String(Astro.params.slug).endsWith('.map')) {
+let slug = Astro.params.slug || '';
+if (slug.endsWith('.map')) {
   return new Response(null, { status: 404 });
+}
+let contentCollection: string | undefined;
+if (slug.startsWith('p/')) {
+  contentCollection = 'extra-pages';
+  Astro.params.slug = slug.replace(/^p\//, '');
+} else if (slug.startsWith('posts/')) {
+  contentCollection = 'blog';
+  Astro.params.slug = slug.replace(/^posts\//, '');
 }
 let routeContext: RouteContext | undefined;
 let loadError: any;
 try {
-  routeContext = await loadRouteContext(Astro);
+  routeContext = await loadRouteContext(Astro, { contentCollection });
 } catch (err: any) {
   if (err.astroResponse) {
     return err.astroResponse;
@@ -30,6 +43,13 @@ export async function getStaticPaths() {
     data.result.forEach(({ slug }) => {
       if (slug) paths.push({ params: { slug } });
     });
+    const pageSlugs = await getConfig().getContent('extra-pages/');
+    const postSlugs = await getConfig().getContent('blog/');
+    pageSlugs.slice(0, 2).map((slug) => `p/${slug}`)
+      .concat(postSlugs.slice(0, 2).map((slug) => `posts/${slug}`))
+      .forEach((slug) => {
+        paths.push({ params: { slug } });
+      });
   }
   return paths;
 }
