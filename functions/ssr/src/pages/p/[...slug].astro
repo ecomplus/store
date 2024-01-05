@@ -10,15 +10,20 @@ import PageHeader from '~/layouts/PageHeader.astro';
 import PageFooter from '~/layouts/PageFooter.astro';
 import Main from '~/main/Main.astro';
 
-if (String(Astro.params.slug).endsWith('.css.map')) {
+let { slug } = Astro.params;
+if (!slug || slug.endsWith('.map')) {
   return new Response(null, { status: 404 });
 }
-
+const isBlogPost = slug.startsWith('blog/');
+if (isBlogPost) {
+  slug = slug.substring(5);
+  Astro.params.slug = slug;
+}
 let routeContext: RouteContext | undefined;
 let loadError: any;
 try {
   routeContext = await loadRouteContext(Astro, {
-    contentCollection: 'extra-pages',
+    contentCollection: isBlogPost ? 'blog' : 'extra-pages',
   });
 } catch (err: any) {
   if (err.astroResponse) {
@@ -28,9 +33,17 @@ try {
 }
 
 export async function getStaticPaths() {
-  if (import.meta.env.BUILD_MINIMAL) return [];
-  return (await getConfig().getContent('extra-pages/'))
-    .slice(0, 4).map((slug) => ({ params: { slug } }));
+  const paths: Array<{ params: { slug: string } }> = [];
+  if (!import.meta.env.BUILD_MINIMAL) {
+    const pageSlugs = await getConfig().getContent('extra-pages/');
+    const postSlugs = await getConfig().getContent('blog/');
+    pageSlugs.slice(0, 2)
+      .concat(postSlugs.slice(0, 2).map((slug) => `blog/${slug}`))
+      .forEach((slug) => {
+        paths.push({ params: { slug } });
+      });
+  }
+  return paths;
 }
 ---
 
