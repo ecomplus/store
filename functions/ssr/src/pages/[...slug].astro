@@ -7,10 +7,9 @@ import PageHeader from '~/layouts/PageHeader.astro';
 import PageFooter from '~/layouts/PageFooter.astro';
 import Main from '~/main/Main.astro';
 
-if (String(Astro.params.slug).endsWith('.css.map')) {
+if (String(Astro.params.slug).endsWith('.map')) {
   return new Response(null, { status: 404 });
 }
-
 let routeContext: RouteContext | undefined;
 let loadError: any;
 try {
@@ -23,9 +22,16 @@ try {
 }
 
 export async function getStaticPaths() {
-  if (import.meta.env.BUILD_MINIMAL) return [];
-  return (await api.get('products?sort=-sales&limit=4&fields=slug'))
-    .data.result.map(({ slug }) => ({ params: { slug } }));
+  const paths: Array<{ params: { slug?: string } }> = [{
+    params: { slug: undefined },
+  }];
+  if (!import.meta.env.BUILD_MINIMAL) {
+    const { data } = await api.get('products?sort=-sales&fields=slug&limit=2')
+    data.result.forEach(({ slug }) => {
+      if (slug) paths.push({ params: { slug } });
+    });
+  }
+  return paths;
 }
 ---
 
