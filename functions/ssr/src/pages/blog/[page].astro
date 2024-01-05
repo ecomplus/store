@@ -1,0 +1,71 @@
+---
+import { type RouteContext, loadRouteContext } from '@@sf/ssr-context';
+import BaseHead from '@@sf/layouts/BaseHead.astro';
+import Base from '~/layouts/Base.astro';
+import PageHeader from '~/layouts/PageHeader.astro';
+import PageFooter from '~/layouts/PageFooter.astro';
+import BlogPosts, { type Props as BlogPostsProps } from '~/components/BlogPosts.vue';
+import { POSTS_PER_PAGE, countBlogPages } from './_blog-pages';
+
+let routeContext: RouteContext | undefined;
+let loadError: any;
+try {
+  routeContext = await loadRouteContext(Astro);
+} catch (err: any) {
+  if (err.astroResponse) {
+    return err.astroResponse;
+  }
+  loadError = err;
+}
+if (!routeContext) {
+  return Astro.redirect(`/~fallback?url=${Astro.url.pathname}`);
+}
+const { getContent, settings } = routeContext;
+const { postSlugs, totalPages } = await countBlogPages();
+const page = Number(Astro.params.page);
+if (!page || page > totalPages) {
+  return Astro.redirect('/blog/1');
+}
+const posts: BlogPostsProps['posts'] = [];
+const pageOffset = (page - 1) * POSTS_PER_PAGE;
+await Promise.all(
+  postSlugs.slice(pageOffset, pageOffset + POSTS_PER_PAGE).map((slug) => {
+    return new Promise((resolve) => {
+      getContent(`blog/${slug}`).then((content) => {
+        if (content) {
+          const { markdown, ...post } = content;
+          posts.push({ ...post, slug });
+        }
+        resolve(null);
+      });
+    });
+  }),
+);
+const metaTitle = `Blog | ${settings.name}`;
+
+export async function getStaticPaths() {
+  if (import.meta.env.BUILD_MINIMAL) return [];
+  return [{
+    params: { page: 1 },
+  }];
+}
+---
+
+<!DOCTYPE html>
+<html lang={routeContext.lang.replace('_', '-')}>
+{routeContext &&
+  <Base {metaTitle}>
+    <Fragment slot="base-head">
+      <BaseHead />
+      <title>{`Blog | ${settings.name}`}</title>
+      <meta name="description" content={settings.description}>
+    </Fragment>
+    <PageHeader />
+    <main>
+      <BlogPosts {page} {totalPages} {posts} />
+    </main>
+    <PageFooter />
+  </Base>
+}
+{loadError && <Fragment set:html={loadError.responseHTML} />}
+</html>

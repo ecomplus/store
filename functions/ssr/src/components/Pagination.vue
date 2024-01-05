@@ -3,10 +3,10 @@
     text-center text-sm font-medium leading-9">
     <li>
       <ALink
-        :href="page > 1 ? `?p=${page - 1}` : null"
-        @click.prevent="page > 1 && emit('update:page', page - 1)"
+        :href="prevPageLink"
+        @click.prevent="prevPageLink && emit('update:page', page - 1)"
         class="mr-1 block min-w-9 rounded border px-3"
-        :class="page > 1
+        :class="prevPageLink
           ? 'border-base-100 hover:bg-base-100'
           : 'border-transparent text-base-500'"
       >
@@ -14,9 +14,9 @@
         <span class="ml-1.5 hidden md:inline">{{ $t.i19previous }}</span>
       </ALink>
     </li>
-    <li v-for="pageN in pages" :key="pageN">
+    <li v-for="(pageN, i) in pages" :key="pageN">
       <ALink
-        :href="pageN !== page ? `?p=${pageN}` : null"
+        :href="pageN !== page ? pageLinks[i] : null"
         @click.prevent="emit('update:page', pageN)"
         class="block w-9 rounded border ring-black/10"
         :class="pageN === page
@@ -28,10 +28,10 @@
     </li>
     <li>
       <ALink
-        :href="page < totalPages ? `?p=${page + 1}` : null"
-        @click.prevent="page < totalPages && emit('update:page', page + 1)"
+        :href="nextPageLink"
+        @click.prevent="nextPageLink && emit('update:page', page + 1)"
         class="ml-1 block min-w-9 rounded border px-3"
-        :class="page < totalPages
+        :class="nextPageLink
           ? 'border-base-100 hover:bg-base-100'
           : 'border-transparent text-base-500'"
       >
@@ -48,14 +48,20 @@ import {
   usePagination,
 } from '@@sf/composables/use-pagination';
 
-export type Props = UsePaginationProps;
+export interface Props extends UsePaginationProps {}
 
 const props = withDefaults(defineProps<Props>(), {
   page: 1,
   maxPages: 7,
+  isUrlPath: false,
 });
 const emit = defineEmits<{
   'update:page': [value: number]
 }>();
-const { totalPages, pages } = usePagination(props);
+const {
+  pages,
+  pageLinks,
+  prevPageLink,
+  nextPageLink,
+} = usePagination(props);
 </script>
