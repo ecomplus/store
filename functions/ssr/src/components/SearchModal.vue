@@ -41,13 +41,16 @@
         md:grid-cols-2 md:rounded-b lg:mt-5 lg:grid-cols-3 lg:rounded"
       >
         <div class="flex items-center justify-end gap-4 md:order-2">
-          <p v-if="productCount > 1" class="text-base-900 text-sm lowercase">
+          <p
+            v-if="productCount > 1"
+            class="text-base-900 text-right text-sm lowercase"
+          >
             <strong>{{ productCount }}</strong> {{ $t.i19itemsFound }}
           </p>
           <a
             v-if="productCount > products.length"
             :href="getSearchUrl(term)"
-            class="ui-btn ui-btn-primary w-auto text-center"
+            class="ui-btn ui-btn-primary w-auto whitespace-nowrap text-center"
           >
             {{ $t.i19seeAll }}
           </a>
