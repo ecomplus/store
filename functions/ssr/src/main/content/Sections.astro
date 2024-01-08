@@ -20,16 +20,16 @@ const { sections } = await usePageSections({
     return { props: content };
   },
 });
-const { isHomepage } = routeContext;
+const { cmsContent } = routeContext;
 /* `apiContext` is surelly set here (from Main.astro)
 cause route resource is required to define sections from content. */
 ---
 
 <article class="mb-9 mt-6 md:mb-12 md:mt-8">
-  {sections.map(async ({ type, props }) => {
+  {sections.map(async ({ type, props }, index) => {
     switch (type) {
       case 'product-shelf':
-        return isHomepage
+        return index === 0 || (index < 2 && !cmsContent?.hero?.slides.length)
           ? <ProductShelf {...props} client:idle />
           : <ProductShelf {...props} client:visible />
       case 'related-products':
