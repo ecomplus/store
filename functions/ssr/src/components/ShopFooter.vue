@@ -1,8 +1,8 @@
 <template>
   <footer class="bg-base-50 border-base-100 mt-auto w-screen border-t py-2">
     <div class="ui-section">
-      <div class="border-base-200 flex flex-wrap
-        justify-between gap-y-5 border-b pb-7 sm:gap-x-10 lg:flex-nowrap">
+      <div class="border-base-200 flex flex-wrap justify-between
+        gap-y-5 border-b pb-7 sm:gap-x-10 lg:flex-nowrap">
         <div class="shrink">
           <slot name="logo" />
           <div v-if="$settings.description" class="prose">
@@ -30,7 +30,7 @@
             </ALink>
           </div>
         </div>
-        <div v-if="categories?.length" class="basis-1/2 sm:basis-auto">
+        <div v-if="categories?.length" class="basis-1/2 pr-2 sm:basis-auto sm:pr-0">
           <div class="mb-2.5 text-lg font-medium">
             {{ categoriesColTitle || $t.i19categories }}
           </div>
@@ -51,7 +51,7 @@
             </li>
           </ul>
         </div>
-        <div v-if="pageLinks?.length" class="basis-1/2 sm:basis-auto">
+        <div v-if="pageLinks?.length" class="basis-1/2 pl-2 sm:basis-auto sm:pl-0">
           <div class="mb-2.5 text-lg font-medium">
             {{ pagesColTitle || $t.i19institutional }}
           </div>
