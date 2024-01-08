@@ -27,7 +27,11 @@
         </button>
       </div>
       <slot name="logo" />
-      <ShopHeaderMenu class="hidden lg:block" v-bind="{ inlineMenuTrees }" />
+      <ShopHeaderMenu
+        v-if="!isMobile"
+        v-bind="{ inlineMenuTrees }"
+        class="hidden lg:block"
+      />
       <div class="text-base-800 flex
         basis-1/4 items-center justify-end gap-3 px-2 lg:gap-4">
         <form action="/s" method="get" class="relative">
@@ -66,7 +70,7 @@
             ></i>
           </button>
         </form>
-        <AccountMenu class="hidden sm:block">
+        <AccountMenu v-if="!isMobile" class="hidden sm:block">
           <template #button="{ open }">
             <i
               class="i-user-circle hover:text-primary h-7 w-7
@@ -151,6 +155,7 @@ import {
   type Props as UseShopHeaderProps,
   useShopHeader,
 } from '@@sf/composables/use-shop-header';
+import { isMobile } from '@@sf/sf-lib';
 import Drawer from '@@sf/components/Drawer.vue';
 import ShopSidenav from '~/components/ShopSidenav.vue';
 import ShopHeaderMenu from '~/components/ShopHeaderMenu.vue';
