@@ -5,9 +5,9 @@ import Hero from '~/main/content/Hero.astro';
 import Sections from '~/main/content/Sections.astro';
 
 const { routeContext } = Astro.locals;
-const { fetchingApiContext } = routeContext;
+const { isSearchPage, fetchingApiContext } = routeContext;
 const sharedData: Record<string, any> = {};
-if (fetchingApiContext) {
+if (isSearchPage || fetchingApiContext) {
   const [
     { data: { result: grids } },
   ] = await Promise.all([
