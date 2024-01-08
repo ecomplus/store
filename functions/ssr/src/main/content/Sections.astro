@@ -46,7 +46,7 @@ cause route resource is required to define sections from content. */
       case 'product-details':
         const { hasDescription, hasSpecifications, ...detailsProps } = props;
         return <>
-          <ProductDetails {...detailsProps} client:context="data:grids">
+          <ProductDetails {...detailsProps} client:context>
             <Fragment slot="description">
               {hasDescription && <DocDescription />}
               {hasSpecifications && <ProductSpecifications />}
@@ -57,7 +57,7 @@ cause route resource is required to define sections from content. */
       case 'context-showcase':
         return <>
           <article class="min-h-[500px]">
-            <SearchShowcase {...props} client:context="data:grids" />
+            <SearchShowcase {...props} client:context />
           </article>
         </>
       case 'page-title':
