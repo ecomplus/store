@@ -19,8 +19,8 @@ const { getInlineClientJS } = await useSharedData({ field: 'categories' });
   {pitchBar.slides.length > 1 && <PitchBar {...pitchBar} client:idle />}
   {pitchBar.slides.length === 1 && <PitchBar {...pitchBar} />}
 </slot>
-<script is:inline set:html={getInlineClientJS()} />
-<ShopHeader {...shopHeader} client:context>
+<script async is:inline set:html={getInlineClientJS()} />
+<ShopHeader {...shopHeader} client:context="data:categories">
   <Fragment slot="logo">
     <a href="/">
       <LogoHeading>
