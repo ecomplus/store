@@ -26,7 +26,7 @@
           </div>
         </Fade>
         <div class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2
-          overflow-hidden md:flex-nowrap lg:mt-4 lg:flex-wrap">
+          md:flex-nowrap lg:mt-4 lg:flex-wrap">
           <QuantitySelector
             v-model="quantity"
             :min="product.min_quantity"
