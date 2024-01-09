@@ -2,12 +2,17 @@ dist
 
 .cloudcommerce
 /firebase.json
+functions/**/firebase.json
 policyIAM.json
 serviceAccountKey.json
 /*.firebase.json
+functions/**/*.firebase.json
 /firestore.*
+functions/**/firestore.*
 /remoteconfig.*
+functions/**/remoteconfig.*
 /storage.rules
+functions/**/storage.rules
 .gac-*.json
 .firebase
 .turbo
