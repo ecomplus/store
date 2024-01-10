@@ -67,7 +67,7 @@
           class=":uno: ui-btn-sm ui-btn-primary absolute -top-6
           left-0 -z-10 hidden w-full rounded-none
           opacity-0 transition group-hover:z-10 group-hover:opacity-100 md:block"
-          @click.prevent="addProductToCart(product)"
+          @click.stop.prevent="addProductToCart(product)"
         >
           <span class="bg-on-primary text-primary mr-1 inline-block h-4 w-4
             rounded-full text-center text-base leading-none opacity-80">
