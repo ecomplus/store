@@ -74,10 +74,10 @@ a, button, button > *, [role=button], [role=button] > * {
 }
 
 [class*=ui-section] {
-  @apply container 2xl:max-w-7xl mx-auto px-4 sm:px-2 my-6 md:my-8;
+  @apply container 2xl:max-w-7xl mx-auto px-4 sm:px-2;
 }
 .ui-section {
-  @apply sm:px-2 my-6 md:my-8;
+  @apply my-6 md:my-8;
 }
 .ui-section-slim {
   @apply my-3;
