@@ -11,6 +11,7 @@ body {
 a, button, button > *, [role=button], [role=button] > * {
   transition: background-color var(--transition),
     color var(--transition), border-color var(--transition),
+    text-decoration-color var(--transition), text-underline-offset var(--transition),
     opacity var(--transition), transform var(--transition-fast);
 }
 
