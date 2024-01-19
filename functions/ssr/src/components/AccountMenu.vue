@@ -62,7 +62,10 @@
           <MenuItem as="li">
             <div class="text-base-500 flex justify-center gap-2 p-2 text-base">
               <span v-for="(href, network) in socialNetworks" :key="network">
-                <SocialNetworkLink :network="network" class="hover:text-primary p-1" />
+                <SocialNetworkLink
+                  :network="network"
+                  class="hover:text-primary p-1"
+                />
               </span>
             </div>
           </MenuItem>

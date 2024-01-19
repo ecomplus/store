@@ -1,7 +1,10 @@
 <template>
   <article class="mb-9 mt-6 md:mb-12 md:mt-8">
     <section class="ui-section">
-      <article v-if="featured" class="mb-9 flex flex-wrap gap-x-8 lg:flex-nowrap">
+      <article
+        v-if="featured"
+        class="mb-9 flex flex-wrap gap-x-8 lg:flex-nowrap"
+      >
         <a :href="`/posts/${featured.slug}`" class="w-full max-w-[600px]">
           <AImg
             v-if="featured.thumbnail"
@@ -26,7 +29,10 @@
             --- {{ featured.author }}
           </em>
           <div class="not-prose mt-5">
-            <a :href="`/posts/${featured.slug}`" class="ui-btn-lg ui-btn-primary">
+            <a
+              :href="`/posts/${featured.slug}`"
+              class="ui-btn-lg ui-btn-primary"
+            >
               <i class="i-chevron-right mr-1"></i>
               {{ $t.i19seeMore }}
             </a>

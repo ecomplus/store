@@ -1,7 +1,7 @@
 <template>
   <section class="ui-section">
     <article class="prose">
-      <h1 class="ui-title not-prose my-4">{{ title }}</h1>
+      <h1 class="not-prose ui-title my-4">{{ title }}</h1>
       <ContentClearfix :html="html" />
     </article>
   </section>

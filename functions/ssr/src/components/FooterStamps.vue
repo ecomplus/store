@@ -1,6 +1,7 @@
 <template>
   <div class="ui-section">
-    <div class="flex flex-wrap items-start justify-between gap-5 lg:flex-nowrap">
+    <div class="flex flex-wrap items-start justify-between
+      gap-5 lg:flex-nowrap">
       <ul class="mx-auto flex items-center gap-x-6 gap-y-3
         overflow-x-auto md:mx-0 md:flex-wrap md:overflow-hidden lg:gap-x-8">
         <li v-for="(stamp, i) in stamps" :key="i">
@@ -9,8 +10,8 @@
             <span v-if="!stamp.img" class="flex items-center">
               <span
                 v-if="stamp.icon"
-                class="[&>*]:from-success-200 [&>*]:to-success-700
-                mr-2 text-4xl [&>*]:bg-gradient-to-br"
+                class="[&>*]:from-success-200 [&>*]:to-success-700 mr-2
+                text-4xl [&>*]:bg-gradient-to-br"
               >
                 <i v-if="stamp.icon === 'lock'" class="i-lock-closed"></i>
                 <i v-else-if="stamp.icon === 'check'" class="i-check-badge"></i>
@@ -28,7 +29,8 @@
         </li>
       </ul>
       <div class="mx-auto flex flex-wrap items-center justify-end
-        gap-4 overflow-x-auto text-2xl md:mx-0 md:flex-nowrap md:overflow-hidden">
+        gap-4 overflow-x-auto text-2xl
+        md:mx-0 md:flex-nowrap md:overflow-hidden">
         <PaymentMethodFlag
           v-for="paymentMethod in $settings.paymentMethods"
           :key="paymentMethod"

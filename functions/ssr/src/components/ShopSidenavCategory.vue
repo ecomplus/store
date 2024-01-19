@@ -3,11 +3,12 @@
     <details
       v-if="categoryTree.subcategories.length"
       class="z-10 overflow-y-auto overflow-x-hidden bg-white
-      open:absolute open:left-0 open:top-0 open:h-full open:w-full"
+      open:absolute open:left-0 open:top-0 open:size-full"
       @toggle="isOpen = !isOpen"
     >
       <summary
-        class="active:bg-base-100 cursor-pointer list-none px-6 py-3 transition-colors"
+        class="active:bg-base-100 cursor-pointer list-none px-6
+        py-3 transition-colors"
         :class="isOpen ? 'bg-base-100' : null"
       >
         <i :class="!isOpen

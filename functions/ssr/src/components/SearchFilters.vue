@@ -9,8 +9,11 @@
         {{ $t.i19clearFilters }}
         <i class="i-trash ml-0.5"></i>
       </button>
-      <p v-else class="text-base-500 border border-transparent
-        pb-1 text-base font-semibold">
+      <p
+        v-else
+        class="text-base-500 border border-transparent
+        pb-1 text-base font-semibold"
+      >
         {{ $t.i19filterResults }}
       </p>
     </header>

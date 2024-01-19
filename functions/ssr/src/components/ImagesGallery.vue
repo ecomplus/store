@@ -1,5 +1,6 @@
 <template>
-  <div class="-mx-4 flex w-screen gap-3 sm:mx-0 sm:w-full md:h-[525px] 2xl:gap-5">
+  <div class="-mx-4 flex w-screen gap-3
+    sm:mx-0 sm:w-full md:h-[525px] 2xl:gap-5">
     <Carousel
       v-if="pictures.length > 1"
       axis="y"
@@ -22,8 +23,8 @@
           >
             <AImg
               :picture="pictures[index]"
-              class="ring-secondary/10 h-full w-full rounded border-2
-              object-cover opacity-90 transition-colors"
+              class="ring-secondary/10 size-full rounded border-2 object-cover
+              opacity-90 transition-colors"
               :class="index === activeIndex
                 ? 'border-secondary/50 ring-4 cursor-auto'
                 : 'border-transparent hover:border-primary'
@@ -36,10 +37,11 @@
         <span>
           <CarouselControl
             v-if="pictures.length > 6"
-            class="hover:bg-primary-300/60 text-primary
-            !bottom-3 !left-1/2 -ml-5 h-10 w-10
-            rounded-full bg-white/60 text-xl
-            opacity-0 shadow-sm ring-1 ring-black/5 group-hover:opacity-90"
+            class="text-primary hover:bg-primary-300/60
+            !bottom-3 !left-1/2 -ml-5 size-10 rounded-full
+            bg-white/60 text-xl opacity-0
+            shadow-sm ring-1 ring-black/5
+            group-hover:opacity-90"
           />
           <span class="absolute bottom-0 block h-2 w-full
             bg-gradient-to-b from-transparent to-white"></span>
@@ -51,7 +53,8 @@
         as="div"
         v-model:index="activeIndex"
         class="text-base-600 [&_i]:i-arrow-right mx-auto
-        h-full w-full max-w-[525px] [&>*]:h-full [&_i]:mx-2 [&_i]:text-2xl"
+        size-full max-w-[525px]
+        [&>*]:h-full [&_i]:mx-2 [&_i]:text-2xl"
         :class="isLoadingLightbox && 'opacity-80'"
         :id="psId"
       >
@@ -71,7 +74,7 @@
           <AImg
             :picture="picture"
             preferred-size="big"
-            class="h-full w-full rounded object-cover"
+            class="size-full rounded object-cover"
             :fetchpriority="i === 0 ? 'high' : 'low'"
             :loading="i === 0 ? 'eager' : 'lazy'"
           />
@@ -79,8 +82,8 @@
       </Carousel>
       <i
         v-if="isLoadingLightbox"
-        class="i-arrow-path bg-base-200 absolute
-        left-1/2 top-1/2 -ml-7 -mt-7 h-14 w-14 animate-spin"
+        class="bg-base-200 i-arrow-path absolute
+        left-1/2 top-1/2 -ml-7 -mt-7 size-14 animate-spin"
         :aria-label="$t.i19loading"
       ></i>
       <ul

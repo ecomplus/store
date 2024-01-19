@@ -12,9 +12,12 @@
           class="text-base-700 absolute left-1/2 top-3 z-50 -translate-x-1/2
           !transform rounded bg-white px-6 py-4 text-base shadow"
           :class="countMenuCols === 1 ? 'w-60'
-            : countMenuCols === 2 ? `w-screen ${(categoryPicture ? 'max-w-lg' : 'max-w-sm')}`
-            : countMenuCols === 3 ? `w-screen ${(categoryPicture ? 'max-w-xl' : 'max-w-md')}`
-            : countMenuCols < 6 ? 'w-screen max-w-3xl' : 'w-screen max-w-5xl'"
+            : countMenuCols === 2
+              ? `w-screen ${(categoryPicture ? 'max-w-lg' : 'max-w-sm')}`
+            : countMenuCols === 3
+              ? `w-screen ${(categoryPicture ? 'max-w-xl' : 'max-w-md')}`
+            : countMenuCols < 6
+              ? 'w-screen max-w-3xl' : 'w-screen max-w-5xl'"
         >
           <div class="flex w-full gap-6">
             <ul v-if="subcategoryLinks.length" class="flex-1">

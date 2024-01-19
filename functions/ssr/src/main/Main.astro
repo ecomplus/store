@@ -19,8 +19,8 @@ if (isSearchPage || fetchingApiContext) {
 ---
 
 <main>
-  {Object.entries(sharedData).map(([field, value]) =>
-    <SharedData field={field} value={value} />)}
+  {Object.entries(sharedData)
+    .map(([field, value]) => <SharedData field={field} value={value} />)}
   <Hero />
   <Sections />
 </main>

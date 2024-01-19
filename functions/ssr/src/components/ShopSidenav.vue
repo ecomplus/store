@@ -12,7 +12,7 @@
     <footer class="text-base">
       <div class="bg-base-100 flex items-center px-2 py-4">
         <AccountLink class="flex grow items-center gap-3 p-2">
-          <i class="i-user-circle text-base-500 m-0 text-4xl"></i>
+          <i class="text-base-500 i-user-circle m-0 text-4xl"></i>
           <span class="leading-tight">
             {{ `${$t.i19hello} ${customerName || $t.i19visitor}` }}
             <small class="text-primary block font-semibold lowercase">
@@ -31,7 +31,10 @@
       </div>
       <ul class="bg-base-200 text-base-700 flex gap-3 p-4 text-xl">
         <li v-for="(href, network) in socialNetworks" :key="network">
-          <SocialNetworkLink :network="network" class="active:text-primary p-1" />
+          <SocialNetworkLink
+            :network="network"
+            class="active:text-primary p-1"
+          />
         </li>
       </ul>
     </footer>

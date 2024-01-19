@@ -5,8 +5,8 @@
         <li
           v-for="(grid, gridId) in specifications"
           :key="gridId"
-          class="border-base-200 grid grid-cols-2
-          border-dashed py-2 sm:grid-cols-3 [&:not(:last-child)]:border-b"
+          class="border-base-200 grid grid-cols-2 border-dashed
+          py-2 sm:grid-cols-3 [&:not(:last-child)]:border-b"
         >
           <span class="text-base-700">
             {{ getGridTitle(`${gridId}`, grids || []) }}

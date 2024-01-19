@@ -10,7 +10,8 @@
     "shell": "firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "logs": "firebase functions:log",
+    "lint:fix": "eslint -c ./.staged.eslintrc.cjs src/**/*.{ts,vue,astro} --fix"
   },
   "engines": {
     "node": "18"

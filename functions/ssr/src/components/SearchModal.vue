@@ -65,7 +65,7 @@
               >
                 <a
                   :href="getSearchUrl(term)"
-                  class="ui-link text-base-700 text-sm font-normal"
+                  class="text-base-700 ui-link text-sm font-normal"
                 >
                   {{ term }}
                 </a>

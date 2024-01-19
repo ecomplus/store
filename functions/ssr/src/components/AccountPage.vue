@@ -1,6 +1,6 @@
 <template>
-  <article class="from-secondary-700 to-secondary-950 flex
-    min-h-screen w-full flex-col justify-center bg-gradient-to-br">
+  <article class="from-secondary-700 to-secondary-950 flex min-h-screen
+    w-full flex-col justify-center bg-gradient-to-br">
     <div class="mx-auto p-4">
       <section class="ui-section text-center">
         <a href="/" class="text-base-200 hover:text-white">
@@ -27,7 +27,7 @@
             v-for="({ title, href }, i) in $settings.serviceLinks"
             :key="`s-${i}`"
           >
-            <ALink :href="href" class="ui-link text-base-200 hover:text-white">
+            <ALink :href="href" class="text-base-200 ui-link hover:text-white">
               {{ title }}
             </ALink>
           </li>

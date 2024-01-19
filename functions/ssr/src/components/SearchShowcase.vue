@@ -1,7 +1,7 @@
 <template>
   <section
     v-if="searchTerm"
-    class="ui-section-slim text-base-700 px-6 text-center text-xl lowercase"
+    class="text-base-700 ui-section-slim px-6 text-center text-xl lowercase"
     :class="hasFiltersBar ? 'relative z-[14] -mb-4' : 'mb-0'"
   >
     {{ $t.i19searchingFor }}
@@ -19,11 +19,10 @@
     <Fade>
       <section
         v-if="hasFiltersBar"
-        class="ui-section-slim
-        sticky-header:translate-y-16 lg:sticky-header:translate-y-14
-        to-base-100 sticky top-0 z-[12] flex items-center justify-between
-        rounded-b bg-white/80 px-6 py-4 shadow-sm backdrop-blur-sm
-        transition-transform"
+        class="to-base-100 ui-section-slim sticky-header:translate-y-16 lg:sticky-header:translate-y-14 sticky top-0
+        z-[12] flex items-center justify-between rounded-b
+        bg-white/80 px-6 py-4 shadow-sm
+        backdrop-blur-sm transition-transform"
       >
         <strong class="text-base-700 font-medium lowercase">
           <template v-if="resultMeta.count > 1">
@@ -34,7 +33,7 @@
         </strong>
         <div class="flex items-center gap-4">
           <span class="hidden text-xl leading-none md:block">
-            <i class="i-adjustments-horizontal text-base-600 m-0"></i>
+            <i class="text-base-600 i-adjustments-horizontal m-0"></i>
           </span>
           <button
             @click="isFiltersOpen = !isFiltersOpen"
@@ -49,7 +48,7 @@
             </span>
             <span
               v-if="filtersCount"
-              class="ui-badge-pill-sm outline-secondary/80 outline-3
+              class="outline-3 outline-secondary/80 ui-badge-pill-sm
               absolute -right-1.5 -top-1 outline"
             >
               {{ filtersCount }}
@@ -109,7 +108,7 @@
     <Fade>
       <div
         v-if="isFetching"
-        class="absolute left-0 top-0 z-[14] h-full w-full bg-white/40"
+        class="absolute left-0 top-0 z-[14] size-full bg-white/40"
       ></div>
     </Fade>
   </article>

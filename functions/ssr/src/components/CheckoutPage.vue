@@ -7,7 +7,7 @@
           <slot name="logo" />
         </a>
         <div class="flex items-center gap-2">
-          <i class="i-shield-check-solid bg-success-400 m-0 text-3xl"></i>
+          <i class="bg-success-400 i-shield-check-solid m-0 text-3xl"></i>
           <span class="text-base-600 text-base">
             {{ $t.i19safeBuy }}
           </span>
@@ -24,7 +24,7 @@
             v-for="({ title, href }, i) in $settings.serviceLinks"
             :key="`s-${i}`"
           >
-            <ALink :href="href" target="blank" class="ui-link text-base-700">
+            <ALink :href="href" target="blank" class="text-base-700 ui-link">
               {{ title }}
               <i class="bg-base-300 i-arrow-top-right-on-square ml-0.5"></i>
             </ALink>

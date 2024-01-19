@@ -1,6 +1,9 @@
 <template>
   <section v-if="breadcrumbs.length > 1" class="ui-section-slim">
-    <nav aria-label="Breadcrumb" class="w-full overflow-hidden text-lg md:text-sm">
+    <nav
+      aria-label="Breadcrumb"
+      class="w-full overflow-hidden text-lg md:text-sm"
+    >
       <ol class="text-base-600 flex items-center gap-1">
         <li>
           <a href="/" class="hover:text-primary">

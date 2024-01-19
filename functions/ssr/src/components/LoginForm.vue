@@ -36,7 +36,7 @@
         <a
           v-show="!isSignUp && !isLinkSignInBlocked"
           href="?password"
-          class="ui-link text-base-500 text-right text-sm lowercase"
+          class="text-base-500 ui-link text-right text-sm lowercase"
           @click.prevent="isLinkSignIn = !isLinkSignIn"
         >
           {{ isLinkSignIn ? $t.i19enterWithPassword : $t.i19iForgotMyPassword }}

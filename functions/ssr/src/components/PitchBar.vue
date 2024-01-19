@@ -16,7 +16,7 @@
             <span
               v-if="parsedContents[i]"
               v-html="parsedContents[i]"
-              class="prose text-base-800 text-sm"
+              class="text-base-800 prose text-sm"
             ></span>
           </ALink>
         </li>
@@ -25,7 +25,10 @@
             v-show="countValidSlides > 1"
             class="text-base-400 text-xl leading-none"
           >
-            <CarouselControl class="bg-base-100 hover:text-base-700 pr-2" is-prev />
+            <CarouselControl
+              class="bg-base-100 hover:text-base-700 pr-2"
+              is-prev
+            />
             <CarouselControl class="bg-base-100 hover:text-base-700 pl-2" />
           </div>
         </template>

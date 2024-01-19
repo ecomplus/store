@@ -49,7 +49,7 @@
       <a
         href="#"
         @click.prevent="emit('close')"
-        class="ui-link text-base-500 hover:text-base-700 text-sm"
+        class="text-base-500 ui-link hover:text-base-700 text-sm"
       >
         <i class="i-arrow-right mr-1 rotate-180"></i>
         {{ $t.i19continueShopping }}

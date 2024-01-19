@@ -51,9 +51,9 @@
                 id="HeaderSearch"
                 name="q"
                 v-model.trim="searchTerm"
-                class="to-primary-50 border-primary/20
-                border-1 w-72 max-w-md bg-gradient-to-r from-white py-3
-                pl-5 pr-12 text-base ring-0 md:w-screen"
+                class="border-1 border-primary/20 to-primary-50
+                w-72 max-w-md bg-gradient-to-r from-white
+                py-3 pl-5 pr-12 text-base ring-0 md:w-screen"
                 :placeholder="`${$t.i19searchProducts} ...`"
               />
             </div>
@@ -64,8 +64,8 @@
             @click="toggleSearch"
           >
             <i
-              class="i-magnifying-glass hover:text-primary h-7 w-7
-              hover:scale-110 active:scale-125"
+              class="i-magnifying-glass hover:text-primary
+              size-7 hover:scale-110 active:scale-125"
               :class="isSearchOpen && 'text-primary-600 -translate-x-2'"
             ></i>
           </button>
@@ -73,8 +73,8 @@
         <AccountMenu v-if="!isMobile" class="hidden sm:block">
           <template #button="{ open }">
             <i
-              class="i-user-circle hover:text-primary h-7 w-7
-              hover:scale-110 active:scale-125"
+              class="i-user-circle hover:text-primary
+              size-7 hover:scale-110 active:scale-125"
               :class="open ? 'text-black scale-110' : null"
             ></i>
           </template>
@@ -86,7 +86,7 @@
           class="group relative"
           role="button"
         >
-          <i class="i-shopping-bag group-hover:text-primary h-7 w-7
+          <i class="i-shopping-bag group-hover:text-primary size-7
             group-hover:scale-110 group-active:scale-125"></i>
           <span
             v-if="cartTotalItems"

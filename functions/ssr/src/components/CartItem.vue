@@ -5,7 +5,7 @@
         v-if="image"
         :picture="image"
         :alt="title"
-        class="h-20 w-20 object-cover"
+        class="size-20 object-cover"
       />
       <p class="text-base-700 group-hover:text-base-900 flex-auto py-2
         text-sm group-hover:underline">
@@ -18,7 +18,7 @@
       class="absolute right-0 top-0 p-2 opacity-70 hover:opacity-100"
       :aria-label="$t.i19remove"
     >
-      <span class="border-3 text-danger-800 border-danger-700/30 flex h-5 w-5 flex-col
+      <span class="border-3 border-danger-700/30 text-danger-800 flex size-5 flex-col
         justify-center rounded-full text-sm leading-none">
         <i class="i-close mx-auto my-0"></i>
       </span>

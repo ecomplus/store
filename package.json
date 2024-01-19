@@ -14,7 +14,12 @@
     "deploy": "cloudcommerce deploy",
     "login": "cloudcommerce login",
     "setup": "bash scripts/install.sh && cloudcommerce setup",
-    "setup:quiet": "cloudcommerce setup --no-deploy --no-commit"
+    "setup:quiet": "cloudcommerce setup --no-deploy --no-commit",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "functions/ssr/**/*.{ts,vue,astro}": "eslint -c ./functions/ssr/.staged.eslintrc.cjs --fix",
+    "functions/!(ssr)/**/*.ts": "eslint --fix"
   },
   "main": "functions/index.js",
   "author": "E-Com Club Softwares para E-commerce <ti@e-com.club>",
@@ -26,6 +31,8 @@
     "@cloudcommerce/cli": "^2.0.8"
   },
   "devDependencies": {
-    "@cloudcommerce/eslint": "^2.0.8"
+    "@cloudcommerce/eslint": "^2.0.8",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0"
   }
 }

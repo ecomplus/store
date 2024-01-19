@@ -11,26 +11,26 @@
     >
       <div class="aspect-square p-2
         transition-transform motion-safe:group-hover:scale-110">
-        <div class="relative h-full w-full overflow-hidden rounded bg-white
-          group-hover:rounded-none">
+        <div class="relative size-full overflow-hidden
+          rounded bg-white group-hover:rounded-none">
           <span v-if="images?.length" class="text-xs text-opacity-70">
             <AImg
               :picture="images[0]"
               :alt="title"
-              class="absolute left-0 top-0 block h-full w-full object-cover"
+              class="absolute left-0 top-0 block size-full object-cover"
             />
             <AImg
               v-if="images[1] && wasHoveredOnce"
               :picture="images[1]"
               :alt="title"
-              class="absolute left-0 top-0 z-10 block h-full w-full
-              object-cover text-transparent opacity-0
-              transition-opacity group-hover:opacity-100 motion-safe:duration-300"
+              class="absolute left-0 top-0 z-10 block size-full
+              object-cover text-transparent opacity-0 transition-opacity
+              group-hover:opacity-100 motion-safe:duration-300"
             />
           </span>
           <div
             v-else
-            class="from-base-50/20 to-base-100 h-full w-full bg-gradient-to-br"
+            class="from-base-50/20 to-base-100 size-full bg-gradient-to-br"
           />
         </div>
       </div>
@@ -58,19 +58,20 @@
           <div v-if="isActive">
             <Prices :product="product" />
           </div>
-          <span v-else class="ui-badge bg-warning-100 text-warning-700">
+          <span v-else class="bg-warning-100 text-warning-700 ui-badge">
             {{ !isInStock ? $t.i19outOfStock : $t.i19inactive }}
           </span>
         </div>
         <button
           v-if="isActive && !hasVariations"
-          class=":uno: ui-btn-sm ui-btn-primary absolute -top-6
-          left-0 -z-10 hidden w-full rounded-none
-          opacity-0 transition group-hover:z-10 group-hover:opacity-100 md:block"
+          class=":uno: ui-btn-sm ui-btn-primary absolute -top-6 left-0 -z-10
+          hidden w-full rounded-none opacity-0 transition
+          group-hover:z-10 group-hover:opacity-100 md:block"
           @click.stop.prevent="addProductToCart(product)"
         >
-          <span class="bg-on-primary text-primary mr-1 inline-block h-4 w-4
-            rounded-full text-center text-base leading-none opacity-80">
+          <span class="bg-on-primary text-primary mr-1 inline-block
+            size-4 rounded-full text-center text-base
+            leading-none opacity-80">
             &plus;
           </span>
           {{ $t.i19addToCart }}

@@ -11,7 +11,7 @@ import PageHeader from '~/layouts/PageHeader.astro';
 import PageFooter from '~/layouts/PageFooter.astro';
 import Main from '~/main/Main.astro';
 
-let slug = Astro.params.slug || '';
+const slug = Astro.params.slug || '';
 if (slug.endsWith('.map')) {
   return new Response(null, { status: 404 });
 }
@@ -39,7 +39,7 @@ export async function getStaticPaths() {
     params: { slug: undefined },
   }];
   if (!import.meta.env.BUILD_MINIMAL) {
-    const { data } = await api.get('products?sort=-sales&fields=slug&limit=2')
+    const { data } = await api.get('products?sort=-sales&fields=slug&limit=2');
     data.result.forEach(({ slug }) => {
       if (slug) paths.push({ params: { slug } });
     });
@@ -57,8 +57,8 @@ export async function getStaticPaths() {
 
 <!DOCTYPE html>
 <html lang={routeContext?.lang.replace('_', '-')}>
-{routeContext &&
-  <Base>
+{routeContext
+  && <Base>
     <BaseHead slot="base-head" />
     <PageHeader />
     <Main />

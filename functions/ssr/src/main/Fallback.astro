@@ -8,7 +8,7 @@ import {
 ---
 
 <main>
-  <article class="prose mx-auto px-8 pt-20 pb-32">
+  <article class="prose mx-auto px-8 pb-32 pt-20">
     <h1>{i19error} :/</h1>
     <p class="hidden text-xl" id="errorMsg">
       {i19errorMsg}
@@ -20,13 +20,13 @@ import {
       ... ... ...
     </p>
     <a href="/" class="text-2xl">
-      <i class="i-arrow-right rotate-180 mr-1"></i>
+      <i class="i-arrow-right mr-1 rotate-180"></i>
       {i19home}
     </a>
   </article>
   <script>
     const msgId = window.location.search.includes('status=404')
-      ? '404Msg' : '5xxMsg'
+      ? '404Msg' : '5xxMsg';
     document.getElementById(msgId)!.style.display = 'block';
     document.getElementById('loadingMsg')!.style.display = 'none';
   </script>

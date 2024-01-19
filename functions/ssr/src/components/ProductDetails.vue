@@ -8,7 +8,7 @@
     </div>
     <div class="lg:sticky-header:translate-y-14 top-0 py-4
       transition-transform lg:sticky">
-      <h1 class="ui-text-brand text-secondary-900 text-lg">
+      <h1 class="text-secondary-900 ui-text-brand text-lg">
         {{ title }}
       </h1>
       <div v-if="isActive" class="mt-5">

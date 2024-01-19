@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div v-for="(options, gridId) in variationsGrids" :key="gridId" class="mt-3">
+    <div
+      v-for="(options, gridId) in variationsGrids" :key="gridId"
+      class="mt-3"
+    >
       <span class="text-base-700 text-sm font-medium">
         {{ getGridTitle(gridId) }}:
         <strong v-if="selectedOptions[gridId]" class="text-base-800">
@@ -16,13 +19,13 @@
                 ? 'border-primary ring-2'
                 : null,
               gridId === 'colors'
-                ? 'h-9 w-9 text-[0px]'
+                ? 'size-9 text-[0px]'
                 : 'px-2.5 py-2 leading-none',
               activeVariationsGrids[gridId].includes(optionText)
-                ? 'text-primary-950 bg-primary-100 border-primary-400'
-                : 'text-primary-600 bg-primary-200 border-primary-300'
+                ? 'border-primary-400 bg-primary-100 text-primary-950'
+                : 'border-primary-300 bg-primary-200 text-primary-600'
             ]"
-            :style="gridId === 'colors' ? getColorOptionBg(optionText) : undefined"
+            :style="gridId === 'colors' && getColorOptionBg(optionText)"
             @click="selectOption({ optionText, gridId, gridIndex: i })"
           >
             {{ optionText }}
