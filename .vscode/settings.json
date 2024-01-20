@@ -10,5 +10,12 @@
   },
   "css.lint.unknownAtRules": "ignore",
   "git.autofetch": true,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro",
+    "typescript",
+    "typescriptreact"
+  ]
 }
