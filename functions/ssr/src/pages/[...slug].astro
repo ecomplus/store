@@ -39,8 +39,16 @@ export async function getStaticPaths() {
     params: { slug: undefined },
   }];
   if (!import.meta.env.BUILD_MINIMAL) {
-    const { data } = await api.get('products?sort=-sales&fields=slug&limit=2');
-    data.result.forEach(({ slug }) => {
+    const {
+      data: { result: products },
+    } = await api.get('products?fields=slug&sort=-sales&limit=2');
+    products.forEach(({ slug }) => {
+      if (slug) paths.push({ params: { slug } });
+    });
+    const {
+      data: { result: categories },
+    } = await api.get('categories?fields=slug&sort=created_at&limit=1');
+    categories.forEach(({ slug }) => {
       if (slug) paths.push({ params: { slug } });
     });
     const pageSlugs = await getConfig().getContent('extra-pages/');
