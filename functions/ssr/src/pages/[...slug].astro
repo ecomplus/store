@@ -41,13 +41,13 @@ export async function getStaticPaths() {
   if (!import.meta.env.BUILD_MINIMAL) {
     const {
       data: { result: products },
-    } = await api.get('products?sort=-sales&fields=slug&limit=2');
+    } = await api.get('products?fields=slug&sort=-sales&limit=2');
     products.forEach(({ slug }) => {
       if (slug) paths.push({ params: { slug } });
     });
     const {
       data: { result: categories },
-    } = await api.get('categories?sort=created_at&limit=1');
+    } = await api.get('categories?fields=slug&sort=created_at&limit=1');
     categories.forEach(({ slug }) => {
       if (slug) paths.push({ params: { slug } });
     });
