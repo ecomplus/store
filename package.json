@@ -22,8 +22,6 @@
     "functions/!(ssr)/**/*.ts": "eslint --fix"
   },
   "main": "functions/index.js",
-  "author": "E-Com Club Softwares para E-commerce <ti@e-com.club>",
-  "license": "Apache 2.0 with Commons Clause",
   "bugs": {
     "url": "https://github.com/ecomplus/cloud-commerce/issues"
   },
