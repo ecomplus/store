@@ -57,7 +57,7 @@ npm i
 FIREBASE_PROJECT_ID={project-id} npm run setup
 ```
 
-> **Note**  
+> [!NOTE]
 > Account key created automatically with only required permissions using gcloud CLI (skip steps 6 and 7).
 
 </details>
@@ -100,7 +100,7 @@ npm run deploy
 
 #### Browser-only setup
 
-> **Warning**  
+> [!WARNING]
 > This configuration option is less secure, we recommend [first deploy on CLI](#first-deploy-on-cli) instead.
 
 7. [Create a service account](https://console.cloud.google.com/iam-admin/serviceaccounts) for your Firebase project directly on Google Cloud Platform:
@@ -127,3 +127,6 @@ Firebase Hosting CDN is fast, but [doesn't support cache _Stale-While-Revalidate
 - [_Cache Reserve_](https://www.cloudflare.com/products/cache-reserve/) with Tiered Cache;
 - DNS **proxied** A entry pointing to your Firebase Hosting IP;
 - Worker _swr_ script with source (_quick edit_) copied from [`cloud-commerce/packages/ssr/cloudflare/swr-worker.js`](https://raw.githubusercontent.com/ecomplus/cloud-commerce/main/packages/ssr/cloudflare/swr-worker.js).
+
+> [!NOTE]
+> You may want to remove or edit the default LICENSE file before publishing your store content.
