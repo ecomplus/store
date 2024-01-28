@@ -12,6 +12,7 @@ on:
       - '.github/build-and-deploy'
       - '.github/workflows/build-and-deploy.yml'
   pull_request:
+    types: [opened, synchronize, reopened, closed]
     paths:
       - 'functions/ssr/**'
       - '.firebaserc'
@@ -22,8 +23,8 @@ jobs:
     name: Cloud Commerce build and deploy
     runs-on: ubuntu-latest
     if: |
-      github.event.head_commit.message != 'Initial commit' &&
-      !contains(github.event.head_commit.message, '[skip ci]')
+      github.event.head_commit.message != 'Initial commit'
+      && !contains(github.event.head_commit.message, '[skip ci]')
     steps:
       - uses: actions/checkout@v4
         with:
