@@ -15,7 +15,7 @@
     "login": "cloudcommerce login",
     "setup": "bash scripts/install.sh && cloudcommerce setup",
     "setup:quiet": "cloudcommerce setup --no-deploy --no-commit",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "lint-staged": {
     "functions/ssr/**/*.{ts,vue,astro}": "eslint -c ./functions/ssr/.staged.eslintrc.cjs --fix",
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@cloudcommerce/eslint": "^2.2.0",
-    "husky": "^8.0.3",
+    "husky": "^9.0.7",
     "lint-staged": "^15.2.0"
   }
 }
