@@ -19,7 +19,8 @@
     <Fade>
       <section
         v-if="hasFiltersBar"
-        class="to-base-100 ui-section-slim sticky-header:translate-y-16 lg:sticky-header:translate-y-14 sticky top-0
+        class="to-base-100 ui-section-slim sticky-header:translate-y-16
+        lg:sticky-header:translate-y-14 sticky top-0
         z-[12] flex items-center justify-between rounded-b
         bg-white/80 px-6 py-4 shadow-sm
         backdrop-blur-sm transition-transform"

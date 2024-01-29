@@ -52,7 +52,7 @@ a, button, button > *, [role=button], [role=button] > * {
   @apply font-brand font-black italic;
 }
 .ui-title {
-  @apply text-3xl xl:text-5xl;
+  @apply text-3xl xl:text-5xl text-balance;
 }
 
 [class*=ui-badge] {
