@@ -1,5 +1,5 @@
 <template>
-  <section v-if="title" class="bg-secondary-100 py-2">
+  <section v-if="title" class="bg-secondary-100 py-1">
     <article class="ui-section">
       <div class="prose mx-auto">
         <div class="not-prose flex items-center gap-4 md:justify-center">

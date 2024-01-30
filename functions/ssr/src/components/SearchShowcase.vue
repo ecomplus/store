@@ -60,7 +60,7 @@
             as="div"
             class="text-base-800 relative text-sm"
           >
-            <ListboxButton class="ui-btn-sm ui-btn-secondary">
+            <ListboxButton :id="$useId('ss')" class="ui-btn-sm ui-btn-secondary">
               {{ $t.i19sort }}
             </ListboxButton>
             <Fade>

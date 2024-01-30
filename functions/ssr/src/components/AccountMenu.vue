@@ -8,7 +8,11 @@
       <span v-once>{{ initializeFirebaseAuth() }}</span>
     </div>
     <AccountLink role="button" @click.prevent>
-      <MenuButton class="outline-none" :aria-label="$t.i19myAccount">
+      <MenuButton
+        id="AccountBtn"
+        class="outline-none"
+        :aria-label="$t.i19myAccount"
+      >
         <slot name="button" v-bind="{ open }" />
       </MenuButton>
     </AccountLink>
@@ -46,10 +50,10 @@
             </AccountLink>
           </MenuItem>
           <MenuItem
-            as="li"
-            v-slot="{ active }"
             v-for="({ title, href }, i) in $settings.serviceLinks"
             :key="`s-${i}`"
+            as="li"
+            v-slot="{ active }"
           >
             <ALink
               :href="href"

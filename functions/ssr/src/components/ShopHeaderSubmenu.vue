@@ -1,7 +1,10 @@
 <template>
   <Popover v-slot="{ open }">
     <a :href="`/${categoryTree.slug}`" role="button">
-      <PopoverButton class="outline-none">
+      <PopoverButton
+        :id="`PopB${categoryTree._id || $useId('c')}`"
+        class="outline-none"
+      >
         <slot name="button" v-bind="{ open }" />
       </PopoverButton>
     </a>
