@@ -31,18 +31,18 @@ cause route resource is required to define sections from content. */
       case 'product-shelf':
         return index === 0 || (index < 2 && !cmsContent?.hero?.slides.length)
           ? <ProductShelf {...props} client:idle />
-          : <ProductShelf {...props} client:visible />
+          : <ProductShelf {...props} client:visible />;
       case 'related-products':
         props.isRelatedProducts = true;
-        return <ProductShelf {...props} client:visible />
+        return <ProductShelf {...props} client:visible />;
       case 'banners-grid':
-        return <BannersGrid {...props} />
+        return <BannersGrid {...props} />;
       case 'breadcrumbs':
-        return <Breadcrumbs />
+        return <Breadcrumbs />;
       case 'doc-description':
-        return <DocDescription />
+        return <DocDescription />;
       case 'doc-banners':
-        return <DocBanners />
+        return <DocBanners />;
       case 'product-details':
         const { hasDescription, hasSpecifications, ...detailsProps } = props;
         return <>
@@ -52,24 +52,24 @@ cause route resource is required to define sections from content. */
               {hasSpecifications && <ProductSpecifications />}
             </Fragment>
           </ProductDetails>
-        </>
+        </>;
       case 'search-showcase':
       case 'context-showcase':
         return <>
           <article class="min-h-[500px]">
             <SearchShowcase {...props} client:context />
           </article>
-        </>
+        </>;
       case 'page-title':
-        return <PageTitle {...props} />
+        return <PageTitle {...props} />;
       case 'content-entry':
-        return <ContentEntry {...props} />
+        return <ContentEntry {...props} />;
       case 'custom-html':
-        return <ContentClearfix html={props.html} />
+        return <ContentClearfix html={props.html} />;
       case 'c:foo':
-        return <div data-foo={props.foo}></div>
+        return <div data-foo={props.foo}></div>;
       default:
-        return <div data-section={type}></div>
+        return <div data-section={type}></div>;
     }
   })}
 </article>

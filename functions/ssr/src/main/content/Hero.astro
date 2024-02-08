@@ -8,7 +8,7 @@ const { heroSlider } = await usePageHero({ routeContext });
 const heroSlides = heroSlider.slides;
 ---
 
-{heroSlider.slides.length > 0 &&
+{heroSlider.slides.length > 0 && <>
   <HeroSlider {...heroSlider} client:idle>
     {heroSlides[0] && <BannerPictures slot="picture-0" {...heroSlides[0]} index={0} />}
     {heroSlides[1] && <BannerPictures slot="picture-1" {...heroSlides[1]} index={1} />}
@@ -22,4 +22,4 @@ const heroSlides = heroSlider.slides;
     {heroSlides[9] && <BannerPictures slot="picture-9" {...heroSlides[9]} index={9} />}
     <!-- https://github.com/withastro/astro/issues/5066#issuecomment-1277998365 -->
   </HeroSlider>
-}
+</>}
