@@ -24,5 +24,5 @@ export interface Props {
 const props = withDefaults(defineProps<Props>(), {
   apiDoc: () => globalThis.$storefront.apiContext?.doc as Products,
 });
-const html = computed(() => props.apiDoc.body_html || props.apiDoc.body_text);
+const html = computed(() => props.apiDoc.body_html);
 </script>
