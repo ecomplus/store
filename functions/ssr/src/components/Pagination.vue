@@ -4,7 +4,7 @@
     <li>
       <ALink
         :href="prevPageLink"
-        @click.prevent="prevPageLink && emit('update:page', page - 1)"
+        @click.prevent="prevPageLink && (page = page - 1)"
         class="mr-1 block min-w-9 rounded border px-3"
         :class="prevPageLink
           ? 'border-base-100 hover:bg-base-100'
@@ -17,7 +17,7 @@
     <li v-for="(pageN, i) in pages" :key="pageN">
       <ALink
         :href="pageN !== page ? pageLinks[i] : null"
-        @click.prevent="emit('update:page', pageN)"
+        @click.prevent="page = pageN"
         class="block w-9 rounded border ring-black/10"
         :class="pageN === page
           ? 'bg-base-50 border-base-100 ring text-base-700'
@@ -29,7 +29,7 @@
     <li>
       <ALink
         :href="nextPageLink"
-        @click.prevent="nextPageLink && emit('update:page', page + 1)"
+        @click.prevent="nextPageLink && (page = page + 1)"
         class="ml-1 block min-w-9 rounded border px-3"
         :class="nextPageLink
           ? 'border-base-100 hover:bg-base-100'
@@ -51,13 +51,10 @@ import {
 export interface Props extends UsePaginationProps {}
 
 const props = withDefaults(defineProps<Props>(), {
-  page: 1,
   maxPages: 7,
   isUrlPath: false,
 });
-const emit = defineEmits<{
-  'update:page': [value: number]
-}>();
+const page = defineModel<number>('page', { default: 1 });
 const {
   pages,
   pageLinks,
