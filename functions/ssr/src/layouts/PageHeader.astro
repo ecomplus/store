@@ -6,7 +6,7 @@ import PitchBar from '~/components/PitchBar.vue';
 import ShopHeader from '~/components/ShopHeader.vue';
 
 const { routeContext } = Astro.locals;
-const { settings, isHomepage } = routeContext;
+const { settings, isHomepage, isPreview } = routeContext;
 const LogoHeading = isHomepage ? 'h1' : 'h2';
 const {
   pitchBar,
@@ -16,11 +16,12 @@ const { getInlineClientJS } = await useSharedData({ field: 'categories' });
 ---
 
 <slot name="pitch-bar">
-  {pitchBar.slides.length > 1 && <PitchBar {...pitchBar} client:idle />}
-  {pitchBar.slides.length === 1 && <PitchBar {...pitchBar} />}
+  {(pitchBar.slides.length > 1 || isPreview)
+    ? <PitchBar {...pitchBar} client:sf="lazy" />
+    : <PitchBar {...pitchBar} />}
 </slot>
 <script async is:inline set:html={getInlineClientJS()} />
-<ShopHeader {...shopHeader} client:context="data:categories">
+<ShopHeader {...shopHeader} client:sf="data:categories">
   <Fragment slot="logo">
     <a href="/">
       <LogoHeading>

@@ -27,14 +27,17 @@ cause route resource is required to define sections from content. */
 
 <article class="mb-9 mt-6 md:mb-12 md:mt-8">
   {sections.map(async ({ type, props }, index) => {
+    if (cmsContent?.$filename) {
+      props.cmsPreview = {
+        contentFilename: cmsContent.$filename,
+        sectionIndex: index,
+      };
+    }
     switch (type) {
       case 'product-shelf':
-        return index === 0 || (index < 2 && !cmsContent?.hero?.slides.length)
-          ? <ProductShelf {...props} client:idle />
-          : <ProductShelf {...props} client:visible />;
       case 'related-products':
-        props.isRelatedProducts = true;
-        return <ProductShelf {...props} client:visible />;
+        props.isRelatedProducts = type === 'related-products';
+        return <ProductShelf {...props} client:sf="lazy,interaction" />;
       case 'banners-grid':
         return <BannersGrid {...props} />;
       case 'breadcrumbs':
@@ -46,7 +49,7 @@ cause route resource is required to define sections from content. */
       case 'product-details':
         const { hasDescription, hasSpecifications, ...detailsProps } = props;
         return <>
-          <ProductDetails {...detailsProps} client:context>
+          <ProductDetails {...detailsProps} client:sf="load">
             <Fragment slot="description">
               {hasDescription && <DocDescription />}
               {hasSpecifications && <ProductSpecifications />}
@@ -57,7 +60,7 @@ cause route resource is required to define sections from content. */
       case 'context-showcase':
         return <>
           <article class="min-h-[500px]">
-            <SearchShowcase {...props} client:context />
+            <SearchShowcase {...props} client:sf="load" />
           </article>
         </>;
       case 'page-title':
