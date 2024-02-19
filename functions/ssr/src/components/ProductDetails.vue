@@ -118,6 +118,6 @@ const checkVariation = (ev?: Event) => {
 };
 const addToCart = () => {
   if (!checkVariation()) return;
-  addProductToCart(product, variationId.value ? variationId.value : undefined);
+  addProductToCart(product, variationId.value || undefined, quantity.value);
 };
 </script>
