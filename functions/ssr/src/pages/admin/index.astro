@@ -1,6 +1,7 @@
 ---
 import { type RouteContext, loadRouteContext } from '@@sf/ssr-context';
 import BaseHead from '@@sf/layouts/BaseHead.astro';
+import cmsCustomCss from '@@sf/assets/decap-cms.css?inline';
 import Base from '~/layouts/Base.astro';
 
 let routeContext: RouteContext;
@@ -17,6 +18,7 @@ try {
   <Fragment slot="base-head">
     <BaseHead />
     <title>CMS</title>
+    <style is:inline set:html={cmsCustomCss} />
   </Fragment>
   <script src="@@sf/scripts/decap-cms"></script>
 </Base>
