@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "dev:cms": "npx concurrently \"npm:dev\" \"GIT_REPO_DIRECTORY=../.. npx decap-server\"",
+    "dev-with-cms": "npx concurrently \"npm:dev\" \"GIT_REPO_DIRECTORY=../.. npx decap-server\"",
     "build": "bash scripts/build.sh",
     "build:static": "BUILD_OUTPUT=static astro build",
     "serve": "firebase emulators:start --only functions:ssr,hosting",
@@ -19,16 +19,16 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@cloudcommerce/api": "^2.4.3",
-    "@cloudcommerce/firebase": "^2.4.3",
-    "@cloudcommerce/ssr": "^2.4.3",
+    "@cloudcommerce/api": "^2.5.0",
+    "@cloudcommerce/firebase": "^2.5.0",
+    "@cloudcommerce/ssr": "^2.5.0",
     "@headlessui/vue": "^1.7.18",
     "micromark": "^4.0.0"
   },
   "devDependencies": {
-    "@cloudcommerce/i18n": "^2.4.3",
-    "@cloudcommerce/storefront": "^2.4.3",
-    "@cloudcommerce/types": "^2.4.3",
+    "@cloudcommerce/i18n": "^2.5.0",
+    "@cloudcommerce/storefront": "^2.5.0",
+    "@cloudcommerce/types": "^2.5.0",
     "photoswipe": "^5.4.3"
   }
 }
