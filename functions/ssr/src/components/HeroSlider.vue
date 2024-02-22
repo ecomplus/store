@@ -54,7 +54,5 @@ export type Props = {
 
 defineProps<Props>();
 const isMounted = ref(false);
-onMounted(() => {
-  isMounted.value = true;
-});
+onMounted(() => { isMounted.value = true; });
 </script>

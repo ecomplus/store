@@ -1,13 +1,13 @@
 <template>
   <section class="ui-section relative grid grid-cols-1 items-start
-    gap-5 md:gap-4 lg:grid-cols-4 2xl:gap-6">
+    gap-x-5 lg:grid-cols-4 lg:gap-x-4 2xl:gap-x-6">
     <div class="w-full lg:col-span-3">
       <template v-if="product.pictures?.length">
-        <ImagesGallery :pictures="product.pictures" />
+        <ImagesGallery :pictures="product.pictures" class="mb-5" />
       </template>
     </div>
-    <div class="lg:sticky-header:translate-y-14 top-0 py-4
-      transition-transform lg:sticky">
+    <div class="lg:sticky-header:translate-y-14 top-0 pt-4
+      transition-transform lg:sticky lg:pb-4">
       <h1 class="text-secondary-900 ui-text-brand text-lg">
         {{ title }}
       </h1>
@@ -56,6 +56,13 @@
             {{ $t.i19addToCart }}
           </button>
         </div>
+        <div class="border-base-50 border-t-base-100 mt-6
+          rounded border-2 p-4 lg:mt-4">
+          <ShippingCalculator
+            :shipped-items="[{ ...product, quantity }]"
+            has-label
+          />
+        </div>
       </div>
     </div>
     <div class="w-full lg:col-span-3">
@@ -74,6 +81,7 @@ import QuantitySelector from '@@sf/components/QuantitySelector.vue';
 import Prices from '~/components/Prices.vue';
 import ImagesGallery from '~/components/ImagesGallery.vue';
 import SkuSelector from '~/components/SkuSelector.vue';
+import ShippingCalculator from '~/components/ShippingCalculator.vue';
 
 export interface Props {
   product?: Products;

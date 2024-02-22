@@ -39,6 +39,24 @@
         </div>
         <Prices :price="shoppingCart.subtotal" class="col-span-3 text-lg" />
       </div>
+      <div v-if="!hasShippingCalculator" class="my-2.5 text-right">
+        <a
+          href="#"
+          class="ui-link text-base-700"
+          @click.prevent.stop="hasShippingCalculator = true"
+        >
+          {{ $t.i19calculateShipping }}
+          <i class="i-truck ml-1"></i>
+        </a>
+      </div>
+      <Fade slide="down">
+        <ShippingCalculator
+          v-if="hasShippingCalculator"
+          :shipped-items="shoppingCart.items"
+          class="my-2.5 flex flex-wrap justify-end"
+          can-auto-submit
+        />
+      </Fade>
       <CheckoutLink
         to="checkout"
         class="ui-btn-lg ui-btn-primary my-2.5 w-full text-right"
@@ -64,6 +82,8 @@ import { shoppingCart, totalItems } from '@@sf/state/shopping-cart';
 import CheckoutLink from '@@sf/components/CheckoutLink.vue';
 import Prices from '~/components/Prices.vue';
 import CartItem from '~/components/CartItem.vue';
+import ShippingCalculator from '~/components/ShippingCalculator.vue';
 
 const emit = defineEmits(['close']);
+const hasShippingCalculator = ref(false);
 </script>
