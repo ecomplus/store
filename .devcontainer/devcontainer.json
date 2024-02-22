@@ -16,7 +16,8 @@
   "customizations": {
     "codespaces": {
       "openFiles": [
-        "functions/ssr/src/main/Home.astro"
+        "functions/ssr/src/components/ShopHeader.vue",
+        "functions/ssr/src/components/ProductCard.vue"
       ]
     },
     "vscode": {
