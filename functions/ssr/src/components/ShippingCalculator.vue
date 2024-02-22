@@ -36,7 +36,7 @@
           grid w-12
           place-content-center text-xl"
           :class="isMounted && !shippingServices.length && zipCode.length > 1
-            ? 'text-primary' : 'text-base-600'"
+            ? 'text-primary' : `${hasLabel ? 'text-base-400' : 'text-base-600'}`"
           :aria-label="$t.i19calculateShipping"
         >
           <Spinner v-if="isFetching" class="size-5" />

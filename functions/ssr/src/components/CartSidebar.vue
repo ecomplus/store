@@ -42,11 +42,11 @@
       <div v-if="!hasShippingCalculator" class="my-2.5 text-right">
         <a
           href="#"
-          class="ui-link text-base-700"
+          class="ui-link text-base-700 decoration-base-300"
           @click.prevent.stop="hasShippingCalculator = true"
         >
           {{ $t.i19calculateShipping }}
-          <i class="i-truck ml-1"></i>
+          <i class="i-truck text-base-500 ml-1"></i>
         </a>
       </div>
       <Fade slide="down">
