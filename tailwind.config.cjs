@@ -1,5 +1,7 @@
-process.env.STOREFRONT_BASE_DIR = './functions/ssr';
+const { join: joinPath } = require('node:path');
 
-const { genTailwindConfig } = require('./functions/ssr/tailwind.config.cjs');
+process.env.STOREFRONT_BASE_DIR = joinPath(__dirname, './functions/ssr');
 
-module.exports = genTailwindConfig();
+const tailwindConfig = require('./functions/ssr/tailwind.config.cjs');
+
+module.exports = tailwindConfig;
