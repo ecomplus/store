@@ -25,7 +25,10 @@
         "astro-build.astro-vscode",
         "vue.volar",
         "bradlc.vscode-tailwindcss"
-      ]
+      ],
+      "settings": {
+        "files.autoSaveWhenNoErrors": true
+      }
     }
   }
 }
