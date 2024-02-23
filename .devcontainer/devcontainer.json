@@ -27,6 +27,8 @@
         "bradlc.vscode-tailwindcss"
       ],
       "settings": {
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 5000,
         "files.autoSaveWhenNoErrors": true
       }
     }
