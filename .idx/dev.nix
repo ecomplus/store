@@ -6,11 +6,12 @@
   ];
   idx.extensions = [
     "vue.volar"
-    # Other recommended extensions crashing launch
-    # "dbaeumer.vscode-eslint",
-    # "astro-build.astro-vscode",
-    # "bradlc.vscode-tailwindcss",
+    "astro-build.astro-vscode"
+    "bradlc.vscode-tailwindcss"
   ];
+  idx.workspace.onCreate = {
+    npm-install = "npm install && npm install --prefix functions/ssr";
+  };
   idx.previews = {
     enable = true;
     previews = [
