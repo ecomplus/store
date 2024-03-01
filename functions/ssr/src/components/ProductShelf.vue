@@ -1,10 +1,11 @@
 <template>
   <section class="ui-section">
     <div v-if="title" class="mx-auto mb-4 max-w-prose text-center">
-      <h2 class="ui-text-brand text-3xl">
+      <h2>
         <ALink
           :href="titleLink"
-          :class="titleLink ? 'ui-link' : 'text-base-700'"
+          class="text-3xl text-base-700 ui-text-brand"
+          :class="titleLink && 'ui-link decoration-primary/60'"
         >
           {{ title }}
         </ALink>
@@ -26,11 +27,11 @@
         <DefineCarouselControl v-slot="{ isPrev }">
           <CarouselControl
             v-show="products.length > 2"
-            class=":uno: text-primary lg:hover:bg-primary-200 !top-1/2 size-12
-            rounded-full bg-transparent text-3xl leading-none ring-black/5
-            backdrop-blur-md transition-opacity
-            group-hover/shelf:opacity-90 lg:bg-white/80 lg:text-2xl
-            lg:opacity-0 lg:shadow-sm lg:ring-1"
+            class=":uno: !top-1/2 size-12 rounded-full bg-transparent
+            text-3xl leading-none text-primary ring-black/5 backdrop-blur-md
+            transition-opacity group-hover/shelf:opacity-90
+            lg:bg-white/80 lg:text-2xl lg:opacity-0
+            lg:shadow-sm lg:ring-1 lg:hover:bg-primary-200"
             :class="isPrev ? '!-left-4' : '!-right-4'"
             :is-prev="isPrev"
           />
