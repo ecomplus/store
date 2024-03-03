@@ -1,7 +1,7 @@
 <template>
   <section class="ui-section">
     <div v-if="title" class="mx-auto mb-4 max-w-prose text-center">
-      <h2>
+      <h3>
         <ALink
           :href="titleLink"
           class="text-3xl text-base-700 ui-text-brand"
@@ -9,7 +9,7 @@
         >
           {{ title }}
         </ALink>
-      </h2>
+      </h3>
     </div>
     <Component
       :is="isGrid ? 'ul' : 'Carousel'"
