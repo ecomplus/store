@@ -1,17 +1,17 @@
 <template>
   <section
     v-if="searchTerm"
-    class="text-base-700 ui-section-slim px-6 text-center text-xl lowercase"
+    class="px-6 text-center text-xl lowercase text-base-700 ui-section-slim"
     :class="hasFiltersBar ? 'relative z-[14] -mb-4' : 'mb-0'"
   >
     {{ $t.i19searchingFor }}
-    <h1 class="text-base-800 inline font-bold italic">
+    <h1 class="inline font-bold italic text-base-800">
       {{ searchTerm }}
     </h1>
   </section>
   <div
     v-if="isFetching && !products.length"
-    class="ui-section relative min-h-[300px]"
+    class="relative min-h-[300px] ui-section"
   >
     <Skeleton class="absolute top-0 w-full px-5" is-bold is-large />
   </div>
@@ -19,13 +19,13 @@
     <Fade>
       <section
         v-if="hasFiltersBar"
-        class="to-base-100 ui-section-slim sticky-header:translate-y-16
-        lg:sticky-header:translate-y-14 sticky top-0
-        z-[12] flex items-center justify-between rounded-b
-        bg-white/80 px-6 py-4 shadow-sm
-        backdrop-blur-sm transition-transform"
+        class="sticky top-0 z-[12]
+        flex items-center justify-between
+        rounded-b bg-white/80 to-base-100 px-6 py-4
+        shadow-sm backdrop-blur-sm transition-transform ui-section-slim
+        sticky-header:translate-y-16 lg:sticky-header:translate-y-14"
       >
-        <strong class="text-base-700 font-medium lowercase">
+        <strong class="font-medium lowercase text-base-700">
           <template v-if="resultMeta.count > 1">
             {{ resultMeta.count }}
             <span class="hidden lg:inline">{{ $t.i19itemsFound }}</span>
@@ -34,38 +34,39 @@
         </strong>
         <div class="flex items-center gap-4">
           <span class="hidden text-xl leading-none md:block">
-            <i class="text-base-600 i-adjustments-horizontal m-0"></i>
+            <i class="m-0 text-base-600 i-adjustments-horizontal"></i>
           </span>
           <button
             @click="isFiltersOpen = !isFiltersOpen"
-            class="ui-btn-sm ui-btn-secondary relative"
+            class="relative ui-btn-sm ui-btn-secondary"
           >
             <span class="hidden md:inline">
               {{ $t.i19filterProducts }}
             </span>
             <span class="md:hidden">
-              <i class="i-adjustments-horizontal mr-1"></i>
+              <i class="mr-1 i-adjustments-horizontal"></i>
               {{ $t.i19filterOut }}
             </span>
             <span
               v-if="filtersCount"
-              class="outline-3 outline-secondary/80 ui-badge-pill-sm
-              absolute -right-1.5 -top-1 outline"
+              class="outline-3 absolute -right-1.5
+              -top-1 outline outline-secondary/80 ui-badge-pill-sm"
             >
               {{ filtersCount }}
             </span>
           </button>
           <Listbox
+            v-if="!fixedParams?.sort"
             v-model="sortOption"
             as="div"
-            class="text-base-800 relative text-sm"
+            class="relative text-sm text-base-800"
           >
             <ListboxButton :id="$useId('ss')" class="ui-btn-sm ui-btn-secondary">
               {{ $t.i19sort }}
             </ListboxButton>
             <Fade>
-              <ListboxOptions class="divide-base-100
-                absolute right-0 mt-2 divide-y rounded bg-white
+              <ListboxOptions class="absolute
+                right-0 mt-2 divide-y divide-base-100 rounded bg-white
                 shadow ring-1 ring-black/5 focus:outline-none">
                 <ListboxOption
                   v-for="({ label, value }) in sortOptions"
