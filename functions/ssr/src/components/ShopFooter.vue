@@ -1,34 +1,34 @@
 <template>
-  <footer class="border-base-100 bg-base-50 mt-auto w-screen border-t py-2">
+  <footer class="mt-auto w-screen border-t border-base-100 bg-base-50 py-2">
     <div class="ui-section">
-      <div class="border-base-200 flex flex-wrap justify-between
-        gap-y-5 border-b pb-7 sm:gap-x-10 lg:flex-nowrap">
+      <div class="flex flex-wrap justify-between gap-y-5
+        border-b border-base-200 pb-7 sm:gap-x-10 lg:flex-nowrap">
         <div class="shrink">
           <slot name="logo" />
           <div v-if="$settings.description" class="prose">
             <p>{{ $settings.description }}</p>
           </div>
-          <div class="text-base-500 flex gap-2">
+          <div class="flex gap-2 text-base-500">
             <span v-for="(href, network) in socialNetworks" :key="network">
               <SocialNetworkLink
                 :network="network"
-                class="hover:text-primary p-1"
+                class="p-1 hover:text-primary"
               >
                 <template v-if="network === 'whatsapp'" #append>
-                  <span class="text-base-600 ml-1 text-sm">
+                  <span class="ml-1 text-sm text-base-600">
                     {{ $settings.whatsapp }}
                   </span>
                 </template>
               </SocialNetworkLink>
             </span>
           </div>
-          <div v-if="$settings.phone" class="text-base-700 mt-3">
+          <div v-if="$settings.phone" class="mt-3 text-base-700">
             <ALink
               v-if="$settings.phone"
               :href="`tel:${$settings.phone.replace(/\D/g, '')}`"
               class="hover:text-primary"
             >
-              <i class="i-phone mr-0.5"></i>
+              <i class="mr-0.5 i-phone"></i>
               {{ $settings.phone }}
             </ALink>
           </div>
@@ -42,11 +42,14 @@
           </div>
           <ul
             class="text-sm"
-            :class="categories.length > 4
+            :class="categories.length > 6
               ? 'grid md:grid-cols-2 gap-x-5 gap-y-1.5' : 'space-y-1.5'"
           >
             <li v-for="({ name, slug }, i) in categories" :key="`c-${i}`">
-              <a :href="`/${slug}`" class="text-base-600 ui-link">
+              <a
+                :href="`/${slug}`"
+                class="block text-base-600 ui-link md:truncate"
+              >
                 {{ name }}
               </a>
             </li>
@@ -66,14 +69,15 @@
           </div>
           <ul
             class="text-sm"
-            :class="pageLinks.length > 5
-              ? 'grid md:grid-cols-2 gap-x-5 gap-y-1.5' : 'space-y-1.5'"
+            :class="pageLinks.length > 8
+              ? 'grid gap-x-5 gap-y-1.5 md:grid-cols-2' : 'space-y-1.5'"
           >
             <li v-for="({ title, href }, i) in pageLinks" :key="`p-${i}`">
               <ALink
                 :href="href"
-                class="ui-link"
-                :class="title === 'Blog' ? 'text-base-900' : 'text-base-600'"
+                class="block ui-link md:truncate"
+                :class="title === 'Blog'
+                  ? 'text-base-900 font-semibold' : 'text-base-600'"
               >
                 {{ title }}
               </ALink>
