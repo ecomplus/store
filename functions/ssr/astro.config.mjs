@@ -1,4 +1,6 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import definedAstroConfig from '@cloudcommerce/storefront/astro.config.mjs';
+import { defineConfig } from 'astro/config';
+import { astroConfig } from '@cloudcommerce/storefront/astro.config.mjs';
 
-export default definedAstroConfig;
+astroConfig.devToolbar = { enabled: false };
+
+export default defineConfig(astroConfig);
