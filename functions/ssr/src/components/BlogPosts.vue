@@ -12,28 +12,26 @@
             class="aspect-[3/2] w-full max-w-[600px] rounded object-cover"
           />
         </a>
-        <div class="prose grow pt-5">
-          <small class="text-base-500 font-semibold uppercase">Blog</small>
+        <div class="grow pt-5 prose">
+          <small class="font-semibold uppercase text-base-500">Blog</small>
           <a :href="`/posts/${featured.slug}`" class="not-prose">
-            <h1 class="ui-title mb-4 mt-2">
+            <h1 class="mb-4 mt-2 ui-title">
               {{ featured.title }}
             </h1>
           </a>
-          <p class="text-xl">
-            {{ featured.description }}
-          </p>
-          <span v-if="featured.date" class="text-base-600 mr-4">
-            {{ featured.date }}
+          <p class="text-xl" v-html="featured.description"></p>
+          <span v-if="featured.date" class="mr-4 text-base-600">
+            {{ formatDate(featured.date) }}
           </span>
           <em v-if="featured.author" class="text-base-600">
             --- {{ featured.author }}
           </em>
-          <div class="not-prose mt-5">
+          <div class="mt-5 not-prose">
             <a
               :href="`/posts/${featured.slug}`"
               class="ui-btn-lg ui-btn-primary"
             >
-              <i class="i-chevron-right mr-1"></i>
+              <i class="mr-1 i-chevron-right"></i>
               {{ $t.i19seeMore }}
             </a>
           </div>
@@ -48,13 +46,13 @@
                 :picture="{ url: post.thumbnail, size: '750x500' }"
                 class="aspect-[3/2] w-full rounded object-cover"
               />
-              <div class="text-base-700 px-3 pt-4">
-                <h3 class="text-base-800 mb-1 text-xl font-medium">
+              <div class="px-3 pt-4 text-base-700">
+                <h3 class="mb-1 text-xl font-medium text-base-800">
                   {{ post.title }}
                 </h3>
-                <p>{{ post.description }}</p>
-                <small v-if="post.date" class="text-base-500 mt-1 block">
-                  {{ post.date }}
+                <p v-html="post.description"></p>
+                <small v-if="post.date" class="mt-1 block text-base-500">
+                  {{ formatDate(post.date) }}
                 </small>
               </div>
             </a>
@@ -73,6 +71,7 @@
 </template>
 
 <script setup lang="ts">
+import { formatDate } from '@ecomplus/utils';
 import Pagination from '~/components/Pagination.vue';
 
 export interface Props {

@@ -1,6 +1,6 @@
 ---
 title: "Blog 2"
-date: "12/08/2022"
+date: "2023-10-08"
 thumbnail: "https://picsum.photos/750/500?2"
 author: ""
 description: "Lorem ipsum dolor sit amet"
