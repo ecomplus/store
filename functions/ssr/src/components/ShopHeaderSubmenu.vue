@@ -1,13 +1,13 @@
 <template>
   <Popover v-slot="{ open }">
-    <ALink :href="`/${categoryTree.slug}`" role="button">
+    <a :href="`/${categoryTree.slug}`" role="button">
       <PopoverButton
         :id="`PopB${categoryTree._id || $useId('c')}`"
         class="outline-none"
       >
         <slot name="button" v-bind="{ open }" />
       </PopoverButton>
-    </ALink>
+    </a>
     <div class="relative" ref="panel">
       <Fade>
         <PopoverPanel
@@ -29,7 +29,11 @@
                 :key="`link-${i}`"
                 :class="subcategoryLinks.length > 10 ? 'text-sm mb-1' : 'mb-2'"
               >
-                <ALink :href="`/${subcategory.slug}`" class="hover:text-primary">
+                <ALink
+                  :href="`/${subcategory.slug}`"
+                  prefetch="visible"
+                  class="hover:text-primary"
+                >
                   <h3>{{ subcategory.name }}</h3>
                 </ALink>
               </li>
@@ -67,6 +71,7 @@
           </div>
           <ALink
             :href="`/${categoryTree.slug}`"
+            prefetch="visible"
             class="mt-1 block text-xs leading-snug text-base-600 underline"
           >
             {{ $t.i19seeAll$1Category.replace('$1', categoryTree.name) }}
