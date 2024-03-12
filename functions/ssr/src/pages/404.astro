@@ -1,0 +1,30 @@
+---
+import { i19notFound } from '@@i18n';
+import { type RouteContext, loadRouteContext } from '@@sf/ssr-context';
+import BaseHead from '@@sf/layouts/BaseHead.astro';
+import Base from '~/layouts/Base.astro';
+import PageHeader from '~/layouts/PageHeader.astro';
+import FallbackMain from '~/main/Fallback.astro';
+import PageFooter from '~/layouts/PageFooter.astro';
+
+let routeContext: RouteContext;
+try {
+  routeContext = await loadRouteContext(Astro);
+} catch (err: any) {
+  return err.astroResponse;
+}
+const { settings } = routeContext;
+---
+
+<!DOCTYPE html>
+<html lang={routeContext?.lang.replace('_', '-')}>
+<Base>
+  <Fragment slot="base-head">
+    <BaseHead />
+    <title>{`${i19notFound} | ${settings.name}`}</title>
+  </Fragment>
+  <PageHeader />
+  <FallbackMain statusCode={404} />
+  <PageFooter />
+</Base>
+</html>

@@ -5,29 +5,39 @@ import {
   i19errorMsg,
   i19notFound,
 } from '@@i18n';
+
+export interface Props {
+  statusCode?: number;
+}
+
+const { statusCode } = Astro.props;
 ---
 
 <main>
-  <article class="prose mx-auto px-8 pb-32 pt-20">
+  <article class="mx-auto px-8 pb-32 pt-20 prose">
     <h1>{i19error} :/</h1>
-    <p class="hidden text-xl" id="errorMsg">
+    <p class={`${(!statusCode || statusCode === 404) ? 'hidden ' : ''}text-xl`} id="errorMsg">
       {i19errorMsg}
     </p>
-    <p class="hidden text-xl" id="404Msg">
+    <p class={`${statusCode !== 404 ? 'hidden ' : ''}text-xl`} id="404Msg">
       {i19notFound} (404)
     </p>
-    <p class="text-xl" id="loadingMsg">
-      ... ... ...
-    </p>
+    {!statusCode && <>
+      <p class="text-xl" id="loadingMsg">
+        ... ... ...
+      </p>
+    </>}
     <a href="/" class="text-2xl">
-      <i class="i-arrow-right mr-1 rotate-180"></i>
+      <i class="mr-1 rotate-180 i-arrow-right"></i>
       {i19home}
     </a>
   </article>
-  <script>
-    const msgId = window.location.search.includes('status=404')
-      ? '404Msg' : '5xxMsg';
-    document.getElementById(msgId)!.style.display = 'block';
-    document.getElementById('loadingMsg')!.style.display = 'none';
-  </script>
+  {!statusCode && <>
+    <script>
+      const msgId = window.location.search.includes('status=404')
+        ? '404Msg' : '5xxMsg';
+      document.getElementById(msgId)!.style.display = 'block';
+      document.getElementById('loadingMsg')!.style.display = 'none';
+    </script>
+  </>}
 </main>
