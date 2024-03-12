@@ -30,6 +30,7 @@
       <ALink
         v-if="parsedButtonText"
         :href="buttonLink"
+        :prefetch="href ? 'hover' : 'visible'"
         class="mt-7 min-w-[150px] ui-btn-lg ui-btn-contrast md:mt-10"
       >
         {{ parsedButtonText }}
