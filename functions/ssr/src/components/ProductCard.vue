@@ -6,6 +6,7 @@
   >
     <ALink
       :href="link"
+      prefetch="visible"
       class="flex h-full flex-col overflow-hidden rounded bg-white
       ring-black/5 group-hover:shadow group-hover:ring-1"
     >
@@ -82,7 +83,7 @@
 </template>
 
 <script setup lang="ts">
-import { watchOnce, useElementHover } from '@vueuse/core';
+import { useElementHover } from '@vueuse/core';
 import { addProductToCart } from '@@sf/state/shopping-cart';
 import {
   type Props as UseProductCardProps,
@@ -111,7 +112,8 @@ const {
 const card = ref<HTMLElement | null>(null);
 const isHovered = useElementHover(card);
 const wasHoveredOnce = ref(false);
-watchOnce(isHovered, () => {
+const unwatch = watch(isHovered, () => {
   wasHoveredOnce.value = true;
+  unwatch();
 });
 </script>

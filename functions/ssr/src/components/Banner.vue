@@ -5,6 +5,7 @@
   >
     <ALink
       :href="href"
+      prefetch="visible"
       :class="hasHeader
         ? 'sm:order-last [&_img]:max-w-full sm:[&_img]:max-w-none'
           + ' [&_img]:aspect-video sm:[&_img]:aspect-[2.5] [&_img]:object-cover'
@@ -19,7 +20,7 @@
       <Component
         v-if="parsedTitle"
         :is="headingTag"
-        class="ui-title mt-1"
+        class="mt-1 ui-title"
       >
         {{ parsedTitle }}
       </Component>
@@ -29,7 +30,7 @@
       <ALink
         v-if="parsedButtonText"
         :href="buttonLink"
-        class="ui-btn-lg ui-btn-contrast mt-7 min-w-[150px] md:mt-10"
+        class="mt-7 min-w-[150px] ui-btn-lg ui-btn-contrast md:mt-10"
       >
         {{ parsedButtonText }}
       </ALink>
