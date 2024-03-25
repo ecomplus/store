@@ -112,21 +112,35 @@ npm run deploy
 
 9. Configure os seguintes secrets no seu repositório do GitHub (_Settings > Secrets > Actions_):
     - `FIREBASE_SERVICE_ACCOUNT`: Cole o JSON da chave do Google Cloud gerada
-    - `ECOM_STORE_ID`: Copie seu _Store ID_ no [admin da E-Com Plus](https://ecomplus.app/)
-    - `ECOM_AUTHENTICATION_ID`: Copie seu _Authentication ID_ no [admin da E-Com Plus](https://ecomplus.app/)
-    - `ECOM_API_KEY`: Copie seu _API Key_ no [admin da E-Com Plus](https://ecomplus.app/)
+    - `ECOM_STORE_ID`: Copie seu _Store ID_ no [admin da e-com.plus](https://ecomplus.app/)
+    - `ECOM_AUTHENTICATION_ID`: Copie seu _Authentication ID_ no [admin da e-com.plus](https://ecomplus.app/)
+    - `ECOM_API_KEY`: Copie seu _API Key_ no [admin da e-com.plus](https://ecomplus.app/)
 
 ## Práticas recomendadas de produção
 
-O CDN do Firebase Hosting é rápido, mas [não suporta _Stale-While-Revalidate_](https://firebase.google.com/docs/hosting/manage-cache) ([contexto e feature request](https://firebase.uservoice.com/forums/948424-general/suggestions/47179505-hosting-cdn-cache-stale-while-revalidate)) e Hosting proxy + Cloud Functions (mesmo sem cold starts) nunca leva menos que 1s (TTFB provavelmente vai bater ~2s). Nós gostamos de respostas "instantâneas" mas queremos manter views dinâmicas renderizadas em servidor (por menos client-side JS), então stale caching é necessário e portanto precisamos de outra camada de CDN em produção.
+O CDN do Firebase Hosting é rápido, mas [não suporta _Stale-While-Revalidate_](https://firebase.google.com/docs/hosting/manage-cache) ([contexto e feature request](https://firebase.uservoice.com/forums/948424-general/suggestions/47179505-hosting-cdn-cache-stale-while-revalidate)) e Hosting proxy + Cloud Functions (mesmo sem cold starts) nunca leva menos que 1s (TTFB provavelmente vai bater ~2s). Nós gostamos de respostas "instantâneas" mas queremos manter views dinâmicas renderizadas em servidor (por menos client-side JS), então stale caching é necessário e portanto precisamos de outra camada de CDN em produção (quando o domínio próprio for apontado).
 
-[Cloudflare](https://www.cloudflare.com/) Worker é recomendado na frente do Firebase Hosting + Functions para lojas em produção (quando apontando o domínio próprio) com as configurações abaixo:
+- Forma **recomemdada** usando [bunny.net](https://bunny.net/) CDN com Perma Cache e Edge Rules para ISR:
+    + Obtenha sua chave de API em _account details_ no painel do bunny.net;
+    + Salve em um secret chamado `BUNNYNET_API_KEY` no seu repositório do GitHub;
+    + Edite _.github/build-and-deploy_ (some 1) e confirme com a mensagem **_[run:bunny-setup]_**.
 
-- SSL full;
-- Page rule para \*/\* (qualquer rota) com _Cache Level: Cache Everything_;
-- [_Cache Reserve_](https://www.cloudflare.com/products/cache-reserve/) com Tiered Cache;
-- Entrada A no DNS com **proxy ativo** apontando para o IP do seu projeto no Firebase Hosting;
-- Worker _swr_ com o código (_quick edit_) copiado de [`cloud-commerce/packages/ssr/cloudflare/swr-worker.js`](https://raw.githubusercontent.com/ecomplus/cloud-commerce/main/packages/ssr/cloudflare/swr-worker.js).
+- OU usando [bunny.net](https://bunny.net/) CDN com Stale Cache para SWR:
+    + Pull zone com seu domínio https://_project_.web.app do Firebase Hosting como URL de origem;
+    + SSL + Force SSL habilitados (previne redirecionar http://* para o domínio de origem);
+    + **_Smart Cache_ desabilitado** (cache para tudo respeitando os cabeçalhos da resposta);
+    + Caching _Query String Sort_ habilitado (ótimo para transformações de imagens);
+    + Caching _Strip Response Cookies_ habilitado;
+    + **[Stale Cache](https://bunny.net/blog/introducing-stale-cache-more-efficient-cache-handling/) _while origin offline_ e _while updating_ habilitados**;
+    + Outras configurações de origem e cache podem ser mantidas desabilitadas;
+    + Você pode querer desabilitar algumas zonas na configuração de _routing_ dependendo do target da loja.
+
+- OU usando [Cloudflare](https://www.cloudflare.com/) Worker para ISR/SWR:
+    + SSL full;
+    + Page rule para \*/\* (qualquer rota) com _Cache Level: Cache Everything_;
+    + [_Cache Reserve_](https://www.cloudflare.com/products/cache-reserve/) com Tiered Cache;
+    + Entrada A no DNS com **proxy ativo** apontando para o IP do seu projeto no Firebase Hosting;
+    + Worker _swr_ com o código (_quick edit_) copiado de [`cloud-commerce/packages/ssr/cloudflare/swr-worker.js`](https://raw.githubusercontent.com/ecomplus/cloud-commerce/main/packages/ssr/cloudflare/swr-worker.js).
 
 > [!NOTE]
 > Você pode querer remover ou editar a licença padrão (arquivo LICENSE) antes de publicar o conteúdo da sua loja.
