@@ -1,5 +1,9 @@
 {
-  "extends": "@cloudcommerce/storefront/tsconfig.json",
+  "extends": "@cloudcommerce/storefront/tsconfig.base.json",
+  "include": [
+    "src",
+    "content",
+  ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -8,5 +12,5 @@
       "~/*": ["./src/*"],
       "content/*": ["./content/*"],
     }
-  }
+  },
 }
