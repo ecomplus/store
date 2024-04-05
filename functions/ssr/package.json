@@ -19,7 +19,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@cloudcommerce/api": "^2.10.7",
+    "@cloudcommerce/api": "^2.11.1",
     "@cloudcommerce/firebase": "^2.10.7",
     "@cloudcommerce/ssr": "^2.10.7",
     "@headlessui/vue": "^1.7.19",
