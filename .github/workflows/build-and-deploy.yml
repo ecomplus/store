@@ -41,10 +41,10 @@ jobs:
           mail-sender: ${{ secrets.MAIL_SENDER }}
           mail-sender-name: ${{ secrets.MAIL_SENDER_NAME }}
           mail-reply-to: ${{ secrets.MAIL_REPLY_TO }}
-          smpt-host: ${{ secrets.SMPT_HOST }}
-          smpt-port: ${{ secrets.SMPT_PORT }}
-          smpt-user: ${{ secrets.SMPT_USER }}
-          smpt-pass: ${{ secrets.SMPT_PASS }}
+          smtp-host: ${{ secrets.SMTP_HOST }}
+          smtp-port: ${{ secrets.SMTP_PORT }}
+          smtp-user: ${{ secrets.SMTP_USER }}
+          smtp-pass: ${{ secrets.SMTP_PASS }}
           bunnynet-api-key: ${{ secrets.BUNNYNET_API_KEY }}
           sendgrid-api-key: ${{ secrets.SENDGRID_API_KEY }}
           tinyerp-token: ${{ secrets.TINYERP_TOKEN }}
