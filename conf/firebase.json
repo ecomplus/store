@@ -2,7 +2,8 @@
   "hosting": {
     "redirects": [
       { "source": "/blog", "destination": "/blog/1", "type": 301 },
-      { "source": "/pages/:slug*", "destination": "/p/:slug", "type": 301 }
+      { "source": "/pages/:slug*", "destination": "/p/:slug", "type": 301 },
+      { "source": "/sitemap.xml", "destination": "/sitemap-index.xml", "type": 302 }
     ]
   }
 }

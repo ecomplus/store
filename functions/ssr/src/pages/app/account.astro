@@ -23,7 +23,7 @@ const { settings } = routeContext;
     <title>{`${i19myAccount} | ${settings.name}`}</title>
   </Fragment>
   <main>
-    <AccountPage client:only>
+    <AccountPage client:only="vue">
       <Picture
         slot="logo"
         src={settings.logo}

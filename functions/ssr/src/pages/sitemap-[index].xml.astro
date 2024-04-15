@@ -1,0 +1,75 @@
+---
+import { type RouteContext, loadRouteContext } from '@@sf/ssr-context';
+import { countBlogPages } from './blog/_blog-pages';
+
+let routeContext: RouteContext;
+try {
+  routeContext = await loadRouteContext(Astro);
+} catch (err: any) {
+  return err.astroResponse;
+}
+const { settings: { domain }, getContent } = routeContext;
+const { index } = Astro.params;
+
+Astro.response.headers.set('Content-Type', 'application/xml; charset=UTF-8');
+
+let xml = '<?xml version="1.0" encoding="UTF-8"?>';
+if (index === 'index') {
+  xml += `
+  <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap><loc>https://${domain}/sitemap-0.xml</loc></sitemap>
+    <sitemap><loc>https://${domain}/sitemap-catalog.xml</loc></sitemap>
+  </sitemapindex>`;
+} else {
+  const { postSlugs, totalPages } = await countBlogPages();
+  xml += `
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+      <loc>https://${domain}/</loc>
+      <changefreq>daily</changefreq>
+      <priority>1</priority>
+    </url>
+    <url>
+      <loc>https://${domain}/s/</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.8</priority>
+    </url>`;
+  for (let i = 1; i <= totalPages; i++) {
+    xml += `
+    <url>
+      <loc>https://${domain}/blog/${i}</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+    </url>`;
+  }
+  postSlugs.forEach((postSlug) => {
+    xml += `
+    <url>
+      <loc>https://${domain}/posts/${postSlug}</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>`;
+  });
+  const pageSlugs = await getContent('extra-pages/');
+  pageSlugs.forEach((pageSlug) => {
+    xml += `
+    <url>
+      <loc>https://${domain}/p/${pageSlug}</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>`;
+  });
+  xml += `
+  </urlset>`;
+}
+
+export const partial = true;
+
+export async function getStaticPaths() {
+  return [{
+    params: { index: 'index' },
+  }];
+}
+---
+
+<Fragment set:html={xml} />
