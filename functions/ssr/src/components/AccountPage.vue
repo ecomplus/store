@@ -1,10 +1,10 @@
 <template>
-  <article class="from-secondary-700 to-secondary-950 flex min-h-screen
-    w-full flex-col justify-center bg-gradient-to-br">
+  <article class="flex min-h-screen w-full flex-col
+    justify-center bg-gradient-to-br from-secondary-700 to-secondary-950">
     <div class="mx-auto p-4">
-      <section class="ui-section text-center">
+      <section class="text-center ui-section">
         <a href="/" class="text-base-200 hover:text-white">
-          <i class="i-arrow-right mr-1 rotate-180"></i>
+          <i class="mr-1 rotate-180 i-arrow-right"></i>
           {{ $t.i19goToStore }}
         </a>
       </section>
@@ -20,7 +20,7 @@
           </template>
         </LoginForm>
       </section>
-      <nav v-if="$settings.serviceLinks?.length" class="ui-section px-0">
+      <nav v-if="$settings.serviceLinks?.length" class="px-0 ui-section">
         <ul class="mx-auto flex max-w-sm flex-wrap items-center
           justify-evenly gap-4 px-3">
           <li
@@ -48,7 +48,7 @@ if (!import.meta.env.SSR) {
   if (!returnUrl) {
     const url = new URL(location.toString());
     url.pathname = '/app/';
-    url.hash = `#${location.pathname.replace('/app/', '/')}`;
+    url.hash = location.hash || `#${location.pathname.replace('/app/', '/')}`;
     loginLinkActionUrl = url.toString();
   }
   watch(isLogged, () => {

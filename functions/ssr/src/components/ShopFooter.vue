@@ -54,7 +54,7 @@
               </a>
             </li>
             <li>
-              <a href="/s" class="text-base-900 ui-link">
+              <a href="/s/" class="text-base-900 ui-link">
                 {{ $t.i19allProducts }}
               </a>
             </li>
