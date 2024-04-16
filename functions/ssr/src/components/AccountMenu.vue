@@ -1,7 +1,7 @@
 <template>
   <Menu
     as="div"
-    class="text-base-800 relative text-center text-sm"
+    class="relative text-center text-sm text-base-800"
     v-slot="{ open }"
   >
     <div v-if="open">
@@ -17,20 +17,20 @@
       </MenuButton>
     </AccountLink>
     <Fade>
-      <MenuItems class="divide-base-100 absolute -right-8 mt-2
-        w-56 divide-y rounded bg-white shadow
+      <MenuItems class="absolute -right-8 mt-2 w-56
+        divide-y divide-base-100 rounded bg-white shadow
         ring-1 ring-black/5 focus:outline-none">
-        <div class="text-base-600 p-3">
+        <div class="p-3 text-base-600">
           {{ `${$t.i19hello} ${customerName || $t.i19visitor}` }}
-          <AccountLink role="button" class="ui-btn-sm ui-btn-primary my-1 block">
-            {{ $t.i19accessMyAccount }}
+          <AccountLink role="button" class="my-1 block ui-btn-sm ui-btn-primary">
+            {{ isLogged ? $t.i19myAccount : $t.i19accessMyAccount }}
           </AccountLink>
-          <AccountLink v-if="!isLogged" is-sign-up class="ui-link block">
+          <AccountLink v-if="!isLogged" is-sign-up class="block ui-link">
             {{ $t.i19createAnAccount }}
           </AccountLink>
         </div>
         <ul class="list-none">
-          <MenuItem as="li" v-slot="{ active }">
+          <MenuItem v-if="isLogged" as="li" v-slot="{ active }">
             <AccountLink
               to="orders"
               class="block p-2"
@@ -39,13 +39,13 @@
               {{ $t.i19myOrders }}
             </AccountLink>
           </MenuItem>
-          <MenuItem as="li" v-slot="{ active }">
+          <MenuItem v-if="isLogged" as="li" v-slot="{ active }">
             <AccountLink
               to="favorites"
               class="block p-2"
               :class="active ? 'bg-primary-100 text-primary' : null"
             >
-              <i class="i-heart mr-1"></i>
+              <i class="mr-1 i-heart"></i>
               {{ $t.i19myFavorites }}
             </AccountLink>
           </MenuItem>
@@ -64,19 +64,22 @@
             </ALink>
           </MenuItem>
           <MenuItem as="li">
-            <div class="text-base-500 flex justify-center gap-2 p-2 text-base">
+            <div class="flex justify-center gap-2 p-2 text-base text-base-500">
               <span v-for="(href, network) in socialNetworks" :key="network">
                 <SocialNetworkLink
                   :network="network"
-                  class="hover:text-primary p-1"
+                  class="p-1 hover:text-primary"
                 />
               </span>
             </div>
           </MenuItem>
           <MenuItem v-if="isLogged" as="li">
-            <button @click="logout" class="text-base-800 p-2 text-right">
-              <span class="text-base-600">{{ $t.i19logout }}</span>
-              <i class="i-arrow-right-on-rectangle ml-1 text-lg"></i>
+            <button
+              @click="logout"
+              class="p-2 text-right text-base-400 hover:text-danger-800"
+            >
+              <span class="text-danger-800">{{ $t.i19logout }}</span>
+              <i class="ml-1 text-lg i-arrow-right-on-rectangle"></i>
             </button>
           </MenuItem>
         </ul>
