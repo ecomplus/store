@@ -14,11 +14,15 @@
     - Just bypass with default production mode and rules;
     - Select region `us-east4` (recommended, or multi-region `nam5 (us-central)`);
 
-3. Go to _Creation > Authentication_ and click _Get started_:
+3. Go to _Creation > Storage_ page and click _Let's start_:
+    - Just bypass with default production mode and same (pre-selected) region;
+
+4. Go to _Creation > Authentication_ and click _Get started_:
     - Click _Native providers > Email/password_ and enable _Email link (login without password)_;
+    - Go to Authentication configurations and add your store domain(s) to authorized list;
     - Optionally, add other provides by _Smartphone_ (SMS, generates additional costs) and/or social media;
 
-4. Go to :gear: _> Project configurations_ e edit:
+5. Go to :gear: _> Project configurations_ e edit:
     - _Default location for GCP resources_: Same Firestore region (`us-east4`);
     - _Public settings > Publicly displayed name_: Your store name;
     - _Public settings > Support email_ (optional);
@@ -27,9 +31,9 @@
         + Copy only the value of the `firebaseConfig` object and replace at `functions/ssr/src/scripts/InlineScripts.astro`;
         + Just click to continue in the next steps until confirmation and return to the console;
 
-5. Firebase free plan doesn't support sending external HTTP requests, so you'll need to upgrade to _Blaze_ (on demand) plan;
+6. Firebase free plan doesn't support sending external HTTP requests, so you'll need to upgrade to _Blaze_ (on demand) plan;
 
-6. [Use this template](https://github.com/ecomplus/store/generate) to generate a new repository for your store;
+7. [Use this template](https://github.com/ecomplus/store/generate) to generate a new repository for your store;
 
 Proceed with:
 - [Better way using command line](#first-deploy-on-cli)
@@ -37,7 +41,7 @@ Proceed with:
 
 #### First deploy on CLI
 
-7. Setup and first deploy from your terminal with [Firebase CLI](https://firebase.google.com/docs/cli):
+8. Setup and first deploy from your terminal with [Firebase CLI](https://firebase.google.com/docs/cli):
 ```bash
 # Install `firebase-tools` and login
 npm install -g firebase-tools && firebase login
@@ -71,7 +75,7 @@ FIREBASE_PROJECT_ID={project-id} npm run setup -- --no-gcloud
 npm run deploy
 ```
 
-7. [Create a service account](https://console.cloud.google.com/iam-admin/serviceaccounts) for your Firebase project directly on Google Cloud Platform:
+8. [Create a service account](https://console.cloud.google.com/iam-admin/serviceaccounts) for your Firebase project directly on Google Cloud Platform:
     - Name it _Cloud Commerce GH Actions (YOUR REPOSITORY)_;
     - Describe it _A service account with permission to deploy Cloud Commerce from the GitHub repository to Firebase_;
     - Continue and select the following roles to the service account:
@@ -85,11 +89,11 @@ npm run deploy
         8. _Cloud Scheduler Admin_
         8. _Service Account User_
 
-8. Back in the service accounts list, click the 3 dots (actions) and select _Manage keys_, generate and download a JSON key for the created account;
+9. Back in the service accounts list, click the 3 dots (actions) and select _Manage keys_, generate and download a JSON key for the created account;
 
 </details>
 
-9. Set the following secrets to your GitHub repository (_Settings > Secrets > Actions_):
+10. Set the following secrets to your GitHub repository (_Settings > Secrets > Actions_):
     - `FIREBASE_SERVICE_ACCOUNT`: Paste the generated Google Cloud key JSON
     - `ECOM_AUTHENTICATION_ID`: Get from CLI setup output
     - `ECOM_API_KEY`: Get from CLI setup output
@@ -103,14 +107,14 @@ npm run deploy
 > [!WARNING]
 > This configuration option is less secure, we recommend [first deploy on CLI](#first-deploy-on-cli) instead.
 
-7. [Create a service account](https://console.cloud.google.com/iam-admin/serviceaccounts) for your Firebase project directly on Google Cloud Platform:
+8. [Create a service account](https://console.cloud.google.com/iam-admin/serviceaccounts) for your Firebase project directly on Google Cloud Platform:
     - Name it _Cloud Commerce GH Actions (YOUR REPOSITORY)_;
     - Describe it _A service account with ALL permissions to deploy Cloud Commerce from the GitHub to Firebase_;
     - Continue and select the role _Quick access > Basic > Proprietary_;
 
-8. Back in the service accounts list, click the 3 dots (actions) and select _Manage keys_, generate and download a JSON key for the created account;
+9. Back in the service accounts list, click the 3 dots (actions) and select _Manage keys_, generate and download a JSON key for the created account;
 
-9. Set the following secrets to your GitHub repository (_Settings > Secrets > Actions_):
+10. Set the following secrets to your GitHub repository (_Settings > Secrets > Actions_):
     - `FIREBASE_SERVICE_ACCOUNT`: Paste the generated Google Cloud key JSON
     - `ECOM_STORE_ID`: Copy your _Store ID_ on the [e-com.plus admin](https://ecomplus.app/)
     - `ECOM_AUTHENTICATION_ID`: Copy your _Authentication ID_ on the [e-com.plus admin](https://ecomplus.app/)
