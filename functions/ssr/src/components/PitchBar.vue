@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-base-100 relative z-20">
+  <div v-if="countValidSlides" class="relative z-20 bg-base-100">
     <div class="container mx-auto px-3 py-1 md:w-2/3">
       <Carousel :autoplay="countValidSlides > 1 ? 7000 : undefined">
         <li
@@ -16,20 +16,20 @@
             <span
               v-if="parsedContents[i]"
               v-html="parsedContents[i]"
-              class="text-base-800 prose text-sm"
+              class="text-sm text-base-800 prose"
             ></span>
           </ALink>
         </li>
         <template #controls>
           <div
             v-show="countValidSlides > 1"
-            class="text-base-400 text-xl leading-none"
+            class="text-xl leading-none text-base-400"
           >
             <CarouselControl
-              class="bg-base-100 hover:text-base-700 pr-2"
+              class="bg-base-100 pr-2 hover:text-base-700"
               is-prev
             />
-            <CarouselControl class="bg-base-100 hover:text-base-700 pl-2" />
+            <CarouselControl class="bg-base-100 pl-2 hover:text-base-700" />
           </div>
         </template>
       </Carousel>
