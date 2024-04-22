@@ -22,7 +22,7 @@
     "@cloudcommerce/api": "^2.14.3",
     "@cloudcommerce/firebase": "^2.14.3",
     "@cloudcommerce/ssr": "^2.14.3",
-    "@headlessui/vue": "^1.7.19",
+    "@headlessui/vue": "^1.7.20",
     "micromark": "^4.0.0"
   },
   "devDependencies": {
