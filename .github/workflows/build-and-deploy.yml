@@ -57,8 +57,6 @@ jobs:
           galaxpay-hash: ${{ secrets.GALAXPAY_HASH }}
           ga-measurement-id: ${{ secrets.GA_MEASUREMENT_ID }}
           ga-api-secret: ${{ secrets.GA_API_SECRET }}
-          infinitepay-id: ${{ secrets.INFINITEPAY_ID }}
-          infinitepay-secret: ${{ secrets.INFINITEPAY_SECRET }}
           fb-pixel-id: ${{ secrets.FB_PIXEL_ID }}
           fb-graph-token: ${{ secrets.FB_GRAPH_TOKEN }}
           jadlog-contract-token: ${{ secrets.JADLOG_CONTRACT_TOKEN }}
