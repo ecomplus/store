@@ -21,8 +21,9 @@
       required
     />
     <input
-      v-if="!isLinkSignIn"
+      v-if="!isSignUp && !isLinkSignIn"
       type="password"
+      autocomplete="current-password"
       :placeholder="$t.i19password"
       v-model="password"
       class="mb-0.5 mt-2 w-full lowercase"
