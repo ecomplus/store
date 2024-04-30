@@ -26,10 +26,10 @@
     "url": "https://github.com/ecomplus/cloud-commerce/issues"
   },
   "dependencies": {
-    "@cloudcommerce/cli": "^2.15.3"
+    "@cloudcommerce/cli": "^2.15.4"
   },
   "devDependencies": {
-    "@cloudcommerce/eslint": "^2.15.3",
+    "@cloudcommerce/eslint": "^2.15.4",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2"
   }
