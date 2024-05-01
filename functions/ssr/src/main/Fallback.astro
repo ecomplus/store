@@ -4,7 +4,9 @@ import {
   i19error,
   i19errorMsg,
   i19notFound,
+  i19popularProducts,
 } from '@@i18n';
+import ProductShelf from '~/components/ProductShelf.vue';
 
 export interface Props {
   statusCode?: number;
@@ -16,10 +18,16 @@ const { statusCode } = Astro.props;
 <main>
   <article class="mx-auto px-8 pb-32 pt-20 prose">
     <h1>{i19error} :/</h1>
-    <p class={`${(!statusCode || statusCode === 404) ? 'hidden ' : ''}text-xl`} id="errorMsg">
+    <p
+      id="errorMsg"
+      class={`${(!statusCode || statusCode === 404) ? 'hidden ' : ''}text-xl`}
+    >
       {i19errorMsg}
     </p>
-    <p class={`${statusCode !== 404 ? 'hidden ' : ''}text-xl`} id="404Msg">
+    <p
+      id="404Msg"
+      class={`${statusCode !== 404 ? 'hidden ' : ''}text-xl`}
+    >
       {i19notFound} (404)
     </p>
     {!statusCode && <>
@@ -33,11 +41,14 @@ const { statusCode } = Astro.props;
     </a>
   </article>
   {!statusCode && <>
-    <script>
+    <script is:inline>
       const msgId = window.location.search.includes('status=404')
         ? '404Msg' : '5xxMsg';
-      document.getElementById(msgId)!.style.display = 'block';
-      document.getElementById('loadingMsg')!.style.display = 'none';
+      document.getElementById(msgId).style.display = 'block';
+      document.getElementById('loadingMsg').style.display = 'none';
     </script>
   </>}
+  <article class="mb-9 mt-6 md:mb-12 md:mt-8">
+    <ProductShelf title={i19popularProducts} sort="-views" client:only="vue" />
+  </article>
 </main>
