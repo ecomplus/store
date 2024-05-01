@@ -1,0 +1,44 @@
+body {
+  --primary: var(--c-primary);
+  --primary-yiq: var(--c-on-primary);
+  --primary-rgb: var(--rgb-primary);
+  --primary-darken: var(--c-primary);
+  --primary-darken-yiq: var(--c-on-primary);
+  --primary-darken-rgb: var(--rgb-primary);
+  --primary-dark: var(--c-primary-bold);
+  --primary-dark-yiq: var(--c-on-primary-bold);
+  --primary-dark-rgb: var(--rgb-primary-bold);
+  --primary-darker: var(--c-primary-bold);
+  --primary-darker-yiq: var(--c-on-primary-bold);
+  --primary-darker-rgb: var(--rgb-primary-bold);
+  --primary-darkest: rgb(var(--rgb-primary-900));
+  --primary-darkest-yiq: var(--c-on-dark);
+  --primary-darkest-rgb: var(--rgb-primary-900);
+  --primary-black: rgb(var(--rgb-primary-950));
+  --primary-lighten: var(--c-primary);
+  --primary-lighten-yiq: var(--c-on-primary);
+  --primary-lighten-rgb: var(--rgb-primary);
+  --primary-light: var(--c-primary-subtle);
+  --primary-light-yiq: var(--c-on-primary-subtle);
+  --primary-light-rgb: var(--rgb-primary-subtle);
+  --primary-lighter: var(--c-primary-subtle);
+  --primary-lighter-yiq: var(--c-on-primary-subtle);
+  --primary-lighter-rgb: var(--rgb-primary-subtle);
+  --primary-lightest: rgb(var(--rgb-primary-200));
+  --primary-lightest-yiq: var(--c-on-light);
+  --primary-lightest-rgb: var(--rgb-primary-200);
+}
+#storefront-app .lead {
+  margin-bottom: 1.25rem;
+}
+#storefront-app hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+#storefront-app p {
+  margin-bottom: 1rem;
+}
+#storefront-app .h4 {
+  height: auto;
+  min-height: 1rem;
+}
