@@ -22,7 +22,7 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  apiDoc: () => globalThis.$storefront.apiContext?.doc as Products,
+  apiDoc: () => (globalThis.$storefront.apiContext?.doc || {}) as Partial<Brands>,
 });
 const html = computed(() => props.apiDoc.body_html);
 </script>

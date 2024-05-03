@@ -85,12 +85,10 @@ import SkuSelector from '~/components/SkuSelector.vue';
 import ShippingCalculator from '~/components/ShippingCalculator.vue';
 
 export interface Props extends Partial<SectionPreviewProps> {
-  product?: Products;
+  product: Products;
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  product: () => globalThis.$storefront.apiContext?.doc as Products,
-});
+const props = defineProps<Props>();
 const {
   product,
   title,

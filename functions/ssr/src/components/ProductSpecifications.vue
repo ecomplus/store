@@ -5,7 +5,7 @@
         <li
           v-for="(grid, gridId) in specifications"
           :key="gridId"
-          class="border-base-200 grid grid-cols-2 border-dashed
+          class="grid grid-cols-2 border-dashed border-base-200
           py-2 sm:grid-cols-3 [&:not(:last-child)]:border-b"
         >
           <span class="text-base-700">
@@ -29,13 +29,11 @@ import {
 import Collapse from '~/components/Collapse.vue';
 
 export interface Props {
-  product?: Products;
+  product: Products;
   title?: string;
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  product: () => globalThis.$storefront.apiContext?.doc as Products,
-});
+const props = defineProps<Props>();
 const specifications = computed(() => props.product.specifications || {});
 const hasSpecs = computed(() => Object.keys(specifications.value).length);
 const { grids } = globalThis.$storefront.data;

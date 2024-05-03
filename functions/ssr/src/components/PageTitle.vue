@@ -1,15 +1,15 @@
 <template>
   <section v-if="title" class="bg-secondary-100 py-1">
     <article class="ui-section">
-      <div class="prose mx-auto">
-        <div class="not-prose flex items-center gap-4 md:justify-center">
+      <div class="mx-auto prose">
+        <div class="flex items-center gap-4 not-prose md:justify-center">
           <AImg
             v-if="logo"
             :picture="logo"
             :alt="logo.alt || title"
             class="h-auto max-w-[150px] xl:max-w-[200px]"
           />
-          <h1 class="ui-title text-secondary-800 text-center">
+          <h1 class="text-center text-secondary-800 ui-title">
             {{ title }}
           </h1>
         </div>
@@ -34,7 +34,7 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  apiDoc: () => globalThis.$storefront.apiContext?.doc as Categories,
+  apiDoc: () => (globalThis.$storefront.apiContext?.doc || {}) as Partial<Brands>,
 });
 const title = computed(() => {
   return props.title || props.apiDoc?.name;

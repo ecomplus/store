@@ -20,7 +20,7 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  apiDoc: () => globalThis.$storefront.apiContext?.doc as Categories,
+  apiDoc: () => (globalThis.$storefront.apiContext?.doc || {}) as Partial<Brands>,
 });
 const pictures = computed(() => props.apiDoc.pictures || []);
 </script>
