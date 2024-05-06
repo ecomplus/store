@@ -32,7 +32,7 @@ jobs:
           fetch-depth: 0
       - uses: ecomplus/cloud-commerce@main
         with:
-          github-token: ${{ secrets.GITHUB_CUSTOM_TOKEN || secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.CUSTOM_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           firebase-service-account: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           ecom-authentication-id: ${{ secrets.ECOM_AUTHENTICATION_ID }}
           ecom-api-key: ${{ secrets.ECOM_API_KEY }}
