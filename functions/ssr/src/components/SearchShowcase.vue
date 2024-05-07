@@ -95,13 +95,13 @@
         </div>
       </section>
     </Fade>
-    <ProductShelf :products="products" is-grid>
+    <ProductShelf :products is-grid>
       <template #append>
         <Fade slide="down">
           <nav v-if="!isFetching && totalPages > 1" class="mt-3 lg:mt-4">
             <Pagination
               v-model:page="searchEngine.pageNumber.value"
-              :total-pages="totalPages"
+              :total-pages
             />
           </nav>
         </Fade>
@@ -121,7 +121,7 @@
     :can-lock-scroll="false"
     class="!z-[80] bg-white shadow [&_[data-drawer-close]]:bg-white/80"
   >
-    <SearchFilters :search-engine="searchEngine" />
+    <SearchFilters :search-engine :fixed-params />
   </Drawer>
 </template>
 
