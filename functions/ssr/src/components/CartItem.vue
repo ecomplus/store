@@ -5,10 +5,10 @@
         v-if="image"
         :picture="image"
         :alt="title"
-        class="size-20 object-cover"
+        class="size-20 shrink-0 object-cover"
       />
-      <p class="text-base-700 group-hover:text-base-900 flex-auto py-2
-        text-sm group-hover:underline">
+      <p class="flex-auto py-2 text-sm text-base-700
+        group-hover:text-base-900 group-hover:underline">
         {{ title }}
       </p>
     </ALink>
@@ -18,13 +18,13 @@
       class="absolute right-0 top-0 p-2 opacity-70 hover:opacity-100"
       :aria-label="$t.i19remove"
     >
-      <span class="border-3 border-danger-700/30 text-danger-800 flex size-5 flex-col
-        justify-center rounded-full text-sm leading-none">
-        <i class="i-close mx-auto my-0"></i>
+      <span class="border-3 flex size-5 flex-col justify-center rounded-full
+        border-danger-700/30 text-sm leading-none text-danger-800">
+        <i class="mx-auto my-0 i-close"></i>
       </span>
     </button>
-    <div class="border-base-100 flex items-center justify-between border-t-2">
-      <div class="border-base-100 border-r-2">
+    <div class="flex items-center justify-between border-t-2 border-base-100">
+      <div class="border-r-2 border-base-100">
         <QuantitySelector
           v-model="cartItem.quantity"
           :min="cartItem.min_quantity"

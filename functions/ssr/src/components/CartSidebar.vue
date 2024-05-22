@@ -2,32 +2,32 @@
   <aside class="flex h-screen flex-col bg-white">
     <header class="z-10 flex items-center justify-end gap-3
       px-6 py-4 shadow ring-1 ring-black/5">
-      <span class="text-base-600 text-right text-base font-medium">
+      <span class="text-right text-base font-medium text-base-600">
         {{ $t.i19myShoppingCart }}
       </span>
-      <span class="min-w-[3rem] text-right">
+      <span class="min-w-12 text-right">
         <span class="ui-badge-pill-lg">
           {{ totalItems }}
         </span>
       </span>
     </header>
-    <article class="bg-base-50 grow overflow-y-auto">
+    <article class="grow overflow-y-auto bg-base-50">
       <div v-if="freeShippingFromValue" class="text-center text-sm">
         <div
           v-if="freeShippingFromValue > shoppingCart.subtotal"
-          class="secondary-subtle p-3"
+          class="p-3 secondary-subtle"
         >
           {{ $t.i19add$1ToEarn.replace('$1',
             $money(freeShippingFromValue - shoppingCart.subtotal)) }}
           <strong class="lowercase">{{ $t.i19freeShipping }}</strong>
         </div>
-        <div v-else class="bg-success-50 text-success-800 p-3">
-          <i class="text-success-900 i-check mr-1"></i>
+        <div v-else class="bg-success-50 p-3 text-success-800">
+          <i class="mr-1 text-success-900 i-check"></i>
           {{ $t.i19freeShippingFrom }} {{ $money(freeShippingFromValue) }}
         </div>
       </div>
-      <ul class="px-4 pb-2 pt-4">
-        <li v-for="(item, i) in shoppingCart.items" :key="i">
+      <ul class="flex flex-col-reverse px-4 pb-2 pt-4">
+        <li v-for="(item, i) in shoppingCart.items" :key="item._id || i">
           <CartItem :item="item" class="mb-3" />
         </li>
       </ul>
@@ -42,11 +42,11 @@
       <div v-if="!hasShippingCalculator" class="my-2.5 text-right">
         <a
           href="#"
-          class="ui-link text-base-700 decoration-base-300"
+          class="text-base-700 decoration-base-300 ui-link"
           @click.prevent.stop="hasShippingCalculator = true"
         >
           {{ $t.i19calculateShipping }}
-          <i class="i-truck text-base-500 ml-1"></i>
+          <i class="ml-1 text-base-500 i-truck"></i>
         </a>
       </div>
       <Fade slide="down">
@@ -59,17 +59,17 @@
       </Fade>
       <CheckoutLink
         to="checkout"
-        class="ui-btn-lg ui-btn-primary my-2.5 w-full text-right"
+        class="my-2.5 w-full text-right ui-btn-lg ui-btn-primary"
       >
-        <i class="i-check mr-2"></i>
+        <i class="mr-2 i-check"></i>
         {{ $t.i19checkout }}
       </CheckoutLink>
       <a
         href="#"
         @click.prevent="emit('close')"
-        class="text-base-500 ui-link hover:text-base-700 text-sm"
+        class="text-sm text-base-500 ui-link hover:text-base-700"
       >
-        <i class="i-arrow-right mr-1 rotate-180"></i>
+        <i class="mr-1 rotate-180 i-arrow-right"></i>
         {{ $t.i19continueShopping }}
       </a>
     </footer>
