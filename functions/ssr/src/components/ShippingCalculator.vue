@@ -14,10 +14,10 @@
         <ALink
           v-if="hasLabel && $settings.countryCode === 'BR'"
           href="https://buscacepinter.correios.com.br/app/endereco/index.php"
-          class="ui-link text-base-500 text-xs font-normal"
+          class="text-xs font-normal text-base-500 ui-link"
         >
           Não sei meu CEP
-          <i class="i-arrow-top-right-on-square mr-1 opacity-50"></i>
+          <i class="mr-1 opacity-50 i-arrow-top-right-on-square"></i>
         </ALink>
       </label>
       <div class="relative max-w-52">
@@ -32,9 +32,9 @@
           :class="isFetching && 'bg-base-50'"
         />
         <button
-          class="hover:text-primary group-focus-within:text-primary absolute inset-y-0 end-0
-          grid w-12
-          place-content-center text-xl"
+          class="absolute inset-y-0
+          end-0 grid w-12 place-content-center text-xl
+          hover:text-primary group-focus-within:text-primary"
           :class="isMounted && !shippingServices.length && zipCode.length > 1
             ? 'text-primary' : `${hasLabel ? 'text-base-400' : 'text-base-600'}`"
           :aria-label="$t.i19calculateShipping"
@@ -47,13 +47,13 @@
     <Fade slide="down">
       <ul
         v-if="!isFetching && shippingServices.length"
-        class="divide-base-200 bg-base-50/50 border-base-100 mt-2
-        grow divide-y rounded border px-3 py-1"
+        class="mt-2 grow divide-y divide-base-200
+        rounded border border-base-100 bg-base-50/50 px-3 py-1"
       >
         <li
           v-for="({ label, shipping_line: shipping }, i) in shippingServices"
           :key="`${zipCode}-${i}`"
-          class="text-base-800 py-2.5 md:text-sm"
+          class="py-2.5 text-base-800 md:text-sm"
         >
           <div class="flex flex-wrap items-center">
             <div class="grow">
@@ -69,6 +69,11 @@
           </small>
         </li>
       </ul>
+    </Fade>
+    <Fade slide="down">
+      <div v-if="!isFetching && isZipCodeRefused" class="mt-3 text-sm ui-alert">
+        {{ $t.i19zipCodeRefusedMsg }}
+      </div>
     </Fade>
   </div>
 </template>
@@ -92,6 +97,7 @@ const {
   isFetching,
   fetchShippingServices,
   shippingServices,
+  isZipCodeRefused,
   getShippingDeadline,
   getShippingPrice,
 } = useShippingCalculator({ ...props, zipCode });
