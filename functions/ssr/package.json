@@ -29,6 +29,6 @@
     "@cloudcommerce/i18n": "^2.20.0",
     "@cloudcommerce/storefront": "^2.20.0",
     "@cloudcommerce/types": "^2.20.0",
-    "photoswipe": "^5.4.3"
+    "photoswipe": "^5.4.4"
   }
 }
