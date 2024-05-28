@@ -1,5 +1,5 @@
 <template>
-  <section class="w-screen overflow-x-hidden">
+  <section class="w-full overflow-x-hidden py-0.5">
     <div class="ui-section">
       <div v-if="title" class="mx-auto mb-4 max-w-prose text-center">
         <h3>

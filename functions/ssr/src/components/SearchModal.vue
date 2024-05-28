@@ -26,7 +26,7 @@
       <ProductShelf
         v-if="!isFetching && products.length"
         :products="products"
-        class="m-0 max-w-none bg-white px-4
+        class="!overflow-visible bg-white px-4 [&>*]:m-0 [&>*]:px-0
         lg:[&_[data-carousel-control=next]]:!-right-10
         lg:[&_[data-carousel-control=previous]]:!-left-10"
         :class="linkHits.length ? 'lg:rounded-b' : 'lg:rounded'"
