@@ -1,6 +1,10 @@
 <template>
   <section v-if="html" class="ui-section">
-    <Collapse :title="title || $t.i19description" open>
+    <Collapse
+      :title="title || $t.i19description"
+      class="mx-auto max-w-prose"
+      open
+    >
       <ContentClearfix :html="html" />
     </Collapse>
   </section>
