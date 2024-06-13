@@ -11,6 +11,9 @@
     },
     {
       "type": "context-showcase"
+    },
+    {
+      "type": "doc-description"
     }
   ]
 }
