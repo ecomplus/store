@@ -75,11 +75,7 @@ a, button, button > *, [role=button], [role=button] > * {
 }
 
 [class*=ui-section] {
-  @apply container 2xl:max-w-7xl mx-auto px-4 sm:px-2;
-}
-
-[class*=ui-section] {
-  @apply w-full mx-auto max-w-[calc(100vw-2rem)]
+  @apply w-full mx-auto px-[1px] max-w-[calc(100vw-2rem)]
   sm:max-w-[calc(100vw-3rem)] md:max-w-[calc(100vw-4rem)]
   xl:max-w-[calc(100vw-6rem)] 2xl:max-w-7xl;
 }
