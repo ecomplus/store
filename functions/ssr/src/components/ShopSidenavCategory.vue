@@ -24,7 +24,7 @@
             :alt="categoryTree.name"
             class="mr-3 inline h-5 w-auto"
           />
-          <h3 class="inline" :class="isOpen ? 'ml-4 text-base' : null">
+          <h3 class="inline" :class="isOpen && 'ml-4 text-base'">
             {{ categoryTree.name }}
           </h3>
         </a>
