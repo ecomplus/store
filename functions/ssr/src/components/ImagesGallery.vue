@@ -18,13 +18,13 @@
         >
           <button
             v-if="index < pictures.length"
-            class="bg-secondary-100 block rounded md:h-[175px]"
+            class="block rounded bg-secondary-100 md:h-[175px]"
             @click="activeIndex = index"
           >
             <AImg
               :picture="pictures[index]"
-              class="ring-secondary/10 size-full rounded border-2 object-cover
-              opacity-90 transition-colors"
+              class="size-full rounded border-2 object-cover opacity-90
+              ring-secondary/10 transition-colors"
               :class="index === activeIndex
                 ? 'border-secondary/50 ring-4 cursor-auto'
                 : 'border-transparent hover:border-primary'
@@ -37,10 +37,10 @@
         <span>
           <CarouselControl
             v-if="pictures.length > 6"
-            class="text-primary hover:bg-primary-300/60
-            !bottom-3 !left-1/2 -ml-5 size-10 rounded-full
-            bg-white/60 text-xl opacity-0
-            shadow-sm ring-1 ring-black/5
+            class="!bottom-3 !left-1/2
+            -ml-5 size-10 rounded-full bg-white/60 text-xl
+            text-primary opacity-0 shadow-sm
+            ring-1 ring-black/5 hover:bg-primary-300/60
             group-hover:opacity-90"
           />
           <span class="absolute bottom-0 block h-2 w-full
@@ -52,38 +52,41 @@
       <Carousel
         as="div"
         v-model:index="activeIndex"
-        class="text-base-600 [&_i]:i-arrow-right mx-auto
-        size-full max-w-[525px]
-        [&>*]:h-full [&_i]:mx-2 [&_i]:text-2xl"
+        class="mx-auto size-full max-w-[525px]
+        text-base-600 [&>*]:h-full
+        [&_i]:mx-2 [&_i]:text-2xl [&_i]:i-arrow-right"
         :class="isLoadingLightbox && 'opacity-80'"
         :id="psId"
       >
-        <ALink
-          v-for="(picture, i) in pictures"
-          :key="`big-${i}`"
-          :href="picture.zoom?.size && picture.zoom.url"
-          :data-pswp-width="getImgSizes(picture.zoom || '').width"
-          :data-pswp-height="getImgSizes(picture.zoom || '').height"
-          target="_blank"
-          rel="noreferrer"
+        <div
+          v-for="(picture, i) in pictures" :key="`big-${i}`"
           class="shrink-0 basis-full"
-          :class="picture.zoom?.size && 'cursor-zoom-in'"
-          v-once
-          @click.prevent="() => picture.zoom?.size && zoom(i)"
         >
-          <AImg
-            :picture="picture"
-            preferred-size="big"
-            class="size-full rounded object-cover"
-            :fetchpriority="i === 0 ? 'high' : 'low'"
-            :loading="i === 0 ? 'eager' : 'lazy'"
-          />
-        </ALink>
+          <ALink
+            v-once
+            :href="picture.zoom?.size && picture.zoom.url"
+            :data-pswp-width="getImgSizes(picture.zoom || '').width"
+            :data-pswp-height="getImgSizes(picture.zoom || '').height"
+            target="_blank"
+            rel="noreferrer"
+            class="block size-full"
+            :class="picture.zoom?.size && 'cursor-zoom-in'"
+            @click.prevent="() => picture.zoom?.size && zoom(i)"
+          >
+            <AImg
+              :picture="picture"
+              preferred-size="big"
+              class="size-full rounded object-cover"
+              :fetchpriority="i === 0 ? 'high' : 'low'"
+              :loading="i === 0 ? 'eager' : 'lazy'"
+            />
+          </ALink>
+        </div>
       </Carousel>
       <i
         v-if="isLoadingLightbox"
-        class="bg-base-200 i-arrow-path absolute
-        left-1/2 top-1/2 -ml-7 -mt-7 size-14 animate-spin"
+        class="absolute left-1/2 top-1/2
+        -ml-7 -mt-7 size-14 animate-spin bg-base-200 i-arrow-path"
         :aria-label="$t.i19loading"
       ></i>
       <ul
@@ -92,7 +95,7 @@
       >
         <li v-for="i in pictures.length" :key="`d-${i}`">
           <button
-            class="bg-base-700 block h-1.5 w-3 rounded-full"
+            class="block h-1.5 w-3 rounded-full bg-base-700"
             :class="activeIndex !== i - 1 && 'opacity-40'"
             :aria-label="`${$t.i19picture} ${i}`"
             @click="activeIndex = i - 1"
