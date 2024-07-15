@@ -58,30 +58,26 @@
         :class="isLoadingLightbox && 'opacity-80'"
         :id="psId"
       >
-        <div
-          v-for="(picture, i) in pictures" :key="`big-${i}`"
+        <ALink
+          v-for="(picture, i) in pictures"
+          :key="`big-${i}`"
+          :href="picture.zoom?.size && picture.zoom.url"
+          :data-pswp-width="getImgSizes(picture.zoom || '').width"
+          :data-pswp-height="getImgSizes(picture.zoom || '').height"
+          target="_blank"
+          rel="noreferrer"
           class="shrink-0 basis-full"
+          :class="picture.zoom?.size && 'cursor-zoom-in'"
+          @click.prevent="() => picture.zoom?.size && zoom(i)"
         >
-          <ALink
-            v-once
-            :href="picture.zoom?.size && picture.zoom.url"
-            :data-pswp-width="getImgSizes(picture.zoom || '').width"
-            :data-pswp-height="getImgSizes(picture.zoom || '').height"
-            target="_blank"
-            rel="noreferrer"
-            class="block size-full"
-            :class="picture.zoom?.size && 'cursor-zoom-in'"
-            @click.prevent="() => picture.zoom?.size && zoom(i)"
-          >
-            <AImg
-              :picture="picture"
-              preferred-size="big"
-              class="size-full rounded object-cover"
-              :fetchpriority="i === 0 ? 'high' : 'low'"
-              :loading="i === 0 ? 'eager' : 'lazy'"
-            />
-          </ALink>
-        </div>
+          <AImg
+            :picture="picture"
+            preferred-size="big"
+            class="size-full rounded object-cover"
+            :fetchpriority="i === 0 ? 'high' : 'low'"
+            :loading="i === 0 ? 'eager' : 'lazy'"
+          />
+        </ALink>
       </Carousel>
       <i
         v-if="isLoadingLightbox"
