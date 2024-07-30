@@ -10,18 +10,18 @@
             <span v-if="!stamp.img" class="flex items-center">
               <span
                 v-if="stamp.icon"
-                class="[&>*]:from-success-200 [&>*]:to-success-700 mr-2
-                text-4xl [&>*]:bg-gradient-to-br"
+                class="mr-2 text-4xl [&>*]:bg-gradient-to-br
+                [&>*]:from-success-200 [&>*]:to-success-700"
               >
                 <i v-if="stamp.icon === 'lock'" class="i-lock-closed"></i>
                 <i v-else-if="stamp.icon === 'check'" class="i-check-badge"></i>
                 <i v-else class="i-arrow-path-rounded-square"></i>
               </span>
-              <span class="text-base-600 max-w-[140px] text-sm font-medium">
+              <span class="max-w-[140px] text-sm font-medium text-base-600">
                 {{ stamp.alt }}
                 <i
                   v-if="stamp.href && stamp.href.charAt(0) !== '/'"
-                  class="bg-base-400 i-arrow-top-right-on-square ml-0.5"
+                  class="ml-0.5 bg-base-400 i-arrow-top-right-on-square"
                 ></i>
               </span>
             </span>
@@ -29,12 +29,14 @@
         </li>
       </ul>
       <div class="mx-auto flex flex-wrap items-center justify-end
-        gap-4 overflow-x-auto text-2xl
+        gap-4 overflow-x-auto text-center text-2xl
         md:mx-0 md:flex-nowrap md:overflow-hidden">
         <PaymentMethodFlag
           v-for="paymentMethod in $settings.paymentMethods"
           :key="paymentMethod"
           :flag="paymentMethod"
+          class="xl:w-12"
+          :class="paymentMethod !== 'boleto' && 'w-9'"
         />
       </div>
     </div>
