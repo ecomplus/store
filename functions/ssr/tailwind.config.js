@@ -1,3 +1,6 @@
+import { fileURLToPath } from 'node:url';
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
 process.env.STOREFRONT_BASE_DIR = __dirname;
 
 // eslint-disable-next-line import/first
