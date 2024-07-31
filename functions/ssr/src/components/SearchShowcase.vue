@@ -8,12 +8,43 @@
     <h1 class="inline font-bold italic text-base-800">
       {{ searchTerm }}
     </h1>
+    <p v-if="!isFetching && !products.length" class="text-base-500">
+      {{ $t.i19noProductsFound }}
+    </p>
   </section>
   <div
-    v-if="isFetching && !products.length"
+    v-if="!products.length"
     class="relative min-h-[300px] ui-section"
   >
-    <Skeleton class="absolute top-0 w-full px-5" is-bold is-large />
+    <Skeleton
+      v-if="isFetching"
+      class="absolute top-0 w-full px-5"
+      is-bold is-large
+    />
+    <div v-else class="mx-auto prose">
+      <ul class="rounded-md bg-secondary-50 py-4 pl-10 pr-6">
+        <li>{{ $t.i19checkSearchWordMsg }}</li>
+        <li>{{ $t.i19useGenericSearchWordsMsg }}</li>
+        <li>{{ $t.i19browseCategoriesToSearchMsg }}</li>
+      </ul>
+      <div class="relative overflow-hidden">
+        <Fade>
+          <div v-if="popularTerms?.length" class="px-3">
+            <p>{{ $t.i19popularSearchTerms }}:</p>
+            <ol class="flex max-h-[500px] flex-col flex-wrap items-center
+              gap-x-16 lowercase md:max-h-96">
+              <li
+                v-for="(term, i) in popularTerms.filter(t => t.length > 3).slice(0, 24)"
+                :key="`t${i}`"
+                class="w-1/3"
+              >
+                <a :href="getSearchUrl(term)">{{ term }}</a>
+              </li>
+            </ol>
+          </div>
+        </Fade>
+      </div>
+    </div>
   </div>
   <article ref="showcase" class="relative">
     <Fade>
@@ -136,6 +167,7 @@ import {
   ListboxOptions,
   ListboxOption,
 } from '@headlessui/vue';
+import { getSearchUrl } from '@@sf/sf-lib';
 import Drawer from '@@sf/components/Drawer.vue';
 import Pagination from '~/components/Pagination.vue';
 import ProductShelf from '~/components/ProductShelf.vue';
@@ -145,6 +177,7 @@ export interface Props extends UseSearchShowcaseProps {}
 
 const props = withDefaults(defineProps<Props>(), {
   canUseUrlParams: true,
+  canFetchTermsOnEmpty: true,
 });
 const showcase = ref<HTMLElement | null>(null);
 const {
@@ -157,6 +190,7 @@ const {
   filtersCount,
   sortOptions,
   sortOption,
+  popularTerms,
 } = useSearchShowcase({ ...props, showcase });
 if (import.meta.env.SSR) {
   await fetching;
