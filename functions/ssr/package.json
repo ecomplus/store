@@ -15,7 +15,7 @@
     "lint:fix": "eslint -c ./.staged.eslintrc.cjs src/**/*.{ts,vue,astro} --fix"
   },
   "engines": {
-    "node": "18"
+    "node": "20"
   },
   "main": "index.js",
   "dependencies": {
