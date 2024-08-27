@@ -8,7 +8,7 @@
     <h1 class="inline font-bold italic text-base-800">
       {{ searchTerm }}
     </h1>
-    <p v-if="!isFetching && !products.length" class="text-base-500">
+    <p v-if="isEmptyResult" class="text-base-500">
       {{ $t.i19noProductsFound }}
     </p>
   </section>
@@ -21,7 +21,7 @@
       class="absolute top-0 w-full px-5"
       is-bold is-large
     />
-    <div v-else class="mx-auto prose">
+    <div v-else-if="isEmptyResult" class="mx-auto prose">
       <ul class="rounded-md bg-secondary-50 py-4 pl-10 pr-6">
         <li>{{ $t.i19checkSearchWordMsg }}</li>
         <li>{{ $t.i19useGenericSearchWordsMsg }}</li>
@@ -174,7 +174,6 @@ import ProductShelf from '~/components/ProductShelf.vue';
 import SearchFilters from '~/components/SearchFilters.vue';
 
 export interface Props extends UseSearchShowcaseProps {}
-
 const props = withDefaults(defineProps<Props>(), {
   canUseUrlParams: true,
   canFetchTermsOnEmpty: true,
@@ -190,6 +189,7 @@ const {
   filtersCount,
   sortOptions,
   sortOption,
+  isEmptyResult,
   popularTerms,
 } = useSearchShowcase({ ...props, showcase });
 if (import.meta.env.SSR) {

@@ -48,7 +48,6 @@ import {
 export type Props = UseBannerProps & {
   headingTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
-
 const props = withDefaults(defineProps<Props>(), {
   headingTag: 'h3',
 });
