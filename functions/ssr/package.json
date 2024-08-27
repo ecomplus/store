@@ -15,20 +15,20 @@
     "lint:fix": "eslint -c ./.staged.eslintrc.cjs src/**/*.{ts,vue,astro} --fix"
   },
   "engines": {
-    "node": "20"
+    "node": "18"
   },
   "main": "index.js",
   "dependencies": {
-    "@cloudcommerce/api": "^2.25.8",
-    "@cloudcommerce/firebase": "^2.25.8",
-    "@cloudcommerce/ssr": "^2.25.8",
+    "@cloudcommerce/api": "^2.26.1",
+    "@cloudcommerce/firebase": "^2.26.1",
+    "@cloudcommerce/ssr": "^2.26.1",
     "@headlessui/vue": "^1.7.22",
     "micromark": "^4.0.0"
   },
   "devDependencies": {
-    "@cloudcommerce/i18n": "^2.25.8",
-    "@cloudcommerce/storefront": "^2.25.8",
-    "@cloudcommerce/types": "^2.25.8",
+    "@cloudcommerce/i18n": "^2.26.1",
+    "@cloudcommerce/storefront": "^2.26.1",
+    "@cloudcommerce/types": "^2.26.1",
     "photoswipe": "^5.4.4"
   }
 }
