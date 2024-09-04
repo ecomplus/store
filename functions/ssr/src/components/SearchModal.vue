@@ -50,7 +50,6 @@
           <ALink
             v-if="productCount > products.length"
             :href="getSearchUrl(term)"
-            prefetch="visible"
             class="w-auto whitespace-nowrap text-center ui-btn ui-btn-primary"
           >
             {{ $t.i19seeAll }}

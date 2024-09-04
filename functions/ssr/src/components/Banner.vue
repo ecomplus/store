@@ -5,7 +5,6 @@
   >
     <ALink
       :href="href"
-      prefetch="visible"
       :class="hasHeader
         ? 'sm:order-last [&_img]:max-w-full sm:[&_img]:max-w-none'
           + ' [&_img]:aspect-video sm:[&_img]:aspect-[2.5] [&_img]:object-cover'
@@ -30,7 +29,6 @@
       <ALink
         v-if="parsedButtonText"
         :href="buttonLink"
-        :prefetch="href ? 'hover' : 'visible'"
         class="mt-7 min-w-[150px] ui-btn-lg ui-btn-contrast md:mt-10"
       >
         {{ parsedButtonText }}

@@ -6,7 +6,6 @@
   >
     <ALink
       :href="link"
-      prefetch="visible"
       class="flex h-full flex-col overflow-hidden rounded bg-white
       ring-black/5 group-hover:shadow group-hover:ring-1"
     >

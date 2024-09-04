@@ -31,7 +31,6 @@
               >
                 <ALink
                   :href="`/${subcategory.slug}`"
-                  prefetch="visible"
                   class="hover:text-primary"
                 >
                   <h3>{{ subcategory.name }}</h3>
@@ -71,7 +70,6 @@
           </div>
           <ALink
             :href="`/${categoryTree.slug}`"
-            prefetch="visible"
             class="mt-1 block text-xs leading-snug text-base-600 underline"
           >
             {{ $t.i19seeAll$1Category.replace('$1', categoryTree.name) }}

@@ -42,7 +42,6 @@
         <li>
           <ALink
             :href="`/${categoryTree.slug}`"
-            prefetch="visible"
             class="block px-6 py-3 text-base underline active:bg-base-200"
           >
             {{ $t.i19seeAll$1Category.replace('$1', categoryTree.name) }}
@@ -53,7 +52,6 @@
     <ALink
       v-else
       :href="`/${categoryTree.slug}`"
-      prefetch="visible"
       class="block px-6 py-3 active:bg-base-200"
     >
       <AImg
