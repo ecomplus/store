@@ -18,6 +18,10 @@ on:
       - 'functions/ssr/**'
       - '.firebaserc'
       - 'package-lock.json'
+permissions:
+  checks: write
+  contents: read
+  pull-requests: write
 
 jobs:
   build-and-deploy:
