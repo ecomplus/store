@@ -44,11 +44,8 @@ import LoginForm from '~/components/LoginForm.vue';
 if (!import.meta.env.SSR) {
   const { location } = window;
   let returnUrl = new URLSearchParams(location.search).get('return_url');
-  if (!returnUrl) {
-    const url = new URL(location.toString());
-    url.pathname = '/app/';
-    url.hash = location.hash || '#/account';
-    returnUrl = url.toString();
+  if (!returnUrl || returnUrl.includes('/app/account')) {
+    returnUrl = `/app/${(location.hash || '#/account')}`;
   }
   watch(isLogged, () => {
     if (isLogged.value) {
