@@ -60,10 +60,10 @@ cause route resource is required to define sections from content. */
           </article>
         </>;
       case 'product-details':
-        const { hasDescription, hasSpecifications, ...detailsProps } = props;
+        const { hasDescription, hasSpecifications } = props;
         const product = apiContext.resource === 'products' && apiContext.doc;
         return product && <>
-          <ProductDetails {...detailsProps} {product} client:sf="load">
+          <ProductDetails {product} client:sf="load">
             <Fragment slot="description">
               {hasDescription && <DocDescription apiDoc={product} />}
               {hasSpecifications && <ProductSpecifications {product} />}
