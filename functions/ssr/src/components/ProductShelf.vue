@@ -18,11 +18,10 @@
         :class="isGrid && 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4'"
       >
         <li
-          v-for="product in products"
-          :key="product._id"
+          v-for="(product, i) in products" :key="i"
           class="shrink-0 basis-1/2 md:basis-1/3 lg:basis-1/4"
         >
-          <ProductCard :product="product" :list-name="listName" />
+          <ProductCard :key="product._id" :product :list-name />
         </li>
         <template v-if="!isGrid" #controls>
           <DefineCarouselControl v-slot="{ isPrev }">
