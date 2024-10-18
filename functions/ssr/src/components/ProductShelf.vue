@@ -18,7 +18,7 @@
         :class="isGrid && 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4'"
       >
         <li
-          v-for="(product, i) in products" :key="i"
+          v-for="(product, i) in products" :key="`${i}-${product._id}`"
           class="shrink-0 basis-1/2 md:basis-1/3 lg:basis-1/4"
         >
           <ProductCard :key="product._id" :product :list-name />
