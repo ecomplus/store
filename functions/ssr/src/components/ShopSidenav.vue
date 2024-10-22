@@ -1,7 +1,7 @@
 <template>
   <aside class="flex h-full flex-col bg-white">
     <nav class="grow overflow-scroll py-4">
-      <ul class="relative">
+      <ul class="relative h-full">
         <ShopSidenavCategory
           v-for="(categoryTree, i) in categoryTrees"
           :key="i"
