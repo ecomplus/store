@@ -1,7 +1,7 @@
 <template>
   <aside class="flex h-full flex-col bg-white">
-    <nav class="grow py-4">
-      <ul class="relative h-full">
+    <nav class="grow overflow-scroll py-4">
+      <ul class="relative">
         <ShopSidenavCategory
           v-for="(categoryTree, i) in categoryTrees"
           :key="i"
@@ -10,12 +10,12 @@
       </ul>
     </nav>
     <footer class="text-base">
-      <div class="bg-base-100 flex items-center px-2 py-4">
+      <div class="flex items-center bg-base-100 px-2 py-4">
         <AccountLink class="flex grow items-center gap-3 p-2">
-          <i class="text-base-500 i-user-circle m-0 text-4xl"></i>
+          <i class="m-0 text-4xl text-base-500 i-user-circle"></i>
           <span class="leading-tight">
             {{ `${$t.i19hello} ${customerName || $t.i19visitor}` }}
-            <small class="text-primary block font-semibold lowercase">
+            <small class="block font-semibold lowercase text-primary">
               {{ $t.i19myOrders }}, {{ $t.i19myAccount }}
             </small>
           </span>
@@ -23,17 +23,17 @@
         <button
           v-if="isLogged"
           @click="logout"
-          class="text-base-800 p-2 text-right"
+          class="p-2 text-right text-base-800"
         >
           <span class="text-base-600">{{ $t.i19logout }}</span>
-          <i class="i-arrow-right-on-rectangle ml-1 text-lg"></i>
+          <i class="ml-1 text-lg i-arrow-right-on-rectangle"></i>
         </button>
       </div>
-      <ul class="bg-base-200 text-base-700 flex gap-3 p-4 text-xl">
+      <ul class="flex gap-3 bg-base-200 p-4 text-xl text-base-700">
         <li v-for="(href, network) in socialNetworks" :key="network">
           <SocialNetworkLink
             :network="network"
-            class="active:text-primary p-1"
+            class="p-1 active:text-primary"
           />
         </li>
       </ul>

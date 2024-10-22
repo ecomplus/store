@@ -148,7 +148,7 @@
   <Drawer
     v-model="isFiltersOpen"
     placement="end"
-    :backdrop-target="null"
+    :backdrop-target="isMobile ? '#teleported-overlap' : null"
     :can-lock-scroll="false"
     class="!z-[80] bg-white shadow [&_[data-drawer-close]]:bg-white/80"
   >
@@ -167,7 +167,7 @@ import {
   ListboxOptions,
   ListboxOption,
 } from '@headlessui/vue';
-import { getSearchUrl } from '@@sf/sf-lib';
+import { isMobile, getSearchUrl } from '@@sf/sf-lib';
 import Drawer from '@@sf/components/Drawer.vue';
 import Pagination from '~/components/Pagination.vue';
 import ProductShelf from '~/components/ProductShelf.vue';
