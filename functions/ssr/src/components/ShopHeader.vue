@@ -68,15 +68,17 @@
             ></i>
           </button>
         </form>
-        <AccountMenu v-if="!isMobile" class="hidden sm:block">
-          <template #button="{ open }">
-            <i
-              class="size-7 i-user-circle
-              hover:scale-110 hover:text-primary active:scale-125"
-              :class="open ? 'text-black scale-110' : null"
-            ></i>
-          </template>
-        </AccountMenu>
+        <Suspense>
+          <AccountMenu v-if="!isMobile" class="hidden sm:block">
+            <template #button="{ open }">
+              <i
+                class="size-7 i-user-circle
+                hover:scale-110 hover:text-primary active:scale-125"
+                :class="open ? 'text-black scale-110' : null"
+              ></i>
+            </template>
+          </AccountMenu>
+        </Suspense>
         <a
           :href="$settings.cartUrl || '/app/'"
           :aria-label="$t.i19openCart"
@@ -158,16 +160,20 @@ import {
   type Props as UseShopHeaderProps,
   useShopHeader,
 } from '@@sf/composables/use-shop-header';
-import { isMobile, isScreenLg } from '@@sf/sf-lib';
+import { isMobile, isScreenLg, requestIdleCallback } from '@@sf/sf-lib';
 import Drawer from '@@sf/components/Drawer.vue';
 import ShopSidenav from '~/components/ShopSidenav.vue';
 import ShopHeaderMenu from '~/components/ShopHeaderMenu.vue';
-import AccountMenu from '~/components/AccountMenu.vue';
 
-export interface Props extends Omit<UseShopHeaderProps, 'header'> {}
-
+export type Props = Omit<UseShopHeaderProps, 'header'>
 const SearchModal = defineAsyncComponent(() => import('~/components/SearchModal.vue'));
 const CartSidebar = defineAsyncComponent(() => import('~/components/CartSidebar.vue'));
+const AccountMenu = defineAsyncComponent(async () => {
+  if (!import.meta.env.SSR) {
+    await new Promise((resolve) => { requestIdleCallback(resolve); });
+  }
+  return import('~/components/AccountMenu.vue');
+});
 const props = defineProps<Props>();
 const header = ref<HTMLElement | null>(null);
 const searchInput = ref<HTMLInputElement | null>(null);
