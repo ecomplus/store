@@ -80,4 +80,4 @@ jobs:
           pagarmev5-public-key: ${{ secrets.PAGARMEV5_PUBLIC_KEY }}
           tiktok-pixel-id: ${{ secrets.TIKTOK_PIXEL_ID }}
           tiktok-access-token: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
-          public-dotenv: ${{ secrets.PUBLIC_DOTENV }}
+          custom-dotenv: ${{ secrets.CUSTOM_DOTENV }}
