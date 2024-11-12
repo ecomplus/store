@@ -1,5 +1,5 @@
 /// <reference path="../content/types" />
-/// <reference types="astro/client" />
+/// <reference path="../.astro/types.d.ts" />
 /// <reference types="vue/ref-macros" />
 /// <reference types="@cloudcommerce/storefront/client" />
 /// <reference types="@cloudcommerce/storefront/server" />
