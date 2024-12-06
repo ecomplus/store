@@ -46,15 +46,15 @@
       "banners": [
         {
           "img": "/img/uploads/rect8589.png",
-          "href": "/banner-1"
+          "href": ""
         },
         {
           "img": "/img/uploads/passion.webp",
-          "href": "/banner-2"
+          "href": ""
         },
         {
           "img": "/img/uploads/rect89.webp",
-          "href": "/banner-3",
+          "href": "",
           "mobileImg": "/img/uploads/headphone.webp"
         }
       ]

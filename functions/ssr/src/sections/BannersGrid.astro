@@ -1,14 +1,26 @@
 ---
-import type { Props as UseBannerProps } from '@@sf/composables/use-banner';
+import type { InferCmsOutput } from '@@sf/content';
+import { bannerCmsFields } from '@@sf/composables/use-banner';
 import BannerPictures from '@@sf/components/BannerPictures.astro';
 import Banner from '~/components/Banner.vue';
 
-export type Props = {
-  title?: string;
-  titleLink?: string;
-  banners: UseBannerProps[];
-}
+export const cmsFields = ({
+  title: {
+    widget: 'string',
+    label: { pt: 'Título', en: 'Title' },
+  },
+  titleLink: {
+    widget: 'string',
+    label: { pt: 'Link do título', en: 'Title link' },
+  },
+  banners: {
+    required: true,
+    widget: 'list',
+    fields: bannerCmsFields,
+  },
+}) as const;
 
+export type Props = InferCmsOutput<typeof cmsFields>
 const { banners } = Astro.props;
 ---
 
