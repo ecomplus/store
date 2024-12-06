@@ -43,14 +43,6 @@
         class="transition-opacity"
         :class="isEmailSentMsg && 'opacity-0 invisible'"
       >
-        <a
-          v-show="!isSignUp && !isLinkSignInBlocked"
-          href="?password"
-          class="text-right text-sm lowercase text-base-500 ui-link"
-          @click.prevent="isLinkSignIn = !isLinkSignIn"
-        >
-          {{ isLinkSignIn ? $t.i19enterWithPassword : $t.i19iForgotMyPassword }}
-        </a>
         <button
           type="submit"
           :disabled="!isSubmitReady"
