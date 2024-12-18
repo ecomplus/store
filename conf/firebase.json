@@ -4,7 +4,6 @@
       { "source": "/blog", "destination": "/blog/1", "type": 301 },
       { "source": "/pages/:slug*", "destination": "/p/:slug", "type": 301 },
       { "source": "/search", "destination": "/s", "type": 301 },
-      { "source": "/admin", "destination": "/admin/", "type": 301 },
       { "source": "/sitemap.xml", "destination": "/sitemap-index.xml", "type": 302 }
     ]
   }
