@@ -10,6 +10,12 @@
       <p class="flex-auto py-2 text-sm text-base-700
         group-hover:text-base-900 group-hover:underline">
         {{ title }}
+        <span
+          v-if="cartItem.kit_product"
+          class="line-clamp-2 block text-xs text-base-600"
+        >
+          {{ cartItem.kit_product.name }}
+        </span>
       </p>
     </ALink>
     <button
@@ -24,7 +30,7 @@
       </span>
     </button>
     <div class="flex items-center justify-between border-t-2 border-base-100">
-      <div class="border-r-2 border-base-100">
+      <div v-if="!cartItem.kit_product" class="border-r-2 border-base-100">
         <QuantitySelector
           v-model="cartItem.quantity"
           :min="cartItem.min_quantity"
@@ -51,8 +57,7 @@ import {
 import QuantitySelector from '@@sf/components/QuantitySelector.vue';
 import Prices from '~/components/Prices.vue';
 
-export type Props = UseCartItemProps;
-
+export type Props = UseCartItemProps
 const props = defineProps<Props>();
 const {
   cartItem,
