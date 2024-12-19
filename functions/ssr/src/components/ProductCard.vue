@@ -62,12 +62,15 @@
             {{ !isInStock ? $t.i19outOfStock : $t.i19inactive }}
           </span>
         </div>
+        <div v-if="isFailedToCart" class="pt-1 text-sm text-warning-800">
+          {{ $t.i19someItemIsUnavailable }}
+        </div>
         <button
-          v-if="isActive && !hasVariations"
+          v-if="isActive && !hasVariations && !isFailedToCart"
           class=":uno: absolute -top-6 left-0 -z-10 hidden w-full
           rounded-none opacity-0 transition ui-btn-sm ui-btn-primary
           group-hover:z-10 group-hover:opacity-100 md:block"
-          @click.stop.prevent="addProductToCart(product)"
+          @click.stop.prevent="loadToCart(product)"
         >
           <span class="mr-1 inline-block size-4 rounded-full
             bg-on-primary text-center text-base leading-none
@@ -83,7 +86,6 @@
 
 <script setup lang="ts">
 import { useElementHover } from '@vueuse/core';
-import { addProductToCart } from '@@sf/state/shopping-cart';
 import {
   type Props as UseProductCardProps,
   useProductCard,
@@ -93,8 +95,7 @@ import Prices from '~/components/Prices.vue';
 
 export type Props = UseProductCardProps & {
   headingTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-};
-
+}
 const props = withDefaults(defineProps<Props>(), {
   headingTag: 'h3',
 });
@@ -107,6 +108,8 @@ const {
   isActive,
   discountPercentage,
   hasVariations,
+  loadToCart,
+  isFailedToCart,
 } = useProductCard(props as UseProductCardProps);
 const card = ref<HTMLElement | null>(null);
 const isHovered = useElementHover(card);

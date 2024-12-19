@@ -50,11 +50,20 @@
           </CheckoutLink>
           <button
             class="grow ui-btn-lg ui-btn-contrast"
+            :class="isFailedToCart && 'opacity-60 cursor-not-allowed'"
+            :disabled="isFailedToCart"
             @click.prevent="addToCart"
             :data-tooltip="!isSkuSelected ? $t.i19chooseProductDetailsToBuy : null"
           >
             {{ $t.i19addToCart }}
           </button>
+        </div>
+        <div
+          v-if="isFailedToCart"
+          class="mx-auto text-balance px-2 pt-2
+          text-center text-sm text-warning-800"
+        >
+          {{ $t.i19loadToCartErrorMsg }}
         </div>
         <div class="mt-6 rounded border-2
           border-base-50 border-t-base-100 p-4 lg:mt-4">
@@ -75,7 +84,6 @@
 import type { ResourceId, Products } from '@cloudcommerce/api/types';
 import type { SectionPreviewProps } from '@@sf/state/use-cms-preview';
 import { useUrlSearchParams } from '@vueuse/core';
-import { addProductToCart } from '@@sf/state/shopping-cart';
 import { useProductCard } from '@@sf/composables/use-product-card';
 import CheckoutLink from '@@sf/components/CheckoutLink.vue';
 import QuantitySelector from '@@sf/components/QuantitySelector.vue';
@@ -84,15 +92,16 @@ import ImagesGallery from '~/components/ImagesGallery.vue';
 import SkuSelector from '~/components/SkuSelector.vue';
 import ShippingCalculator from '~/components/ShippingCalculator.vue';
 
-export interface Props extends Partial<SectionPreviewProps> {
+export type Props = Partial<SectionPreviewProps> & {
   product: Products;
 }
-
 const props = defineProps<Props>();
 const {
   product,
   title,
   isActive,
+  loadToCart,
+  isFailedToCart,
 } = useProductCard<Products>(props);
 const quantity = ref(product.min_quantity || 1);
 const params = useUrlSearchParams('history');
@@ -125,6 +134,6 @@ const checkVariation = (ev?: Event) => {
 };
 const addToCart = () => {
   if (!checkVariation()) return;
-  addProductToCart(product, variationId.value || undefined, quantity.value);
+  loadToCart(quantity.value, { variationId: variationId.value });
 };
 </script>
