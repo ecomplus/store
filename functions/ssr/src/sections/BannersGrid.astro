@@ -21,7 +21,7 @@ export const cmsFields = ({
 }) as const;
 
 export type Props = InferCmsOutput<typeof cmsFields>
-const { banners } = Astro.props;
+const { banners = [] } = Astro.props;
 ---
 
 <section class="ui-section">

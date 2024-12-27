@@ -24,12 +24,18 @@ const {
 let mainCategories: ShopFooterProps['categories'];
 let pageLinks: ShopFooterProps['pageLinks'];
 if (categoriesList?.isActive) {
-  if (categoriesList.categories?.length) {
-    mainCategories = categoriesList.categories;
-  } else {
-    // Will wait and reuse categories loaded from <PageHeader>
-    const { value: categories } = await useSharedData({ field: 'categories' });
-    if (categories) {
+  // Will wait and reuse categories loaded from <PageHeader>
+  const { value: categories } = await useSharedData({ field: 'categories' });
+  if (categories) {
+    if (categoriesList.slugs?.length) {
+      mainCategories = [];
+      categoriesList.slugs.forEach((slug) => {
+        const category = categories.find((category) => category.slug === slug);
+        if (category?.name) {
+          mainCategories?.push({ name: category.name, slug });
+        }
+      });
+    } else {
       mainCategories = filterMainCategories(categories);
     }
   }

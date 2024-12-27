@@ -30,7 +30,7 @@
     "categoriesList": {
       "isActive": true,
       "title": "",
-      "categories": []
+      "slugs": []
     },
     "pagesList": {
       "isActive": true,
