@@ -35,13 +35,18 @@ try {
 }
 
 export async function getStaticPaths() {
-  const paths: Array<{ params: { slug?: string } }> = [{
-    params: { slug: undefined },
-  }];
+  const paths: Array<{ params: { slug?: string } }> = [
+    { params: { slug: undefined } },
+  ];
+  const pageSlugs = await getConfig().getContent('extra-pages/');
+  pageSlugs.forEach((_slug) => {
+    paths.push({ params: { slug: `p/${_slug}` } });
+  });
   if (!import.meta.env.BUILD_MINIMAL) {
+    paths.push({ params: { slug: 's/' } });
     const {
       data: { result: products },
-    } = await api.get('products?fields=slug&sort=-sales&limit=2');
+    } = await api.get('products?fields=slug&sort=-sales&limit=1');
     products.forEach(({ slug }) => {
       if (slug) paths.push({ params: { slug } });
     });
@@ -51,13 +56,10 @@ export async function getStaticPaths() {
     categories.forEach(({ slug }) => {
       if (slug) paths.push({ params: { slug } });
     });
-    const pageSlugs = await getConfig().getContent('extra-pages/');
     const postSlugs = await getConfig().getContent('blog/');
-    pageSlugs.slice(0, 2).map((slug) => `p/${slug}`)
-      .concat(postSlugs.slice(0, 2).map((slug) => `posts/${slug}`))
-      .forEach((slug) => {
-        paths.push({ params: { slug } });
-      });
+    postSlugs.forEach((_slug) => {
+      paths.push({ params: { slug: `posts/${_slug}` } });
+    });
   }
   return paths;
 }
