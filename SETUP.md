@@ -57,8 +57,8 @@ npm i
 FIREBASE_PROJECT_ID={project-id} npm run setup
 ```
 
-> [!NOTE]
-> Account key created automatically with only required permissions using gcloud CLI (skip steps 6 and 7).
+> [!NOTE]  
+> Account key created automatically with only required permissions using gcloud CLI (skip steps 8 and 9).
 
 </details>
 

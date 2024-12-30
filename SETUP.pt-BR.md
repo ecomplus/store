@@ -57,8 +57,8 @@ npm i
 FIREBASE_PROJECT_ID={project-id} npm run setup
 ```
 
-> [!NOTE]
-> Chave de conta criada automaticamente apenas com as permissões necessárias usando gcloud CLI (pule as etapas 6 e 7).
+> [!NOTE]  
+> Chave de conta criada automaticamente apenas com as permissões necessárias usando gcloud CLI (pule as etapas 8 e 9).
 
 </details>
 
