@@ -35,10 +35,6 @@
 
 7. [Use this template](https://github.com/ecomplus/store/generate) to generate a new repository for your store;
 
-Proceed with:
-- [Better way using command line](#first-deploy-on-cli)
-- [Only in browser](#browser-only-setup) (may be easier but less safe, not recommended)
-
 #### First deploy on CLI
 
 8. Setup and first deploy from your terminal with [Firebase CLI](https://firebase.google.com/docs/cli):
@@ -101,24 +97,6 @@ npm run deploy
 :checkered_flag: :checkered_flag: :checkered_flag: **All done, congrats!**
 
 ---
-
-#### Browser-only setup
-
-> [!WARNING]
-> This configuration option is less secure, we recommend [first deploy on CLI](#first-deploy-on-cli) instead.
-
-8. [Create a service account](https://console.cloud.google.com/iam-admin/serviceaccounts) for your Firebase project directly on Google Cloud Platform:
-    - Name it _Cloud Commerce GH Actions (YOUR REPOSITORY)_;
-    - Describe it _A service account with ALL permissions to deploy Cloud Commerce from the GitHub to Firebase_;
-    - Continue and select the role _Quick access > Basic > Proprietary_;
-
-9. Back in the service accounts list, click the 3 dots (actions) and select _Manage keys_, generate and download a JSON key for the created account;
-
-10. Set the following secrets to your GitHub repository (_Settings > Secrets > Actions_):
-    - `FIREBASE_SERVICE_ACCOUNT`: Paste the generated Google Cloud key JSON
-    - `ECOM_STORE_ID`: Copy your _Store ID_ on the [e-com.plus admin](https://ecomplus.app/)
-    - `ECOM_AUTHENTICATION_ID`: Copy your _Authentication ID_ on the [e-com.plus admin](https://ecomplus.app/)
-    - `ECOM_API_KEY`: Copy your _API Key_ on the [e-com.plus admin](https://ecomplus.app/)
 
 ## Production best practices
 
