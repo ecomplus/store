@@ -1,0 +1,19 @@
+---
+import type { CmsFields, InferCmsOutput } from '@@sf/content';
+import PageTitle from '~/components/PageTitle.vue';
+
+export const cmsFields = ({
+  title: {
+    widget: 'string',
+    label: 'Título',
+  },
+  description: {
+    widget: 'text',
+    label: 'Descrição',
+  },
+}) as const satisfies CmsFields;
+
+export type Props = InferCmsOutput<typeof cmsFields>;
+---
+
+<PageTitle {...Astro.props} />

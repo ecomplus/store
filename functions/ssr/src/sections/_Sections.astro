@@ -1,16 +1,15 @@
 ---
 import { usePageSections } from '@@sf/layouts/use-page-main';
-import ContentClearfix from '@@sf/components/ContentClearfix.vue';
-import BannersGrid from '~/sections/BannersGrid.astro';
 import Breadcrumbs from '~/components/Breadcrumbs.vue';
-import ProductShelf from '~/components/ProductShelf.vue';
-import DocDescription from '~/components/DocDescription.vue';
 import DocBanners from '~/components/DocBanners.vue';
-import ProductDetails from '~/components/ProductDetails.vue';
-import ProductSpecifications from '~/components/ProductSpecifications.vue';
-import SearchShowcase from '~/components/SearchShowcase.vue';
-import PageTitle from '~/components/PageTitle.vue';
-import ContentEntry from '~/components/ContentEntry.vue';
+import DocDescription from '~/components/DocDescription.vue';
+import BannersGridSection from '~/sections/BannersGridSection.astro';
+import ContentEntrySection from '~/sections/ContentEntrySection.astro';
+import CustomHtmlSection from '~/sections/CustomHtmlSection.astro';
+import PageTitleSection from '~/sections/PageTitleSection.astro';
+import ProductShelfSection from '~/sections/ProductShelfSection.astro';
+import ProductDetailsSection from '~/sections/ProductDetailsSection.astro';
+import SearchShowcaseSection from '~/sections/SearchShowcaseSection.astro';
 
 const { routeContext } = Astro.locals;
 const { sections } = await usePageSections({
@@ -20,7 +19,7 @@ const { sections } = await usePageSections({
     return { props: content };
   },
 });
-const { cmsContent, apiContext } = routeContext;
+const { cmsContent } = routeContext;
 /* `apiContext` is surelly set here (from Main.astro)
 cause route resource is required to define sections from content. */
 ---
@@ -34,42 +33,29 @@ cause route resource is required to define sections from content. */
       };
     }
     switch (type) {
-      case 'banners-grid':
-        return <BannersGrid {...props} />;
       case 'breadcrumbs':
         return <Breadcrumbs />;
-      case 'content-entry':
-        return <ContentEntry {...props} />;
-      case 'custom-html':
-        return <ContentClearfix html={props.html} />;
       case 'doc-banners':
         return <DocBanners />;
       case 'doc-description':
         return <DocDescription />;
+      case 'banners-grid':
+        return <BannersGridSection {...props} />;
+      case 'content-entry':
+        return <ContentEntrySection {...props} />;
+      case 'custom-html':
+        return <CustomHtmlSection {...props} />;
       case 'page-title':
-        return <PageTitle {...props} />;
+        return <PageTitleSection {...props} />;
       case 'product-shelf':
       case 'related-products':
         props.isRelatedProducts = type === 'related-products';
-        return <ProductShelf {...props} client:sf="lazy,interaction" />;
-      case 'context-showcase':
+        return <ProductShelfSection {...props} />;
       case 'search-showcase':
-        return <>
-          <article class="min-h-[500px]">
-            <SearchShowcase {...props} client:sf="load" />
-          </article>
-        </>;
+      case 'context-showcase':
+        return <SearchShowcaseSection {...props} />;
       case 'product-details':
-        const { hasDescription, hasSpecifications } = props;
-        const product = apiContext.resource === 'products' && apiContext.doc;
-        return product && <>
-          <ProductDetails {product} client:sf="load">
-            <Fragment slot="description">
-              {hasDescription && <DocDescription apiDoc={product} />}
-              {hasSpecifications && <ProductSpecifications {product} />}
-            </Fragment>
-          </ProductDetails>
-        </>;
+        return <ProductDetailsSection {...props} />;
       case 'c:foo':
         return <div data-foo={props.foo}></div>;
       default:

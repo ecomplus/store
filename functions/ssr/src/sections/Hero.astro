@@ -1,26 +1,14 @@
 ---
 import type { InferCmsOutput } from '@@sf/content';
-import { bannerCmsFields } from '@@sf/composables/use-banner';
-import { usePageHero } from '@@sf/layouts/use-page-main';
+import { pageHeroCmsFields, usePageHero } from '@@sf/layouts/use-page-main';
 import BannerPictures from '@@sf/components/BannerPictures.astro';
 import HeroSlider from '~/components/HeroSlider.vue';
 
-export const cmsFields = ({
-  autoplay: {
-    widget: 'number',
-    value_type: 'int',
-    label: 'Autoplay',
-  },
-  slides: {
-    required: true,
-    widget: 'list',
-    fields: bannerCmsFields,
-  },
-}) as const;
+export const cmsFields = pageHeroCmsFields;
 
 type HeroContent = InferCmsOutput<typeof cmsFields>;
 const { routeContext } = Astro.locals;
-const heroSlider = (await usePageHero({ routeContext })).heroSlider as HeroContent;
+const heroSlider = (await usePageHero({ routeContext })).heroSlider satisfies HeroContent;
 const { slides = [], ...props } = heroSlider;
 ---
 

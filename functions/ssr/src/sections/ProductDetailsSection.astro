@@ -1,0 +1,31 @@
+---
+import type { CmsFields, InferCmsOutput } from '@@sf/content';
+import ProductDetails from '~/components/ProductDetails.vue';
+import DocDescription from '~/components/DocDescription.vue';
+import ProductSpecifications from '~/components/ProductSpecifications.vue';
+
+export const cmsFields = ({
+  hasDescription: {
+    widget: 'boolean',
+    label: { pt: 'Mostrar descrição', en: 'Show description' },
+  },
+  hasSpecifications: {
+    widget: 'boolean',
+    label: { pt: 'Listar especificações', en: 'List specifications' },
+  },
+}) as const satisfies CmsFields;
+
+export type Props = InferCmsOutput<typeof cmsFields>;
+const { hasDescription, hasSpecifications } = Astro.props;
+const { routeContext: { apiContext } } = Astro.locals;
+const product = apiContext.resource === 'products' && apiContext.doc;
+---
+
+{product && <>
+  <ProductDetails {product} client:sf="load">
+    <Fragment slot="description">
+      {hasDescription && <DocDescription apiDoc={product} />}
+      {hasSpecifications && <ProductSpecifications {product} />}
+    </Fragment>
+  </ProductDetails>
+</>}

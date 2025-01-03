@@ -1,0 +1,16 @@
+---
+import type { CmsFields, InferCmsOutput } from '@@sf/content';
+import ContentClearfix from '@@sf/components/ContentClearfix.vue';
+
+export const cmsFields = ({
+  html: {
+    required: true,
+    widget: 'code',
+    label: 'HTML customizado',
+  },
+}) as const satisfies CmsFields;
+
+export type Props = InferCmsOutput<typeof cmsFields>;
+---
+
+<ContentClearfix html={Astro.props.html} />

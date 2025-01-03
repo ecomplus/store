@@ -1,0 +1,13 @@
+---
+import type { InferCmsOutput } from '@@sf/content';
+import { searchShowcaseCmsFields } from '@@sf/composables/use-search-showcase';
+import SearchShowcase from '~/components/SearchShowcase.vue';
+
+export const cmsFields = searchShowcaseCmsFields;
+
+export type Props = InferCmsOutput<typeof cmsFields>;
+---
+
+<article class="min-h-[500px]">
+  <SearchShowcase {...Astro.props} client:sf="load" />
+</article>

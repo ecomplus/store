@@ -1,0 +1,25 @@
+---
+import type { CmsFields, InferCmsOutput } from '@@sf/content';
+import ContentEntry from '~/components/ContentEntry.vue';
+
+export const cmsFields = ({
+  /* Keeping the fields optional because the data may come
+  from the current CMS collection entry. */
+  title: {
+    widget: 'text',
+    label: 'Título',
+  },
+  markdown: {
+    widget: 'markdown',
+    label: 'Conteúdo',
+  },
+}) as const satisfies CmsFields;
+
+export type Props = InferCmsOutput<typeof cmsFields>;
+const {
+  title = '',
+  markdown = '',
+} = Astro.props;
+---
+
+<ContentEntry {title} {markdown} />
