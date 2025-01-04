@@ -9,7 +9,6 @@ import ShopFooter, {
 export interface Props {
   logoHeading?: string;
 }
-
 const { routeContext } = Astro.locals;
 const { settings, getContent } = routeContext;
 const LogoHeading = Astro.props.logoHeading || 'h4';
