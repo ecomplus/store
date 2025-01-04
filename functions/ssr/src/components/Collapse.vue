@@ -11,9 +11,8 @@
 </template>
 
 <script setup lang="ts">
-export interface Props {
+export type Props = {
   title: string;
 }
-
 defineProps<Props>();
 </script>

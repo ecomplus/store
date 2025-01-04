@@ -74,7 +74,7 @@
 import { formatDate } from '@ecomplus/utils';
 import Pagination from '~/components/Pagination.vue';
 
-export interface Props {
+export type Props = {
   page: number;
   totalPages: number;
   posts: Array<{
@@ -86,7 +86,6 @@ export interface Props {
     date?: string;
   }>;
 }
-
 const props = defineProps<Props>();
 const featured = computed(() => props.posts[0]);
 const gridPosts = computed(() => props.posts.slice(1));

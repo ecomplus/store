@@ -11,11 +11,10 @@
 import { micromark } from 'micromark';
 import ContentClearfix from '@@sf/components/ContentClearfix.vue';
 
-export interface Props {
+export type Props = {
   title: string;
   markdown: string;
 }
-
 const props = defineProps<Props>();
 const html = computed(() => micromark(props.markdown, {
   allowDangerousHtml: true,

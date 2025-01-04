@@ -58,9 +58,8 @@
 import type { LayoutContent } from '@@sf/content';
 import PaymentMethodFlag from '@@sf/components/PaymentMethodFlag.vue';
 
-export interface Props {
+export type Props = {
   stamps?: LayoutContent['footer']['stamps'];
 }
-
 defineProps<Props>();
 </script>

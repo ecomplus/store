@@ -46,10 +46,9 @@
 import type { CategoryTree } from '@@sf/composables/use-shop-header';
 import ShopHeaderSubmenu from '~/components/ShopHeaderSubmenu.vue';
 
-export interface Props {
+export type Props = {
   inlineMenuTrees: CategoryTree[];
 }
-
 const props = defineProps<Props>();
 const hasOneLevelSubcategories = computed(() => {
   return !!props.inlineMenuTrees.find(({ subcategories }) => !subcategories.length);

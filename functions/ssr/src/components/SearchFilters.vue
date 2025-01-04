@@ -1,18 +1,18 @@
 <template>
-  <aside class="bg-base-50/40 h-screen overflow-y-auto">
+  <aside class="h-screen overflow-y-auto bg-base-50/40">
     <header class="px-6 pb-3 pt-5 text-center">
       <button
         v-if="filtersCount"
-        class="ui-btn-sm ui-btn-danger py-1"
+        class="py-1 ui-btn-sm ui-btn-danger"
         @click="clearFilters"
       >
         {{ $t.i19clearFilters }}
-        <i class="i-trash ml-0.5"></i>
+        <i class="ml-0.5 i-trash"></i>
       </button>
       <p
         v-else
-        class="text-base-500 border border-transparent
-        pb-1 text-base font-semibold"
+        class="border border-transparent pb-1
+        text-base font-semibold text-base-500"
       >
         {{ $t.i19filterResults }}
       </p>
@@ -42,7 +42,7 @@
               class="cursor-pointer px-3 text-sm"
             >
               {{ getPriceRangeLabel(range) }}
-              <small class="text-base-500 font-medium">
+              <small class="font-medium text-base-500">
                 ({{ range.count }})
               </small>
             </label>
@@ -89,7 +89,7 @@
               class="cursor-pointer px-3 text-sm"
             >
               {{ value }}
-              <small class="text-base-500 font-medium">
+              <small class="font-medium text-base-500">
                 ({{ count }})
               </small>
             </label>
@@ -107,8 +107,7 @@ import {
 } from '@@sf/composables/use-search-filters';
 import Collapse from '~/components/Collapse.vue';
 
-export interface Props extends UseSearchFiltersProps {}
-
+export type Props = UseSearchFiltersProps
 const props = defineProps<Props>();
 const {
   resultBuckets,

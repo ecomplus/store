@@ -54,10 +54,9 @@ import {
 import { useId } from '@@sf/sf-lib';
 import ProductCard from '~/components/ProductCard.vue';
 
-export interface Props extends UseProductShelfProps {
+export type Props = UseProductShelfProps & {
   isGrid?: boolean;
 }
-
 const props = defineProps<Props>();
 const [
   DefineCarouselControl,

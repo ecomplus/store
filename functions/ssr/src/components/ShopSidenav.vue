@@ -54,10 +54,9 @@ import AccountLink from '@@sf/components/AccountLink.vue';
 import SocialNetworkLink from '@@sf/components/SocialNetworkLink.vue';
 import ShopSidenavCategory from '~/components/ShopSidenavCategory.vue';
 
-export interface Props {
+export type Props = {
   categoryTrees: CategoryTree[];
 }
-
 defineProps<Props>();
 onMounted(() => initializeFirebaseAuth());
 </script>

@@ -86,10 +86,9 @@ import {
 import { useId } from '@@sf/sf-lib';
 import Spinner from '@@sf/components/Spinner.vue';
 
-export interface Props extends UseShippingCalculatorProps {
+export type Props = UseShippingCalculatorProps & {
   hasLabel?: boolean;
 }
-
 const props = defineProps<Props>();
 const zipCode = ref('');
 const zipInputId = useId('ZipInput');

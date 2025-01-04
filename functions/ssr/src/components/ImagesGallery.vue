@@ -107,10 +107,9 @@ import type { Products } from '@cloudcommerce/api/types';
 import { imgSizes as getImgSizes } from '@ecomplus/utils';
 import { useId } from '@@sf/sf-lib';
 
-export interface Props {
+export type Props = {
   pictures: Exclude<Products['pictures'], undefined>;
 }
-
 defineProps<Props>();
 const activeIndex = ref(0);
 const psId = ref('');

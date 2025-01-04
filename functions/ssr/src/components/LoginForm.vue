@@ -104,10 +104,9 @@ import useLoginForm from '@@sf/composables/use-login-form';
 import { customerName } from '@@sf/state/customer-session';
 import Spinner from '@@sf/components/Spinner.vue';
 
-export interface Props {
+export type Props = {
   loginLinkActionUrl?: string | null;
 }
-
 defineProps<Props>();
 const {
   isLinkSignIn,

@@ -68,10 +68,9 @@
 <script setup lang="ts">
 import type { CategoryTree, SubcategoryTree } from '@@sf/composables/use-shop-header';
 
-export interface Props {
+export type Props = {
   categoryTree: CategoryTree | SubcategoryTree;
 }
-
 defineProps<Props>();
 const isOpen = ref(false);
 const isFaded = ref(true);

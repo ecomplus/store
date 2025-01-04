@@ -4,7 +4,7 @@
       aria-label="Breadcrumb"
       class="w-full overflow-hidden text-lg md:text-sm"
     >
-      <ol class="text-base-600 flex items-center gap-1">
+      <ol class="flex items-center gap-1 text-base-600">
         <li>
           <a href="/" class="hover:text-primary">
             <span class="sr-only">{{ $t.i19home }}</span>
@@ -21,7 +21,7 @@
             </li>
           </template>
           <template v-else>
-            <li class="text-base-300 hidden lg:block">
+            <li class="hidden text-base-300 lg:block">
               <i class="i-chevron-right"></i>
             </li>
             <li class="hidden truncate lg:block">
@@ -45,8 +45,7 @@ import {
   useBreadcrumbs,
 } from '@@sf/composables/use-breadcrumbs';
 
-export interface Props extends UseBreadcrumbsProps {}
-
+export type Props = UseBreadcrumbsProps & {}
 const props = defineProps<Props>();
 const { breadcrumbs, inlineJSONLd } = await useBreadcrumbs(props);
 </script>

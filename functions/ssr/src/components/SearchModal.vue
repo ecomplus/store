@@ -89,8 +89,7 @@ import {
 import { getSearchUrl } from '@@sf/sf-lib';
 import ProductShelf from '~/components/ProductShelf.vue';
 
-export interface Props extends UseSearchModalProps {}
-
+export type Props = UseSearchModalProps
 const props = defineProps<Props>();
 const {
   searchHistory,

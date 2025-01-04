@@ -4,7 +4,7 @@
       [&>div]:[font-size:90%] [&_small]:lowercase [&_small]:[font-size:92%]"
     :class="isBig ? 'text-lg' : null"
   >
-    <span v-if="comparePrice" class="text-base-500 mr-1 text-[87%]">
+    <span v-if="comparePrice" class="mr-1 text-[87%] text-base-500">
       <small v-if="isLiteral">
         {{ `${$t.i19from} ` }}
       </small>
@@ -26,7 +26,7 @@
       <div v-if="cashbackValue && hasCashback" class="relative z-10">
         <span :data-tooltip="$t.i19get$1back
           .replace('$1', $percentage(cashbackPercentage))">
-          <i class="i-arrow-uturn-left mr-1"></i>
+          <i class="mr-1 i-arrow-uturn-left"></i>
           <span class="font-medium">
             {{ $money(cashbackValue) }}
           </span>
@@ -69,13 +69,12 @@ import {
   usePrices,
 } from '@@sf/composables/use-prices';
 
-export interface Props extends UsePricesProps {
+export type Props = UsePricesProps & {
   isBig?: boolean;
   isLiteral?: boolean;
   hasCashback?: boolean;
   hasPriceOptions?: boolean;
 }
-
 const props = withDefaults(defineProps<Props>(), {
   hasCashback: true,
   hasPriceOptions: true,

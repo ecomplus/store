@@ -173,7 +173,7 @@ import Pagination from '~/components/Pagination.vue';
 import ProductShelf from '~/components/ProductShelf.vue';
 import SearchFilters from '~/components/SearchFilters.vue';
 
-export interface Props extends UseSearchShowcaseProps {}
+export type Props = UseSearchShowcaseProps
 const props = withDefaults(defineProps<Props>(), {
   canUseUrlParams: true,
   canFetchTermsOnEmpty: true,

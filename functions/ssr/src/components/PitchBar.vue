@@ -43,8 +43,7 @@ import {
   usePitchBar,
 } from '@@sf/composables/use-pitch-bar';
 
-export interface Props extends UsePitchBarProps {}
-
+export type Props = UsePitchBarProps
 const props = defineProps<Props>();
 const {
   parsedContents,

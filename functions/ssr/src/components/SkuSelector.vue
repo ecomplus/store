@@ -4,7 +4,7 @@
       v-for="(options, gridId) in variationsGrids" :key="gridId"
       class="mt-3"
     >
-      <span class="text-base-700 text-sm font-medium">
+      <span class="text-sm font-medium text-base-700">
         {{ getGridTitle(gridId) }}:
         <strong v-if="selectedOptions[gridId]" class="text-base-800">
           {{ selectedOptions[gridId] }}
@@ -13,7 +13,7 @@
       <ul v-if="options.length < 7" class="mt-2 flex gap-2">
         <li v-for="(optionText, i) in options" :key="`${gridId}-${i}`">
           <button
-            class="ring-primary/60 rounded border"
+            class="rounded border ring-primary/60"
             :class="[
               selectedOptions[gridId] === optionText
                 ? 'border-primary ring-2'
@@ -42,8 +42,7 @@ import {
   useSkuSelector,
 } from '@@sf/composables/use-sku-selector';
 
-export interface Props extends UseSkuSelector {}
-
+export type Props = UseSkuSelector
 const props = defineProps<Props>();
 const emit = defineEmits(['update:variationId']);
 const {

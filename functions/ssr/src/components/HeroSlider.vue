@@ -23,17 +23,17 @@
           xl:-ms-[640px] xl:max-w-screen-xl"
         >
           <div
-            class="text-primary relative h-10 w-20 rounded-full bg-white/50
+            class="relative h-10 w-20 rounded-full bg-white/50 text-primary
             shadow-sm ring-1 ring-black/5 transition-opacity"
             :class="isMounted ? 'opacity-100' : 'opacity-20 [&>*]:cursor-wait'"
           >
             <CarouselControl
-              class="hover:bg-primary/10 size-10 rounded-full"
+              class="size-10 rounded-full hover:bg-primary/10"
               is-prev
             >
-              <i class="i-arrow-right rotate-180"></i>
+              <i class="rotate-180 i-arrow-right"></i>
             </CarouselControl>
-            <CarouselControl class="hover:bg-primary/10 size-10 rounded-full">
+            <CarouselControl class="size-10 rounded-full hover:bg-primary/10">
               <i class="i-arrow-right"></i>
             </CarouselControl>
           </div>
@@ -51,7 +51,6 @@ export type Props = {
   autoplay?: number;
   slides: UseBannerProps[];
 }
-
 defineProps<Props>();
 const isMounted = ref(false);
 onMounted(() => { isMounted.value = true; });

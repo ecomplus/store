@@ -39,9 +39,8 @@
 <script setup lang="ts">
 import FooterStamps from '~/components/FooterStamps.vue';
 
-export interface Props {
+export type Props = {
   footerStamps: InstanceType<typeof FooterStamps>['$props']['stamps'];
 }
-
 defineProps<Props>();
 </script>

@@ -89,8 +89,7 @@ import {
   useShopHeaderSubmenu,
 } from '@@sf/composables/use-shop-header-submenu';
 
-export interface Props extends UseShopHeaderSubmenuProps {}
-
+export type Props = UseShopHeaderSubmenuProps
 const props = defineProps<Props>();
 const {
   categoryPicture,

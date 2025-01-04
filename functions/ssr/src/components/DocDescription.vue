@@ -20,11 +20,10 @@ import type {
 import ContentClearfix from '@@sf/components/ContentClearfix.vue';
 import Collapse from '~/components/Collapse.vue';
 
-export interface Props {
+export type Props = {
   apiDoc?: Partial<Products | Categories | Brands | Collections>;
   title?: string;
 }
-
 const props = withDefaults(defineProps<Props>(), {
   apiDoc: () => (globalThis.$storefront.apiContext?.doc || {}) as Partial<Brands>,
 });

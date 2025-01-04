@@ -1,6 +1,6 @@
 <template>
-  <ol class="text-base-900 flex justify-center gap-1.5
-    text-center text-sm font-medium leading-9">
+  <ol class="flex justify-center gap-1.5 text-center
+    text-sm font-medium leading-9 text-base-900">
     <li>
       <ALink
         :href="prevPageLink"
@@ -10,7 +10,7 @@
           ? 'border-base-100 hover:bg-base-100'
           : 'border-transparent text-base-500'"
       >
-        <i class="i-arrow-right rotate-180"></i>
+        <i class="rotate-180 i-arrow-right"></i>
         <span class="ml-1.5 hidden md:inline">{{ $t.i19previous }}</span>
       </ALink>
     </li>
@@ -48,8 +48,7 @@ import {
   usePagination,
 } from '@@sf/composables/use-pagination';
 
-export interface Props extends UsePaginationProps {}
-
+export type Props = UsePaginationProps
 const props = withDefaults(defineProps<Props>(), {
   maxPages: 7,
   isUrlPath: false,

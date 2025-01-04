@@ -14,11 +14,10 @@
 <script setup lang="ts">
 import type { Categories, Brands, Collections } from '@cloudcommerce/api/types';
 
-export interface Props {
+export type Props = {
   apiDoc?: Partial<Categories | Brands | Collections>;
   title?: string;
 }
-
 const props = withDefaults(defineProps<Props>(), {
   apiDoc: () => (globalThis.$storefront.apiContext?.doc || {}) as Partial<Brands>,
 });

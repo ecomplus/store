@@ -28,11 +28,10 @@ import {
 } from '@ecomplus/utils';
 import Collapse from '~/components/Collapse.vue';
 
-export interface Props {
+export type Props = {
   product: Products;
   title?: string;
 }
-
 const props = defineProps<Props>();
 const specifications = computed(() => props.product.specifications || {});
 const hasSpecs = computed(() => Object.keys(specifications.value).length);

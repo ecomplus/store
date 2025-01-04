@@ -97,7 +97,7 @@ import { socialNetworks } from '@@sf/sf-lib';
 import SocialNetworkLink from '@@sf/components/SocialNetworkLink.vue';
 import FooterStamps from '~/components/FooterStamps.vue';
 
-export interface Props {
+export type Props = {
   stamps?: LayoutContent['footer']['stamps'];
   categories?: Array<Partial<Categories> & {
     name: string;
@@ -110,6 +110,5 @@ export interface Props {
   }>;
   pagesColTitle?: string;
 }
-
 defineProps<Props>();
 </script>
