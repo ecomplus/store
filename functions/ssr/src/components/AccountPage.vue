@@ -45,7 +45,7 @@ if (!import.meta.env.SSR) {
   const { location } = window;
   let returnUrl = new URLSearchParams(location.search).get('return_url');
   if (!returnUrl || returnUrl.includes('/app/account')) {
-    returnUrl = `/app/${(location.hash || '#/account')}`;
+    returnUrl = `/app/?wait_auth${(location.hash || '#/account')}`;
   }
   watch(isLogged, () => {
     if (isLogged.value) {
