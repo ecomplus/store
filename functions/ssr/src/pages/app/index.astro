@@ -5,6 +5,7 @@ import Picture from '@@sf/components/Picture.astro';
 import BaseHead from '@@sf/layouts/BaseHead.astro';
 import Base from '~/layouts/Base.astro';
 import CheckoutPage from '~/components/CheckoutPage.vue';
+import CheckoutScripts from '~/scripts/CheckoutScripts.astro';
 import checkoutCustomCss from '~/assets/checkout.css?inline';
 
 let routeContext: RouteContext;
@@ -24,6 +25,7 @@ const { footer: { stamps } } = layoutContent;
   <Fragment slot="base-head">
     <BaseHead />
     <title>{`${i19shoppingCart} | ${settings.name}`}</title>
+    <CheckoutScripts />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ecomplus/storefront-twbs@7/dist/cdn/storefront-twbs.min.css">
     <style is:inline set:html={checkoutCustomCss} />
   </Fragment>
