@@ -70,7 +70,7 @@
           class=":uno: absolute -top-6 left-0 -z-10 hidden w-full
           rounded-none opacity-0 transition ui-btn-sm ui-btn-primary
           group-hover:z-10 group-hover:opacity-100 md:block"
-          @click.stop.prevent="loadToCart(product)"
+          @click.stop.prevent="loadToCart(1)"
         >
           <span class="mr-1 inline-block size-4 rounded-full
             bg-on-primary text-center text-base leading-none
