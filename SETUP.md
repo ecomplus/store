@@ -15,7 +15,7 @@
     - Select region `us-east4` (recommended, or multi-region `nam5 (us-central)`);
 
 3. Go to _Creation > Storage_ page and click _Let's start_:
-    - Just bypass with default production mode and same (pre-selected) region;
+    - Just bypass with default production mode and preferably the _US-EAST1_ region;
 
 4. Go to _Creation > Authentication_ and click _Get started_:
     - Click _Native providers > Email/password_ and enable _Email link (login without password)_;

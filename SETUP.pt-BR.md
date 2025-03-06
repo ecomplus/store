@@ -15,7 +15,7 @@
     - Selecione a região `us-east4` ([recomendado](https://github.com/ecomplus/cloud-commerce/issues/164));
 
 3. Vá para _Criação > Storage_ e clique _Vamos começar_:
-    - Pule com o modo de produção padrão e a mesma região (pré-selecinada);
+    - Pule com o modo de produção padrão e região preferencialmente _US-EAST1_;
 
 4. Vá para _Criação > Authentication_ e clique em _Vamos começar_:
     - Clique em _Provedores nativos > E-mail/senha_ e ative _Link do e-mail (login sem senha)_;
@@ -27,7 +27,7 @@
     - _Configurações públicas > Nome exibido ao público_: O nome da sua loja;
     - _Configurações públicas > E-mail para suporte_ (opcional);
     - Em _Seus aplicativos_ crie um app Web:
-        + Insira novamente o nome da loja e ativa Firebase Hosting para o novo app;
+        + Insira novamente o nome da loja e ative Firebase Hosting para o novo app;
         + Copie apenas o valor do objeto `firebaseConfig` e substitua em `functions/ssr/src/scripts/InlineScripts.astro`;
         + Apenas clique em prosseguir nos próximos passos até confirmar e voltar para o console;
 
