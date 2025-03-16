@@ -1,9 +1,15 @@
 ---
-import type { InferCmsOutput } from '@@sf/content';
+import type { CmsFields, InferCmsOutput } from '@@sf/content';
 import { productShelfCmsFields } from '@@sf/composables/use-product-shelf';
 import ProductShelf from '~/components/ProductShelf.vue';
 
-export const cmsFields = productShelfCmsFields;
+export const cmsFields = ({
+  ...productShelfCmsFields,
+  isGrid: {
+    widget: 'boolean',
+    label: { pt: 'Vitrine em grade', en: 'Grid display case' },
+  },
+}) as const satisfies CmsFields;
 
 export type Props = InferCmsOutput<typeof cmsFields> & {
   isRelatedProducts?: boolean;
