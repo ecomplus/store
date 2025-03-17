@@ -48,7 +48,7 @@
             <li v-for="({ name, slug }, i) in categories" :key="`c-${i}`">
               <a
                 :href="`/${slug}`"
-                class="block text-base-600 ui-link md:truncate"
+                class="block text-base-600 ui-link md:truncate md:pb-0.5"
               >
                 {{ name }}
               </a>
@@ -75,7 +75,7 @@
             <li v-for="({ title, href }, i) in pageLinks" :key="`p-${i}`">
               <ALink
                 :href="href"
-                class="block ui-link md:truncate"
+                class="block ui-link md:truncate md:pb-0.5"
                 :class="title === 'Blog'
                   ? 'text-base-900 font-semibold' : 'text-base-600'"
               >
