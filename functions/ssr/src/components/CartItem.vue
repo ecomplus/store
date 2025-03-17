@@ -5,7 +5,7 @@
         v-if="image"
         :picture="image"
         :alt="title"
-        class="size-20 shrink-0 object-cover"
+        class="size-20 shrink-0 overflow-hidden object-cover"
       />
       <p class="flex-auto py-2 text-sm text-base-700
         group-hover:text-base-900 group-hover:underline">
