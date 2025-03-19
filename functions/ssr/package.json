@@ -19,16 +19,16 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@cloudcommerce/api": "^2.40.3",
-    "@cloudcommerce/firebase": "^2.40.3",
-    "@cloudcommerce/ssr": "^2.40.3",
+    "@cloudcommerce/api": "^2.40.4",
+    "@cloudcommerce/firebase": "^2.40.4",
+    "@cloudcommerce/ssr": "^2.40.4",
     "@headlessui/vue": "^1.7.23",
     "micromark": "^4.0.2"
   },
   "devDependencies": {
-    "@cloudcommerce/i18n": "^2.40.3",
-    "@cloudcommerce/storefront": "^2.40.3",
-    "@cloudcommerce/types": "^2.40.3",
+    "@cloudcommerce/i18n": "^2.40.4",
+    "@cloudcommerce/storefront": "^2.40.4",
+    "@cloudcommerce/types": "^2.40.4",
     "photoswipe": "^5.4.4"
   }
 }
