@@ -12,7 +12,7 @@
         {{ title }}
       </h1>
       <div v-if="isActive" class="mt-5">
-        <Prices :product="product" is-big is-literal />
+        <Prices :product :variation-id is-big is-literal />
         <SkuSelector
           v-if="product.variations"
           :variations="product.variations"
