@@ -13,4 +13,8 @@ export const cmsFields = ({
 export type Props = InferCmsOutput<typeof cmsFields>;
 ---
 
-<ContentClearfix html={Astro.props.html} />
+<section class="ui-section">
+  <div class="mx-auto">
+    <ContentClearfix html={Astro.props.html} />
+  <div>
+</section>
