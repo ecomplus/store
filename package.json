@@ -13,9 +13,9 @@
     "predeploy": "cloudcommerce predeploy",
     "deploy": "cloudcommerce deploy",
     "login": "cloudcommerce login",
-    "setup": "bash scripts/install.sh && cloudcommerce setup",
+    "setup": "cloudcommerce setup",
     "setup:quiet": "cloudcommerce setup --no-deploy --no-commit",
-    "prepare": "husky"
+    "prepare": "bash scripts/install.sh && husky"
   },
   "lint-staged": {
     "functions/ssr/**/*.{ts,vue,astro}": "eslint -c ./functions/ssr/.staged.eslintrc.cjs --fix",
