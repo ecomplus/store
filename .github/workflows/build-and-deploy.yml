@@ -18,6 +18,7 @@ on:
       - 'functions/ssr/**'
       - '.firebaserc'
       - 'package-lock.json'
+  workflow_dispatch:
 permissions:
   checks: write
   contents: read
