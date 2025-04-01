@@ -109,6 +109,7 @@ import Collapse from '~/components/Collapse.vue';
 
 export type Props = UseSearchFiltersProps
 const props = defineProps<Props>();
+const emit = defineEmits(['close']);
 const {
   resultBuckets,
   activeFilters,
@@ -121,4 +122,7 @@ const {
   checkFilterOption,
   toggleFilterOption,
 } = useSearchFilters(props);
+watch(activeFilters, () => {
+  emit('close');
+});
 </script>

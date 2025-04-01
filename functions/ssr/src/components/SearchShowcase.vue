@@ -152,7 +152,10 @@
     :can-lock-scroll="false"
     class="!z-[80] bg-white shadow [&_[data-drawer-close]]:bg-white/80"
   >
-    <SearchFilters :search-engine :fixed-params />
+    <SearchFilters
+      :search-engine :fixed-params
+      @close="isFiltersOpen = false"
+    />
   </Drawer>
 </template>
 
