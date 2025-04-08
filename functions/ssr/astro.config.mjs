@@ -4,12 +4,11 @@ import { astroConfig } from '@cloudcommerce/storefront/astro.config.mjs';
 
 astroConfig.devToolbar = { enabled: false };
 
-const buildConfig = astroConfig.build;
 astroConfig.vite.build = {
   rollupOptions: {
     output: {
-      chunkFileNames: `${buildConfig.assets}/[name].[hash].js`,
-      assetFileNames: `${buildConfig.assets}/[name].[hash][extname]`,
+      chunkFileNames: `_astro/[name].[hash].js`,
+      assetFileNames: `_astro/[name].[hash][extname]`,
       entryFileNames: (chunkInfo) => {
         if (chunkInfo.name.includes('hoisted')) {
           const sfScripts = chunkInfo.moduleIds?.filter((id) => {
@@ -17,10 +16,10 @@ astroConfig.vite.build = {
           });
           if (sfScripts?.length === 1) {
             const scriptName = basename(sfScripts[0], '.ts').replaceAll('.', '');
-            return `${buildConfig.assets}/[name]-${scriptName}.[hash].js`;
+            return `_astro/[name]-${scriptName}.[hash].js`;
           }
         }
-        return `${buildConfig.assets}/[name].[hash].js`;
+        return `_astro/[name].[hash].js`;
       },
     },
   },
