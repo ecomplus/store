@@ -7,8 +7,6 @@ astroConfig.devToolbar = { enabled: false };
 astroConfig.vite.build = {
   rollupOptions: {
     output: {
-      chunkFileNames: `_astro/[name].[hash].js`,
-      assetFileNames: `_astro/[name].[hash][extname]`,
       entryFileNames: (chunkInfo) => {
         if (chunkInfo.name.includes('hoisted')) {
           const sfScripts = chunkInfo.moduleIds?.filter((id) => {
