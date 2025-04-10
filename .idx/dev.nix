@@ -8,6 +8,7 @@
     "vue.volar"
     "astro-build.astro-vscode"
     "bradlc.vscode-tailwindcss"
+    "dbaeumer.vscode-eslint"
   ];
   idx.workspace.onCreate = {
     npm-install = "npm install && npm install --prefix functions/ssr";

@@ -21,5 +21,7 @@
     "typescript",
     "typescriptreact"
   ],
-  "vue.server.hybridMode": true
+  "vue.server.hybridMode": true,
+  "IDX.aI.enableInlineCompletion": true,
+  "IDX.aI.enableCodebaseIndexing": true
 }
