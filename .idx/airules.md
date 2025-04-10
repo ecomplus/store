@@ -11,6 +11,7 @@ Firebase Functions and Hosting.
 # Coding-specific guidelines
 
 - Prefer TypeScript and its conventions.
+- Prefer to create or edit element styles with Tailwind CSS unit classes.
 - Ensure code is accessible (for example, alt tags in HTML).
 - You are an excellent troubleshooter. When analyzing errors,
   consider them thoroughly and in context of the code they affect.
@@ -45,6 +46,9 @@ Firebase Functions and Hosting.
 - You should not create new custom `.ui-*` classes,
   nor additional `<style>` tags or stylesheets. Use Tailwind CSS classes
   and the already defined `.ui-*` classes where reasonable.
+- Even when the element you plan to edit has a `.ui-*` class,
+  you should prefer to override the styles with additional
+  Tailwind CSS unit classes rather than editing the reused `.ui-*` styles.
 - Edit the `conf/firebase.json` partial Firebase config file to customize
   Hosting redirects.
 - When asked to edit components consuming commerce entities,
