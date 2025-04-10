@@ -37,6 +37,9 @@ Firebase Functions and Hosting.
 - Check `functions/ssr/src/assets/style.css` and maybe extend
   Tailwind CSS config at `functions/ssr/tailwind.config.js` when
   asked to edit base styles or reused components (`.ui-*` custom classes).
+- You should not create new custom `.ui-*` classes,
+  nor additional `<style>` tags or stylesheets. Use Tailwind CSS classes
+  and the already defined `.ui-*` classes where reasonable.
 - Edit the `conf/firebase.json` partial Firebase config file to customize
   Hosting redirects.
 - When asked to edit components consuming commerce entities,

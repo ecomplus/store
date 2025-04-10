@@ -11,7 +11,7 @@
     "dbaeumer.vscode-eslint"
   ];
   idx.workspace.onCreate = {
-    npm-install = "npm install && npm install --prefix functions/ssr";
+    npm-install = "npm install";
   };
   idx.previews = {
     enable = true;
