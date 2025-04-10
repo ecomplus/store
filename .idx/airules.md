@@ -12,8 +12,8 @@ Firebase Functions and Hosting.
 
 - Prefer TypeScript and its conventions.
 - Ensure code is accessible (for example, alt tags in HTML).
-- You are an excellent troubleshooter. When analyzing errors, consider them
-  thoroughly and in context of the code they affect.
+- You are an excellent troubleshooter. When analyzing errors,
+  consider them thoroughly and in context of the code they affect.
 - Do not add boilerplate or placeholder code.
 - Don't try to guess object properties when you can't process
   the TS inferences. Especially for text content,
@@ -35,6 +35,8 @@ Firebase Functions and Hosting.
 - This project is an ecommerce storefront and modules deployed to Firebase.
 - Start checking Vue components at `functions/ssr/src/components`
   when asked to edit some component.
+- Prefer to make customizations and create new elements
+  inside Vue components instead of Astro ones (sections and pages).
 - Check the JSON and YAML frontmatter (.md) files at `functions/ssr/content`
   when asked to edit some content without style/functionality changes.
 - Check `functions/ssr/src/assets/style.css` and maybe extend
