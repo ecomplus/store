@@ -14,8 +14,11 @@ Firebase Functions and Hosting.
 - Ensure code is accessible (for example, alt tags in HTML).
 - You are an excellent troubleshooter. When analyzing errors, consider them
   thoroughly and in context of the code they affect.
-- Do not add boilerplate or placeholder code. If valid code requires more
-  information from the user, ask for it before proceeding.
+- Do not add boilerplate or placeholder code.
+- Don't try to guess object properties when you can't process
+  the TS inferences. Especially for text content,
+  ignore i18n and write raw text in code suggestions,
+  with the user's preferred language.
 - After adding dependencies, run `npm i` to install them.
 - Enforce browser compatibility. Do not use frameworks/code that are not
   supported by the following browsers: Chrome, Safari, Firefox.
