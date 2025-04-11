@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "dev-with-cms": "npx concurrently \"npm:dev\" \"GIT_REPO_DIRECTORY=../.. npx decap-server\"",
-    "build": "bash scripts/build.sh",
+    "build": "node scripts/build.cjs",
     "build:static": "BUILD_OUTPUT=static astro build",
     "serve": "firebase emulators:start --only functions:ssr,hosting",
     "shell": "firebase functions:shell",
