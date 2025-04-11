@@ -14,6 +14,7 @@ function runCommand(command) {
     return null;
   }
 }
+
 if (!fs.existsSync('./node_modules')) {
   console.log('>> Install root dev dependencies:');
   if (fs.existsSync('./package-lock.json')) {

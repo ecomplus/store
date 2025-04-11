@@ -19,24 +19,16 @@ function runCommand(command) {
 
 const scriptPaths = ['../../../packages/storefront/scripts/build-prod.sh'];
 scriptPaths.push(`../${scriptPaths[0]}`);
-let isScriptFound = false;
 for (const scriptPath of scriptPaths) {
   const normalizedPath = path.normalize(scriptPath);
   if (fs.existsSync(normalizedPath)) {
-    if (process.platform === 'win32') {
-      runCommand(`sh ${normalizedPath}`);
-    } else {
-      runCommand(`sh ${normalizedPath}`);
-    }
-    isScriptFound = true;
-    break;
+    runCommand(`sh ${normalizedPath}`);
+    process.exit(0);
   }
 }
-if (!isScriptFound) {
-  console.log('>> npx storefront build');
-  if (!runCommand('npx storefront build')) {
-    console.log('>> astro build');
-    runCommand('astro build');
-  }
+console.log('>> npx storefront build');
+if (!runCommand('npx storefront build')) {
+  console.log('>> astro build');
+  runCommand('astro build');
 }
 process.exit(0);
