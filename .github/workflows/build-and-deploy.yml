@@ -19,6 +19,14 @@ on:
       - '.firebaserc'
       - 'package-lock.json'
   workflow_dispatch:
+    inputs:
+      deploy-codebase:
+        description: 'Codebase to deploy'
+        type: choice
+        options:
+          - many
+          - with-apps
+          - ssr
 permissions:
   checks: write
   contents: read
@@ -44,7 +52,7 @@ jobs:
           ecom-authentication-id: ${{ secrets.ECOM_AUTHENTICATION_ID }}
           ecom-api-key: ${{ secrets.ECOM_API_KEY }}
           ecom-store-id: ${{ secrets.ECOM_STORE_ID }}
-          # deploy-codebase: with-apps
+          deploy-codebase: ${{ github.event.inputs.deploy-codebase }}
           mail-sender: ${{ secrets.MAIL_SENDER }}
           mail-sender-name: ${{ secrets.MAIL_SENDER_NAME }}
           mail-reply-to: ${{ secrets.MAIL_REPLY_TO }}
