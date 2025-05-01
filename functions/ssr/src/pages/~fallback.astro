@@ -18,13 +18,13 @@ const { settings } = routeContext;
 
 <!DOCTYPE html>
 <html lang={routeContext?.lang.replace('_', '-')}>
-<Base>
-  <Fragment slot="base-head">
-    <BaseHead />
-    <title>{`${i19error} | ${settings.name}`}</title>
-  </Fragment>
-  <PageHeader />
-  <FallbackMain />
-  <PageFooter />
-</Base>
+  <Base>
+    <Fragment slot="base-head">
+      <BaseHead />
+      <title>{`${i19error} | ${settings.name}`}</title>
+    </Fragment>
+    <PageHeader />
+    <FallbackMain />
+    <PageFooter />
+  </Base>
 </html>

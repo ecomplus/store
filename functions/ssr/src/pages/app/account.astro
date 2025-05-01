@@ -17,22 +17,22 @@ const { settings } = routeContext;
 
 <!DOCTYPE html>
 <html lang={routeContext.lang.replace('_', '-')}>
-<Base>
-  <Fragment slot="base-head">
-    <BaseHead />
-    <title>{`${i19myAccount} | ${settings.name}`}</title>
-  </Fragment>
-  <main>
-    <AccountPage client:only="vue">
-      <Picture
-        slot="logo"
-        src={settings.logo}
-        alt={settings.name}
-        widths={[300]}
-        loading="lazy"
-        class="max-w-[150px]"
-      />
-    </AccountPage>
-  </main>
-</Base>
+  <Base>
+    <Fragment slot="base-head">
+      <BaseHead />
+      <title>{`${i19myAccount} | ${settings.name}`}</title>
+    </Fragment>
+    <main>
+      <AccountPage client:only="vue">
+        <Picture
+          slot="logo"
+          src={settings.logo}
+          alt={settings.name}
+          widths={[300]}
+          loading="lazy"
+          class="max-w-[150px]"
+        />
+      </AccountPage>
+    </main>
+  </Base>
 </html>

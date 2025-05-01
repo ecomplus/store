@@ -14,12 +14,12 @@ try {
 
 <!DOCTYPE html>
 <html lang={routeContext.lang.replace('_', '-')}>
-<Base>
-  <Fragment slot="base-head">
-    <BaseHead />
-    <title>CMS</title>
-    <style is:inline set:html={cmsCustomCss} />
-  </Fragment>
-  <script src="@@sf/scripts/decap-cms"></script>
-</Base>
+  <Base>
+    <Fragment slot="base-head">
+      <BaseHead />
+      <title>CMS</title>
+      <style is:inline set:html={cmsCustomCss} />
+    </Fragment>
+    <script src="@@sf/scripts/decap-cms"></script>
+  </Base>
 </html>

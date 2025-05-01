@@ -54,19 +54,19 @@ export async function getStaticPaths() {
 
 <!DOCTYPE html>
 <html lang={routeContext.lang.replace('_', '-')}>
-{routeContext && <>
-  <Base {metaTitle}>
-    <Fragment slot="base-head">
-      <BaseHead />
-      <title>{`Blog | ${settings.name}`}</title>
-      <meta name="description" content={settings.description}>
-    </Fragment>
-    <PageHeader />
-    <main>
-      <BlogPosts {page} {totalPages} {posts} />
-    </main>
-    <PageFooter />
-  </Base>
-</>}
-{loadError && <Fragment set:html={loadError.responseHTML} />}
+  {routeContext && <>
+    <Base {metaTitle}>
+      <Fragment slot="base-head">
+        <BaseHead />
+        <title>{`Blog | ${settings.name}`}</title>
+        <meta name="description" content={settings.description}>
+      </Fragment>
+      <PageHeader />
+      <main>
+        <BlogPosts {page} {totalPages} {posts} />
+      </main>
+      <PageFooter />
+    </Base>
+  </>}
+  {loadError && <Fragment set:html={loadError.responseHTML} />}
 </html>
