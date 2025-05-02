@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import type { CmsConfigExtend } from '@@sf/content';
 import { cmsFields as heroFields } from '~/sections/Hero.astro';
 import { cmsFields as bannersGridFields } from '~/sections/BannersGridSection.astro';
