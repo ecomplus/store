@@ -72,9 +72,7 @@
           group-hover:z-10 group-hover:opacity-100 md:block"
           @click.stop.prevent="loadToCart(1)"
         >
-          <span class="mr-1 inline-block size-4 rounded-full
-            bg-on-primary text-center text-base leading-none
-            text-primary opacity-80">
+          <span class="mr-1 inline-block text-on-primary opacity-80">
             &plus;
           </span>
           {{ $t.i19addToCart }}
