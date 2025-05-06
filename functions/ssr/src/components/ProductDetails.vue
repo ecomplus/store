@@ -31,11 +31,13 @@
             v-model="quantity"
             :min="product.min_quantity"
             :max="product.quantity"
-            class="rounded border-base-100 md:mr-5
-            lg:mb-2 lg:mr-auto lg:border-2"
+            class="rounded border-base-100 md:mr-5 lg:mr-auto lg:border-2"
           />
           <CheckoutLink
             class="grow text-center ui-btn-lg ui-btn-primary"
+            :style="buyCtaColor
+              ? `background: ${buyCtaColor}; border-color: ${buyCtaColor}`
+              : null"
             to="checkout"
             :cart-item="{
               product_id: product._id,
@@ -46,7 +48,7 @@
             @click="checkVariation"
           >
             <i class="mr-1 i-chevron-double-right"></i>
-            {{ $t.i19buy }}
+            {{ buyCtaLabel || $t.i19buy }}
           </CheckoutLink>
           <button
             class="grow ui-btn-lg ui-btn-contrast"
@@ -85,6 +87,7 @@ import type { ResourceId, Products } from '@cloudcommerce/api/types';
 import type { SectionPreviewProps } from '@@sf/state/use-cms-preview';
 import { useUrlSearchParams } from '@vueuse/core';
 import { useProductCard } from '@@sf/composables/use-product-card';
+import { getAbValue } from '@@sf/state/ab-experiment';
 import CheckoutLink from '@@sf/components/CheckoutLink.vue';
 import QuantitySelector from '@@sf/components/QuantitySelector.vue';
 import Prices from '~/components/Prices.vue';
@@ -136,4 +139,6 @@ const addToCart = () => {
   if (!checkVariation()) return;
   loadToCart(quantity.value, { variationId: variationId.value });
 };
+const buyCtaColor = getAbValue('buyCtaColor');
+const buyCtaLabel = getAbValue('buyCtaLabel');
 </script>

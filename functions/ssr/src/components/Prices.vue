@@ -20,7 +20,12 @@
       <small v-if="hasVariedPrices">
         {{ `${$t.i19asOf} ` }}
       </small>
-      {{ $money(salePrice) }}
+      <span
+        data-allow-mismatch
+        :style="priceColor ? `color: ${priceColor}` : null"
+      >
+        {{ $money(salePrice) }}
+      </span>
     </strong>
     <Fade slide="down">
       <div v-if="cashbackValue && hasCashback" class="relative z-10">
@@ -68,6 +73,7 @@ import {
   type Props as UsePricesProps,
   usePrices,
 } from '@@sf/composables/use-prices';
+import { getAbValue } from '@@sf/state/ab-experiment';
 
 export type Props = UsePricesProps & {
   isBig?: boolean;
@@ -91,4 +97,5 @@ const {
   priceWithDiscount,
   discountLabel,
 } = usePrices(props);
+const priceColor = getAbValue('priceColor');
 </script>

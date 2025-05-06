@@ -1,0 +1,21 @@
+{
+  "experimentId": "B",
+  "colors": [
+    {
+      "name": "priceColor",
+      "value": ""
+    },
+    {
+      "name": "buyCtaColor",
+      "value": ""
+    }
+  ],
+  "strings": [
+    {
+      "name": "buyCtaLabel",
+      "value": ""
+    }
+  ],
+  "booleans": [],
+  "numbers": []
+}

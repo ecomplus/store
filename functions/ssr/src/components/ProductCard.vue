@@ -70,6 +70,9 @@
           class=":uno: absolute -top-6 left-0 -z-10 hidden w-full
           rounded-none opacity-0 transition ui-btn-sm ui-btn-primary
           group-hover:z-10 group-hover:opacity-100 md:block"
+          :style="buyCtaColor
+            ? `background: ${buyCtaColor}; border-color: ${buyCtaColor}`
+            : null"
           @click.stop.prevent="loadToCart(1)"
         >
           <span class="mr-1 inline-block text-on-primary opacity-80">
@@ -89,6 +92,7 @@ import {
   useProductCard,
 } from '@@sf/composables/use-product-card';
 import { isMobile } from '@@sf/sf-lib';
+import { getAbValue } from '@@sf/state/ab-experiment';
 import Prices from '~/components/Prices.vue';
 
 export type Props = UseProductCardProps & {
@@ -116,4 +120,5 @@ const unwatch = watch(isHovered, () => {
   wasHoveredOnce.value = true;
   unwatch();
 });
+const buyCtaColor = getAbValue('buyCtaColor');
 </script>
