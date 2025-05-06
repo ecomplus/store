@@ -16,16 +16,12 @@
     <strong
       class="text-base-800"
       :class="isBig ? 'text-4xl block' : 'inline-block'"
+      :style="priceColor ? `color: ${priceColor}` : null"
     >
       <small v-if="hasVariedPrices">
         {{ `${$t.i19asOf} ` }}
       </small>
-      <span
-        data-allow-mismatch
-        :style="priceColor ? `color: ${priceColor}` : null"
-      >
-        {{ $money(salePrice) }}
-      </span>
+      {{ $money(salePrice) }}
     </strong>
     <Fade slide="down">
       <div v-if="cashbackValue && hasCashback" class="relative z-10">
