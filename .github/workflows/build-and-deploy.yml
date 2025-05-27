@@ -53,6 +53,7 @@ jobs:
           ecom-api-key: ${{ secrets.ECOM_API_KEY }}
           ecom-store-id: ${{ secrets.ECOM_STORE_ID }}
           deploy-codebase: ${{ github.event.inputs.deploy-codebase }}
+          bunnynet-api-key: ${{ secrets.BUNNYNET_API_KEY }}
           mail-sender: ${{ secrets.MAIL_SENDER }}
           mail-sender-name: ${{ secrets.MAIL_SENDER_NAME }}
           mail-reply-to: ${{ secrets.MAIL_REPLY_TO }}
@@ -60,8 +61,15 @@ jobs:
           smtp-port: ${{ secrets.SMTP_PORT }}
           smtp-user: ${{ secrets.SMTP_USER }}
           smtp-pass: ${{ secrets.SMTP_PASS }}
-          bunnynet-api-key: ${{ secrets.BUNNYNET_API_KEY }}
           sendgrid-api-key: ${{ secrets.SENDGRID_API_KEY }}
+          ga-measurement-id: ${{ secrets.GA_MEASUREMENT_ID }}
+          ga-api-secret: ${{ secrets.GA_API_SECRET }}
+          fb-pixel-id: ${{ secrets.FB_PIXEL_ID }}
+          fb-graph-token: ${{ secrets.FB_GRAPH_TOKEN }}
+          tiktok-pixel-id: ${{ secrets.TIKTOK_PIXEL_ID }}
+          tiktok-access-token: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
+          awin-advertiser-id: ${{ secrets.AWIN_ADVERTISER_ID }}
+          awin-api-key: ${{ secrets.AWIN_API_KEY }}
           tinyerp-token: ${{ secrets.TINYERP_TOKEN }}
           galaxpay-partner-id: ${{ secrets.GALAXPAY_PARTNER_ID }}
           galaxpay-partner-hash: ${{ secrets.GALAXPAY_PARTNER_HASH }}
@@ -70,10 +78,6 @@ jobs:
           frenet-token: ${{ secrets.FRENET_TOKEN }}
           galaxpay-id: ${{ secrets.GALAXPAY_ID }}
           galaxpay-hash: ${{ secrets.GALAXPAY_HASH }}
-          ga-measurement-id: ${{ secrets.GA_MEASUREMENT_ID }}
-          ga-api-secret: ${{ secrets.GA_API_SECRET }}
-          fb-pixel-id: ${{ secrets.FB_PIXEL_ID }}
-          fb-graph-token: ${{ secrets.FB_GRAPH_TOKEN }}
           jadlog-contract-token: ${{ secrets.JADLOG_CONTRACT_TOKEN }}
           pagarme-encrypt-key: ${{ secrets.PAGARME_ENCRYPT_KEY }}
           pagarme-token: ${{ secrets.PAGARME_TOKEN }}
@@ -88,6 +92,4 @@ jobs:
           correios-postcard-number: ${{ secrets.CORREIOS_POSTCARD_NUMBER }}
           pagarmev5-api-token: ${{ secrets.PAGARMEV5_API_TOKEN }}
           pagarmev5-public-key: ${{ secrets.PAGARMEV5_PUBLIC_KEY }}
-          tiktok-pixel-id: ${{ secrets.TIKTOK_PIXEL_ID }}
-          tiktok-access-token: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
           custom-dotenv: ${{ secrets.CUSTOM_DOTENV }}
