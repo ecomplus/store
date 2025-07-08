@@ -147,13 +147,16 @@
   </article>
   <Drawer
     v-model="isFiltersOpen"
+    model-to="v-show"
     placement="end"
     :backdrop-target="isMobile ? '#teleported-overlap' : null"
     :can-lock-scroll="false"
     class="!z-[80] bg-white shadow [&_[data-drawer-close]]:bg-white/80"
   >
     <SearchFilters
+      v-if="isFiltersOpenOnce"
       :search-engine :fixed-params
+      :initial-result-meta="props.resultMeta"
       @close="isFiltersOpen = false"
     />
   </Drawer>
@@ -204,4 +207,8 @@ const hasFiltersBar = computed(() => {
   return wasFetched && !!(resultMeta.value.count > 4 || filtersCount.value);
 });
 const isFiltersOpen = ref(false);
+const isFiltersOpenOnce = ref(false);
+watch(isFiltersOpen, () => {
+  isFiltersOpenOnce.value = true;
+}, { once: true });
 </script>
