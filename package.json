@@ -31,6 +31,6 @@
   "devDependencies": {
     "@cloudcommerce/eslint": "^2.48.18",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.2"
+    "lint-staged": "^16.1.5"
   }
 }
