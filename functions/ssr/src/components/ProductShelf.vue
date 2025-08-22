@@ -28,7 +28,7 @@
             <CarouselControl
               v-show="products.length > 2"
               class=":uno: !top-1/2 size-12 rounded-full bg-transparent
-              text-3xl leading-none text-primary ring-black/5 backdrop-blur-md
+              text-3xl !leading-none text-primary ring-black/5 backdrop-blur-md
               transition-opacity group-hover/shelf:opacity-90
               lg:bg-white/80 lg:text-2xl lg:opacity-0
               lg:shadow-sm lg:ring-1 lg:hover:bg-primary-200"
