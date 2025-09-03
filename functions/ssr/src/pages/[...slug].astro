@@ -57,9 +57,10 @@ export async function getStaticPaths() {
       if (slug) paths.push({ params: { slug } });
     });
     const postSlugs = await getConfig().getContent('blog/');
-    postSlugs.forEach((_slug) => {
-      paths.push({ params: { slug: `posts/${_slug}` } });
-    });
+    const maxStaticPostSlugs = Math.min(postSlugs.length, 20);
+    for (let i = 0; i < maxStaticPostSlugs; i++) {
+      paths.push({ params: { slug: `posts/${postSlugs[i]}` } });
+    }
   }
   return paths;
 }
