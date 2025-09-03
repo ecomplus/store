@@ -10,7 +10,7 @@
       ring-black/5 group-hover:shadow group-hover:ring-1"
     >
       <div class="aspect-square p-2
-        transition-transform motion-safe:group-hover:scale-110">
+        transition-transform md:group-hover:scale-110">
         <div class="relative size-full overflow-hidden
           rounded bg-white group-hover:rounded-none">
           <span v-if="images?.length" class="text-xs text-opacity-70">
@@ -39,7 +39,7 @@
         class=":uno: absolute right-2 top-9
         bg-secondary/70 py-0.5 pl-3 pr-1.5 text-xs text-on-secondary
         transition-transform [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)]
-        group-hover:translate-x-2 group-hover:scale-110"
+        md:group-hover:translate-x-2 md:group-hover:scale-110"
       >
         -<strong>{{ discountPercentage }}</strong>%
       </span>
