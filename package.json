@@ -18,7 +18,7 @@
     "prepare": "node scripts/install.cjs && husky"
   },
   "lint-staged": {
-    "functions/ssr/**/*.{ts,vue,astro}": "eslint -c ./functions/ssr/.staged.eslintrc.cjs --fix",
+    "functions/ssr/**/*.{ts,vue}": "eslint -c ./functions/ssr/.staged.eslintrc.cjs --fix",
     "functions/!(ssr)/**/*.ts": "eslint --fix"
   },
   "main": "functions/index.js",
