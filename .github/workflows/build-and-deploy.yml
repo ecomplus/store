@@ -82,7 +82,13 @@ jobs:
           pagarme-encrypt-key: ${{ secrets.PAGARME_ENCRYPT_KEY }}
           pagarme-token: ${{ secrets.PAGARME_TOKEN }}
           pagarme-partner-id: ${{ secrets.PAGARME_PARTNER_ID }}
+          paghiper-api-key: ${{ secrets.PAGHIPER_API_KEY }}
           paghiper-token: ${{ secrets.PAGHIPER_TOKEN }}
+          vindi-api-key: ${{ secrets.VINDI_API_KEY }}
+          vindi-public-key: ${{ secrets.VINDI_PUBLIC_KEY }}
+          asaas-api-key: ${{ secrets.ASAAS_API_KEY }}
+          appmax-token: ${{ secrets.APPMAX_TOKEN }}
+          appmax-public-key: ${{ secrets.APPMAX_PUBLIC_KEY }}
           pix-credentials: ${{ secrets.PIX_CREDENTIALS }}
           flashcourier-contract: ${{ secrets.FLASHCOURIER_CONTRACT }}
           webhooks-token: ${{ secrets.WEBHOOKS_TOKEN }}
