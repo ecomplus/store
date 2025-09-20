@@ -8,8 +8,10 @@ on:
       - '**.png'
       - '**.webp'
       - 'package-lock.json'
+
 permissions:
   contents: write
+  pull-requests: read
 
 jobs:
   build:

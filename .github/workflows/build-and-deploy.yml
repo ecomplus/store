@@ -27,6 +27,7 @@ on:
           - many
           - with-apps
           - ssr
+
 permissions:
   checks: write
   contents: read
