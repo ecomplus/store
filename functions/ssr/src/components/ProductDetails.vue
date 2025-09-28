@@ -69,10 +69,7 @@
         </div>
         <div class="mt-6 rounded border-2
           border-base-50 border-t-base-100 p-4 lg:mt-4">
-          <ShippingCalculator
-            :shipped-items="[{ ...product, quantity }]"
-            has-label
-          />
+          <ShippingCalculator :shipped-items has-label />
         </div>
       </div>
     </div>
@@ -83,10 +80,10 @@
 </template>
 
 <script setup lang="ts">
-import type { ResourceId, Products } from '@cloudcommerce/api/types';
-import type { SectionPreviewProps } from '@@sf/state/use-cms-preview';
-import { useUrlSearchParams } from '@vueuse/core';
-import { useProductCard } from '@@sf/composables/use-product-card';
+import {
+  type Props as UseProductDetailsProps,
+  useProductDetails,
+} from '@@sf/composables/use-product-details';
 import { getAbValue } from '@@sf/state/ab-experiment';
 import CheckoutLink from '@@sf/components/CheckoutLink.vue';
 import QuantitySelector from '@@sf/components/QuantitySelector.vue';
@@ -95,50 +92,23 @@ import ImagesGallery from '~/components/ImagesGallery.vue';
 import SkuSelector from '~/components/SkuSelector.vue';
 import ShippingCalculator from '~/components/ShippingCalculator.vue';
 
-export type Props = Partial<SectionPreviewProps> & {
-  product: Products;
-}
-const props = defineProps<Props>();
+export type Props = UseProductDetailsProps
+const props = withDefaults(defineProps<Props>(), {
+  canUseUrlParams: true,
+});
 const {
   product,
+  variationId,
   title,
   isActive,
-  loadToCart,
+  quantity,
+  isSkuSelected,
+  hasSkuSelectionAlert,
+  checkVariation,
+  addToCart,
   isFailedToCart,
-} = useProductCard<Products>(props);
-const quantity = ref(product.min_quantity || 1);
-const params = useUrlSearchParams('history');
-const hasSkuSelectionAlert = ref(false);
-const variationId = ref<ResourceId | null>(null);
-watch(variationId, (_variationId) => {
-  if (_variationId) {
-    params.var = _variationId;
-    hasSkuSelectionAlert.value = false;
-  }
-});
-onMounted(() => {
-  watch(params, ({ var: variation }) => {
-    if (typeof variation === 'string' && variation) {
-      variationId.value = variation as ResourceId;
-    }
-  }, { immediate: true });
-});
-const isSkuSelected = computed(() => {
-  return Boolean(!product.variations?.length || variationId.value);
-});
-const checkVariation = (ev?: Event) => {
-  if (!isSkuSelected.value) {
-    if (ev) ev.preventDefault();
-    hasSkuSelectionAlert.value = true;
-  } else {
-    hasSkuSelectionAlert.value = false;
-  }
-  return !hasSkuSelectionAlert.value;
-};
-const addToCart = () => {
-  if (!checkVariation()) return;
-  loadToCart(quantity.value, { variationId: variationId.value });
-};
+  shippedItems,
+} = useProductDetails(props);
 const buyCtaColor = getAbValue('buyCtaColor');
 const buyCtaLabel = getAbValue('buyCtaLabel');
 </script>
