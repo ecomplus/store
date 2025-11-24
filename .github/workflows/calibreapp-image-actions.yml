@@ -20,5 +20,5 @@ jobs:
     name: calibreapp/image-actions
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: calibreapp/image-actions@1.4.1
