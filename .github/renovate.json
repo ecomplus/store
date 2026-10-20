@@ -1,5 +1,12 @@
 {
   "extends": [
     "github>ecomplus/cloud-commerce:store.renovate"
+  ],
+  "packageRules": [
+    {
+      "description": "Storefront SSR built on Ubuntu 26.04 runners times out on every request",
+      "matchDepNames": ["ubuntu"],
+      "enabled": false
+    }
   ]
 }
