@@ -1,7 +1,7 @@
 import config from '@cloudcommerce/firebase/config';
 // eslint-ignore-next-line import/no-unresolved
 import { handler as renderStorefront } from './dist/server/entry.mjs';
-import mergeConfig from './config.json' assert { type: 'json' };
+import mergeConfig from './config.json' with { type: 'json' };
 
 config.set({
   ...mergeConfig,
